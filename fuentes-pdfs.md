@@ -4,6 +4,10 @@ URLs verificadas vía búsqueda (los PDF quedaron bloqueados por la política de
 sesión de origen). Abrir estas desde una sesión con los dominios habilitados para la
 extracción a fidelidad completa de las notas "Inversiones en valores".
 
+> **Capturas de las páginas exactas:** las páginas PDF de las que se extrajo cada cifra del
+> dashboard están capturadas en [`capturas-fuentes/`](capturas-fuentes/) (índice con página y
+> descripción en [`capturas-fuentes/README.md`](capturas-fuentes/README.md)).
+
 ## Banistmo (assets.ctfassets.net / Latinex)
 - **IN-A 2025 (auditado FY2025, Dic-2025 + comparativo Dic-2024)** — última data:
   https://assets.ctfassets.net/catp2t59asao/6O6mUVR44lRk8akq6XWJrF/375a01b2e9a567b36968d3e9103ba63e/Informe-y-Estados-Financieros-Consolidados-2025.pdf
@@ -93,3 +97,7 @@ extracción a fidelidad completa de las notas "Inversiones en valores".
 - Oct-2025: https://www.superbancos.gob.pa/documentos/financiera_y_estadistica/estudios/IAB/IAB-1025.pdf
 - Nov-2025: https://www.superbancos.gob.pa/documentos/financiera_y_estadistica/estudios/IAB/IAB-1125.pdf
 - Faltan: IAB-1222 / IAB-1223 (patrón igual) y Memoria-2022 / Memoria-2023 para absolutos 2022–2023.
+- **Balance de Situación por ámbito (reportes estadísticos)** — base del ratio Inversiones/Activo:
+  - **SBN (licencia general), comparativo Dic-2025:** https://www.superbancos.gob.pa/documentos/financiera_y_estadistica/reportes_estadisticos/2025/12/balance_ambito_nacional/RE-BALANCE-COMPARATIVO-en-SBN.xlsx
+  - CBI (referencia), comparativo Dic-2025: https://www.superbancos.gob.pa/documentos/financiera_y_estadistica/reportes_estadisticos/2025/12/balance_ambito_nacional/RE-BALANCE-COMPARATIVO-en-CBI.xlsx
+  - Índice: https://www.superbancos.gob.pa/estadisticas-financieras/balance-situacion (códigos: SBN=Sist. Bancario Nacional, CBI=Centro Bancario Int'l, BOL=Banca Oficial, BPP=Banca Privada Panameña, etc.)

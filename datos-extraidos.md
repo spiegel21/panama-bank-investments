@@ -26,7 +26,7 @@ Moneda: USD (B/. a la par). Todas las cifras en US$ salvo indicación. Cifras "e
    EEUU, 14% de su libro AFS), Banco General (130M explícito + Letras del Tesoro), Scotiabank (176M, 47%).
    Global Bank y Davivienda no los desglosan por país (solo "gubernamental").
 3. **Peso sobre el activo — ranking real:** Banco General 28.6% (líder amplio) > Davivienda 23.4% (inflado
-   por la fusión) > Banistmo 14.8% > Global 13.4% > BAC 12.3% > Scotiabank 9.7%. Sistema (CBI) ~21.6%.
+   por la fusión) > Banistmo 16.0% > Global 13.4% > BAC 12.3% > Scotiabank 9.7%. Sistema — banca de licencia general (SBN) ~22.1% (Dic-2025).
 4. **Banistmo corre el portafolio más "trading"** de todos: 36.5% a FVTPL a Sep-2025 (era 11.8% a
    Dic-2023). Ningún competidor grande se acerca (BG 16%, BAC 1%, Global 6%, Davivienda 0.5%).
 
@@ -37,18 +37,28 @@ Moneda: USD (B/. a la par). Todas las cifras en US$ salvo indicación. Cifras "e
 Escopos: **SBN** = Sistema Bancario Nacional (licencia general en Panamá);
 **CBI** = Centro Bancario Internacional (SBN + licencia internacional; agregado titular).
 
-| Indicador | 2022 | 2023 | 2024 | 2025 | Conf. |
+> **Benchmark del ratio Inversiones/Activo = SBN (banca de licencia general)**, no CBI. El % inversiones/activo
+> y el nivel de inversiones del sistema se toman del **Balance de Situación del Sistema Bancario Nacional** que
+> publica la SBP (Dic-2025), que excluye la licencia internacional. Se conserva el CBI solo como referencia.
+
+| Indicador | 2022 | 2023 | 2024 (Dic) | 2025 (Dic) | Conf. |
 |---|---|---|---|---|---|
-| Inversiones en valores — var. a/a | +5.4% | +9.2% | +7.0% | +4.79% (CBI, oct) | [AUD] |
-| Inversiones — nivel absoluto | ≈29,100 (deriv.) | n/d | n/d | CBI 34,571.5 (oct) | [EST]/[AUD] |
-| Activo total CBI | 140,025 | 147,526 | 156,392.8 | 160,378.3 (oct) | [AUD] |
-| Cartera crédito neta CBI | 83,341 | 87,202 | 95,186.7 | 100,088.9 (oct) | [AUD] |
-| % inversiones / activo CBI | ~20.8% | n/d | n/d | **21.6%** (oct) | [EST] |
+| **Inversiones en valores neta — SBN** | | | **29,285.5** | **32,152.8** | [AUD] |
+| **Activo total neto — SBN** | | | **140,383.5** | **145,675.3** | [AUD] |
+| **% inversiones / activo — SBN (lic. general)** | | | 20.9% | **22.1%** | [EST] |
+| Inversiones — var. a/a SBN | +5.4% | +9.2% | +7.0% | **+9.8%** | [AUD] |
+| — memo: Inversiones neta CBI | | | 34,195.9 | 35,897.3 | [AUD] |
+| — memo: Activo total CBI | 140,025 | 147,526 | 156,391.5 | 163,014.7 | [AUD] |
+| — memo: % inversiones / activo CBI | ~20.8% | n/d | 21.9% | 22.0% | [EST] |
 | Índice adecuación capital (IAC) | 15.34% | ~15.71% | 15.29% | 16.34% (nov) | [AUD] |
 
 Notas:
-- Sistema **dominado por crédito**: préstamos ~62% del activo; inversiones ~21.6% (2.º bloque productivo).
-- Oct-2025: inversiones netas CBI 34,571.5 (+4.79%, +1,579.8M); **inversiones internas +11.54%** (giro a
+- Sistema **dominado por crédito**: préstamos ~62% del activo; inversiones **~22.1% del activo del SBN** (2.º bloque productivo).
+- **Base licencia general (SBN), Dic-2025:** inversiones 32,152.8M / activo 145,675.3M = 22.1% (Dic-2024: 20.9%);
+  crecimiento de inversiones +9.8% a/a. Es la base correcta para comparar contra los seis bancos del perímetro
+  (todos de licencia general). El CBI (que suma la licencia internacional) da 22.0% a Dic-2025 — muy similar al cierre,
+  aunque a oct-2025 el CBI marcaba 21.6%; la diferencia principal es de fecha, no de perímetro.
+- Oct-2025 (memo CBI): inversiones netas CBI 34,571.5 (+4.79%, +1,579.8M); **inversiones internas +11.54%** (giro a
   papel local). Ingreso por inversiones del sistema +8.5% a/a.
 - Pérdidas no realizadas de la cartera disponible para la venta (AFS) del sistema: bajando desde 540.4M.
 - El sistema no publica split instrumento (soberano/corp/MBS) ni interno/externo de la cartera de valores. [PEND]
@@ -91,8 +101,9 @@ son mutuamente excluyentes → no hay doble conteo. Corporativo = 40.8% (Dic-24)
 - **Duración promedio del portafolio: 2.5 años.** VaR sobre patrimonio < 1%.
 - Deuda pública Panamá + EEUU ≈ 50% del total (a Dic-2025: US 330M + Panamá 511M = 841M ≈ 50%).
 
-- **Ingreso por intereses de inversiones (2024, individual SBP):** 64.19 → **yield ≈ 4.3%** [EST]
-  (el EE.FF. consolidado 2025 no desglosa el ingreso por inversiones aparte; se mantiene la base 2024 individual).
+- **Ingreso por intereses de inversiones (2025, consolidado auditado):** 58,242,379 (2024: 59,312,669) → **yield ≈ 3.6%** [EST]
+  (leído de la línea **"Valores y otros"** del Estado de Ganancias o Pérdidas Consolidado, p.11; saldo promedio Dic-24/Dic-25 = 1,619.0M).
+  **Corrección:** el corte previo usaba erróneamente la entidad individual SBP 2024 (64.19M → 4.3%) bajo el supuesto de que el consolidado no lo desglosaba — sí lo desglosa. Con la cifra consolidada correcta, Banistmo pasa a **cerrar la tabla de yields** (el de menor rendimiento del perímetro), consistente con su portafolio de mayor calidad (deuda EEUU + Panamá ≈ 50%).
 - **Hallazgo estructural:** giro a *trading + held-to-maturity* — FVTPL 11.8% (2023) → 34.3% (2024) → 37.0%
   (Dic-2025); FVOCI 50.5% → 19.5%; costo amortizado 37.6% → 43.5%. El más "trading" del perímetro por FVTPL,
   y a la vez el que más creció su libro a costo amortizado.
@@ -293,11 +304,12 @@ regionales) sí es robusto. En Banistmo, el 42% sub-grado es casi todo Panamá s
 BG 5,968.3 (Dic-25) · BAC 4,989.8 (Dic-25, CA) · Banistmo 1,689.2 (Dic-25, aud.) · Davivienda 1,248.5 (Dic-25) ·
 Global 1,136.6 (jun-25) · Scotiabank 371.3 (oct-24, absorbido).
 
-**% inversiones / activo:**
-BG 28.6% · Davivienda 23.4% · Sistema (CBI) 21.6% · Banistmo 16.0% · Global 13.4% · BAC 12.3% · Scotia 9.7%.
+**% inversiones / activo** (benchmark del sistema = SBN, banca de licencia general, Dic-2025):
+BG 28.6% · Davivienda 23.4% · **Sistema SBN (lic. general) 22.1%** · Banistmo 16.0% · Global 13.4% · BAC 12.3% · Scotia 9.7%.
 
-**Yield estimado:**
-BAC 5.9% · BG 5.0% · Banistmo 4.3% · Global 4.2% · Scotiabank 4.1% · Davivienda 4.05%.
+**Yield estimado** (ingreso por intereses de inversiones ÷ saldo promedio; todos leídos del estado de resultados consolidado auditado):
+BAC 5.9% · BG 5.0% · Global 4.2% · Scotiabank 4.1% · Davivienda 4.05% · **Banistmo 3.6%**.
+- Ingresos por inversiones (US$M, último cierre): BAC 291.4 · BG 283.5 · Banistmo 58.2 · Global 45.6 · Davivienda 34.5 · Scotiabank 15.0.
 
 **Clasificación contable (% FVTPL / FVOCI / CA, último):**
 - Banistmo (Dic-25 aud.): 37.0 / 19.5 / 43.5 → **el más trading** (FVTPL) y libro CA creciendo
