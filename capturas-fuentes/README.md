@@ -7,7 +7,7 @@ nota **"Inversiones en Valores"** (composición y clasificación contable), a la
 inversiones, base del yield), al **balance** (activo total e inversiones), o a los cuadros del
 **sistema (SBP)**. La página impresa aparece al pie de cada captura.
 
-**Total: 38 capturas · 9 documentos fuente.** URLs completas en [`fuentes-pdfs.md`](../fuentes-pdfs.md).
+**Total: 39 capturas · 10 documentos fuente.** URLs completas en [`fuentes-pdfs.md`](../fuentes-pdfs.md).
 
 | # | Captura | Pág. PDF | Qué respalda |
 |---|---|---|---|
@@ -58,3 +58,5 @@ inversiones, base del yield), al **balance** (activo total e inversiones), o a l
 | | **SBP — Informe de Actividad Bancaria, Nov-2025** | | [PDF](https://www.superbancos.gob.pa/documentos/financiera_y_estadistica/estudios/IAB/IAB-1125.pdf) |
 | 37 | [`sbp-iab-nov2025_p006_iac.png`](sbp-iab-nov2025_p006_iac.png) | 6 | Índice de adecuación de capital (16.34%) |
 | 38 | [`sbp-iab-nov2025_p012_cbi-situacion.png`](sbp-iab-nov2025_p012_cbi-situacion.png) | 12 | CBI Estado de Situación (inversiones, nov-2025) |
+| | **SBP — Balance de Situación del Sistema Bancario Nacional (lic. general), Dic-2025** | | [XLSX](https://www.superbancos.gob.pa/documentos/financiera_y_estadistica/reportes_estadisticos/2025/12/balance_ambito_nacional/RE-BALANCE-COMPARATIVO-en-SBN.xlsx) |
+| 39 | [`sbp-sbn-dic2025_balance-inversiones-activo.png`](sbp-sbn-dic2025_balance-inversiones-activo.png) | — | **Inversiones/Activo del SBN (licencia general): 32,152.8 / 145,675.3 = 22.1%** — base del benchmark del sistema |

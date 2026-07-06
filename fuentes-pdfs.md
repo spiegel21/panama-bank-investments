@@ -97,3 +97,7 @@ extracción a fidelidad completa de las notas "Inversiones en valores".
 - Oct-2025: https://www.superbancos.gob.pa/documentos/financiera_y_estadistica/estudios/IAB/IAB-1025.pdf
 - Nov-2025: https://www.superbancos.gob.pa/documentos/financiera_y_estadistica/estudios/IAB/IAB-1125.pdf
 - Faltan: IAB-1222 / IAB-1223 (patrón igual) y Memoria-2022 / Memoria-2023 para absolutos 2022–2023.
+- **Balance de Situación por ámbito (reportes estadísticos)** — base del ratio Inversiones/Activo:
+  - **SBN (licencia general), comparativo Dic-2025:** https://www.superbancos.gob.pa/documentos/financiera_y_estadistica/reportes_estadisticos/2025/12/balance_ambito_nacional/RE-BALANCE-COMPARATIVO-en-SBN.xlsx
+  - CBI (referencia), comparativo Dic-2025: https://www.superbancos.gob.pa/documentos/financiera_y_estadistica/reportes_estadisticos/2025/12/balance_ambito_nacional/RE-BALANCE-COMPARATIVO-en-CBI.xlsx
+  - Índice: https://www.superbancos.gob.pa/estadisticas-financieras/balance-situacion (códigos: SBN=Sist. Bancario Nacional, CBI=Centro Bancario Int'l, BOL=Banca Oficial, BPP=Banca Privada Panameña, etc.)
