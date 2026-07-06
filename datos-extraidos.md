@@ -91,8 +91,9 @@ son mutuamente excluyentes → no hay doble conteo. Corporativo = 40.8% (Dic-24)
 - **Duración promedio del portafolio: 2.5 años.** VaR sobre patrimonio < 1%.
 - Deuda pública Panamá + EEUU ≈ 50% del total (a Dic-2025: US 330M + Panamá 511M = 841M ≈ 50%).
 
-- **Ingreso por intereses de inversiones (2024, individual SBP):** 64.19 → **yield ≈ 4.3%** [EST]
-  (el EE.FF. consolidado 2025 no desglosa el ingreso por inversiones aparte; se mantiene la base 2024 individual).
+- **Ingreso por intereses de inversiones (2025, consolidado auditado):** 58,242,379 (2024: 59,312,669) → **yield ≈ 3.6%** [EST]
+  (leído de la línea **"Valores y otros"** del Estado de Ganancias o Pérdidas Consolidado, p.11; saldo promedio Dic-24/Dic-25 = 1,619.0M).
+  **Corrección:** el corte previo usaba erróneamente la entidad individual SBP 2024 (64.19M → 4.3%) bajo el supuesto de que el consolidado no lo desglosaba — sí lo desglosa. Con la cifra consolidada correcta, Banistmo pasa a **cerrar la tabla de yields** (el de menor rendimiento del perímetro), consistente con su portafolio de mayor calidad (deuda EEUU + Panamá ≈ 50%).
 - **Hallazgo estructural:** giro a *trading + held-to-maturity* — FVTPL 11.8% (2023) → 34.3% (2024) → 37.0%
   (Dic-2025); FVOCI 50.5% → 19.5%; costo amortizado 37.6% → 43.5%. El más "trading" del perímetro por FVTPL,
   y a la vez el que más creció su libro a costo amortizado.
@@ -296,8 +297,9 @@ Global 1,136.6 (jun-25) · Scotiabank 371.3 (oct-24, absorbido).
 **% inversiones / activo:**
 BG 28.6% · Davivienda 23.4% · Sistema (CBI) 21.6% · Banistmo 16.0% · Global 13.4% · BAC 12.3% · Scotia 9.7%.
 
-**Yield estimado:**
-BAC 5.9% · BG 5.0% · Banistmo 4.3% · Global 4.2% · Scotiabank 4.1% · Davivienda 4.05%.
+**Yield estimado** (ingreso por intereses de inversiones ÷ saldo promedio; todos leídos del estado de resultados consolidado auditado):
+BAC 5.9% · BG 5.0% · Global 4.2% · Scotiabank 4.1% · Davivienda 4.05% · **Banistmo 3.6%**.
+- Ingresos por inversiones (US$M, último cierre): BAC 291.4 · BG 283.5 · Banistmo 58.2 · Global 45.6 · Davivienda 34.5 · Scotiabank 15.0.
 
 **Clasificación contable (% FVTPL / FVOCI / CA, último):**
 - Banistmo (Dic-25 aud.): 37.0 / 19.5 / 43.5 → **el más trading** (FVTPL) y libro CA creciendo

@@ -476,8 +476,9 @@ hr.soft{border:none;border-top:1px solid var(--hair);margin:26px 0}
     <div class="sec-head"><span class="sec-num">06</span><h2>Rentabilidad del portafolio (estimada)</h2></div>
     <p class="sec-sub">Los bancos rara vez publican un <b>yield</b> de cartera. Se aproxima como
       <span class="mono">ingreso por intereses de inversiones ÷ saldo promedio</span>. Con el ingreso ya leído de cada
-      estado de resultados, los rendimientos van de <b>~4.0% a ~5.9%</b>: <b>BAC</b> lidera (soberanos de
-      Centroamérica, mayor spread) y <b>Banco General</b> le sigue (~5.0%); Banistmo queda a media tabla (~4.3%).</p>
+      estado de resultados, los rendimientos van de <b>~3.6% a ~5.9%</b>: <b>BAC</b> lidera (soberanos de
+      Centroamérica, mayor spread) y <b>Banco General</b> le sigue (~5.0%); <b>Banistmo</b> cierra la tabla (~3.6%),
+      consistente con su portafolio de mayor calidad/menor spread (deuda EEUU + Panamá ≈ 50%).</p>
 
     <div class="chart-card">
       <h3>Rendimiento estimado de la cartera de inversiones</h3>
@@ -491,14 +492,14 @@ hr.soft{border:none;border-top:1px solid var(--hair);margin:26px 0}
         <tbody>
           <tr><td>BAC</td><td class="num">291.4</td><td class="num">2025</td><td class="num">~5.9%</td><td class="mini">CA consol.</td><td><span class="badge b-est">Est.</span></td></tr>
           <tr><td>Banco General</td><td class="num">283.5</td><td class="num">2025</td><td class="num">~5.0%</td><td class="mini">PA consol.</td><td><span class="badge b-est">Est.</span></td></tr>
-          <tr class="self"><td>Banistmo</td><td class="num">64.2</td><td class="num">2024</td><td class="num">~4.3%</td><td class="mini">individual SBP</td><td><span class="badge b-est">Est.</span></td></tr>
           <tr><td>Global Bank</td><td class="num">45.6</td><td class="num">FY-jun-2025</td><td class="num">~4.2%</td><td class="mini">PA consol.</td><td><span class="badge b-est">Est.</span></td></tr>
           <tr><td>Scotiabank PA</td><td class="num">15.0</td><td class="num">Oct-2024</td><td class="num">~4.1%</td><td class="mini">sucursal PA</td><td><span class="badge b-est">Est.</span></td></tr>
           <tr><td>Davivienda PA</td><td class="num">34.5</td><td class="num">2025</td><td class="num">~4.0%</td><td class="mini">saldo prom. fusión</td><td><span class="badge b-est">Est.</span></td></tr>
+          <tr class="self"><td>Banistmo</td><td class="num">58.2</td><td class="num">2025</td><td class="num">~3.6%</td><td class="mini">consol. (Valores y otros)</td><td><span class="badge b-est">Est.</span></td></tr>
         </tbody>
       </table>
     </div>
-    <p class="mini" style="margin-top:10px">El ingreso de Banistmo es de la entidad individual (SBP) contra un saldo consolidado — tratar como aproximado. BAC = consolidado Centroamérica (yield más alto por el peso de soberanos centroamericanos sub-grado-inversión). Davivienda: saldo promedio distorsionado por la fusión de dic-2025.</p>
+    <p class="mini" style="margin-top:10px">El ingreso de Banistmo (US$58.2 M, 2025) se lee de la línea <b>"Valores y otros"</b> del Estado de Ganancias o Pérdidas Consolidado auditado (p.11) — corrige la versión previa que usaba la entidad individual SBP 2024 (US$64.2 M). BAC = consolidado Centroamérica (yield más alto por el peso de soberanos centroamericanos sub-grado-inversión). Davivienda: saldo promedio distorsionado por la fusión de dic-2025.</p>
   </section>
 
   <!-- EVOLUCION -->
@@ -879,10 +880,10 @@ hr.soft{border:none;border-top:1px solid var(--hair);margin:26px 0}
     hbars(svg,[
       {name:"BAC",c:"--s3",v:5.9,tip:"2025 · CA consolidado · estimado"},
       {name:"Banco General",c:"--s2",v:5.0,tip:"2025 · PA consolidado · estimado"},
-      {name:"Banistmo",c:"--s1",self:true,v:4.3,tip:"2024 · individual SBP · estimado"},
       {name:"Global Bank",c:"--s4",v:4.2,tip:"FY-jun-2025 · PA consolidado · estimado"},
       {name:"Scotiabank",c:"--s6",v:4.1,tip:"Oct-2024 · sucursal PA · estimado"},
-      {name:"Davivienda",c:"--s5",v:4.05,tip:"2025 · post-fusión · estimado"}
+      {name:"Davivienda",c:"--s5",v:4.05,tip:"2025 · post-fusión · estimado"},
+      {name:"Banistmo",c:"--s1",self:true,v:3.6,tip:"2025 · consolidado (Valores y otros) · estimado"}
     ],{pct:true,max:7,ticks:7});
   }
 
