@@ -93,11 +93,18 @@ extracción a fidelidad completa de las notas "Inversiones en valores".
 
 ## SBP — sistema (superbancos.gob.pa)
 - Índice IAB: https://www.superbancos.gob.pa/estadisticas-financieras/estudios/actividad-bancaria
+- **Mar-2026 (primer corte SBP 2026, PRELIMINAR — usado en esta versión):** https://www.superbancos.gob.pa/documentos/financiera_y_estadistica/estudios/IAB/IAB-0326.pdf
 - Dic-2024: https://www.superbancos.gob.pa/documentos/financiera_y_estadistica/estudios/IAB/IAB-1224.pdf
 - Oct-2025: https://www.superbancos.gob.pa/documentos/financiera_y_estadistica/estudios/IAB/IAB-1025.pdf
 - Nov-2025: https://www.superbancos.gob.pa/documentos/financiera_y_estadistica/estudios/IAB/IAB-1125.pdf
 - Faltan: IAB-1222 / IAB-1223 (patrón igual) y Memoria-2022 / Memoria-2023 para absolutos 2022–2023.
 - **Balance de Situación por ámbito (reportes estadísticos)** — base del ratio Inversiones/Activo:
+  - **SBN (licencia general), comparativo Mar-2026 (hoja `mar26`; preliminar):** https://www.superbancos.gob.pa/documentos/financiera_y_estadistica/reportes_estadisticos/2026/03/balance_ambito_nacional/RE-BALANCE-COMPARATIVO-en-SBN.xlsx
+  - **CBI (referencia), comparativo Mar-2026 (hoja `mar26`):** https://www.superbancos.gob.pa/documentos/financiera_y_estadistica/reportes_estadisticos/2026/03/balance_ambito_nacional/RE-BALANCE-COMPARATIVO-en-CBI.xlsx
   - **SBN (licencia general), comparativo Dic-2025:** https://www.superbancos.gob.pa/documentos/financiera_y_estadistica/reportes_estadisticos/2025/12/balance_ambito_nacional/RE-BALANCE-COMPARATIVO-en-SBN.xlsx
   - CBI (referencia), comparativo Dic-2025: https://www.superbancos.gob.pa/documentos/financiera_y_estadistica/reportes_estadisticos/2025/12/balance_ambito_nacional/RE-BALANCE-COMPARATIVO-en-CBI.xlsx
   - Índice: https://www.superbancos.gob.pa/estadisticas-financieras/balance-situacion (códigos: SBN=Sist. Bancario Nacional, CBI=Centro Bancario Int'l, BOL=Banca Oficial, BPP=Banca Privada Panameña, etc.)
+  - **Nota (mar-2026):** el archivo comparativo del folder `2026/03` trae tres hojas (`ene26`, `feb26`, `mar26`);
+    los valores usados en esta versión son de la hoja **`mar26`** (encabezado "MARZO 2025, DICIEMBRE 2025, MARZO 2026").
+    Extractos leídos: SBN inversiones en valores neta 33,389.56M / activo total neto 145,432.54M; CBI 36,959.15M /
+    164,208.54M. IAC 16.27% e Índice de Liquidez Legal 55.51% leídos del IAB-0326.
