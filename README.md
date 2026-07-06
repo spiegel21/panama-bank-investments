@@ -25,6 +25,7 @@ directamente en cualquier navegador incluso sin el sitio.
 | `fuentes-pdfs.md` | URLs de los EE.FF. auditados por banco, para la extracción a fidelidad completa. |
 | `capturas-fuentes/` | **Capturas (PNG) de cada página PDF de la que se sourceó una cifra del dashboard** — nota "Inversiones en Valores", tablas de calificaciones, balances y cuadros del sistema (SBP). Ver [`capturas-fuentes/README.md`](capturas-fuentes/README.md). |
 | `allowlist-domains.txt` | Dominios financieros a habilitar en la política de red del entorno para reproducir la extracción. |
+| [`march-2026/`](march-2026/) | **Réplica del reporte con datos publicados en marzo de 2026** (primer corte SBP del año): sistema actualizado a Enero-2026 (dato regulatorio no auditado); cifras por banco conservadas de Dic-2025. Ver [`march-2026/README.md`](march-2026/README.md). |
 
 ## Estado: fidelidad completa
 

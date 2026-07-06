@@ -1,0 +1,957 @@
+<title>Radar de Inversiones — Banca de Panamá</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root{
+  --plane:#eef1f5; --surface:#f8f9fb; --surface-2:#ffffff;
+  --ink:#0f1620; --ink-2:#475062; --muted:#8a91a0; --hair:#dde2ea; --hair-2:#c7cedb;
+  --accent:#2a78d6; --accent-soft:#e7f0fc;
+  --s1:#2a78d6; --s2:#1baf7a; --s3:#c98a00; --s4:#008300; --s5:#4a3aa7; --s6:#e34948;
+  --good:#0a8a3a; --warn:#b8770a; --pend:#8a91a0; --crit:#c0392b;
+  --good-bg:#e4f4ea; --warn-bg:#fbf1dc; --pend-bg:#eceef2; --crit-bg:#fae5e2;
+  --shadow:0 1px 2px rgba(15,22,32,.04),0 8px 24px rgba(15,22,32,.06);
+  --mono:ui-monospace,"SF Mono","SFMono-Regular",Menlo,Consolas,monospace;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --plane:#0a0c10; --surface:#12161d; --surface-2:#171c25;
+    --ink:#f2f5fa; --ink-2:#a8b0c0; --muted:#6b7382; --hair:#242a34; --hair-2:#2f3744;
+    --accent:#4a90e2; --accent-soft:#16273c;
+    --s1:#3987e5; --s2:#199e70; --s3:#c98500; --s4:#22a022; --s5:#9085e9; --s6:#e66767;
+    --good:#3bbf6a; --warn:#e0a52c; --pend:#7a8291; --crit:#e8756a;
+    --good-bg:#12291b; --warn-bg:#2a2210; --pend-bg:#1c212a; --crit-bg:#2c1815;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.4);
+  }
+}
+:root[data-theme="light"]{
+  --plane:#eef1f5; --surface:#f8f9fb; --surface-2:#ffffff;
+  --ink:#0f1620; --ink-2:#475062; --muted:#8a91a0; --hair:#dde2ea; --hair-2:#c7cedb;
+  --accent:#2a78d6; --accent-soft:#e7f0fc;
+  --s1:#2a78d6; --s2:#1baf7a; --s3:#c98a00; --s4:#008300; --s5:#4a3aa7; --s6:#e34948;
+  --good:#0a8a3a; --warn:#b8770a; --pend:#8a91a0; --crit:#c0392b;
+  --good-bg:#e4f4ea; --warn-bg:#fbf1dc; --pend-bg:#eceef2; --crit-bg:#fae5e2;
+}
+:root[data-theme="dark"]{
+  --plane:#0a0c10; --surface:#12161d; --surface-2:#171c25;
+  --ink:#f2f5fa; --ink-2:#a8b0c0; --muted:#6b7382; --hair:#242a34; --hair-2:#2f3744;
+  --accent:#4a90e2; --accent-soft:#16273c;
+  --s1:#3987e5; --s2:#199e70; --s3:#c98500; --s4:#22a022; --s5:#9085e9; --s6:#e66767;
+  --good:#3bbf6a; --warn:#e0a52c; --pend:#7a8291; --crit:#e8756a;
+  --good-bg:#12291b; --warn-bg:#2a2210; --pend-bg:#1c212a; --crit-bg:#2c1815;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--plane);color:var(--ink);font-family:var(--sans);
+  font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+h1,h2,h3{text-wrap:balance;line-height:1.15;margin:0}
+.mono{font-family:var(--mono)}
+.tnum{font-variant-numeric:tabular-nums}
+
+/* header */
+header.top{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--plane) 88%,transparent);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--hair)}
+.top-in{display:flex;align-items:center;gap:16px;height:60px}
+.brandmark{display:flex;align-items:center;gap:11px;font-weight:680;letter-spacing:-.01em}
+.brandmark .dot{width:10px;height:10px;border-radius:50%;background:var(--accent);
+  box-shadow:0 0 0 4px var(--accent-soft)}
+.top-spacer{flex:1}
+.theme-btn{font-family:var(--mono);font-size:12px;color:var(--ink-2);background:var(--surface-2);
+  border:1px solid var(--hair-2);border-radius:8px;padding:7px 12px;cursor:pointer;display:flex;gap:7px;align-items:center}
+.theme-btn:hover{border-color:var(--accent);color:var(--ink)}
+.theme-btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+nav.jump{display:none}
+@media(min-width:900px){nav.jump{display:flex;gap:2px}
+  nav.jump a{font-family:var(--mono);font-size:11.5px;color:var(--muted);text-decoration:none;
+    padding:6px 9px;border-radius:6px;letter-spacing:.02em}
+  nav.jump a:hover{color:var(--ink);background:var(--surface-2)}}
+
+/* hero */
+.hero{padding:56px 0 40px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--accent);font-weight:600;margin-bottom:18px}
+.hero h1{font-size:clamp(30px,5vw,50px);font-weight:720;letter-spacing:-.025em;max-width:16ch}
+.hero .lede{font-size:clamp(16px,2vw,19px);color:var(--ink-2);max-width:64ch;margin-top:20px}
+.hero .meta{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:26px;font-family:var(--mono);
+  font-size:12.5px;color:var(--muted)}
+.hero .meta b{color:var(--ink-2);font-weight:600}
+
+/* confidence legend */
+.legend{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.badge{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:11px;
+  letter-spacing:.02em;padding:4px 9px;border-radius:20px;font-weight:600;white-space:nowrap}
+.badge::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.b-aud{color:var(--good);background:var(--good-bg)}
+.b-est{color:var(--warn);background:var(--warn-bg)}
+.b-pend{color:var(--pend);background:var(--pend-bg)}
+
+/* sections */
+section{padding:44px 0;border-top:1px solid var(--hair)}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:8px}
+.sec-num{font-family:var(--mono);font-size:13px;color:var(--accent);font-weight:600}
+.sec-head h2{font-size:clamp(22px,3vw,30px);font-weight:680;letter-spacing:-.02em}
+.sec-sub{color:var(--ink-2);max-width:70ch;margin:6px 0 28px;font-size:15.5px}
+
+/* stat tiles */
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+.tile{background:var(--surface-2);border:1px solid var(--hair);border-radius:14px;padding:20px;
+  box-shadow:var(--shadow);position:relative;overflow:hidden}
+.tile .cap{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:12px}
+.tile .val{font-size:34px;font-weight:700;letter-spacing:-.02em;line-height:1}
+.tile .val small{font-size:16px;font-weight:600;color:var(--ink-2);letter-spacing:0}
+.tile .sub{font-size:13px;color:var(--ink-2);margin-top:9px}
+.tile .rail{position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--accent)}
+.tile.self .rail{background:var(--s1)}
+.delta{font-family:var(--mono);font-size:12.5px;font-weight:600}
+.delta.up{color:var(--good)} .delta.dn{color:var(--crit)}
+
+/* cards / callouts */
+.card{background:var(--surface-2);border:1px solid var(--hair);border-radius:14px;padding:24px;
+  box-shadow:var(--shadow)}
+.callout{border-radius:12px;padding:16px 18px;font-size:14.5px;display:flex;gap:13px;align-items:flex-start}
+.callout .ic{flex:0 0 auto;width:22px;height:22px;border-radius:6px;display:grid;place-items:center;
+  font-family:var(--mono);font-weight:700;font-size:13px;margin-top:1px}
+.co-warn{background:var(--warn-bg);border:1px solid color-mix(in srgb,var(--warn) 30%,transparent)}
+.co-warn .ic{background:var(--warn);color:#fff}
+.co-info{background:var(--accent-soft);border:1px solid color-mix(in srgb,var(--accent) 28%,transparent)}
+.co-info .ic{background:var(--accent);color:#fff}
+.co-warn b,.co-info b{font-weight:680}
+
+/* chart */
+.chart-card{background:var(--surface-2);border:1px solid var(--hair);border-radius:14px;
+  padding:22px 22px 14px;box-shadow:var(--shadow)}
+.chart-card h3{font-size:16px;font-weight:640;letter-spacing:-.01em}
+.chart-card .chsub{font-family:var(--mono);font-size:11.5px;color:var(--muted);margin:4px 0 18px;letter-spacing:.02em}
+.svgwrap{width:100%;overflow-x:auto}
+svg{display:block;max-width:100%}
+.grid-line{stroke:var(--hair)}
+.axis-txt{fill:var(--muted);font-family:var(--mono);font-size:11px}
+.bar-label{fill:var(--ink);font-family:var(--mono);font-size:12.5px;font-weight:600}
+.bar-name{fill:var(--ink-2);font-family:var(--sans);font-size:13px}
+.bar-name.self{fill:var(--ink);font-weight:680}
+.seg-label{fill:#fff;font-family:var(--mono);font-size:11px;font-weight:600}
+.rlegend{display:flex;flex-wrap:wrap;gap:14px;margin-top:12px;font-family:var(--mono);font-size:11px;color:var(--muted)}
+.rlegend span{display:inline-flex;align-items:center;gap:6px}
+.rlegend i{width:11px;height:11px;border-radius:3px;display:inline-block}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:760px){.grid2{grid-template-columns:1fr}}
+
+/* tables */
+.tbl-scroll{overflow-x:auto;border:1px solid var(--hair);border-radius:12px;background:var(--surface-2)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:560px}
+th,td{text-align:right;padding:11px 14px;border-bottom:1px solid var(--hair);white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+thead th{font-family:var(--mono);font-size:11px;letter-spacing:.04em;text-transform:uppercase;
+  color:var(--muted);font-weight:600;background:var(--surface)}
+tbody tr:last-child td{border-bottom:none}
+tbody tr.self td{background:color-mix(in srgb,var(--accent-soft) 55%,transparent)}
+tbody tr.self td:first-child{font-weight:680}
+td.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.chip{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:7px;vertical-align:middle}
+.mini{font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+.nd{color:var(--muted)}
+
+/* consolidation map */
+.merge-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:760px){.merge-grid{grid-template-columns:1fr}}
+.merge{background:var(--surface-2);border:1px solid var(--hair);border-radius:14px;padding:22px;box-shadow:var(--shadow)}
+.merge .tag{font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;
+  color:var(--warn);font-weight:600;margin-bottom:12px}
+.flow{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:6px 0 16px}
+.node{padding:8px 13px;border-radius:9px;font-weight:640;font-size:14px;border:1px solid var(--hair-2);background:var(--surface)}
+.node.acq{border-color:var(--accent);background:var(--accent-soft)}
+.arrow{font-family:var(--mono);color:var(--muted);font-weight:700}
+.merge ul{margin:0;padding-left:18px;font-size:13.5px;color:var(--ink-2)}
+.merge ul li{margin:5px 0}
+.merge .when{font-family:var(--mono);color:var(--ink);font-weight:600}
+
+/* takeaways */
+.take{display:grid;gap:14px}
+.take-item{display:grid;grid-template-columns:44px 1fr;gap:16px;background:var(--surface-2);
+  border:1px solid var(--hair);border-radius:14px;padding:20px 22px;box-shadow:var(--shadow)}
+.take-item .k{font-family:var(--mono);font-size:22px;font-weight:700;color:var(--accent);line-height:1}
+.take-item h3{font-size:16.5px;font-weight:660;margin-bottom:6px}
+.take-item p{margin:0;font-size:14.5px;color:var(--ink-2)}
+
+/* tooltip */
+#tt{position:fixed;z-index:90;pointer-events:none;opacity:0;transition:opacity .1s;
+  background:var(--ink);color:var(--plane);font-family:var(--mono);font-size:12px;
+  padding:8px 11px;border-radius:8px;box-shadow:var(--shadow);max-width:260px;line-height:1.5}
+#tt b{color:var(--surface-2)}
+:root[data-theme="dark"] #tt,@media(prefers-color-scheme:dark){#tt{background:#e9edf4;color:#0a0c10}}
+
+footer{padding:44px 0 70px;border-top:1px solid var(--hair);color:var(--ink-2);font-size:13.5px}
+footer h3{font-size:15px;margin-bottom:12px;color:var(--ink)}
+footer a{color:var(--accent);text-decoration:none;word-break:break-word}
+footer a:hover{text-decoration:underline}
+.src-list{columns:2;column-gap:32px;font-family:var(--mono);font-size:11.5px;line-height:1.7}
+@media(max-width:640px){.src-list{columns:1}}
+.disc{background:var(--warn-bg);border:1px solid color-mix(in srgb,var(--warn) 30%,transparent);
+  border-radius:12px;padding:18px 20px;font-size:13.5px;margin-top:14px}
+hr.soft{border:none;border-top:1px solid var(--hair);margin:26px 0}
+.pill-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.pill{font-family:var(--mono);font-size:11.5px;padding:5px 11px;border-radius:20px;border:1px solid var(--hair-2);color:var(--ink-2)}
+.pill b{color:var(--ink)}
+</style>
+
+<header class="top">
+  <div class="wrap top-in">
+    <div class="brandmark"><span class="dot"></span>Radar de Inversiones · Banca PA</div>
+    <nav class="jump">
+      <a href="#resumen">Resumen</a>
+      <a href="#consolidacion">Consolidación</a>
+      <a href="#tamano">Tamaño</a>
+      <a href="#instrumentos">Instrumentos</a>
+      <a href="#clasificacion">Clasificación</a>
+      <a href="#rentabilidad">Rentabilidad</a>
+      <a href="#evolucion">Evolución</a>
+      <a href="#lecturas">Lecturas</a>
+    </nav>
+    <div class="top-spacer"></div>
+    <button class="theme-btn" id="themeBtn" aria-label="Cambiar tema">◐ Tema</button>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="eyebrow">Análisis competitivo de tesorería · 2022–2026 · Corte de datos: marzo 2026 (sistema a Ene-2026)</div>
+    <h1>Cómo invierten los principales bancos de Panamá — y dónde está parado Banistmo</h1>
+    <p class="lede">Radiografía del portafolio de <b>inversiones en valores</b> de los seis competidores de referencia,
+      a partir de estados financieros auditados y de la Superintendencia de Bancos de Panamá (SBP). Tamaño del
+      portafolio, peso sobre el activo, tipo de instrumento, clasificación contable, rentabilidad estimada y
+      calificaciones — con Banistmo como banco base de comparación.</p>
+    <div class="meta">
+      <span><b>Perímetro:</b> Banistmo · Banco General · BAC · Global Bank · Davivienda · Scotiabank</span>
+      <span><b>Fuentes:</b> EE.FF. auditados + SBP + calificadoras</span>
+      <span><b>Moneda:</b> USD (B/. a la par)</span>
+    </div>
+    <div class="legend" aria-label="Niveles de confianza del dato">
+      <span class="badge b-aud">Auditado — leído de la nota de EE.FF.</span>
+      <span class="badge b-est">Estimado — cálculo o derivación propia</span>
+      <span class="badge b-pend">No divulgado — el emisor no lo publica</span>
+    </div>
+  </div>
+
+  <!-- RESUMEN -->
+  <section id="resumen">
+    <div class="sec-head"><span class="sec-num">01</span><h2>Resumen ejecutivo</h2></div>
+    <p class="sec-sub">El sistema bancario panameño es <b>dominado por crédito</b>: las inversiones en valores son el
+      segundo bloque de activo productivo, ~22.3% del balance de la banca de licencia general (SBN, Ene-2026). Dentro de ese marco, Banistmo corre un
+      portafolio de ~US$1.69&nbsp;mil millones (Dic-2025), de perfil <b>corporativo (~44%) + soberano Panamá (~30%) +
+      Tesoros de EE.UU. (~20%)</b> y <b>el más orientado a trading</b> del grupo. Frente a él, <b>Banco General</b>
+      destaca por invertir la mayor tajada de su activo (28.6%) sobre un núcleo poco habitual de <b>MBS de agencias
+      de EE.UU.</b>.</p>
+
+    <div class="tiles">
+      <div class="tile self">
+        <div class="rail"></div>
+        <div class="cap">Portafolio Banistmo · Dic-2025</div>
+        <div class="val">US$1,689<small> M</small></div>
+        <div class="sub"><span class="delta up">▲ +9.1%</span> vs. Dic-2024 (US$1,549 M) · <span class="badge b-aud" style="padding:2px 7px">Auditado</span></div>
+      </div>
+      <div class="tile">
+        <div class="rail" style="background:var(--muted)"></div>
+        <div class="cap">Inversiones del sistema · Ene-2026</div>
+        <div class="val">US$32.5<small> mil M</small></div>
+        <div class="sub">Banca lic. general (SBN) · 22.3% del activo · <span class="delta up">▲ +10.5% a/a</span></div>
+      </div>
+      <div class="tile self">
+        <div class="rail"></div>
+        <div class="cap">Peso s/ activo · Banistmo</div>
+        <div class="val">16.0<small>%</small></div>
+        <div class="sub">vs. BG 28.6% · BAC 12.3% · Global 13.4% · Sistema (lic. gral.) 22.3%</div>
+      </div>
+      <div class="tile">
+        <div class="rail" style="background:var(--s1)"></div>
+        <div class="cap">Rendimiento estimado</div>
+        <div class="val">~4.3<small>%</small></div>
+        <div class="sub">vs. BAC 5.9% · BG 5.0% · Global 4.2% · <span class="badge b-est" style="padding:2px 7px">Estimado</span></div>
+      </div>
+    </div>
+
+    <div style="margin-top:20px" class="callout co-warn">
+      <span class="ic">!</span>
+      <div><b>Nota de comparabilidad — leer antes de comparar cifras.</b> Los perímetros de reporte difieren:
+        <b>BAC</b> publica el consolidado de Centroamérica (~US$38&nbsp;mil M en activos, no solo Panamá);
+        <b>Banco General, Banistmo y Global Bank</b> son consolidados con base en Panamá; <b>Global Bank</b> cierra
+        en <b>junio</b>, no en diciembre; <b>Scotiabank</b> reporta a <b>octubre</b> y ya fue absorbido por Davivienda.
+        Las cifras absolutas no son 1:1 entre bancos — por eso el análisis se apoya en <b>ratios</b> (% de activo,
+        rendimiento) que sí son robustos al perímetro.</div>
+    </div>
+  </section>
+
+  <!-- CONSOLIDACION -->
+  <section id="consolidacion">
+    <div class="sec-head"><span class="sec-num">02</span><h2>El tablero se está reordenando</h2></div>
+    <p class="sec-sub">Dos de los seis competidores están en plena consolidación, y el propio Banistmo cambia de dueño.
+      Para tesorería esto importa: el número de mesas competidoras se reduce y varias carteras se están fusionando
+      justo en la ventana de análisis.</p>
+
+    <div class="merge-grid">
+      <div class="merge">
+        <div class="tag">Fusión — completada</div>
+        <div class="flow">
+          <span class="node acq">BAC</span><span class="arrow">◄ absorbe</span><span class="node">Multibank</span>
+        </div>
+        <ul>
+          <li>Compra de la participación mayoritaria en Multi Financial Group cerrada en <span class="when">mar-2026</span>.</li>
+          <li>Fusión operativa autorizada por la SBP y completada el <span class="when">11-jun-2026</span>.</li>
+          <li>BAC pasa a ser el <b>2.º banco más grande</b> de Panamá.</li>
+          <li>Todos los EE.FF. 2022–2025 son <b>BAC standalone</b> (pre-fusión); no existe cifra combinada auditada hasta FY2026.</li>
+        </ul>
+      </div>
+      <div class="merge">
+        <div class="tag">Adquisición — integrada en Panamá</div>
+        <div class="flow">
+          <span class="node acq">Davivienda</span><span class="arrow">◄ absorbe</span><span class="node">Scotiabank PA</span>
+        </div>
+        <ul>
+          <li>Scotiabank transfiere sus operaciones de Colombia, Costa Rica y Panamá a Davivienda (ene-2025); recibe ~20% del grupo.</li>
+          <li>SBP aprueba la transferencia en <span class="when">ago-2025</span>; integración legal en Panamá el <span class="when">5-dic-2025</span>.</li>
+          <li>Panamá fue el <b>primer país integrado</b>: una sola entidad bajo marca Davivienda.</li>
+          <li>Absorbe ~US$3.8&nbsp;mil M de activos de Scotiabank → activos de Davivienda Panamá <b>+~180%</b>. FY2025 no es comparable con años previos.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="margin-top:16px" class="callout co-info">
+      <span class="ic">i</span>
+      <div><b>Y Banistmo también cambia de manos.</b> Grupo Cibest / Bancolombia acordó vender Banistmo a
+        <b>Inversiones Cuscatlán</b> (Grupo Financiero BSC / Banco La Hipotecaria), con cierre previsto ~<b>1-jul-2026</b>;
+        se mantiene la marca. Contexto societario relevante para la lectura competitiva, sin impacto directo aún en la cartera.</div>
+    </div>
+  </section>
+
+  <!-- TAMANO -->
+  <section id="tamano">
+    <div class="sec-head"><span class="sec-num">03</span><h2>Tamaño del portafolio y peso sobre el activo</h2></div>
+    <p class="sec-sub">Entre los consolidados con base en Panamá, <b>Banco General</b> corre la cartera de inversiones
+      más grande — casi US$6&nbsp;mil M, múltiplos de la de Banistmo — y además la más pesada sobre el balance
+      (<b>28.6%</b> del activo). Banistmo invierte una tajada mayor de su activo que BAC, Global o Scotiabank, pero
+      por debajo de Banco General, Davivienda (inflada por la fusión) y el promedio del sistema.</p>
+
+    <div class="grid2">
+      <div class="chart-card">
+        <h3>Portafolio de inversiones, neto</h3>
+        <div class="chsub">US$ millones · último disponible · BAC = consolidado Centroamérica</div>
+        <div class="svgwrap"><svg id="ch-size" viewBox="0 0 520 300" role="img" aria-label="Tamaño del portafolio por banco"></svg></div>
+      </div>
+      <div class="chart-card">
+        <h3>Inversiones ÷ activo total</h3>
+        <div class="chsub">% del activo · robusto al perímetro de reporte</div>
+        <div class="svgwrap"><svg id="ch-pct" viewBox="0 0 520 300" role="img" aria-label="Inversiones como porcentaje del activo"></svg></div>
+      </div>
+    </div>
+
+    <div style="margin-top:18px" class="tbl-scroll">
+      <table>
+        <thead><tr>
+          <th>Banco</th><th>Portafolio (US$M)</th><th>Fecha</th><th>Activo total (US$M)</th>
+          <th>% activo</th><th>Perímetro</th><th>Confianza</th>
+        </tr></thead>
+        <tbody>
+          <tr><td><span class="chip" style="background:var(--s2)"></span>Banco General</td>
+            <td class="num">5,968.3</td><td class="num">Dic-2025</td><td class="num">20,880</td>
+            <td class="num">28.6%</td><td class="mini">PA consol.</td><td><span class="badge b-aud">Aud.</span></td></tr>
+          <tr><td><span class="chip" style="background:var(--s3)"></span>BAC</td>
+            <td class="num">4,989.8</td><td class="num">Dic-2025</td><td class="num">40,747</td>
+            <td class="num">12.3%</td><td class="mini">CA consol.</td><td><span class="badge b-aud">Aud.</span></td></tr>
+          <tr class="self"><td><span class="chip" style="background:var(--s1)"></span>Banistmo</td>
+            <td class="num">1,689.2</td><td class="num">Dic-2025</td><td class="num">10,570</td>
+            <td class="num">16.0%</td><td class="mini">PA consol.</td><td><span class="badge b-aud">Aud.</span></td></tr>
+          <tr><td><span class="chip" style="background:var(--s5)"></span>Davivienda PA</td>
+            <td class="num">1,248.5</td><td class="num">Dic-2025</td><td class="num">5,342</td>
+            <td class="num">23.4%</td><td class="mini">post-fusión Scotia</td><td><span class="badge b-aud">Aud.</span></td></tr>
+          <tr><td><span class="chip" style="background:var(--s4)"></span>Global Bank</td>
+            <td class="num">1,136.6</td><td class="num">Jun-2025</td><td class="num">8,503.0</td>
+            <td class="num">13.4%</td><td class="mini">PA consol. · FY-jun</td><td><span class="badge b-aud">Aud.</span></td></tr>
+          <tr><td><span class="chip" style="background:var(--s6)"></span>Scotiabank PA</td>
+            <td class="num">371.3</td><td class="num">Oct-2024</td><td class="num">3,841</td>
+            <td class="num">9.7%</td><td class="mini">absorbido dic-2025</td><td><span class="badge b-aud">Aud.</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="mini" style="margin-top:10px">Davivienda Dic-2025 es el primer cierre <b>post-fusión</b> (absorbió ~US$3.8&nbsp;mil M de Scotiabank; su cartera de inversiones incluye US$318.5 M heredados de Scotia) — no comparable con años previos. BAC = consolidado Centroamérica; su entidad individual de Panamá tenía ~US$13.3&nbsp;mil M de activos a Dic-2025 (composición de cartera no divulgada por separado). Banistmo Dic-2025 auditado (IN-A 2025); activo Dic-2024 era US$10,471.8 M / 14.8%.</p>
+  </section>
+
+  <!-- INSTRUMENTOS -->
+  <section id="instrumentos">
+    <div class="sec-head"><span class="sec-num">04</span><h2>¿En qué instrumentos están?</h2></div>
+    <p class="sec-sub">Con las notas "Inversiones en valores" ya leídas, el mapa por instrumento queda claro — y
+      corrige la lectura preliminar. Todas son carteras de <b>renta fija</b> (bono soberano + corporativo), pero con
+      dos rasgos diferenciadores: <b>Banco General es el gran tenedor de MBS</b> (~US$3,056 M, ~51% de su cartera, todo
+      de agencias de EE.UU.), y <b>los Tesoros de EE.UU.</b> aparecen en cuatro de los seis bancos.</p>
+
+    <div class="tbl-scroll">
+      <table>
+        <thead><tr>
+          <th>Banco</th><th>Núcleo</th><th>Soberano</th><th>Corporativo</th><th>MBS / CMO</th>
+          <th>US Treasuries</th><th>Acciones</th><th>Confianza</th>
+        </tr></thead>
+        <tbody>
+          <tr class="self"><td>Banistmo</td><td class="mini">Corp + sob. · trading</td>
+            <td>Panamá US$511 M</td><td><b>US$737 M</b> <span class="mini">(~44%)</span></td>
+            <td class="nd">No</td><td>US$330 M <span class="mini">(~20%)</span></td><td>US$33 M</td>
+            <td><span class="badge b-aud">Aud.</span></td></tr>
+          <tr><td>Banco General</td><td class="mini">Agency-MBS + corp IG</td>
+            <td>Panamá US$98 M</td><td><b>~US$2,080 M</b></td>
+            <td><b>US$3,056 M</b> <span class="mini">(~51%, agencias)</span></td>
+            <td>US$130 M<span class="mini">+ Letras Tesoro</span></td><td>US$37 M</td>
+            <td><span class="badge b-aud">Aud.</span></td></tr>
+          <tr><td>BAC</td><td class="mini">Soberano CA (AFS)</td>
+            <td><b>US$3,652 M</b> <span class="mini">(CA, 77%)</span></td><td>US$398 M</td>
+            <td class="nd">No divulg.</td><td>US$703 M <span class="mini">(gob. EEUU, 14%)</span></td><td>US$3 M</td>
+            <td><span class="badge b-aud">Aud.</span></td></tr>
+          <tr><td>Global Bank</td><td class="mini">Sob.+corp mixto</td>
+            <td>US$510 M</td><td>US$617 M</td><td class="nd">No</td>
+            <td class="nd">No desglos. <span class="mini">(EEUU geo US$283 M)</span></td><td>~US$28 M</td>
+            <td><span class="badge b-aud">Aud.</span></td></tr>
+          <tr><td>Davivienda PA</td><td class="mini">Soberano dominante</td>
+            <td><b>US$929 M</b></td><td>US$322 M</td><td class="nd">No</td>
+            <td class="nd">No desglos. <span class="mini">(Norteam. US$440 M)</span></td><td>US$0.2 M</td>
+            <td><span class="badge b-aud">Aud.</span></td></tr>
+          <tr><td>Scotiabank PA</td><td class="mini">UST + Panamá</td>
+            <td>Panamá US$141 M</td><td>US$54 M</td><td class="nd">No</td>
+            <td><b>US$176 M</b> <span class="mini">(47%)</span></td><td class="nd">No</td>
+            <td><span class="badge b-aud">Aud.</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="margin-top:18px" class="grid2">
+      <div class="callout co-info"><span class="ic">i</span>
+        <div><b>El tenedor de MBS es Banco General, no BAC.</b> BG mantiene ~US$3,056 M en MBS + CMO (~51% de su
+          cartera), 100% garantizados por agencias de EE.UU. (GNMA/FNMA/FHLMC); es la mayor posición individual de su
+          libro. <b>BAC no divulga MBS</b> en su nota auditada 2024/2025 — solo bonos de gobierno (soberanos de
+          Centroamérica + gob. de EE.UU.), corporativos y acciones. Corrige el corte preliminar.</div>
+      </div>
+      <div class="callout co-info"><span class="ic">i</span>
+        <div><b>Banistmo: corporativo ~44%, la mayor tajada.</b> A Dic-2025, corporativos US$737 M (~44%) — de los
+          cuales <b>US$716 M están a costo amortizado</b> (held-to-maturity), invisibles en las vistas de valor
+          razonable; soberano Panamá US$511 M (~30%) y Tesoros de EE.UU. US$330 M (~20%). Sin MBS. La mayor exposición
+          a UST en proporción la tiene <b>Scotiabank</b> (47% de su cartera) antes de ser absorbido.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLASIFICACION -->
+  <section id="clasificacion">
+    <div class="sec-head"><span class="sec-num">05</span><h2>Clasificación contable — dónde pega el mark-to-market</h2></div>
+    <p class="sec-sub">La distribución entre <b>valor razonable</b> (FVTPL / FVOCI) y <b>costo amortizado</b> define cuánta
+      volatilidad de tasas entra al P&amp;L y al patrimonio. Con las notas leídas, Banistmo resalta como <b>el más
+      orientado a trading</b> del grupo: 37.0% en FVTPL a Dic-2025, contra≤16% en todos los competidores.</p>
+
+    <div class="grid2">
+      <div class="chart-card">
+        <h3>Banistmo — mezcla por clasificación</h3>
+        <div class="chsub">US$ millones · las tres categorías NIIF 9</div>
+        <div class="svgwrap"><svg id="ch-class" viewBox="0 0 520 300" role="img" aria-label="Clasificación contable de Banistmo"></svg></div>
+      </div>
+      <div class="card">
+        <h3 style="font-size:16px;font-weight:640;margin-bottom:6px">Lectura</h3>
+        <p style="font-size:14.5px;color:var(--ink-2);margin:0 0 14px">Entre Dic-2023 y Dic-2025 el <b>FVTPL saltó de
+          ~12% a 37.0%</b> de la cartera, mientras el FVOCI cayó de ~50% a 19.5% y el costo amortizado subió a 43.5%.
+          Es el libro de negociación proporcionalmente más grande del perímetro: más P&amp;L marcado a mercado.</p>
+        <div class="pill-row">
+          <span class="pill">Banistmo FVTPL <b>37.0%</b></span>
+          <span class="pill">Banco General <b>15.8%</b></span>
+          <span class="pill">Global <b>6.1%</b></span>
+          <span class="pill">BAC <b>0.9%</b></span>
+          <span class="pill">Davivienda <b>0.5%</b></span>
+        </div>
+        <hr class="soft">
+        <p class="mini" style="margin:0">En el otro extremo, <b>Banco General</b> (84% FVOCI), <b>BAC</b> (95% AFS) y
+          <b>Davivienda</b> (79% FVOCI) llevan casi toda la cartera a valor razonable con cambios en ORI — volatilidad
+          contenida en patrimonio, no en resultados. <b>Global</b> es el más cargado a costo amortizado (34%).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- RENTABILIDAD -->
+  <section id="rentabilidad">
+    <div class="sec-head"><span class="sec-num">06</span><h2>Rentabilidad del portafolio (estimada)</h2></div>
+    <p class="sec-sub">Los bancos rara vez publican un <b>yield</b> de cartera. Se aproxima como
+      <span class="mono">ingreso por intereses de inversiones ÷ saldo promedio</span>. Con el ingreso ya leído de cada
+      estado de resultados, los rendimientos van de <b>~3.6% a ~5.9%</b>: <b>BAC</b> lidera (soberanos de
+      Centroamérica, mayor spread) y <b>Banco General</b> le sigue (~5.0%); <b>Banistmo</b> cierra la tabla (~3.6%),
+      consistente con su portafolio de mayor calidad/menor spread (deuda EEUU + Panamá ≈ 50%).</p>
+
+    <div class="chart-card">
+      <h3>Rendimiento estimado de la cartera de inversiones</h3>
+      <div class="chsub">% anual · estimación propia sobre datos publicados</div>
+      <div class="svgwrap"><svg id="ch-yield" viewBox="0 0 520 250" role="img" aria-label="Rendimiento estimado por banco"></svg></div>
+    </div>
+
+    <div style="margin-top:16px" class="tbl-scroll">
+      <table>
+        <thead><tr><th>Banco</th><th>Ing. por inversiones (US$M)</th><th>Año</th><th>Yield estimado</th><th>Base</th><th>Confianza</th></tr></thead>
+        <tbody>
+          <tr><td>BAC</td><td class="num">291.4</td><td class="num">2025</td><td class="num">~5.9%</td><td class="mini">CA consol.</td><td><span class="badge b-est">Est.</span></td></tr>
+          <tr><td>Banco General</td><td class="num">283.5</td><td class="num">2025</td><td class="num">~5.0%</td><td class="mini">PA consol.</td><td><span class="badge b-est">Est.</span></td></tr>
+          <tr><td>Global Bank</td><td class="num">45.6</td><td class="num">FY-jun-2025</td><td class="num">~4.2%</td><td class="mini">PA consol.</td><td><span class="badge b-est">Est.</span></td></tr>
+          <tr><td>Scotiabank PA</td><td class="num">15.0</td><td class="num">Oct-2024</td><td class="num">~4.1%</td><td class="mini">sucursal PA</td><td><span class="badge b-est">Est.</span></td></tr>
+          <tr><td>Davivienda PA</td><td class="num">34.5</td><td class="num">2025</td><td class="num">~4.0%</td><td class="mini">saldo prom. fusión</td><td><span class="badge b-est">Est.</span></td></tr>
+          <tr class="self"><td>Banistmo</td><td class="num">58.2</td><td class="num">2025</td><td class="num">~3.6%</td><td class="mini">consol. (Valores y otros)</td><td><span class="badge b-est">Est.</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="mini" style="margin-top:10px">El ingreso de Banistmo (US$58.2 M, 2025) se lee de la línea <b>"Valores y otros"</b> del Estado de Ganancias o Pérdidas Consolidado auditado (p.11) — corrige la versión previa que usaba la entidad individual SBP 2024 (US$64.2 M). BAC = consolidado Centroamérica (yield más alto por el peso de soberanos centroamericanos sub-grado-inversión). Davivienda: saldo promedio distorsionado por la fusión de dic-2025.</p>
+  </section>
+
+  <!-- EVOLUCION -->
+  <section id="evolucion">
+    <div class="sec-head"><span class="sec-num">07</span><h2>Evolución multianual</h2></div>
+    <p class="sec-sub">A nivel sistema, las inversiones en valores han crecido de forma sostenida cada año — el bloque
+      de inversión es el motor secundario del activo productivo, detrás del crédito. A nivel banco, las carteras
+      comparables se han mantenido estables o han crecido moderadamente.</p>
+
+    <div class="grid2">
+      <div class="chart-card">
+        <h3>Crecimiento de inversiones — sistema (SBP)</h3>
+        <div class="chsub">variación anual % · Sistema Bancario Nacional (lic. general) · último: Ene-2026 a/a</div>
+        <div class="svgwrap"><svg id="ch-sysgrow" viewBox="0 0 520 260" role="img" aria-label="Crecimiento anual de inversiones del sistema"></svg></div>
+      </div>
+      <div class="chart-card">
+        <h3>Portafolio por banco — trayectoria</h3>
+        <div class="chsub">US$ millones · puntos según fecha disponible</div>
+        <div class="svgwrap"><svg id="ch-trend" viewBox="0 0 520 260" role="img" aria-label="Trayectoria del portafolio por banco"></svg></div>
+      </div>
+    </div>
+
+    <div style="margin-top:18px" class="tbl-scroll">
+      <table>
+        <thead><tr><th>Indicador de sistema</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th><th>Ene-2026</th></tr></thead>
+        <tbody>
+          <tr><td>Inversiones en valores — var. a/a (SBN)</td><td class="num">+5.4%</td><td class="num">+9.2%</td><td class="num">+7.0%</td><td class="num">+9.8%</td><td class="num">+10.5%</td></tr>
+          <tr><td>Índice de liquidez legal (prom.)</td><td class="num nd">~</td><td class="num">57.8%</td><td class="num">54.3%</td><td class="num">~54%</td><td class="num">56.2%</td></tr>
+          <tr><td>Índice de adecuación de capital (CBI)</td><td class="num">15.34%</td><td class="num">15.71%</td><td class="num">15.32%</td><td class="num">16.27%</td><td class="num">16.27%</td></tr>
+          <tr><td>Pérdidas no realizadas AFS/FVOCI (US$M)</td><td class="num nd">~</td><td class="num nd">~</td><td class="num">−550.9</td><td class="num nd">~</td><td class="num">−34.4</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="mini" style="margin-top:10px"><b>Corte marzo-2026 · sistema a Ene-2026 (SBP, dato regulatorio no auditado).</b>
+      <b>Base de comparación = banca de licencia general (Sistema Bancario Nacional, SBN)</b>, no el Centro Bancario Internacional (que incluye licencia internacional).
+      A <b>Ene-2026</b> el SBN mantiene inversiones en valores netas por <b>US$32,467.2 M</b> sobre un activo total de US$145,438.4 M → <b>22.3%</b>
+      (Dic-2025: 22.1%; Dic-2024: 20.9%); crecimiento de inversiones <b>+10.5% a/a</b>. El activo del SBN cayó levemente m/m mientras las inversiones subieron,
+      por eso el ratio avanza. El sistema sigue dominado por crédito (~62% del activo). Para referencia, el CBI a Ene-2026 pesa 22.1% (US$36,165.7 M / US$163,327.9 M).
+      <b>Implicación contable clave:</b> las pérdidas no realizadas de la cartera disponible para la venta (AFS/FVOCI) del sistema se redujeron de
+      <b>−US$550.9 M a −US$34.4 M</b> a/a — una recuperación de ~US$516 M por la normalización de tasas que alivia el lastre sobre el patrimonio y la calidad del capital (IAC de cierre 2025 en 16.27%, ≥16% por segundo trimestre).
+      <b>Nivel banco: sin cambio</b> — a marzo-2026 no hay EE.FF. auditados posteriores a Dic-2025, así que las cifras por entidad se conservan de la versión previa.
+      Fuente: SBP, Balance de Situación del SBN/CBI (reportes estadísticos 2026/01) e Informe de Actividad Bancaria de Enero 2026.</p>
+  </section>
+
+  <!-- CALIFICACIONES -->
+  <section id="calificaciones">
+    <div class="sec-head"><span class="sec-num">08</span><h2>Calificaciones</h2></div>
+    <p class="sec-sub">Cada banco publica su tabla de ratings con <b>cortes de letra y coberturas distintas</b>. Para
+      compararlas se colapsan a tres brackets: <b>grado de inversión</b> (AAA→BBB-), <b>sub-grado</b> (BB+ a B-) y
+      <b>sin calificación</b>, sobre la cartera calificada de cada uno. El patrón queda nítido: <b>Banco General</b> y
+      <b>Scotiabank</b> corren carteras de alta calidad; <b>Banistmo</b> queda a media tabla (~55% grado de inversión,
+      y su 42% sub-grado es casi todo <b>Panamá soberano</b>); <b>BAC</b> y <b>Davivienda</b> quedan mayoritariamente en
+      sub-grado por su núcleo de <b>soberanos regionales</b>; <b>Global Bank</b> deja un tercio sin rating.</p>
+
+    <div class="chart-card">
+      <h3>Distribución por calificación — normalizada</h3>
+      <div class="chsub">% de la cartera calificada divulgada · tres brackets comparables</div>
+      <div class="svgwrap"><svg id="ch-ratings" viewBox="0 0 520 350" role="img" aria-label="Distribución por calificación normalizada por banco"></svg></div>
+      <div class="rlegend" aria-hidden="true">
+        <span><i style="background:var(--s2)"></i>Grado inversión (AAA→BBB-)</span>
+        <span><i style="background:var(--s6)"></i>Sub-grado (BB+ a B-)</span>
+        <span><i style="background:var(--muted)"></i>Sin calificación</span>
+      </div>
+    </div>
+
+    <div style="margin-top:18px" class="tbl-scroll">
+      <table>
+        <thead><tr>
+          <th>Banco</th><th>Grado inv. (AAA→BBB-)</th><th>Sub-grado (BB+ a B-)</th><th>Sin calif.</th>
+          <th>Cobertura de la tabla</th><th>Conf.</th>
+        </tr></thead>
+        <tbody>
+          <tr><td>Scotiabank PA</td>
+            <td class="num"><b>343 M</b> · 92.3%</td><td class="num">28 M · 7.7%*</td><td class="num nd">0</td>
+            <td class="mini">toda la cartera · Oct-24</td><td><span class="badge b-aud">Aud.</span></td></tr>
+          <tr><td>Banco General</td>
+            <td class="num"><b>4,536 M</b> · 76.5%</td><td class="num">1,395 M · 23.5%</td><td class="num nd">~0</td>
+            <td class="mini">deuda (excl. acciones)</td><td><span class="badge b-aud">Aud.</span></td></tr>
+          <tr class="self"><td>Banistmo</td>
+            <td class="num"><b>925 M</b> · 54.8%</td><td class="num">711 M · 42.1%</td><td class="num">54 M · 3.2%</td>
+            <td class="mini">toda la cartera · Dic-25</td><td><span class="badge b-aud">Aud.</span></td></tr>
+          <tr><td>Global Bank</td>
+            <td class="num">562 M · 49.7%</td><td class="num">186 M · 16.4%</td><td class="num"><b>384 M · 33.9%</b></td>
+            <td class="mini">toda la cartera · jun-25</td><td><span class="badge b-aud">Aud.</span></td></tr>
+          <tr><td>Davivienda PA</td>
+            <td class="num">437 M · 44.3%</td><td class="num"><b>549 M · 55.6%</b></td><td class="num">2 M · 0.2%</td>
+            <td class="mini">VRCOUI+VRCR (excl. CA)</td><td><span class="badge b-aud">Aud.</span></td></tr>
+          <tr><td>BAC</td>
+            <td class="num">1,626 M · 32.7%</td><td class="num"><b>3,340 M · 67.3%</b></td><td class="num nd">0</td>
+            <td class="mini">bonos · CA consol.</td><td><span class="badge b-aud">Aud.</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="mini" style="margin-top:10px">* Scotiabank: bracket "BBB+ a BB+" de US$28 M cruza la frontera IG/sub-grado; contado como sub-grado (conservador). Montos leídos de la nota de riesgo de crédito de cada auditoría y reconciliados con el total de cada cartera.</p>
+
+    <div style="margin-top:16px" class="callout co-warn"><span class="ic">!</span>
+      <div><b>La línea "grado de inversión" no es 1:1 entre bancos — depende de cómo cada uno trata el papel de
+        Panamá.</b> Panamá quedó en frontera (S&amp;P BBB, Fitch BB+ desde mar-2024, Moody's Baa3): <b>Banco General y
+        BAC</b> clasifican su papel panameño/regional como <b>sub-grado</b>, <b>Global Bank</b> lo deja <b>sin
+        calificación internacional</b> (de ahí su 34% "NR"), y <b>Scotiabank</b> lo trata como <b>grado de inversión</b>.
+        El orden cualitativo sí es robusto; el % exacto de IG hay que leerlo con esa salvedad. <b>Banistmo</b> sí publica
+        su tabla (en la nota de riesgo, no en la de inversiones): también clasifica su papel de Panamá como sub-grado —
+        por eso su 42% sub-grado es casi todo soberano panameño (~US$567 M en BB+), mientras buena parte de su
+        corporativo a costo amortizado es grado de inversión (AA/A).</div>
+    </div>
+
+    <div style="margin-top:16px" class="tbl-scroll">
+      <table>
+        <thead><tr><th>Emisor (banco)</th><th>Rating emisor</th><th>Agencia</th><th>Duración cartera</th></tr></thead>
+        <tbody>
+          <tr class="self"><td>Banistmo</td><td class="num nd">n/d</td><td class="mini">Fitch/Moody's</td><td class="num">~2.5&nbsp;a <span class="mini">(S&amp;P)</span></td></tr>
+          <tr><td>Banco General</td><td class="num">BBB-</td><td class="mini">S&amp;P/Fitch</td><td class="mini">MBS 3.7a · CMO 1.8a</td></tr>
+          <tr><td>BAC</td><td class="num">BBB- / A-3</td><td class="mini">S&amp;P (ago-25)</td><td class="num nd">n/d</td></tr>
+          <tr><td>Global Bank</td><td class="num">BBB-</td><td class="mini">S&amp;P/Fitch</td><td class="num nd">n/d</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- LECTURAS -->
+  <section id="lecturas">
+    <div class="sec-head"><span class="sec-num">09</span><h2>Lecturas para la mesa de Banistmo</h2></div>
+    <p class="sec-sub">Qué dice el comparativo — con el dato disponible — sobre el posicionamiento relativo de la cartera.</p>
+    <div class="take">
+      <div class="take-item"><div class="k">A</div><div>
+        <h3>Inviertes más que tus pares de tamaño, pero mucho menos que Banco General</h3>
+        <p>16.0% del activo (Dic-2025) vs. 12.3% (BAC) y 13.4% (Global). Estás algo más "cargado" que competidores comparables — pero
+          Banco General invierte <b>28.6%</b> de su balance, casi el doble, y sobre un núcleo de agency-MBS líquido. Ahí está
+          el techo de referencia si quieres subir el peso de inversiones sin sacrificar liquidez.</p>
+      </div></div>
+      <div class="take-item"><div class="k">B</div><div>
+        <h3>Tu cartera es corporativo-céntrica (~44%), con ~20% en Tesoros de EE.UU.</h3>
+        <p>A Dic-2025: corporativos US$737 M (~44%, de los cuales US$716 M held-to-maturity a costo amortizado),
+          soberano Panamá US$511 M (~30%) y Tesoros de EE.UU. US$330 M (~20%). Más riesgo de crédito y de spread que una
+          cartera soberano-pesada como la de Davivienda o BAC — a monitorear frente a la pérdida del grado de inversión de
+          Panamá. Duración ~2.5 años, conservadora.</p>
+      </div></div>
+      <div class="take-item"><div class="k">C</div><div>
+        <h3>Corres el libro de trading proporcionalmente más grande del grupo</h3>
+        <p>FVTPL de ~12% (Dic-2023) a <b>37.0%</b> (Dic-2025). Ningún competidor grande pasa de 16% (BG) — BAC y Davivienda
+          están por debajo de 1%. Más P&amp;L marcado a mercado y menos amortiguación por ORI: mayor sensibilidad del resultado a
+          las tasas. Vale confirmar si es estrategia deliberada de la mesa o un sesgo a revisar.</p>
+      </div></div>
+      <div class="take-item"><div class="k">D</div><div>
+        <h3>El benchmark de instrumentos es Banco General, no BAC</h3>
+        <p>Corrección clave del análisis: <b>Banco General</b> —no BAC— es quien corre MBS, y a gran escala: ~US$3,056 M
+          (~51% de su cartera), 100% de agencias de EE.UU. (GNMA/FNMA/FHLMC), líquido y en grado de inversión. BAC no divulga
+          MBS. Si buscas diversificar hacia agency-MBS/UST manteniendo calidad, el modelo a estudiar es BG.</p>
+      </div></div>
+      <div class="take-item"><div class="k">E</div><div>
+        <h3>El campo competitivo se está concentrando</h3>
+        <p>Multibank→BAC y Scotiabank→Davivienda reducen el número de mesas rivales. Davivienda casi <b>triplicó</b> su cartera
+          de inversiones al absorber Scotiabank (US$455 M → US$1,248 M). Menos contrapartes locales, carteras más grandes en
+          manos de menos jugadores — relevante para liquidez del secundario local y para benchmarking futuro.</p>
+      </div></div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <h3>Metodología, cobertura y fuentes</h3>
+  <p>Cifras extraídas de estados financieros auditados / informes de actualización (INA/INT), reportes de la
+    Superintendencia de Bancos de Panamá (Informe de Actividad Bancaria y balances individuales), y calificadoras.
+    <b>Rendimientos y % de activo marcados "estimado" son cálculos propios</b>, no cifras divulgadas. USD = balboa a la par.</p>
+
+  <div class="disc">
+    <b>Alcance — fidelidad completa.</b> Este corte se construyó abriendo y leyendo directamente la nota "Inversiones en
+    valores" de los estados financieros auditados de los seis bancos (split FVTPL/FVOCI/costo amortizado, composición por
+    instrumento incl. MBS y Tesoros de EE.UU., escalera de vencimientos y tablas de calificaciones de cartera). Los
+    porcentajes de activo y los yields marcados <span class="badge b-est" style="padding:2px 8px">Estimado</span> son
+    cálculos propios. Lo que sigue marcado <span class="badge b-pend" style="padding:2px 8px">No divulgado</span> es dato
+    que el emisor no publica (p. ej. Global Bank y Davivienda no separan los Tesoros de EE.UU. por país; Banistmo no publica
+    una escalera de vencimientos de inversiones). Nota de comparabilidad: los perímetros difieren (BAC = Centroamérica; Global cierra en
+    junio; Davivienda FY2025 es post-fusión) — el análisis se apoya en ratios robustos al perímetro.
+  </div>
+
+  <hr class="soft">
+  <h3>Documentos fuente (para extracción a fidelidad completa)</h3>
+  <div class="src-list">
+    <div>Banistmo · IN-A 2025 (Dic-2025 auditado) + IN-A 2024</div>
+    <div>Banistmo · Interino Sep-2025 (assets.ctfassets.net)</div>
+    <div>Banco General · INA/EF Dic-2024 y Dic-2025 (bgeneral.com)</div>
+    <div>BAC Int'l Bank · EE.FF. 2023 / 2024 / 2025 (baccredomatic.com)</div>
+    <div>BAC · S&amp;P ago-2025; Moody's oct-2024</div>
+    <div>Global Bank · EE.FF. jun-2023 / jun-2025 (globalbank.com.pa)</div>
+    <div>Davivienda PA · EF Local 2025 (davibank.pa)</div>
+    <div>Davivienda · Moody's Local nov-2024 / dic-2025</div>
+    <div>Scotiabank PA · EF Sucursal oct-2024 (pa.scotiabank.com)</div>
+    <div>SBP · IAB Dic-2024 / Oct-2025 / Nov-2025 / <b>Ene-2026</b></div>
+    <div>SBP · Balance de Situación SBN/CBI · <b>reportes 2026/01 (Ene-2026)</b></div>
+    <div>SBP · balances individuales por banco 2025</div>
+    <div>Superintendencia del Mercado de Valores (SMV) · filings</div>
+  </div>
+  <p style="margin-top:22px;font-size:12px;color:var(--muted)" class="mono">Radar de Inversiones · Banca de Panamá · Preparado para la mesa de tesorería · Datos 2022–2026 · Fidelidad completa (notas auditadas)</p>
+</footer>
+
+<div id="tt" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  var mq=window.matchMedia("(prefers-color-scheme: dark)");
+  function cur(){var a=root.getAttribute("data-theme"); return a?a:(mq.matches?"dark":"light");}
+  document.getElementById("themeBtn").addEventListener("click",function(){
+    root.setAttribute("data-theme", cur()==="dark"?"light":"dark");
+    setTimeout(drawAll,30);
+  });
+  mq.addEventListener("change",function(){if(!root.getAttribute("data-theme"))drawAll();});
+
+  var tt=document.getElementById("tt");
+  function showTip(e,html){tt.innerHTML=html;tt.style.opacity="1";moveTip(e);}
+  function moveTip(e){var x=e.clientX+14,y=e.clientY+14;
+    if(x+tt.offsetWidth>innerWidth-8)x=e.clientX-tt.offsetWidth-14;
+    if(y+tt.offsetHeight>innerHeight-8)y=e.clientY-tt.offsetHeight-14;
+    tt.style.left=x+"px";tt.style.top=y+"px";}
+  function hideTip(){tt.style.opacity="0";}
+
+  function cssv(n){return getComputedStyle(document.body).getPropertyValue(n).trim();}
+  var SVGNS="http://www.w3.org/2000/svg";
+  function el(n,a){var e=document.createElementNS(SVGNS,n);for(var k in a)e.setAttribute(k,a[k]);return e;}
+  function clear(s){while(s.firstChild)s.removeChild(s.firstChild);}
+
+  var BANKS={
+    banistmo:{name:"Banistmo",c:"--s1"}, bg:{name:"Banco General",c:"--s2"},
+    bac:{name:"BAC",c:"--s3"}, global:{name:"Global Bank",c:"--s4"},
+    davi:{name:"Davivienda",c:"--s5"}, scotia:{name:"Scotiabank",c:"--s6"}
+  };
+
+  // ---- horizontal bars ----
+  function hbars(svg,data,opts){
+    clear(svg);opts=opts||{};
+    var W=520,H=+svg.getAttribute("viewBox").split(" ")[3];
+    var padL=128,padR=54,padT=8,padB=26;
+    var iw=W-padL-padR, n=data.length, gap=12;
+    var bh=(H-padT-padB-gap*(n-1))/n;
+    var max=opts.max||Math.max.apply(null,data.map(function(d){return d.v}))*1.12;
+    var ink=cssv("--ink"),muted=cssv("--muted");
+    // gridlines
+    var ticks=opts.ticks||4;
+    for(var t=0;t<=ticks;t++){
+      var gx=padL+iw*t/ticks;
+      svg.appendChild(el("line",{x1:gx,y1:padT,x2:gx,y2:H-padB,class:"grid-line","stroke-width":1}));
+      var tv=(max*t/ticks);
+      var lab=svg.appendChild(el("text",{x:gx,y:H-padB+15,"text-anchor":"middle",class:"axis-txt"}));
+      lab.textContent=opts.pct?tv.toFixed(0)+"%":(tv>=1000?(tv/1000).toFixed(1)+"k":tv.toFixed(0));
+    }
+    data.forEach(function(d,i){
+      var y=padT+i*(bh+gap);
+      var col=cssv(d.c);
+      var w=d.v==null?0:Math.max(2,iw*d.v/max);
+      // name
+      var nm=svg.appendChild(el("text",{x:padL-12,y:y+bh/2+4,"text-anchor":"end",
+        class:"bar-name"+(d.self?" self":"")}));
+      nm.textContent=d.name;
+      if(d.v==null){
+        var pd=svg.appendChild(el("text",{x:padL+8,y:y+bh/2+4,class:"axis-txt"}));
+        pd.textContent=d.note||"pendiente"; pd.setAttribute("fill",muted);
+        return;
+      }
+      var bar=el("rect",{x:padL,y:y,width:w,height:bh,rx:4,fill:col,opacity:d.self?1:.9});
+      bar.style.cursor="pointer";
+      svg.appendChild(bar);
+      if(d.self){svg.appendChild(el("rect",{x:padL,y:y,width:w,height:bh,rx:4,fill:"none",
+        stroke:ink,"stroke-width":1.5,opacity:.25}));}
+      var vl=svg.appendChild(el("text",{x:padL+w+8,y:y+bh/2+4,class:"bar-label"}));
+      vl.textContent=opts.pct?d.v.toFixed(1)+"%":d.v.toLocaleString("en-US");
+      (function(dd){
+        bar.addEventListener("mousemove",function(e){showTip(e,"<b>"+dd.name+"</b><br>"+
+          (opts.pct?dd.v.toFixed(1)+"% del activo":"US$"+dd.v.toLocaleString("en-US")+" M")+
+          (dd.tip?"<br>"+dd.tip:""));});
+        bar.addEventListener("mouseleave",hideTip);
+      })(d);
+    });
+  }
+
+  // ---- stacked bars (classification) ----
+  function stacked(svg){
+    clear(svg);
+    var W=520,H=300,padL=54,padR=14,padT=14,padB=54;
+    var cats=[
+      {k:"Dic-2023",fvtpl:172.6,fvoci:737.5,ac:549.1},
+      {k:"Dic-2024",fvtpl:530.8,fvoci:435.3,ac:582.7},
+      {k:"Dic-2025",fvtpl:625.7,fvoci:328.9,ac:734.6}
+    ];
+    var segs=[{n:"FVTPL",key:"fvtpl",c:"--s6"},{n:"FVOCI (ORI)",key:"fvoci",c:"--s1"},{n:"Costo amort.",key:"ac",c:"--s2"}];
+    var max=1800, ticks=4, iw=W-padL-padR, ih=H-padT-padB;
+    for(var t=0;t<=ticks;t++){
+      var gy=padT+ih-ih*t/ticks;
+      svg.appendChild(el("line",{x1:padL,y1:gy,x2:W-padR,y2:gy,class:"grid-line","stroke-width":1}));
+      var lab=svg.appendChild(el("text",{x:padL-8,y:gy+4,"text-anchor":"end",class:"axis-txt"}));
+      lab.textContent=(max*t/ticks/1000).toFixed(1)+"k";
+    }
+    var bw=78, gapc=(iw-bw*cats.length)/(cats.length+1);
+    cats.forEach(function(c,ci){
+      var x=padL+gapc+ci*(bw+gapc), acc=0;
+      segs.forEach(function(s){
+        var v=c[s.key], h=ih*v/max, y=padT+ih-acc-h;
+        var r=el("rect",{x:x,y:y+1,width:bw,height:Math.max(1,h-2),fill:cssv(s.c),rx:2});
+        r.style.cursor="pointer";svg.appendChild(r);
+        if(h>22){var t2=svg.appendChild(el("text",{x:x+bw/2,y:y+h/2+4,"text-anchor":"middle",
+          class:"bar-label",fill:"#fff","font-size":"11"}));t2.textContent=v.toFixed(0);}
+        (function(nm,vv,pct){r.addEventListener("mousemove",function(e){showTip(e,"<b>"+c.k+" · "+nm+"</b><br>US$"+vv.toFixed(1)+" M<br>"+pct+"% de la cartera");});
+          r.addEventListener("mouseleave",hideTip);})(s.n,v,(v/(c.fvtpl+c.fvoci+c.ac)*100).toFixed(1));
+        acc+=h;
+      });
+      var xl=svg.appendChild(el("text",{x:x+bw/2,y:H-padB+18,"text-anchor":"middle",class:"axis-txt","font-size":"12"}));
+      xl.textContent=c.k;
+    });
+    // legend
+    var lx=padL, ly=H-20;
+    segs.forEach(function(s){
+      svg.appendChild(el("rect",{x:lx,y:ly-9,width:10,height:10,rx:2,fill:cssv(s.c)}));
+      var lt=svg.appendChild(el("text",{x:lx+15,y:ly,class:"axis-txt","font-size":"11"}));
+      lt.textContent=s.n; lx+=s.n.length*6.4+34;
+    });
+  }
+
+  // ---- system growth vertical bars ----
+  function vbars(svg){
+    clear(svg);
+    var W=520,H=260,padL=44,padR=14,padT=16,padB=40;
+    var data=[{k:"2022",v:5.4},{k:"2023",v:9.2},{k:"2024",v:7.0},{k:"2025",v:9.8},{k:"Ene-26",v:10.5}];
+    var max=12,ticks=6,iw=W-padL-padR,ih=H-padT-padB;
+    for(var t=0;t<=ticks;t++){
+      var gy=padT+ih-ih*t/ticks;
+      svg.appendChild(el("line",{x1:padL,y1:gy,x2:W-padR,y2:gy,class:"grid-line","stroke-width":1}));
+      var lab=svg.appendChild(el("text",{x:padL-8,y:gy+4,"text-anchor":"end",class:"axis-txt"}));
+      lab.textContent=(max*t/ticks).toFixed(0)+"%";
+    }
+    var bw=58,gapc=(iw-bw*data.length)/(data.length+1);
+    data.forEach(function(d,i){
+      var x=padL+gapc+i*(bw+gapc),h=ih*d.v/max,y=padT+ih-h;
+      var r=el("rect",{x:x,y:y,width:bw,height:h,rx:4,fill:cssv("--s1"),opacity:.9});
+      r.style.cursor="pointer";svg.appendChild(r);
+      var vl=svg.appendChild(el("text",{x:x+bw/2,y:y-7,"text-anchor":"middle",class:"bar-label"}));
+      vl.textContent="+"+d.v.toFixed(1)+"%";
+      var xl=svg.appendChild(el("text",{x:x+bw/2,y:H-padB+18,"text-anchor":"middle",class:"axis-txt","font-size":"12"}));
+      xl.textContent=d.k;
+      (function(dd){r.addEventListener("mousemove",function(e){showTip(e,"<b>"+dd.k+"</b><br>Inversiones sistema +"+dd.v.toFixed(1)+"% a/a");});
+        r.addEventListener("mouseleave",hideTip);})(d);
+    });
+  }
+
+  // ---- trend line (multi-point) ----
+  function trend(svg){
+    clear(svg);
+    var W=520,H=260,padL=48,padR=76,padT=16,padB=36;
+    var series=[
+      {b:"bg",c:"--s2",pts:[["2023",5124.9],["2024",5347.8],["2025",5968.3]]},
+      {b:"bac",c:"--s3",pts:[["2023",4549],["2024",4883],["2025",4989.8]]},
+      {b:"banistmo",c:"--s1",self:true,labelDy:-6,pts:[["2023",1459.2],["2024",1548.8],["2025",1689.2]]},
+      {b:"davi",c:"--s5",labelDy:7,pts:[["2024",455.3],["2025",1248.5]]},
+      {b:"global",c:"--s4",labelDy:19,pts:[["2022",1079.2],["2023",1053.4],["2024",1049.3],["2025",1136.6]]}
+    ];
+    var xs=["2022","2023","2024","2025"];
+    var xi={}; xs.forEach(function(k,i){xi[k]=i;});
+    var max=6200,ticks=4,iw=W-padL-padR,ih=H-padT-padB;
+    function X(k){return padL+iw*xi[k]/(xs.length-1);}
+    function Y(v){return padT+ih-ih*v/max;}
+    for(var t=0;t<=ticks;t++){
+      var gy=padT+ih-ih*t/ticks;
+      svg.appendChild(el("line",{x1:padL,y1:gy,x2:W-padR,y2:gy,class:"grid-line","stroke-width":1}));
+      var lab=svg.appendChild(el("text",{x:padL-8,y:gy+4,"text-anchor":"end",class:"axis-txt"}));
+      lab.textContent=(max*t/ticks/1000).toFixed(1)+"k";
+    }
+    xs.forEach(function(k){var xl=svg.appendChild(el("text",{x:X(k),y:H-padB+18,"text-anchor":"middle",class:"axis-txt","font-size":"10.5"}));xl.textContent=k;});
+    series.forEach(function(s){
+      var col=cssv(s.c),d="";
+      s.pts.forEach(function(p,i){d+=(i?"L":"M")+X(p[0])+" "+Y(p[1])+" ";});
+      svg.appendChild(el("path",{d:d,fill:"none",stroke:col,"stroke-width":s.self?3:2,
+        "stroke-linejoin":"round","stroke-linecap":"round"}));
+      s.pts.forEach(function(p){
+        var c=el("circle",{cx:X(p[0]),cy:Y(p[1]),r:s.self?4.5:3.5,fill:col,stroke:cssv("--surface-2"),"stroke-width":1.5});
+        c.style.cursor="pointer";svg.appendChild(c);
+        (function(){c.addEventListener("mousemove",function(e){showTip(e,"<b>"+BANKS[s.b].name+" · "+p[0]+"</b><br>US$"+p[1].toLocaleString("en-US")+" M");});
+          c.addEventListener("mouseleave",hideTip);})();
+      });
+      // end label
+      var last=s.pts[s.pts.length-1];
+      var lb=svg.appendChild(el("text",{x:X(last[0])+8,y:Y(last[1])+4+(s.labelDy||0),class:"bar-name"+(s.self?" self":""),"font-size":"11"}));
+      lb.setAttribute("fill",col);lb.textContent=BANKS[s.b].name.replace("Banco ","B. ");
+    });
+  }
+
+  // ---- yield bars ----
+  function yieldBars(svg){
+    hbars(svg,[
+      {name:"BAC",c:"--s3",v:5.9,tip:"2025 · CA consolidado · estimado"},
+      {name:"Banco General",c:"--s2",v:5.0,tip:"2025 · PA consolidado · estimado"},
+      {name:"Global Bank",c:"--s4",v:4.2,tip:"FY-jun-2025 · PA consolidado · estimado"},
+      {name:"Scotiabank",c:"--s6",v:4.1,tip:"Oct-2024 · sucursal PA · estimado"},
+      {name:"Davivienda",c:"--s5",v:4.05,tip:"2025 · post-fusión · estimado"},
+      {name:"Banistmo",c:"--s1",self:true,v:3.6,tip:"2025 · consolidado (Valores y otros) · estimado"}
+    ],{pct:true,max:7,ticks:7});
+  }
+
+  // ---- ratings 100% stacked bars ----
+  function ratings(svg){
+    var W=520,H=+svg.getAttribute("viewBox").split(" ")[3];
+    var padL=118,padR=16,padT=10,padB=8;
+    var rows=[
+      {b:"Scotiabank",tot:"US$371 M",seg:[["Grado inversión",92.3,"343 M","--s2"],["Sub-grado",7.7,"28 M","--s6"],["Sin calif.",0,"0","--muted"]]},
+      {b:"Banco General",tot:"US$5,931 M",seg:[["Grado inversión",76.5,"4,536 M","--s2"],["Sub-grado",23.5,"1,395 M","--s6"],["Sin calif.",0.05,"~0","--muted"]]},
+      {b:"Banistmo",self:true,tot:"US$1,689 M",seg:[["Grado inversión",54.8,"925 M","--s2"],["Sub-grado",42.1,"711 M","--s6"],["Sin calif.",3.2,"54 M","--muted"]]},
+      {b:"Global Bank",tot:"US$1,132 M",seg:[["Grado inversión",49.7,"562 M","--s2"],["Sub-grado",16.4,"186 M","--s6"],["Sin calif.",33.9,"384 M","--muted"]]},
+      {b:"Davivienda",tot:"US$988 M",seg:[["Grado inversión",44.3,"437 M","--s2"],["Sub-grado",55.6,"549 M","--s6"],["Sin calif.",0.2,"2 M","--muted"]]},
+      {b:"BAC",tot:"US$4,967 M",seg:[["Grado inversión",32.7,"1,626 M","--s2"],["Sub-grado",67.3,"3,340 M","--s6"],["Sin calif.",0,"0","--muted"]]}
+    ];
+    var n=rows.length, gap=15, iw=W-padL-padR;
+    var bh=(H-padT-padB-gap*(n-1))/n;
+    rows.forEach(function(r,i){
+      var y=padT+i*(bh+gap), x=padL;
+      var nm=svg.appendChild(el("text",{x:padL-12,y:y+bh/2+4,"text-anchor":"end",class:"bar-name"+(r.self?" self":"")}));
+      nm.textContent=r.b;
+      r.seg.forEach(function(s){
+        var w=iw*s[1]/100;
+        if(w<=0.3)return;
+        var rect=el("rect",{x:x,y:y,width:Math.max(1,w),height:bh,fill:cssv(s[3]),rx:2});
+        rect.style.cursor="pointer";
+        (function(seg,total){rect.addEventListener("mousemove",function(e){showTip(e,"<b>"+r.b+" · "+seg[0]+"</b><br>"+seg[1].toFixed(1)+"% · US$"+seg[2]+"<br><span style='color:var(--muted)'>cartera calif. "+total+"</span>");});rect.addEventListener("mouseleave",hideTip);})(s,r.tot);
+        svg.appendChild(rect);
+        if(w>40){var t=svg.appendChild(el("text",{x:x+w/2,y:y+bh/2+4,"text-anchor":"middle",class:"seg-label"}));t.textContent=Math.round(s[1])+"%";}
+        x+=w;
+      });
+    });
+  }
+
+  function drawAll(){
+    hbars(document.getElementById("ch-size"),[
+      {name:"Banco General",c:"--s2",v:5968.3,tip:"Dic-2025 · PA consol."},
+      {name:"BAC",c:"--s3",v:4989.8,tip:"Dic-2025 · CA consol. (no solo Panamá)"},
+      {name:"Banistmo",c:"--s1",self:true,v:1689.2,tip:"Dic-2025 (aud.) · PA consol."},
+      {name:"Davivienda",c:"--s5",v:1248.5,tip:"Dic-2025 · post-fusión Scotia"},
+      {name:"Global Bank",c:"--s4",v:1136.6,tip:"Jun-2025 · FY-junio"},
+      {name:"Scotiabank",c:"--s6",v:371.3,tip:"Oct-2024 · absorbido dic-2025"}
+    ],{max:6400,ticks:4});
+    hbars(document.getElementById("ch-pct"),[
+      {name:"Banco General",c:"--s2",v:28.6,tip:"Dic-2025"},
+      {name:"Davivienda",c:"--s5",v:23.4,tip:"Dic-2025 · post-fusión"},
+      {name:"Sistema (ref.)",c:"--muted",v:22.3,tip:"Sist. Bancario Nacional · lic. general · Ene-2026"},
+      {name:"Banistmo",c:"--s1",self:true,v:16.0,tip:"Dic-2025 (aud.)"},
+      {name:"Global Bank",c:"--s4",v:13.4,tip:"Jun-2025"},
+      {name:"BAC",c:"--s3",v:12.3,tip:"Dic-2025 · CA consol."},
+      {name:"Scotiabank",c:"--s6",v:9.7,tip:"Oct-2024"}
+    ],{pct:true,max:32,ticks:4});
+    stacked(document.getElementById("ch-class"));
+    yieldBars(document.getElementById("ch-yield"));
+    vbars(document.getElementById("ch-sysgrow"));
+    trend(document.getElementById("ch-trend"));
+    ratings(document.getElementById("ch-ratings"));
+  }
+  drawAll();
+})();
+</script>
