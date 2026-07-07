@@ -7,7 +7,26 @@ nota **"Inversiones en Valores"** (composición y clasificación contable), a la
 inversiones, base del yield), al **balance** (activo total e inversiones), o a los cuadros del
 **sistema (SBP)**. La página impresa aparece al pie de cada captura.
 
-**Total: 39 capturas · 10 documentos fuente.** URLs completas en [`fuentes-pdfs.md`](../fuentes-pdfs.md).
+**Total: 39 capturas Dic-2025/anteriores + 23 capturas del corte 31-mar-2026 = 62.** URLs completas en [`fuentes-pdfs.md`](../fuentes-pdfs.md).
+
+> ## Corte vigente — 31-mar-2026 (interinos 1T-2026 no auditados + SBP mar-2026)
+>
+> Capturas nuevas de las páginas exactas de los **interinos 1T-2026** (Banistmo, Banco General, BAC, Global Bank)
+> y del **SBP marzo-2026** de las que se extrajo cada cifra del corte vigente. Las 39 capturas Dic-2025/anteriores
+> se conservan como respaldo de las cifras que se arrastran (Davivienda Dic-2025, Scotiabank oct-2024, composición
+> auditada de Banco General, etc.).
+>
+> | Banco / fuente | Capturas Mar-2026 |
+> |---|---|
+> | **Banco General** (interino 31-mar-2026) | `bancogeneral-mar2026_p023_balance.png`, `…p025_estado-resultados.png` |
+> | **Banistmo** (interino 1T26) | `banistmo-mar2026_p004_balance.png`, `…p005_estado-resultados.png`, `…p022/023/024/025_nota7-inversiones.png`, `…p017/018_ratings.png` |
+> | **BAC** (interino 31-mar-2026) | `bac-mar2026_p005_balance.png`, `…p007_estado-resultados.png`, `…p019_ratings-vrcoui.png`, `…p020_ratings-ca.png` |
+> | **Global Bank** (interino Q3 FY26, 31-mar-2026) | `globalbank-mar2026_p004_balance.png`, `…p005_resultados.png`, `…p059_nota9-fvoci.png`, `…p060_nota9-ca.png`, `…p074_intereses.png` |
+> | **SBP sistema** (mar-2026) | `sbp-iab-mar2026_p06_iac.png`, `…p08_estado-resultados.png`, `…p02_afs.png`, `sbp-balance-mar2026_inversiones-activo.png` |
+
+---
+
+### Capturas del corte anterior (Dic-2025 / jun-2025 / oct-2024 / SBP 2025) — respaldo
 
 | # | Captura | Pág. PDF | Qué respalda |
 |---|---|---|---|
