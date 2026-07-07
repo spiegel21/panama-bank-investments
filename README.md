@@ -5,6 +5,13 @@ Panamá, con **Banistmo** como banco base de comparación. Enfoque de tesorería
 invertidos los competidores frente a Banistmo (tamaño, peso sobre activo, tipo de instrumento,
 clasificación contable, rentabilidad estimada y calificaciones de crédito), para 2022–2026.
 
+**Corte vigente: 31 de marzo de 2026.** Los bancos con reporte trimestral pasan a su **1T-2026
+interino no auditado** (Banistmo, Banco General, BAC, Global Bank) y el sistema bancario a los
+datos de la SBP a **marzo-2026** (Balance de Situación SBN/CBI + Informe de Actividad Bancaria,
+regulatorio no auditado). Dos excepciones se conservan en su último cierre disponible: **Davivienda**
+(Dic-2025 auditado — no publica interinos trimestrales) y **Scotiabank** (oct-2024 — absorbido por
+Davivienda el 5-dic-2025, ya no reporta standalone). Detalle completo en `datos-extraidos.md`.
+
 **Perímetro:** Banistmo · Banco General · BAC (incl. Multibank) · Global Bank · Davivienda · Scotiabank.
 
 ## Sitio publicado
@@ -25,13 +32,17 @@ directamente en cualquier navegador incluso sin el sitio.
 | `fuentes-pdfs.md` | URLs de los EE.FF. auditados por banco, para la extracción a fidelidad completa. |
 | `capturas-fuentes/` | **Capturas (PNG) de cada página PDF de la que se sourceó una cifra del dashboard** — nota "Inversiones en Valores", tablas de calificaciones, balances y cuadros del sistema (SBP). Ver [`capturas-fuentes/README.md`](capturas-fuentes/README.md). |
 | `allowlist-domains.txt` | Dominios financieros a habilitar en la política de red del entorno para reproducir la extracción. |
+| [`march-2026/`](march-2026/) | **Corte anterior (superado por este reporte).** Snapshot con el primer dato SBP publicado en marzo de 2026 (sistema a Enero-2026, regulatorio no auditado; cifras por banco aún en Dic-2025). El reporte de esta raíz lo reemplaza con el corte 31-mar-2026 (interinos 1T-2026 de los bancos + SBP marzo-2026). Ver [`march-2026/README.md`](march-2026/README.md). |
 
-## Estado: fidelidad completa
+## Estado: corte 31-marzo-2026
 
-Las cifras provienen de la **lectura directa de la nota "Inversiones en valores"** (y la nota de
-riesgo de crédito) de los estados financieros **auditados** de los seis bancos, a su último cierre
-disponible (Banistmo/BG/BAC/Davivienda Dic-2025, Global jun-2025, Scotiabank oct-2024 standalone).
-Los porcentajes de activo y los yields marcados *Estimado* son cálculos propios.
+Los cuatro bancos con reporte trimestral (Banistmo, Banco General, BAC, Global Bank) están al **1T-2026,
+interino no auditado**, leído directamente de la nota "Inversiones en valores" de cada estado financiero
+interino. El sistema bancario (SBN/CBI) está al **dato regulatorio de la SBP a marzo-2026** (no auditado).
+**Davivienda** se mantiene en su cierre **Dic-2025 auditado** (no publica interinos trimestrales —
+confirmado ausente en SMV, SBP, davibank.pa y Latinex) y **Scotiabank** en **oct-2024** (absorbido por
+Davivienda, ya no reporta standalone). Los porcentajes de activo y los yields marcados *Estimado* son
+cálculos propios. Detalle completo, con nivel de confianza por cifra, en `datos-extraidos.md`.
 
 ## Metodología
 
@@ -40,6 +51,10 @@ Los porcentajes de activo y los yields marcados *Estimado* son cálculos propios
 - **Comparabilidad:** los perímetros de reporte difieren y no son 1:1 — BAC = consolidado
   Centroamérica; Global Bank cierra fiscal en junio; Davivienda FY2025 es post-fusión con Scotiabank.
   El análisis se apoya en **ratios** (% de activo, yield, distribución por rating) robustos al perímetro.
+- **Interino vs. auditado:** los interinos no auditados de este corte no re-divulgan siempre la misma
+  profundidad que un cierre anual auditado (ratings, escalera de vencimientos, composición detallada);
+  donde falta, se usa el último dato auditado disponible, marcado explícitamente como *carried* en
+  `datos-extraidos.md`.
 
 ---
 

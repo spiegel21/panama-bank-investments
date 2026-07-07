@@ -7,26 +7,11 @@ nota **"Inversiones en Valores"** (composición y clasificación contable), a la
 inversiones, base del yield), al **balance** (activo total e inversiones), o a los cuadros del
 **sistema (SBP)**. La página impresa aparece al pie de cada captura.
 
-**Total: 39 capturas Dic-2025/anteriores + 23 capturas del corte 31-mar-2026 = 62.** URLs completas en [`fuentes-pdfs.md`](../fuentes-pdfs.md).
+**Total: 43 capturas · 12 documentos fuente.** URLs completas en [`fuentes-pdfs.md`](../fuentes-pdfs.md).
 
-> ## Corte vigente — 31-mar-2026 (interinos 1T-2026 no auditados + SBP mar-2026)
->
-> Capturas nuevas de las páginas exactas de los **interinos 1T-2026** (Banistmo, Banco General, BAC, Global Bank)
-> y del **SBP marzo-2026** de las que se extrajo cada cifra del corte vigente. Las 39 capturas Dic-2025/anteriores
-> se conservan como respaldo de las cifras que se arrastran (Davivienda Dic-2025, Scotiabank oct-2024, composición
-> auditada de Banco General, etc.).
->
-> | Banco / fuente | Capturas Mar-2026 |
-> |---|---|
-> | **Banco General** (interino 31-mar-2026) | `bancogeneral-mar2026_p023_balance.png`, `…p025_estado-resultados.png` |
-> | **Banistmo** (interino 1T26) | `banistmo-mar2026_p004_balance.png`, `…p005_estado-resultados.png`, `…p022/023/024/025_nota7-inversiones.png`, `…p017/018_ratings.png` |
-> | **BAC** (interino 31-mar-2026) | `bac-mar2026_p005_balance.png`, `…p007_estado-resultados.png`, `…p019_ratings-vrcoui.png`, `…p020_ratings-ca.png` |
-> | **Global Bank** (interino Q3 FY26, 31-mar-2026) | `globalbank-mar2026_p004_balance.png`, `…p005_resultados.png`, `…p059_nota9-fvoci.png`, `…p060_nota9-ca.png`, `…p074_intereses.png` |
-> | **SBP sistema** (mar-2026) | `sbp-iab-mar2026_p06_iac.png`, `…p08_estado-resultados.png`, `…p02_afs.png`, `sbp-balance-mar2026_inversiones-activo.png` |
-
----
-
-### Capturas del corte anterior (Dic-2025 / jun-2025 / oct-2024 / SBP 2025) — respaldo
+> **Corte marzo-2026 (esta réplica):** las 4 últimas capturas (#40–43) documentan la actualización del
+> **sistema a Enero 2026** (dato regulatorio SBP, no auditado). Las 39 primeras se **arrastran sin cambio**
+> de la versión previa (Dic-2025): a marzo de 2026 no hay EE.FF. auditados por banco posteriores a ese cierre.
 
 | # | Captura | Pág. PDF | Qué respalda |
 |---|---|---|---|
@@ -78,4 +63,10 @@ inversiones, base del yield), al **balance** (activo total e inversiones), o a l
 | 37 | [`sbp-iab-nov2025_p006_iac.png`](sbp-iab-nov2025_p006_iac.png) | 6 | Índice de adecuación de capital (16.34%) |
 | 38 | [`sbp-iab-nov2025_p012_cbi-situacion.png`](sbp-iab-nov2025_p012_cbi-situacion.png) | 12 | CBI Estado de Situación (inversiones, nov-2025) |
 | | **SBP — Balance de Situación del Sistema Bancario Nacional (lic. general), Dic-2025** | | [XLSX](https://www.superbancos.gob.pa/documentos/financiera_y_estadistica/reportes_estadisticos/2025/12/balance_ambito_nacional/RE-BALANCE-COMPARATIVO-en-SBN.xlsx) |
-| 39 | [`sbp-sbn-dic2025_balance-inversiones-activo.png`](sbp-sbn-dic2025_balance-inversiones-activo.png) | — | **Inversiones/Activo del SBN (licencia general): 32,152.8 / 145,675.3 = 22.1%** — base del benchmark del sistema |
+| 39 | [`sbp-sbn-dic2025_balance-inversiones-activo.png`](sbp-sbn-dic2025_balance-inversiones-activo.png) | — | Inversiones/Activo del SBN (licencia general): 32,152.8 / 145,675.3 = 22.1% — benchmark del corte previo |
+| | **➡ CORTE MARZO-2026 — SBP · Balance de Situación SBN/CBI (reportes estadísticos 2026/01)** | | [XLSX](https://www.superbancos.gob.pa/documentos/financiera_y_estadistica/reportes_estadisticos/2026/01/balance_ambito_nacional/RE-BALANCE-COMPARATIVO-en-SBN.xlsx) |
+| 40 | [`sbp-balance-ene2026_inversiones-activo.png`](sbp-balance-ene2026_inversiones-activo.png) | — | **Inversiones/Activo — SBN 32,467.2 / 145,438.4 = 22.3%; CBI 36,165.7 / 163,327.9 = 22.1% (Ene-2026)** — nuevo benchmark del sistema |
+| | **SBP — Informe de Actividad Bancaria, Enero 2026** | | [PDF](https://www.superbancos.gob.pa/documentos/financiera_y_estadistica/estudios/IAB/IAB-0126.pdf) |
+| 41 | [`sbp-iab-ene2026_p06_solvencia-iac.png`](sbp-iab-ene2026_p06_solvencia-iac.png) | 6 | Solvencia — IAC del CBI 16.27% (cierre 4T-2025), ≥16% por 2.º trimestre |
+| 42 | [`sbp-iab-ene2026_p08_estado-resultados.png`](sbp-iab-ene2026_p08_estado-resultados.png) | 8 | Estado de resultados CBI — ingreso por inversiones +3.81% a/a |
+| 43 | [`sbp-iab-ene2026_p09_otros-ingresos-afs.png`](sbp-iab-ene2026_p09_otros-ingresos-afs.png) | 9 | **Pérdidas no realizadas AFS/FVOCI: −550.9M → −34.4M** (recuperación de valuaciones) |

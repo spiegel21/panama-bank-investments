@@ -4,20 +4,12 @@ URLs verificadas vía búsqueda (los PDF quedaron bloqueados por la política de
 sesión de origen). Abrir estas desde una sesión con los dominios habilitados para la
 extracción a fidelidad completa de las notas "Inversiones en valores".
 
-> **Corte vigente: 31-marzo-2026.** Se agregaron los interinos 1T-2026 no auditados de Banistmo, Banco
-> General, BAC y Global Bank (marcados abajo como "corte vigente del reporte"), y el Informe de Actividad
-> Bancaria + Balance de Situación SBN/CBI de la SBP a marzo-2026. Davivienda **no publica interinos** —
-> se mantiene su fuente Dic-2025 auditada; Scotiabank sigue en oct-2024 (absorbido). Las fuentes
-> auditadas anuales se conservan abajo como referencia histórica.
-
 > **Capturas de las páginas exactas:** las páginas PDF de las que se extrajo cada cifra del
 > dashboard están capturadas en [`capturas-fuentes/`](capturas-fuentes/) (índice con página y
 > descripción en [`capturas-fuentes/README.md`](capturas-fuentes/README.md)).
 
 ## Banistmo (assets.ctfassets.net / Latinex)
-- **Interino 31-mar-2026 (1T-2026, no auditado) — corte vigente del reporte:**
-  https://assets.ctfassets.net/catp2t59asao/7ezsgNsKAl5X9N0tU2Oa0m/707664e4f324bf782e16102b486f6d44/C000-Banistmo-SA-y-Subsidiarias-Informe-Completo-Mar26-Interino-Consolidado-Firmado-Esp.pdf
-- **IN-A 2025 (auditado FY2025, Dic-2025 + comparativo Dic-2024)** — última data auditada:
+- **IN-A 2025 (auditado FY2025, Dic-2025 + comparativo Dic-2024)** — última data:
   https://assets.ctfassets.net/catp2t59asao/6O6mUVR44lRk8akq6XWJrF/375a01b2e9a567b36968d3e9103ba63e/Informe-y-Estados-Financieros-Consolidados-2025.pdf
 - IN-A 2024 (auditado FY2024 + comparativo Dic-2023):
   https://assets.ctfassets.net/catp2t59asao/3lqEk2MTnqbrkiEBi9wYH2/b38e67bd52cfb1970552d529f81e76b2/IN-A-BANISTMO-2024.pdf
@@ -32,8 +24,6 @@ extracción a fidelidad completa de las notas "Inversiones en valores".
 - Falta: IN-A-BANISTMO-2022 / interino 2023 para la columna Dic-2022.
 
 ## Banco General (bgeneral.com)
-- **Interino 31-mar-2026 (no auditado) — corte vigente del reporte:**
-  https://www.bgeneral.com/wp-content/uploads/2026/05/INT%20y%20EF%20-%20Banco%20General,%20S.A.%20y%20Subs.%20-%20Marzo%202026.pdf
 - Dic-2025 (Grupo Financiero BG):
   https://www.bgeneral.com/wp-content/uploads/2026/03/INA,%20EF%20y%20DJ%20-%20Grupo%20Financiero%20BG,%20S.%20A.%20Dic.%202025.pdf
 - Dic-2025 (EF consolidados standalone):
@@ -47,8 +37,6 @@ extracción a fidelidad completa de las notas "Inversiones en valores".
 - Falta: Dic-2022 (patrón: .../wp-content/uploads/2023/0X/...Diciembre%202022.pdf).
 
 ## BAC International Bank (baccredomatic.com)
-- **Interino 31-mar-2026 (no auditado) — corte vigente del reporte:**
-  https://www.baccredomatic.com/sites/default/files/2026-05/PAN_EF_BIB_SUBS_0326.pdf
 - 2022 (prov.):
   https://www.baccredomatic.com/sites/default/files/2023-05/BAC_International_Bank_Inc_and_Subsidiaries_Dec._2022_prov.pdf
 - 2023 (auditado):
@@ -73,8 +61,6 @@ extracción a fidelidad completa de las notas "Inversiones en valores".
 > (jun-2025) para los headline FY2024/FY2025 leídos.
 - FY2023 auditado (+ comparativo FY2022) — ⚠ el archivo entregado es FY2019, no FY2023:
   https://www.globalbank.com.pa/sites/default/files/media/estados_financieros/global_bank/2023-12/global_bank_corp._y_subsidiarias_-_estados_financieros_auditados_al_30_d.pdf
-- **Interino 31-mar-2026 (no auditado, 9 meses de su año fiscal) — corte vigente del reporte:**
-  https://www.globalbank.com.pa/sites/default/files/media/estados_financieros/global_bank/ef-global-bank-marzo-2026.pdf
 - FY2025 auditado (+ comparativo FY2024):
   https://www.globalbank.com.pa/sites/default/files/media/estados_financieros/global_bank/2025-09/ef-global-bank-junio-2025.pdf
 - Interino 31-mar-2025 (SMV):
@@ -87,13 +73,6 @@ extracción a fidelidad completa de las notas "Inversiones en valores".
 - Landing EE.FF.: https://www.globalbank.com.pa/relacion-con-inversionistas/estados-financieros
 
 ## Davivienda (Panamá) (davibank.pa / Moody's Local)
-- **Sin interino 1T-2026 (31-mar-2026).** Confirmado que el emisor **no publica estados financieros
-  interinos trimestrales** — búsqueda sin resultado en SMV (supervalores.gob.pa), SBP (superbancos.gob.pa),
-  davibank.pa y Latinex. El reporte mantiene el cierre Dic-2025 auditado (ver abajo) como corte vigente.
-  Único dato Mar-2026 disponible: proxy regulatorio SBP de la **entidad individual** (no consolidado, no
-  auditado), vía el directorio `balance_individual_por_banco` para el período 2026/03 (mismo patrón que
-  la línea Davivienda jun-2024 más abajo) — citado solo como memo direccional en `datos-extraidos.md`, no
-  usado en el ranking.
 - EF Local 2025 (consolidado auditado):
   https://www.davibank.pa/content/dam/scotiabank/international/panama/Espanol/pdf/Davivienda-EF-Local-FINAL.pdf
 - EF Internacional 2025:
@@ -113,16 +92,18 @@ extracción a fidelidad completa de las notas "Inversiones en valores".
   https://www.davibank.pa/es/acerca-de-scotiabank/relaciones-con-inversionistas/reportes-anuales.html
 
 ## SBP — sistema (superbancos.gob.pa)
-- **Corte vigente del reporte: marzo-2026.**
+> **Corte marzo-2026:** la publicación más reciente de la SBP a marzo de 2026 es la de **Enero 2026**
+> (dato regulatorio no auditado, primer corte del año). Es la que actualiza las cifras del sistema en
+> esta réplica; Dic-2025 queda como comparativo.
 - Índice IAB: https://www.superbancos.gob.pa/estadisticas-financieras/estudios/actividad-bancaria
-- **Mar-2026 (IAB-0326, corte vigente):** https://www.superbancos.gob.pa/documentos/financiera_y_estadistica/estudios/IAB/IAB-0326.pdf
+- **Ene-2026 (corte de este reporte):** https://www.superbancos.gob.pa/documentos/financiera_y_estadistica/estudios/IAB/IAB-0126.pdf
+- Dic-2025 (comparativo, cierre de año): https://www.superbancos.gob.pa/documentos/financiera_y_estadistica/estudios/IAB/IAB-1225.pdf
 - Dic-2024: https://www.superbancos.gob.pa/documentos/financiera_y_estadistica/estudios/IAB/IAB-1224.pdf
 - Oct-2025: https://www.superbancos.gob.pa/documentos/financiera_y_estadistica/estudios/IAB/IAB-1025.pdf
 - Nov-2025: https://www.superbancos.gob.pa/documentos/financiera_y_estadistica/estudios/IAB/IAB-1125.pdf
 - Faltan: IAB-1222 / IAB-1223 (patrón igual) y Memoria-2022 / Memoria-2023 para absolutos 2022–2023.
 - **Balance de Situación por ámbito (reportes estadísticos)** — base del ratio Inversiones/Activo:
-  - **SBN (licencia general), comparativo Mar-2026 (corte vigente):** https://www.superbancos.gob.pa/documentos/financiera_y_estadistica/reportes_estadisticos/2026/03/balance_ambito_nacional/RE-BALANCE-COMPARATIVO-en-SBN.xlsx
-  - CBI (referencia), comparativo Mar-2026: https://www.superbancos.gob.pa/documentos/financiera_y_estadistica/reportes_estadisticos/2026/03/balance_ambito_nacional/RE-BALANCE-COMPARATIVO-en-CBI.xlsx
-  - SBN (licencia general), comparativo Dic-2025 (histórico): https://www.superbancos.gob.pa/documentos/financiera_y_estadistica/reportes_estadisticos/2025/12/balance_ambito_nacional/RE-BALANCE-COMPARATIVO-en-SBN.xlsx
-  - CBI (referencia), comparativo Dic-2025 (histórico): https://www.superbancos.gob.pa/documentos/financiera_y_estadistica/reportes_estadisticos/2025/12/balance_ambito_nacional/RE-BALANCE-COMPARATIVO-en-CBI.xlsx
+  - **SBN (licencia general), comparativo Ene-2026 (corte de este reporte; trae Ene-2025/Dic-2025/Ene-2026):** https://www.superbancos.gob.pa/documentos/financiera_y_estadistica/reportes_estadisticos/2026/01/balance_ambito_nacional/RE-BALANCE-COMPARATIVO-en-SBN.xlsx
+  - CBI (referencia), comparativo Ene-2026: https://www.superbancos.gob.pa/documentos/financiera_y_estadistica/reportes_estadisticos/2026/01/balance_ambito_nacional/RE-BALANCE-COMPARATIVO-en-CBI.xlsx
+  - SBN comparativo Dic-2025 (versión previa): https://www.superbancos.gob.pa/documentos/financiera_y_estadistica/reportes_estadisticos/2025/12/balance_ambito_nacional/RE-BALANCE-COMPARATIVO-en-SBN.xlsx
   - Índice: https://www.superbancos.gob.pa/estadisticas-financieras/balance-situacion (códigos: SBN=Sist. Bancario Nacional, CBI=Centro Bancario Int'l, BOL=Banca Oficial, BPP=Banca Privada Panameña, etc.)
