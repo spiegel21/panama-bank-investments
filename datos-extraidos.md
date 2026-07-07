@@ -19,21 +19,22 @@ Moneda: USD (B/. a la par). Todas las cifras en US$ salvo indicación. Cifras "e
 > **Davivienda** no publica interinos trimestrales (confirmado ausente en SMV, SBP, davibank.pa y Latinex)
 > — se mantiene su cierre **Dic-2025 auditado**; solo existe un proxy regulatorio SBP individual (entidad,
 > no consolidado) que se cita como memo direccional, **fuera del ranking**. **Scotiabank** sigue congelado
-> en **oct-2024** (absorbido por Davivienda el 5-dic-2025, ya no reporta standalone). La composición
-> MBS/CMO de Banco General (~US$3,056M) se conserva de Dic-2025: el interino no re-divulga la tabla
-> completa de instrumentos. Detalle de las implicaciones contables del corte al final del documento.
+> en **oct-2024** (absorbido por Davivienda el 5-dic-2025, ya no reporta standalone). Los interinos 1T-2026 de
+> Banistmo, Banco General, BAC y Global **sí re-divulgan la composición completa por instrumento a Mar-2026**
+> (MBS/CMO, UST, soberano, corporativo, acciones), con comparativo del cierre anterior. Detalle de las
+> implicaciones contables del corte al final del documento.
 
 ---
 
 ## Hallazgos de cabecera (correcciones al corte preliminar)
 
-1. **El gran tenedor de MBS es Banco General, NO BAC.** Banco General mantiene ~**US$3,056 millones** en
-   MBS + CMO (≈51% de su cartera de inversiones a Dic-2025), 100% garantizados por agencias de EEUU
-   (GNMA/FNMA/FHLMC). **BAC NO divulga MBS** en su nota auditada (solo bonos de gobierno, corporativos y
-   acciones). Esto invierte la conclusión preliminar "MBS confirmado solo en BAC".
-2. **US Treasuries confirmados y cuantificados** en cuatro bancos: Banistmo (383M, ~25%), BAC (703M gob.
-   EEUU, 14% de su libro AFS), Banco General (130M explícito + Letras del Tesoro), Scotiabank (176M, 47%).
-   Global Bank y Davivienda no los desglosan por país (solo "gubernamental").
+1. **El gran tenedor de MBS es Banco General, NO BAC.** Banco General mantiene ~**US$3,051 millones** en
+   MBS + CMO (≈51% de su cartera de inversiones a Mar-2026; Dic-2025: 3,056M), 100% garantizados por agencias de EEUU
+   (GNMA/FNMA/FHLMC). **BAC NO divulga MBS** en su nota (solo bonos de gobierno, corporativos y
+   acciones) — confirmado también en el interino Mar-2026. Esto invierte la conclusión preliminar "MBS confirmado solo en BAC".
+2. **US Treasuries / gob. EEUU cuantificados** (Mar-2026 interino salvo Scotia): Banistmo (340M, ~21%), **BAC (856M gob.
+   EEUU, ~15% — subió desde 703M en el trimestre)**, Banco General (81M explícito + Letras del Tesoro — bajó desde 130M),
+   Scotiabank (176M, 47%, oct-24). Global Bank y Davivienda no los desglosan por país (solo "gubernamental").
 3. **Peso sobre el activo — ranking real (corte 31-mar-2026):** Banco General 28.6% (líder amplio) >
    Davivienda 23.4% (Dic-2025, carried) > **Sistema SBN 23.0% (Mar-2026 [REG])** > Banistmo 15.6% >
    **BAC 13.4%** > **Global 12.7%** > Scotiabank 9.7%. Cambio de orden vs. el corte Dic-2025: BAC
@@ -141,7 +142,7 @@ son mutuamente excluyentes → no hay doble conteo. Corporativo = 40.8% (Dic-24)
   (leído de la línea **"Valores y otros"** del Estado de Ganancias o Pérdidas Consolidado, p.11; saldo promedio Dic-24/Dic-25 = 1,619.0M).
   **Corrección:** el corte previo usaba erróneamente la entidad individual SBP 2024 (64.19M → 4.3%) bajo el supuesto de que el consolidado no lo desglosaba — sí lo desglosa. Con la cifra consolidada correcta, Banistmo cerraba la tabla de yields (el de menor rendimiento del perímetro), consistente con su portafolio de mayor calidad (deuda EEUU + Panamá ≈ 50%).
 - **Ingreso por intereses de inversiones (1T-2026, interino, "Valores y otros"):** 15,828,245 (1T-2025:
-  13,574,986) → anualizado ~63.3M → **yield ≈ 3.8% [INT]**. Sigue siendo el yield más bajo del perímetro
+  13,574,986) → anualizado ~63.3M → **yield ≈ 3.9% [INT]** (63.3M ÷ cartera de cierre 1,643.3M; método saldo de cierre). Sigue siendo el yield más bajo del perímetro
   (portafolio de mayor calidad crediticia), aunque sube ligeramente por el mix hacia FVTPL.
 - **Hallazgo estructural:** giro a *trading + held-to-maturity* — FVTPL 11.8% (2023) → 34.3% (2024) → 37.0%
   (Dic-2025) → **35.0% (Mar-2026)**; FVOCI 50.5% → 19.5% → 20.4%; costo amortizado 37.6% → 43.5% → 44.6%.
@@ -173,19 +174,17 @@ comparativo Dic-2024 en la misma nota. Corte vigente: **interino 31-mar-2026 no 
 El libro apenas se mueve en el trimestre (+0.3%, 5,968.3M → 5,985.6M); el % sobre activo se mantiene
 en 28.6%, el más alto del perímetro por un margen amplio.
 
-**Composición por instrumento (Dic-2025, CARRIED FORWARD a Mar-2026 — el interino no re-tabula la
-composición completa):** [AUD, carried]
-- **MBS + CMO = 3,055.6M (~51.2% de la cartera)** — 100% del MBS garantizado GNMA/FNMA/FHLMC (agencias
-  EEUU); 66% de los CMO respaldados por esos MBS. **El mayor tenedor de MBS del perímetro.**
-- ABS: 207.9M
-- **US Treasuries (Bonos Gob EEUU):** 130.3M (FVOCI) + Letras del Tesoro extranjeras (país no confirmado)
-- Bonos corporativos: locales 1,125.8M + extranjeros 954.5M ≈ 2,080M
-- Soberano Panamá: 95.4M + 2.7M ≈ 98M; otros gobiernos 12.7M
-- Acciones locales: 36.8M
+**Composición por instrumento (Mar-2026, interino — la Nota 6 SÍ re-tabula la composición completa; comparativo Dic-2025):** [INT]
+- **MBS + CMO = 3,050.8M (~51% de la cartera)** (Dic-2025: 3,055.6M) — 100% del MBS garantizado GNMA/FNMA/FHLMC
+  (agencias EEUU); 66% de los CMO respaldados por esos MBS. **El mayor tenedor de MBS del perímetro.**
+- ABS: 204.3M (Dic-2025: 207.9M)
+- **US Treasuries (Bonos Gob EEUU):** 81.2M (FVOCI) (Dic-2025: 130.3M — **baja ~US$49M en el trimestre**) + Letras del Tesoro extranjeras 89.0M
+- Bonos corporativos: 195.7M (FVTPL) + 2,129.4M (FVOCI) ≈ **2,325.1M** (Dic-2025: ~2,273M) — más papeles comerciales/letras locales 61.0M
+- Soberano Panamá: **84.5M** (Dic-2025: 98.1M); otros gobiernos 14.2M
+- Acciones: **42.9M** (Dic-2025: 37.1M)
 - **Duración divulgada solo para MBS (3.71a) y CMO (1.79a);** no del portafolio total. [AUD parcial]
-- **Color del interino Mar-2026:** los corporativos regionales bajan de 1,687.1M a **1,587.3M**; sin
-  cambio material en el resto del mix. La composición completa (MBS/CMO, UST, soberano) se mantiene
-  como la de Dic-2025 porque el interino no publica la nota completa de instrumentos. [INT parcial]
+- Color del interino: los corporativos regionales bajan de 1,687.1M a **1,587.3M**; el gran movimiento del trimestre
+  es la reducción de la exposición directa a UST (130.3→81.2M).
 
 - **Ingreso por intereses de inversiones (2025, auditado):** 283.5M (2024: 265.6M) → yield ≈ 5.0% [EST]
 - **Ingreso por intereses de inversiones (1T-2026, interino):** 73,406,405 (1T-2025: 67,896,754) →
@@ -216,16 +215,17 @@ trimestral del perímetro — y el % sobre activo pasó de 12.3% (Dic-2025) a **
 Global Bank en el ranking. Casi todo el incremento entró a VRCOUI en soberanos centroamericanos
 sub-grado de inversión (ver ratings abajo).
 
-**Composición por instrumento (VRCOUI/AFS, Dic-2025):** [AUD]
-- **Otros gobiernos Centroamérica: 3,651.7M (76.6%)** — núcleo soberano centroamericano.
-- **US gobierno y agencias: 703.2M (14.1%)** — no separa Treasuries de agencias; sin identificar MBS.
-- Bonos corporativos: 398.2M (9.2%); acciones 3.2M.
-- **MBS: NO divulgado** (búsqueda exhaustiva 2025+2024; todo "hipotecario" es cartera de préstamos).
-  Corrige la creencia preliminar de MBS en BAC. Sigue sin divulgarse en el interino Mar-2026.
+**Composición por instrumento (Mar-2026, interino Nota 8; comparativo Dic-2025):** [INT]
+- **Otros gobiernos Centroamérica: 4,168.2M (~74%)** (Dic-2025: 3,651.7M) — núcleo soberano centroamericano;
+  **absorbió casi todo el crecimiento del trimestre (+US$516M)**.
+- **US gobierno y agencias: 856.1M (~15%)** (Dic-2025: 703.2M — **+US$153M**) — no separa Treasuries de agencias.
+- Bonos corporativos: 360.3M (VRCOUI) + 119.4M (CA) ≈ **479.7M** (Dic-2025: ~521M); acciones 19.8M (VRCR) + 3.5M (VRCOUI) ≈ 23.3M.
+- **MBS: NO divulgado** (verificado también en el interino Mar-2026: no aparece línea hipotecaria en Nota 8 ni Nota 18;
+  todo "hipotecario" es cartera de préstamos). Corrige la creencia preliminar de MBS en BAC.
 
 - **Ingreso por intereses de inversiones (2025, auditado):** 291.4M (2024: 299.9M) → yield ≈ 5.9% [EST]
 - **Ingreso por intereses de inversiones (1T-2026, "Inversiones en valores"):** 76,787,220 (1T-2025:
-  74,243,812) → anualizado ~307.1M → **yield ≈ 5.8% [INT]** — el más alto del perímetro.
+  74,243,812) → anualizado ~307.1M → **yield ≈ 5.5% [INT]** (307.1M ÷ cartera de cierre 5,615.4M) — el más alto del perímetro. Nota: la cartera creció +12.5% en el trimestre, así que sobre saldo promedio el yield sería ~5.8%.
 - **Perímetro:** consolidado Centroamérica (NO solo Panamá). Entidad individual Panamá ≈US$13.3 mil M
   activos (Dic-2025, composición de cartera no divulgada aparte). NO confundir. [AUD]
 - **Ratings VRCOUI gobierno (Mar-2026, interino):** AA+ 856.1M · BBB 5.6M · BBB- 706.7M · **BB+ a B-
@@ -248,7 +248,7 @@ ef-global-bank-marzo-2026.
 | Métrica | FY2024 (jun) | FY2025 (jun) | **Mar-2026 (9mo interino)** | Conf. |
 |---|---|---|---|---|
 | Inversiones en valores, neto | 1,049,326,162 | 1,136,648,533 | **1,123,956,951** | [INT] |
-| — FVTPL (VRCR) | 71,631,682 | 69,298,285 | **~77,300,000 (6.9%)** | [INT] |
+| — FVTPL (VRCR) | 71,631,682 | 69,298,285 | **70,498,566 (6.3%)** | [INT] |
 | — FVOCI (ORI) | 566,447,182 | 674,051,469 | **627,060,676 (55.8%)** | [INT] |
 | — Costo amortizado | 402,341,535 | 383,980,942 | **419,586,518 (37.3%)** | [INT] |
 | Activo total | 8,520,282,632 | 8,503,001,576 | **8,833,254,505** | [INT] |
@@ -259,14 +259,15 @@ FY2019 — mismatch de fuente; FY2024/FY2025 sí leídos de la nota auditada). E
 contra jun-2025 (auditado) por ser el último cierre de año fiscal; el activo total del banco creció más
 rápido que la cartera de inversiones en el período, así que el % sobre activo cede de 13.37% a 12.7%.
 
-**Composición por instrumento (Mar-2026, interino):** [INT]
-- Gobierno ~518M, corporativo ~500M, acciones ~38M. **Sin MBS** (consistente con FY2025).
+**Composición por instrumento (Mar-2026, interino Nota 9 — desglose local/extranjero, cotiza/no cotiza):** [INT]
+- Gobierno **518.0M**, corporativo/deuda privada **525.3M**, acciones **73.9M**. **Sin MBS** (consistente con FY2025).
+  (Nota: total de notas 9.1+9.2+9.3 = 1,117.1M; el neto del balance 1,124.0M incluye intereses por cobrar.)
 - Tasas FVOCI en el rango 2.50%–9.375%.
 - **US Treasuries: sigue sin desglosarse por país** en el interino (igual que en el auditado FY2025).
 
 - **Ingreso por intereses de inversiones (FY2025, auditado):** 45.6M (FY2024: 40.5M) → yield ≈ 4.2% [EST]
-- **Ingreso por intereses de inversiones (9 meses a Mar-2026):** 36,843,768 (9 meses previos: 33,857,191)
-  → anualizado ~49.1M → **yield ≈ 4.3% [INT]**
+- **Ingreso por intereses de inversiones (trimestre Q3, ene-mar 2026):** 11,148,939 → anualizado ×4 ~44.6M
+  → **yield ≈ 4.0% [INT]** (44.6M ÷ cartera de cierre 1,124.0M; método saldo de cierre). Acumulado 9 meses: 36,843,768 (previo 33,857,191).
 - Ratings FY2025 (auditado, carried — el interino no re-tabula ratings): grado inversión 562.5M ·
   monitoreo estándar (BB+ a B-) 186.1M · sin calificación 383.8M. [AUD]
 - Vencimientos FY2025: FVOCI 1-5a 350.1M / >5a 143.6M; CA 1-5a 111.2M / >5a 262.7M (libro largo a CA). [AUD]
@@ -403,11 +404,15 @@ Davivienda 1,248.5 (Dic-25, carried) · Global 1,124.0 (Mar-26, INT, 9mo) · Sco
 **% inversiones / activo** (benchmark del sistema = SBN, banca de licencia general, Mar-2026):
 **BG 28.6%** > Davivienda 23.4% (Dic-25, carried) > **Sistema SBN (lic. general) 23.0%** > Banistmo 15.6% > **BAC 13.4%** > Global 12.7% > Scotia 9.7%. Cambios vs. el corte Dic-2025: BAC adelanta a Global (12.3% → 13.4% vs. Global 13.4% → 12.7%) y el Sistema sube por encima de Banistmo (22.1% → 23.0% vs. Banistmo 16.0% → 15.6%).
 
-**Yield estimado** (ingreso por intereses de inversiones del período, anualizado ÷ saldo promedio):
-**BAC 5.8%** · BG 4.9% · Global 4.3% · Scotiabank 4.1% · Davivienda 4.05% · **Banistmo 3.8%** (sigue
-siendo el más bajo del perímetro, pero sube desde 3.6%).
-- Ingresos por inversiones (US$M, último período, anualizado donde aplica): BAC 307.1 · BG 293.6 ·
-  Banistmo 63.3 · Global 49.1 · Davivienda 34.5 (Dic-25) · Scotiabank 15.0 (oct-24).
+**Yield estimado** (ingreso del trimestre 1T-2026 × 4 ÷ **portafolio de cierre Mar-2026**; método saldo de cierre, verificado por cálculo):
+**BAC 5.5%** · BG 4.9% · Scotiabank 4.1% · Davivienda 4.05% · Global 4.0% · **Banistmo 3.9%** (sigue
+siendo el más bajo del perímetro, pero sube desde 3.6%). Cálculo: BAC 307.1/5,615.4=5.47% · BG 293.6/5,985.6=4.91% ·
+Global 44.6/1,124.0=3.97% · Banistmo 63.3/1,643.3=3.85%. (Sobre *saldo promedio*: BAC 5.79%, Global 4.35% — la diferencia
+mayor es BAC por su crecimiento de +12.5% en el trimestre; los demás casi no cambian.)
+- Ingresos por inversiones — **trimestre 1T-2026 raw → anualizado ×4 (cierre FY2025)**, US$M:
+  BAC 76.8 → 307.1 (FY25 291.4) · BG 73.4 → 293.6 (FY25 283.5) · Banistmo 15.8 → 63.3 (FY25 58.2) ·
+  Global 11.1 (Q3) → 44.6 (FY-jun25 45.6; acumulado 9m 36.8M). Sin interino: Davivienda 34.5 (Dic-25) · Scotiabank 15.0 (oct-24).
+  El anualizado 1T26 queda muy cerca del cierre FY2025 en los cuatro bancos con interino (sin saltos de tendencia).
 
 **Clasificación contable (% FVTPL / FVOCI / CA, último):**
 - Banistmo (Mar-26, INT): 35.0 / 20.4 / 44.6 → sigue siendo de los libros más "trading", pero el FVTPL
@@ -418,11 +423,11 @@ siendo el más bajo del perímetro, pero sube desde 3.6%).
 - Davivienda (Dic-25, carried): 0.5 / 79.2 / 20.3
 - Scotiabank (oct-24, carried): 0 / 85.9 / 14.1
 
-**Instrumentos — mapa definitivo (último cierre/interino de cada banco):**
-- **MBS/CMO:** SOLO Banco General (~3,056M, ~51%, agency GNMA/FNMA/FHLMC; cifra carried de Dic-2025, el
-  interino no re-tabula composición). Ningún otro banco los divulga.
-- **US Treasuries:** Scotiabank 176M (47%, oct-24) · Banistmo 340.1M (~20.7%, Mar-26) · BAC 703M gob-EEUU
-  (14%, Dic-25, no actualizado en el interino) · BG 130M+ explícito (Dic-25, carried).
+**Instrumentos — mapa definitivo (interino Mar-2026 para BG/BAC/Banistmo/Global; último cierre para Davivienda/Scotia):**
+- **MBS/CMO:** SOLO Banco General (**3,050.8M, ~51%**, agency GNMA/FNMA/FHLMC; Mar-2026 interino, Dic-2025: 3,055.6M).
+  Ningún otro banco los divulga.
+- **US Treasuries / gob. EEUU:** Scotiabank 176M (47%, oct-24) · Banistmo 340.1M (~20.7%, Mar-26) · **BAC 856M gob-EEUU
+  (~15%, Mar-26, subió desde 703M)** · BG 81M explícito (Mar-26, bajó desde 130M).
   Global y Davivienda no los separan por país.
 - **Núcleo soberano local/regional:** BAC (Centroamérica, sub-grado creciendo fuerte en el trimestre),
   Davivienda (gob.), Banistmo (Panamá 496.4M ~30%, Mar-26) y Global (Panamá + LatAm).
