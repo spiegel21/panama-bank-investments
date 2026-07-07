@@ -15,14 +15,38 @@ inversiones, base del yield), al **balance** (activo total e inversiones), o a l
 > y del **SBP marzo-2026** de las que se extrajo cada cifra del corte vigente. Las 39 capturas Dic-2025/anteriores
 > se conservan como respaldo de las cifras que se arrastran (Davivienda Dic-2025, Scotiabank oct-2024, composición
 > auditada de Banco General, etc.).
->
-> | Banco / fuente | Capturas Mar-2026 |
-> |---|---|
-> | **Banco General** (interino 31-mar-2026) | `bancogeneral-mar2026_p023_balance.png`, `…p025_estado-resultados.png` |
-> | **Banistmo** (interino 1T26) | `banistmo-mar2026_p004_balance.png`, `…p005_estado-resultados.png`, `…p022/023/024/025_nota7-inversiones.png`, `…p017/018_ratings.png` |
-> | **BAC** (interino 31-mar-2026) | `bac-mar2026_p005_balance.png`, `…p007_estado-resultados.png`, `…p019_ratings-vrcoui.png`, `…p020_ratings-ca.png` |
-> | **Global Bank** (interino Q3 FY26, 31-mar-2026) | `globalbank-mar2026_p004_balance.png`, `…p005_resultados.png`, `…p059_nota9-fvoci.png`, `…p060_nota9-ca.png`, `…p074_intereses.png` |
-> | **SBP sistema** (mar-2026) | `sbp-iab-mar2026_p06_iac.png`, `…p08_estado-resultados.png`, `…p02_afs.png`, `sbp-balance-mar2026_inversiones-activo.png` |
+
+| # | Captura | Pág. PDF | Qué respalda |
+|---|---|---|---|
+| | **Banco General, S.A. y Subsidiarias — Interino 31-mar-2026 (1T-2026, no auditado)** | | [PDF](https://www.bgeneral.com/wp-content/uploads/2026/05/INT%20y%20EF%20-%20Banco%20General,%20S.A.%20y%20Subs.%20-%20Marzo%202026.pdf) |
+| 40 | [`bancogeneral-mar2026_p023_balance.png`](bancogeneral-mar2026_p023_balance.png) | 23 | Balance consolidado (inversiones 5,985.6 M; activo 20,966 M) |
+| 41 | [`bancogeneral-mar2026_p025_estado-resultados.png`](bancogeneral-mar2026_p025_estado-resultados.png) | 25 | Estado de resultados — intereses sobre inversiones (73.4 M / trim.) |
+| | **Banistmo, S.A. y Subsidiarias — Interino 1T-2026 (31-mar-2026, no auditado)** | | [PDF](https://assets.ctfassets.net/catp2t59asao/7ezsgNsKAl5X9N0tU2Oa0m/707664e4f324bf782e16102b486f6d44/C000-Banistmo-SA-y-Subsidiarias-Informe-Completo-Mar26-Interino-Consolidado-Firmado-Esp.pdf) |
+| 42 | [`banistmo-mar2026_p004_balance.png`](banistmo-mar2026_p004_balance.png) | 4 | Balance (inversiones 1,643.3 M; activo 10,504 M) |
+| 43 | [`banistmo-mar2026_p005_estado-resultados.png`](banistmo-mar2026_p005_estado-resultados.png) | 5 | Estado de resultados — "Valores y otros" (15.8 M / trim.) |
+| 44 | [`banistmo-mar2026_p017_ratings.png`](banistmo-mar2026_p017_ratings.png) | 17 | Nota 5 calidad crediticia por calificación — parte 1 |
+| 45 | [`banistmo-mar2026_p018_ratings.png`](banistmo-mar2026_p018_ratings.png) | 18 | Nota 5 calidad crediticia por calificación — parte 2 |
+| 46 | [`banistmo-mar2026_p022_nota7-inversiones.png`](banistmo-mar2026_p022_nota7-inversiones.png) | 22 | Nota 7 Inversiones — clasificación y total |
+| 47 | [`banistmo-mar2026_p023_nota7-inversiones.png`](banistmo-mar2026_p023_nota7-inversiones.png) | 23 | Nota 7.1 FVTPL — composición (UST, soberano Panamá) |
+| 48 | [`banistmo-mar2026_p024_nota7-inversiones.png`](banistmo-mar2026_p024_nota7-inversiones.png) | 24 | Nota 7.2 FVOCI — composición (soberano Panamá, acciones) |
+| 49 | [`banistmo-mar2026_p025_nota7-inversiones.png`](banistmo-mar2026_p025_nota7-inversiones.png) | 25 | Nota 7.3 costo amortizado — corporativos 714.1 M |
+| | **BAC International Bank, Inc. y Subsidiarias — Interino 31-mar-2026 (no auditado)** | | [PDF](https://www.baccredomatic.com/sites/default/files/2026-05/PAN_EF_BIB_SUBS_0326.pdf) |
+| 50 | [`bac-mar2026_p005_balance.png`](bac-mar2026_p005_balance.png) | 5 | Balance (inversiones 5,615.4 M; activo 42,016 M) |
+| 51 | [`bac-mar2026_p007_estado-resultados.png`](bac-mar2026_p007_estado-resultados.png) | 7 | Estado de resultados — intereses sobre inversiones (76.8 M / trim.) |
+| 52 | [`bac-mar2026_p019_ratings-vrcoui.png`](bac-mar2026_p019_ratings-vrcoui.png) | 19 | Nota 4 — calificaciones VRCOUI (BB+ a B- 3,455.9 M) |
+| 53 | [`bac-mar2026_p020_ratings-ca.png`](bac-mar2026_p020_ratings-ca.png) | 20 | Nota 4 — calificaciones costo amortizado (184.6 M) |
+| | **Global Bank Corporation y Subsidiarias — Interino 31-mar-2026 (Q3 FY-jun, no auditado)** | | [PDF](https://www.globalbank.com.pa/sites/default/files/media/estados_financieros/global_bank/ef-global-bank-marzo-2026.pdf) |
+| 54 | [`globalbank-mar2026_p004_balance.png`](globalbank-mar2026_p004_balance.png) | 4 | Balance (inversiones 1,124.0 M; activo 8,833.3 M) |
+| 55 | [`globalbank-mar2026_p005_resultados.png`](globalbank-mar2026_p005_resultados.png) | 5 | Estado de ganancia o pérdida (9 meses) |
+| 56 | [`globalbank-mar2026_p059_nota9-fvoci.png`](globalbank-mar2026_p059_nota9-fvoci.png) | 59 | Nota 9.1/9.2 — FVOCI 627.1 M / FVTPL |
+| 57 | [`globalbank-mar2026_p060_nota9-ca.png`](globalbank-mar2026_p060_nota9-ca.png) | 60 | Nota 9.3 — costo amortizado 419.6 M |
+| 58 | [`globalbank-mar2026_p074_intereses.png`](globalbank-mar2026_p074_intereses.png) | 74 | Intereses ganados sobre inversiones (9 meses 36.8 M) |
+| | **SBP — Informe de Actividad Bancaria, Marzo 2026** | | [PDF](https://www.superbancos.gob.pa/documentos/financiera_y_estadistica/estudios/IAB/IAB-0326.pdf) |
+| 59 | [`sbp-iab-mar2026_p02_afs.png`](sbp-iab-mar2026_p02_afs.png) | 2 | Resumen ejecutivo — pérdidas no realizadas AFS cruzan a +4.7 M |
+| 60 | [`sbp-iab-mar2026_p06_iac.png`](sbp-iab-mar2026_p06_iac.png) | 6 | Solvencia — IAC del CBI 16.27% |
+| 61 | [`sbp-iab-mar2026_p08_estado-resultados.png`](sbp-iab-mar2026_p08_estado-resultados.png) | 8 | Estado de resultados CBI — ingreso por inversiones |
+| | **SBP — Balance de Situación SBN/CBI (reportes estadísticos 2026/03)** | | [XLSX](https://www.superbancos.gob.pa/documentos/financiera_y_estadistica/reportes_estadisticos/2026/03/balance_ambito_nacional/RE-BALANCE-COMPARATIVO-en-SBN.xlsx) |
+| 62 | [`sbp-balance-mar2026_inversiones-activo.png`](sbp-balance-mar2026_inversiones-activo.png) | — | **Inversiones/Activo — SBN 33,389.6 / 145,432.5 = 23.0%; CBI 36,959.1 / 164,208.5 = 22.5% (Mar-2026)** |
 
 ---
 
