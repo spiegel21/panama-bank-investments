@@ -240,9 +240,9 @@ hr.soft{border:none;border-top:1px solid var(--hair);margin:26px 0}
   <section id="resumen">
     <div class="sec-head"><span class="sec-num">01</span><h2>Resumen ejecutivo</h2></div>
     <p class="sec-sub">El sistema bancario panameño es <b>dominado por crédito</b>: las inversiones en valores son el
-      segundo bloque de activo productivo, ~23.0% del balance de la banca de licencia general (SBN, Mar-2026). Dentro de ese marco, Banistmo corre un
-      portafolio de ~US$1.64&nbsp;mil millones (Mar-2026), de perfil <b>corporativo (~44%) + soberano Panamá (~30%) +
-      Tesoros de EE.UU. (~20%)</b> y <b>el más orientado a trading</b> del grupo. Frente a él, <b>Banco General</b>
+      segundo bloque de activo productivo, ~23.0% del balance de la banca de licencia general (SBN, Mar-2026). Dentro de ese marco, Banistmo corre una
+      cartera de <b>renta fija</b> de ~US$1.61&nbsp;mil millones (Mar-2026, ex-acciones), de perfil <b>corporativo (~45%) + soberano Panamá (~31%) +
+      Tesoros de EE.UU. (~21%)</b> y <b>el más orientado a trading</b> del grupo. Frente a él, <b>Banco General</b>
       destaca por invertir la mayor tajada de su activo (28.6%) sobre un núcleo poco habitual de <b>MBS de agencias
       de EE.UU.</b>.</p>
 
@@ -250,8 +250,8 @@ hr.soft{border:none;border-top:1px solid var(--hair);margin:26px 0}
       <div class="tile self">
         <div class="rail"></div>
         <div class="cap">Portafolio Banistmo · Mar-2026</div>
-        <div class="val">US$1,643<small> M</small></div>
-        <div class="sub"><span class="delta down">▼ −2.7%</span> vs. Dic-2025 (US$1,689 M) · <span class="badge b-est" style="padding:2px 7px">Interino 1T26</span></div>
+        <div class="val">US$1,611<small> M</small></div>
+        <div class="sub"><b>Renta fija</b> (ex-acciones US$33 M) · total reportado US$1,643 M · <span class="badge b-est" style="padding:2px 7px">Interino 1T26</span></div>
       </div>
       <div class="tile">
         <div class="rail" style="background:var(--muted)"></div>
@@ -262,8 +262,8 @@ hr.soft{border:none;border-top:1px solid var(--hair);margin:26px 0}
       <div class="tile self">
         <div class="rail"></div>
         <div class="cap">Peso s/ activo · Banistmo</div>
-        <div class="val">15.6<small>%</small></div>
-        <div class="sub">vs. BG 28.6% · BAC 13.4% · Global 12.7% · Sistema (lic. gral.) 23.0%</div>
+        <div class="val">15.3<small>%</small></div>
+        <div class="sub">renta fija · vs. BG 28.6% · BAC 13.4% · Global 12.7% · Sistema (lic. gral.) 23.0%</div>
       </div>
       <div class="tile">
         <div class="rail" style="background:var(--s1)"></div>
@@ -273,7 +273,19 @@ hr.soft{border:none;border-top:1px solid var(--hair);margin:26px 0}
       </div>
     </div>
 
-    <div style="margin-top:20px" class="callout co-warn">
+    <div style="margin-top:20px" class="callout co-info">
+      <span class="ic">i</span>
+      <div><b>Banistmo en base renta fija (ex-acciones).</b> A pedido de tesorería, las cifras de Banistmo se muestran
+        <b>sólo renta fija</b>: se retiró el único componente de patrimonio de su cartera de valores — los
+        <b>“Instrumentos de patrimonio” de la Nota 7.2 (FVOCI), B/.32,759,171</b> (acciones locales cotizadas 32.53 M +
+        acciones al costo 0.23 M). Cartera reportada US$1,643.3 M → <b>renta fija US$1,610.6 M</b> (15.3% del activo,
+        yield ~3.93%). Como esas acciones se llevan a <b>FVOCI-patrimonio</b> (cambios de valor al ORI, sin reciclaje a
+        resultados, y sin intereses), <b>no había ganancia de acciones en las líneas de ingreso</b> — el ajuste sólo
+        reduce el tamaño de la cartera. Los demás bancos se muestran sobre su cartera total reportada.
+        Investigación nota por nota y evidencia: <a href="banistmo-renta-fija.html"><b>banistmo-renta-fija.html</b></a>.</div>
+    </div>
+
+    <div style="margin-top:16px" class="callout co-warn">
       <span class="ic">!</span>
       <div><b>Nota de comparabilidad — leer antes de comparar cifras.</b> <b>Corte 31-mar-2026:</b> los bancos van sobre
         sus <b>interinos 1T26 (no auditados)</b> — excepto <b>Davivienda</b> (Dic-2025 auditado; no publica interinos
@@ -338,7 +350,7 @@ hr.soft{border:none;border-top:1px solid var(--hair);margin:26px 0}
     <div class="grid2">
       <div class="chart-card">
         <h3>Portafolio de inversiones, neto</h3>
-        <div class="chsub">US$ millones · último disponible · BAC = consolidado Centroamérica</div>
+        <div class="chsub">US$ millones · último disponible · Banistmo en renta fija (ex-acciones) · BAC = consolidado Centroamérica</div>
         <div class="svgwrap"><svg id="ch-size" viewBox="0 0 520 300" role="img" aria-label="Tamaño del portafolio por banco"></svg></div>
       </div>
       <div class="chart-card">
@@ -361,9 +373,9 @@ hr.soft{border:none;border-top:1px solid var(--hair);margin:26px 0}
           <tr><td><span class="chip" style="background:var(--s3)"></span>BAC</td>
             <td class="num">5,615.4</td><td class="num">Mar-2026</td><td class="num">42,016</td>
             <td class="num">13.4%</td><td class="mini">CA consol.</td><td><span class="badge b-est">Int.</span></td></tr>
-          <tr class="self"><td><span class="chip" style="background:var(--s1)"></span>Banistmo</td>
-            <td class="num">1,643.3</td><td class="num">Mar-2026</td><td class="num">10,504</td>
-            <td class="num">15.6%</td><td class="mini">PA consol.</td><td><span class="badge b-est">Int.</span></td></tr>
+          <tr class="self"><td><span class="chip" style="background:var(--s1)"></span>Banistmo <span class="mini">(renta fija)</span></td>
+            <td class="num">1,610.6</td><td class="num">Mar-2026</td><td class="num">10,504</td>
+            <td class="num">15.3%</td><td class="mini">PA consol. · ex-acciones</td><td><span class="badge b-est">Int.</span></td></tr>
           <tr><td><span class="chip" style="background:var(--s5)"></span>Davivienda PA</td>
             <td class="num">1,248.5</td><td class="num">Dic-2025</td><td class="num">5,342</td>
             <td class="num">23.4%</td><td class="mini">no publica interino</td><td><span class="badge b-aud">Aud.</span></td></tr>
@@ -376,7 +388,7 @@ hr.soft{border:none;border-top:1px solid var(--hair);margin:26px 0}
         </tbody>
       </table>
     </div>
-    <p class="mini" style="margin-top:10px"><b>Corte 31-mar-2026 (interinos 1T26 no auditados).</b> Movimientos del trimestre: <b>BAC</b> sumó ~US$625 M a su cartera (+12.5%, de 4,989.8 a 5,615.4 M) y sube a 13.4% del activo, superando a Global; <b>Banistmo</b> redujo su cartera 2.7% (1,689.2→1,643.3 M) y baja a 15.6%; <b>Banco General</b> estable en 28.6%. <b>Davivienda</b> se mantiene en Dic-2025 (auditado): no publica estados interinos trimestrales — la única fuente Mar-2026 es el balance regulatorio individual de la SBP (no consolidado, sin notas), que se usa solo como referencia direccional. BAC = consolidado Centroamérica (no solo Panamá). <b>Global Bank</b> cierra en junio: su 1T26 es el trimestre a mar-2026 (Q3 del FY-jun).</p>
+    <p class="mini" style="margin-top:10px"><b>Corte 31-mar-2026 (interinos 1T26 no auditados).</b> Movimientos del trimestre: <b>BAC</b> sumó ~US$625 M a su cartera (+12.5%, de 4,989.8 a 5,615.4 M) y sube a 13.4% del activo, superando a Global; <b>Banistmo</b> redujo su cartera 2.7% (total reportado 1,689.2→1,643.3 M); en <b>base renta fija</b> (ex-acciones B/.32.8 M) queda en <b>1,610.6 M</b> y 15.3% del activo; <b>Banco General</b> estable en 28.6%. <b>Davivienda</b> se mantiene en Dic-2025 (auditado): no publica estados interinos trimestrales — la única fuente Mar-2026 es el balance regulatorio individual de la SBP (no consolidado, sin notas), que se usa solo como referencia direccional. BAC = consolidado Centroamérica (no solo Panamá). <b>Global Bank</b> cierra en junio: su 1T26 es el trimestre a mar-2026 (Q3 del FY-jun).</p>
   </section>
 
   <!-- INSTRUMENTOS -->
@@ -396,9 +408,9 @@ hr.soft{border:none;border-top:1px solid var(--hair);margin:26px 0}
           <th>US Treasuries</th><th>Acciones</th><th>Confianza</th>
         </tr></thead>
         <tbody>
-          <tr class="self"><td>Banistmo</td><td class="mini">Corp + sob. · trading</td>
-            <td>Panamá US$496 M</td><td><b>US$726 M</b> <span class="mini">(~44%)</span></td>
-            <td class="nd">No</td><td>US$340 M <span class="mini">(~21%)</span></td><td>US$33 M</td>
+          <tr class="self"><td>Banistmo <span class="mini">(renta fija)</span></td><td class="mini">Corp + sob. · trading</td>
+            <td>Panamá US$496 M <span class="mini">(~31%)</span></td><td><b>US$726 M</b> <span class="mini">(~45%)</span></td>
+            <td class="nd">No</td><td>US$340 M <span class="mini">(~21%)</span></td><td class="nd">Excluido <span class="mini">(US$33 M, ex)</span></td>
             <td><span class="badge b-est">Int.</span></td></tr>
           <tr><td>Banco General</td><td class="mini">Agency-MBS + corp IG</td>
             <td>Panamá US$84 M</td><td><b>~US$2,325 M</b></td>
@@ -433,10 +445,11 @@ hr.soft{border:none;border-top:1px solid var(--hair);margin:26px 0}
           Centroamérica + gob. de EE.UU.), corporativos y acciones. Corrige el corte preliminar.</div>
       </div>
       <div class="callout co-info"><span class="ic">i</span>
-        <div><b>Banistmo: corporativo ~44%, la mayor tajada.</b> A Mar-2026 (interino), corporativos US$726 M (~44%) — de los
-          cuales <b>US$714 M están a costo amortizado</b> (held-to-maturity), invisibles en las vistas de valor
-          razonable; soberano Panamá US$496 M (~30%) y Tesoros de EE.UU. US$340 M (~21%). Sin MBS. La mayor exposición
-          a UST en proporción la tiene <b>Scotiabank</b> (47% de su cartera) antes de ser absorbido.</div>
+        <div><b>Banistmo: corporativo ~45%, la mayor tajada.</b> A Mar-2026 (interino, base renta fija ex-acciones),
+          corporativos US$726 M (~45%) — de los cuales <b>US$714 M están a costo amortizado</b> (held-to-maturity),
+          invisibles en las vistas de valor razonable; soberano Panamá US$496 M (~31%) y Tesoros de EE.UU. US$340 M
+          (~21%). Sin MBS. El único componente de patrimonio (acciones US$33 M, Nota 7.2 FVOCI) se excluye por el enfoque
+          de renta fija. La mayor exposición a UST en proporción la tiene <b>Scotiabank</b> (47% de su cartera) antes de ser absorbido.</div>
       </div>
     </div>
   </section>
@@ -471,6 +484,10 @@ hr.soft{border:none;border-top:1px solid var(--hair);margin:26px 0}
         <p class="mini" style="margin:0">En el otro extremo, <b>Banco General</b> (85% FVOCI), <b>BAC</b> (96% AFS) y
           <b>Davivienda</b> (79% FVOCI) llevan casi toda la cartera a valor razonable con cambios en ORI — volatilidad
           contenida en patrimonio, no en resultados. <b>Global</b> es el más cargado a costo amortizado (37%).</p>
+        <p class="mini" style="margin:8px 0 0"><b>Nota:</b> esta vista es la clasificación contable NIIF 9 (base total
+          reportada). El FVOCI de Banistmo incluye el único componente de patrimonio de la cartera — <b>acciones
+          B/.32.8 M (Nota 7.2)</b>, que se excluyen en las vistas de tamaño y rendimiento por el enfoque de renta fija
+          (ver <a href="banistmo-renta-fija.html">evidencia</a>).</p>
       </div>
     </div>
   </section>
@@ -501,11 +518,11 @@ hr.soft{border:none;border-top:1px solid var(--hair);margin:26px 0}
           <tr><td>Global Bank</td><td class="num">11.1 <span class="mini">(Q3 1T26)</span></td><td class="num">44.6</td><td class="num">45.6</td><td class="num">~4.0%</td><td class="mini">PA consol.</td><td><span class="badge b-est">Est.</span></td></tr>
           <tr><td>Scotiabank PA</td><td class="num nd">—</td><td class="num nd">—</td><td class="num">15.0</td><td class="num">~4.1%</td><td class="mini">Oct-2024</td><td><span class="badge b-est">Est.</span></td></tr>
           <tr><td>Davivienda PA</td><td class="num nd">—</td><td class="num nd">—</td><td class="num">34.5</td><td class="num">~4.0%</td><td class="mini">Dic-2025</td><td><span class="badge b-est">Est.</span></td></tr>
-          <tr class="self"><td>Banistmo</td><td class="num">15.8 <span class="mini">(1T26)</span></td><td class="num">63.3</td><td class="num">58.2</td><td class="num">~3.9%</td><td class="mini">consol. (Valores y otros)</td><td><span class="badge b-est">Est.</span></td></tr>
+          <tr class="self"><td>Banistmo</td><td class="num">15.8 <span class="mini">(1T26)</span></td><td class="num">63.3</td><td class="num">58.2</td><td class="num">~3.9%</td><td class="mini">consol. · renta fija (Valores y otros)</td><td><span class="badge b-est">Est.</span></td></tr>
         </tbody>
       </table>
     </div>
-    <p class="mini" style="margin-top:10px"><b>Método:</b> <b>Raw</b> = ingreso por intereses de inversiones del <b>trimestre ene-mar 2026</b> (para Global, su trimestre Q3 del FY-junio); <b>Anualizado</b> = raw × 4; <b>yield = anualizado ÷ portafolio de cierre (Mar-2026)</b>. Con este método (saldo de cierre, verificado por cálculo): BAC 307.1/5,615.4 = 5.5%; BG 293.6/5,985.6 = 4.9%; Global 44.6/1,124.0 = 4.0%; Banistmo 63.3/1,643.3 = 3.9%. El anualizado 1T26 queda muy cerca del cierre FY2025 (BAC 307.1 vs 291.4; BG 293.6 vs 283.5; Global 44.6 vs 45.6; Banistmo 63.3 vs 58.2). Nota: BAC creció su cartera +12.5% en el trimestre, así que sobre <i>saldo promedio</i> su yield sería ~5.8%; sobre saldo de cierre da 5.5%. Global acumuló US$36.8M en 9 meses. Banistmo lee "Valores y otros". <b>Davivienda y Scotiabank</b> no tienen interino: se muestran a su último cierre (Dic-2025 34.5M / Oct-2024 15.0M), yields ~4.0% / ~4.1% sobre su base anual.</p>
+    <p class="mini" style="margin-top:10px"><b>Método:</b> <b>Raw</b> = ingreso por intereses de inversiones del <b>trimestre ene-mar 2026</b> (para Global, su trimestre Q3 del FY-junio); <b>Anualizado</b> = raw × 4; <b>yield = anualizado ÷ portafolio de cierre (Mar-2026)</b>. Con este método (saldo de cierre, verificado por cálculo): BAC 307.1/5,615.4 = 5.5%; BG 293.6/5,985.6 = 4.9%; Global 44.6/1,124.0 = 4.0%; Banistmo 63.3/<b>1,610.6</b> = <b>3.93%</b> (denominador renta fija, ex-acciones; sobre el total reportado 1,643.3 daría 3.85%). El anualizado 1T26 queda muy cerca del cierre FY2025 (BAC 307.1 vs 291.4; BG 293.6 vs 283.5; Global 44.6 vs 45.6; Banistmo 63.3 vs 58.2). Nota: BAC creció su cartera +12.5% en el trimestre, así que sobre <i>saldo promedio</i> su yield sería ~5.8%; sobre saldo de cierre da 5.5%. Global acumuló US$36.8M en 9 meses. Banistmo lee "Valores y otros". <b>Davivienda y Scotiabank</b> no tienen interino: se muestran a su último cierre (Dic-2025 34.5M / Oct-2024 15.0M), yields ~4.0% / ~4.1% sobre su base anual.</p>
   </section>
 
   <!-- EVOLUCION -->
@@ -523,7 +540,7 @@ hr.soft{border:none;border-top:1px solid var(--hair);margin:26px 0}
       </div>
       <div class="chart-card">
         <h3>Portafolio por banco — trayectoria</h3>
-        <div class="chsub">US$ millones · puntos según fecha disponible</div>
+        <div class="chsub">US$ millones · puntos según fecha disponible · cartera total reportada (incl. acciones)</div>
         <div class="svgwrap"><svg id="ch-trend" viewBox="0 0 520 260" role="img" aria-label="Trayectoria del portafolio por banco"></svg></div>
       </div>
     </div>
@@ -632,15 +649,15 @@ hr.soft{border:none;border-top:1px solid var(--hair);margin:26px 0}
     <div class="take">
       <div class="take-item"><div class="k">A</div><div>
         <h3>Inviertes más que tus pares de tamaño, pero mucho menos que Banco General</h3>
-        <p>15.6% del activo (Mar-2026) vs. 13.4% (BAC) y 12.7% (Global). Estás algo más "cargado" que competidores comparables — pero
+        <p>15.3% del activo (Mar-2026, renta fija ex-acciones; 15.6% con acciones) vs. 13.4% (BAC) y 12.7% (Global). Estás algo más "cargado" que competidores comparables — pero
           Banco General invierte <b>28.6%</b> de su balance, casi el doble, y sobre un núcleo de agency-MBS líquido. Ahí está
           el techo de referencia si quieres subir el peso de inversiones sin sacrificar liquidez. Nota del trimestre: BAC creció su
           cartera +12.5% (a 13.4% del activo), acercándose por peso.</p>
       </div></div>
       <div class="take-item"><div class="k">B</div><div>
-        <h3>Tu cartera es corporativo-céntrica (~44%), con ~20% en Tesoros de EE.UU.</h3>
-        <p>A Mar-2026: corporativos US$726 M (~44%, de los cuales US$714 M held-to-maturity a costo amortizado),
-          soberano Panamá US$496 M (~30%) y Tesoros de EE.UU. US$340 M (~21%). Más riesgo de crédito y de spread que una
+        <h3>Tu cartera es corporativo-céntrica (~45%), con ~21% en Tesoros de EE.UU.</h3>
+        <p>A Mar-2026 (renta fija, ex-acciones): corporativos US$726 M (~45%, de los cuales US$714 M held-to-maturity a costo amortizado),
+          soberano Panamá US$496 M (~31%) y Tesoros de EE.UU. US$340 M (~21%). Más riesgo de crédito y de spread que una
           cartera soberano-pesada como la de Davivienda o BAC — a monitorear frente a la pérdida del grado de inversión de
           Panamá. Duración ~2.5 años, conservadora.</p>
       </div></div>
@@ -899,7 +916,7 @@ hr.soft{border:none;border-top:1px solid var(--hair);margin:26px 0}
       {name:"Scotiabank",c:"--s6",v:4.1,tip:"Oct-2024 · sucursal PA · estimado"},
       {name:"Davivienda",c:"--s5",v:4.05,tip:"FY2025 · post-fusión (sin interino) · estimado"},
       {name:"Global Bank",c:"--s4",v:4.0,tip:"Q3 1T26 × 4 ÷ cartera cierre · FY-jun · estimado"},
-      {name:"Banistmo",c:"--s1",self:true,v:3.9,tip:"1T26 × 4 ÷ cartera cierre · consol. (Valores y otros) · estimado"}
+      {name:"Banistmo",c:"--s1",self:true,v:3.93,tip:"1T26 × 4 ÷ cartera cierre renta fija (1,610.6) · consol. (Valores y otros) · estimado"}
     ],{pct:true,max:7,ticks:7});
   }
 
@@ -938,7 +955,7 @@ hr.soft{border:none;border-top:1px solid var(--hair);margin:26px 0}
     hbars(document.getElementById("ch-size"),[
       {name:"Banco General",c:"--s2",v:5985.6,tip:"Mar-2026 (interino) · PA consol."},
       {name:"BAC",c:"--s3",v:5615.4,tip:"Mar-2026 (interino) · CA consol. (no solo Panamá)"},
-      {name:"Banistmo",c:"--s1",self:true,v:1643.3,tip:"Mar-2026 (interino) · PA consol."},
+      {name:"Banistmo",c:"--s1",self:true,v:1610.6,tip:"Mar-2026 (interino) · PA consol. · renta fija (ex-acciones US$33M; total reportado 1,643.3)"},
       {name:"Davivienda",c:"--s5",v:1248.5,tip:"Dic-2025 · post-fusión (sin interino)"},
       {name:"Global Bank",c:"--s4",v:1124.0,tip:"Mar-2026 (interino) · FY-junio (Q3)"},
       {name:"Scotiabank",c:"--s6",v:371.3,tip:"Oct-2024 · absorbido dic-2025"}
@@ -947,7 +964,7 @@ hr.soft{border:none;border-top:1px solid var(--hair);margin:26px 0}
       {name:"Banco General",c:"--s2",v:28.6,tip:"Mar-2026 (interino)"},
       {name:"Davivienda",c:"--s5",v:23.4,tip:"Dic-2025 · post-fusión (sin interino)"},
       {name:"Sistema (ref.)",c:"--muted",v:23.0,tip:"Sist. Bancario Nacional · lic. general · Mar-2026"},
-      {name:"Banistmo",c:"--s1",self:true,v:15.6,tip:"Mar-2026 (interino)"},
+      {name:"Banistmo",c:"--s1",self:true,v:15.3,tip:"Mar-2026 (interino) · renta fija (ex-acciones); total reportado 15.6%"},
       {name:"BAC",c:"--s3",v:13.4,tip:"Mar-2026 · CA consol."},
       {name:"Global Bank",c:"--s4",v:12.7,tip:"Mar-2026 · FY-junio (Q3)"},
       {name:"Scotiabank",c:"--s6",v:9.7,tip:"Oct-2024"}

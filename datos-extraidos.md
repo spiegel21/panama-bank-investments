@@ -36,7 +36,7 @@ Moneda: USD (B/. a la par). Todas las cifras en US$ salvo indicación. Cifras "e
    EEUU, ~15% — subió desde 703M en el trimestre)**, Banco General (81M explícito + Letras del Tesoro — bajó desde 130M),
    Scotiabank (176M, 47%, oct-24). Global Bank y Davivienda no los desglosan por país (solo "gubernamental").
 3. **Peso sobre el activo — ranking real (corte 31-mar-2026):** Banco General 28.6% (líder amplio) >
-   Davivienda 23.4% (Dic-2025, carried) > **Sistema SBN 23.0% (Mar-2026 [REG])** > Banistmo 15.6% >
+   Davivienda 23.4% (Dic-2025, carried) > **Sistema SBN 23.0% (Mar-2026 [REG])** > Banistmo 15.3% (renta fija; 15.6% total) >
    **BAC 13.4%** > **Global 12.7%** > Scotiabank 9.7%. Cambio de orden vs. el corte Dic-2025: BAC
    adelanta a Global (su cartera saltó +12.5% en el trimestre, casi todo a soberanos centroamericanos
    sub-grado) y el Sistema (SBN) sube por encima de Banistmo.
@@ -104,8 +104,11 @@ vigente del reporte: **1T-2026 interino no auditado** (assets.ctfassets.net, inf
 | — FVTPL (VRCR) | 530,775,476 (34.3%) | 625,714,847 (37.0%) | **574,432,415 (35.0%)** | [INT] |
 | — FVOCI (ORI) | 435,323,046 (28.1%) | 328,871,417 (19.5%) | **335,452,354 (20.4%)** | [INT] |
 | — Costo amortizado | 582,688,088 (37.6%) | 734,644,011 (43.5%) | **733,459,323 (44.6%)** | [INT] |
+| — (−) Acciones (patrimonio, FVOCI) | (36,866,149) | (32,759,171) | **(32,759,171)** | [AUD] |
+| **Inversiones renta fija (ex-acciones)** | **1,511,920,461** | **1,656,471,104** | **1,610,584,921** | [EST] |
 | Activo total | 10,471.8 | 10,570,213,274 | **10,503,719,926** | [INT] |
-| % inversiones / activo | 14.8% | 16.0% | **15.6%** | [EST] |
+| % inversiones / activo (total) | 14.8% | 16.0% | **15.6%** | [EST] |
+| % inversiones renta fija / activo | 14.4% | 15.7% | **15.3%** | [EST] |
 
 El libro se contrajo **-2.7%** en el trimestre (1,689.2M → 1,643.3M), con el FVTPL cediendo 2.0pp
 (37.0% → 35.0%) — la primera baja de la serie tras tres años de subida ininterrumpida.
@@ -128,6 +131,26 @@ El libro se contrajo **-2.7%** en el trimestre (1,689.2M → 1,643.3M), con el F
 - Patrimonio/acciones: 32.8M (sin cambio).
 - **Sin MBS.** El mix de instrumento apenas se mueve trimestre a trimestre; el cambio grande está en el
   balance total (-2.7%) y en el mix contable (FVTPL 37.0%→35.0%), no en la composición subyacente.
+
+**AJUSTE RENTA FIJA — retiro del componente de acciones (enfoque de tesorería) [AUD/INT]:**
+Investigación nota por nota del último EE.FF. (interino Mar-2026) para aislar la renta fija. El **único** componente
+de patrimonio de toda la cartera de valores está en la **Nota 7.2 (FVOCI), sub-línea "Instrumentos de patrimonio":
+B/.32,759,171** (Acciones locales cotizadas con valoración 32,529,865 + Acciones al costo 229,306), idéntico a
+Dic-2025 (Dic-2024: 36,866,149). FVTPL (Nota 7.1) y costo amortizado (Nota 7.3) son **100% deuda** — verificado
+línea por línea. Detalle y evidencia visual: `banistmo-renta-fija.html`.
+
+- **Cartera renta fija (ex-acciones), Mar-2026:** 1,643,344,092 − 32,759,171 = **1,610,584,921**.
+  - FVTPL 574,432,415 (100% deuda) · FVOCI-deuda 302,693,183 · Costo amortizado 733,459,323.
+- **Cartera renta fija (ex-acciones), Dic-2025 (aud.):** 1,689,230,275 − 32,759,171 = **1,656,471,104**.
+- **% inversiones (renta fija) / activo, Mar-2026:** 1,610,584,921 ÷ 10,503,719,926 = **15.3%** (vs. 15.6% total).
+- **Yield renta fija, Mar-2026:** ingreso "Valores y otros" 15,828,245 × 4 = 63,312,980 ÷ 1,610,584,921 = **3.93%**
+  (vs. 3.85% sobre el total reportado). El ingreso **no cambia**: el patrimonio se lleva a **FVOCI-patrimonio**
+  (cambios de valor al ORI, **sin reciclaje** a resultados, y **sin intereses**), así que la línea "Valores y otros"
+  es 100% renta fija y la "Ganancia neta en valores y derivados" (6,315,511 en 1T-2026) proviene de deuda FVTPL +
+  derivados — **no hay ganancia de acciones que restar del ingreso**; el ajuste solo reduce el denominador (tamaño de cartera).
+- **Composición por instrumento, solo renta fija (Mar-2026):** Corporativos 726,233,181 (**~45.1%**) · Soberano
+  Panamá 496,401,780 (**~30.8%**) · US Treasuries 340,065,829 (**~21.1%**) · Otros soberanos + CERPANES − reserva PCE
+  47,884,131 (~3.0%) = **1,610,584,921**.
 
 **Verificación del ~40% corporativo (pregunta recurrente):** leído verbatim de la Nota 7.3, línea
 "Bonos corporativos": 715,722,265 (Dic-2025) / 565,776,724 (Dic-2024). Las tres categorías (FVTPL/FVOCI/CA)
@@ -398,16 +421,17 @@ regionales) sí es robusto. En Banistmo, el 42% sub-grado es casi todo Panamá s
 > (carried forward, ver secciones respectivas).
 
 **Tamaño cartera (último disponible):**
-BG 5,985.6 (Mar-26, INT) · BAC 5,615.4 (Mar-26, INT, CA) · Banistmo 1,643.3 (Mar-26, INT) ·
-Davivienda 1,248.5 (Dic-25, carried) · Global 1,124.0 (Mar-26, INT, 9mo) · Scotiabank 371.3 (oct-24, absorbido).
+BG 5,985.6 (Mar-26, INT) · BAC 5,615.4 (Mar-26, INT, CA) · **Banistmo 1,610.6 (Mar-26, INT, renta fija ex-acciones;
+total reportado 1,643.3)** · Davivienda 1,248.5 (Dic-25, carried) · Global 1,124.0 (Mar-26, INT, 9mo) · Scotiabank 371.3 (oct-24, absorbido).
+Nota: Banistmo se muestra en base **renta fija** (se retiró el patrimonio B/.32.76M de la Nota 7.2 FVOCI); los demás en cartera total reportada.
 
 **% inversiones / activo** (benchmark del sistema = SBN, banca de licencia general, Mar-2026):
-**BG 28.6%** > Davivienda 23.4% (Dic-25, carried) > **Sistema SBN (lic. general) 23.0%** > Banistmo 15.6% > **BAC 13.4%** > Global 12.7% > Scotia 9.7%. Cambios vs. el corte Dic-2025: BAC adelanta a Global (12.3% → 13.4% vs. Global 13.4% → 12.7%) y el Sistema sube por encima de Banistmo (22.1% → 23.0% vs. Banistmo 16.0% → 15.6%).
+**BG 28.6%** > Davivienda 23.4% (Dic-25, carried) > **Sistema SBN (lic. general) 23.0%** > Banistmo 15.3% (renta fija; 15.6% total) > **BAC 13.4%** > Global 12.7% > Scotia 9.7%. Cambios vs. el corte Dic-2025: BAC adelanta a Global (12.3% → 13.4% vs. Global 13.4% → 12.7%) y el Sistema sube por encima de Banistmo (22.1% → 23.0% vs. Banistmo 16.0% → 15.6% total / 15.3% renta fija).
 
 **Yield estimado** (ingreso del trimestre 1T-2026 × 4 ÷ **portafolio de cierre Mar-2026**; método saldo de cierre, verificado por cálculo):
-**BAC 5.5%** · BG 4.9% · Scotiabank 4.1% · Davivienda 4.05% · Global 4.0% · **Banistmo 3.9%** (sigue
+**BAC 5.5%** · BG 4.9% · Scotiabank 4.1% · Davivienda 4.05% · Global 4.0% · **Banistmo 3.93%** (sigue
 siendo el más bajo del perímetro, pero sube desde 3.6%). Cálculo: BAC 307.1/5,615.4=5.47% · BG 293.6/5,985.6=4.91% ·
-Global 44.6/1,124.0=3.97% · Banistmo 63.3/1,643.3=3.85%. (Sobre *saldo promedio*: BAC 5.79%, Global 4.35% — la diferencia
+Global 44.6/1,124.0=3.97% · **Banistmo 63.3/1,610.6=3.93%** (denominador renta fija ex-acciones; sobre el total reportado 1,643.3 daría 3.85%). (Sobre *saldo promedio*: BAC 5.79%, Global 4.35% — la diferencia
 mayor es BAC por su crecimiento de +12.5% en el trimestre; los demás casi no cambian.)
 - Ingresos por inversiones — **trimestre 1T-2026 raw → anualizado ×4 (cierre FY2025)**, US$M:
   BAC 76.8 → 307.1 (FY25 291.4) · BG 73.4 → 293.6 (FY25 283.5) · Banistmo 15.8 → 63.3 (FY25 58.2) ·

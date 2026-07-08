@@ -28,7 +28,8 @@ directamente en cualquier navegador incluso sin el sitio.
 | Archivo | Qué es |
 |---|---|
 | `index.html` | Reporte visual interactivo en español (la página publicada). |
-| `datos-extraidos.md` | **Dataset completo** con cada cifra, su nivel de confianza (Auditado / Estimado / No divulgado) y su fuente. Es la fuente de verdad detrás del HTML. |
+| `banistmo-renta-fija.html` | **Nota de evidencia — Banistmo solo renta fija.** Investigación nota por nota del último EE.FF. de Banistmo (interino Mar-2026): localiza toda la información de rendimiento de las inversiones en valores, identifica el único componente de acciones (patrimonio FVOCI, B/.32.76 M, Nota 7.2) y lo retira para expresar cartera y retornos en renta fija (US$1,610.6 M, 15.3% del activo, yield ~3.93%). Incluye reconciliación y capturas de las páginas fuente. |
+| `datos-extraidos.md` | **Dataset completo** con cada cifra, su nivel de confianza (Auditado / Estimado / No divulgado) y su fuente. Es la fuente de verdad detrás del HTML. Incluye el ajuste renta fija de Banistmo. |
 | `fuentes-pdfs.md` | URLs de los EE.FF. auditados por banco, para la extracción a fidelidad completa. |
 | `capturas-fuentes/` | **Capturas (PNG) de cada página PDF de la que se sourceó una cifra del dashboard** — nota "Inversiones en Valores", tablas de calificaciones, balances y cuadros del sistema (SBP). Ver [`capturas-fuentes/README.md`](capturas-fuentes/README.md). |
 | `allowlist-domains.txt` | Dominios financieros a habilitar en la política de red del entorno para reproducir la extracción. |
