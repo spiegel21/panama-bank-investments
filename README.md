@@ -28,6 +28,7 @@ directamente en cualquier navegador incluso sin el sitio.
 | Archivo | Qué es |
 |---|---|
 | `index.html` | Reporte visual interactivo en español (la página publicada). |
+| `banistmo-ganancias-inversiones.html` | **Mapa de renglones — ganancias del portafolio de inversiones de Banistmo.** Rastreo, renglón por renglón, de todos los lugares del último EE.FF. (interino Mar-2026) donde se reconoce una ganancia/ingreso del portafolio de valores: 2 líneas del estado de resultados, su desglose en la Nota 21 (aislando divisas/derivados del renglón mixto "Ganancia neta en valores y derivados"), 2 líneas del ORI (ganancia no realizada FVOCI + reciclaje) y 2 provisiones de la Nota 18. Con capturas de las páginas fuente. |
 | `datos-extraidos.md` | **Dataset completo** con cada cifra, su nivel de confianza (Auditado / Estimado / No divulgado) y su fuente. Es la fuente de verdad detrás del HTML. |
 | `fuentes-pdfs.md` | URLs de los EE.FF. auditados por banco, para la extracción a fidelidad completa. |
 | `capturas-fuentes/` | **Capturas (PNG) de cada página PDF de la que se sourceó una cifra del dashboard** — nota "Inversiones en Valores", tablas de calificaciones, balances y cuadros del sistema (SBP). Ver [`capturas-fuentes/README.md`](capturas-fuentes/README.md). |

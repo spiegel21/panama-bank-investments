@@ -30,6 +30,9 @@ inversiones, base del yield), al **balance** (activo total e inversiones), o a l
 | 47 | [`banistmo-mar2026_p023_nota7-inversiones.png`](banistmo-mar2026_p023_nota7-inversiones.png) | 23 | Nota 7.1 FVTPL — composición (UST, soberano Panamá) |
 | 48 | [`banistmo-mar2026_p024_nota7-inversiones.png`](banistmo-mar2026_p024_nota7-inversiones.png) | 24 | Nota 7.2 FVOCI — composición (soberano Panamá, acciones) |
 | 49 | [`banistmo-mar2026_p025_nota7-inversiones.png`](banistmo-mar2026_p025_nota7-inversiones.png) | 25 | Nota 7.3 costo amortizado — corporativos 714.1 M |
+| 49b | [`banistmo-mar2026_p006_resultado-integral.png`](banistmo-mar2026_p006_resultado-integral.png) | 4 | Estado de Resultado Integral (ORI) — ganancia no realizada de deuda 1.54 M + reciclaje (53.4 K) |
+| 49c | [`banistmo-mar2026_p044_nota18-provisiones.png`](banistmo-mar2026_p044_nota18-provisiones.png) | 42 | Nota 18 — provisiones de deterioro sobre valores (costo amortizado 227.1 K, FVOCI 13.6 K) |
+| 49d | [`banistmo-mar2026_p047_nota21-ganancia-valores.png`](banistmo-mar2026_p047_nota21-ganancia-valores.png) | 45 | Nota 21 — desglose de "Ganancia neta en valores y derivados" (portafolio vs. divisas/derivados) |
 | | **BAC International Bank, Inc. y Subsidiarias — Interino 31-mar-2026 (no auditado)** | | [PDF](https://www.baccredomatic.com/sites/default/files/2026-05/PAN_EF_BIB_SUBS_0326.pdf) |
 | 50 | [`bac-mar2026_p005_balance.png`](bac-mar2026_p005_balance.png) | 5 | Balance (inversiones 5,615.4 M; activo 42,016 M) |
 | 51 | [`bac-mar2026_p007_estado-resultados.png`](bac-mar2026_p007_estado-resultados.png) | 7 | Estado de resultados — intereses sobre inversiones (76.8 M / trim.) |

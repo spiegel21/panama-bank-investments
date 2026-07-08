@@ -144,6 +144,31 @@ son mutuamente excluyentes → no hay doble conteo. Corporativo = 40.8% (Dic-24)
 - **Ingreso por intereses de inversiones (1T-2026, interino, "Valores y otros"):** 15,828,245 (1T-2025:
   13,574,986) → anualizado ~63.3M → **yield ≈ 3.9% [INT]** (63.3M ÷ cartera de cierre 1,643.3M; método saldo de cierre). Sigue siendo el yield más bajo del perímetro
   (portafolio de mayor calidad crediticia), aunque sube ligeramente por el mix hacia FVTPL.
+
+**RENGLONES QUE CONTIENEN GANANCIAS DEL PORTAFOLIO DE INVERSIONES (mapa completo, interino Mar-2026) [INT]:**
+Rastreo de todos los renglones del último EE.FF. donde se reconoce ganancia/ingreso del portafolio de valores.
+Detalle y evidencia visual: `banistmo-ganancias-inversiones.html`. Cifras del período de 3 meses (1T), no auditadas.
+
+- **① Estado de Resultados (cara, p.3) — 2 renglones:**
+  - *Ingresos por intereses — "Valores y otros":* **15,828,245** (1T-2025: 13,574,986) — interés/cupón de la cartera de deuda (FVTPL+FVOCI+CA).
+  - *Ganancia neta en valores y derivados:* **6,315,511** (1T-2025: 9,571,163) — **MIXTO**, desglosado en Nota 21.
+- **② Nota 21 (p.45) — desglose del renglón mixto:**
+  - Ganancia en valores a valor razonable con cambios en resultados (FVTPL): **5,154,768** (1T-2025: 7,907,914) → *portafolio*.
+  - Ganancia en compra y venta de monedas extranjeras (Nota 8.1): 980,536 → **NO portafolio (divisas)**.
+  - Dividendos sobre instrumentos FVOCI: **93,853** (1T-2025: 168,911) → *portafolio (acciones)*.
+  - Ganancia neta en venta de valores FVOCI: **53,383** (1T-2025: 113,222) → *portafolio (realizado, reciclado de ORI)*.
+  - Ganancia neta en contratos de derivados: 32,971 → **NO portafolio (derivados)**.
+  - → **Subtotal portafolio = 5,302,004** (FVTPL 5,154,768 + dividendos 93,853 + venta FVOCI 53,383); no portafolio = 1,013,507 (divisas 980,536 + derivados 32,971).
+- **③ Estado de Resultado Integral / ORI (p.4) — 2 renglones (patrimonio, no utilidad neta):**
+  - Ganancia en valuación de instrumentos de deuda (no realizada, FVOCI): **1,540,692** (1T-2025: 362,332).
+  - Ganancia en valores VRCOUI transferida al P&L (reciclaje, Nota 21): **(53,383)** (1T-2025: (113,222)) — netea el 53,383 realizado en el P&L.
+- **④ Nota 18 (p.42) — provisiones sobre valores (netean el resultado):**
+  - Deterioro en valores a costo amortizado (Nota 7.3): cargo **227,085** (1T-2025: liberación 1,025,137).
+  - Deterioro en valores a FVOCI (Nota 7.2): cargo **13,643** (1T-2025: liberación 187,239).
+- **Resultado del portafolio en utilidad neta (1T-2026)** = 15,828,245 + 5,154,768 + 93,853 + 53,383 − 240,728 = **20,889,521**;
+  **resultado integral** (incl. no realizado a patrimonio) = 20,889,521 + 1,540,692 = **22,430,213** (el reciclaje 53,383 no se doble-cuenta).
+- **Hallazgo clave:** el único renglón que hay que **abrir** para no sobreestimar es "Ganancia neta en valores y derivados"
+  (mixto con divisas y derivados). Las tasas que devengan los instrumentos: FVTPL 1.13%–8.00%, FVOCI 2.75%–7.00%, CA 4.00%–10.22% (Nota 7).
 - **Hallazgo estructural:** giro a *trading + held-to-maturity* — FVTPL 11.8% (2023) → 34.3% (2024) → 37.0%
   (Dic-2025) → **35.0% (Mar-2026)**; FVOCI 50.5% → 19.5% → 20.4%; costo amortizado 37.6% → 43.5% → 44.6%.
   El más "trading" del perímetro por FVTPL en niveles absolutos, aunque el trimestre marca la primera
