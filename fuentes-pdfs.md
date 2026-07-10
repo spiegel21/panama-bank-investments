@@ -5,8 +5,10 @@ sesión de origen). Abrir estas desde una sesión con los dominios habilitados p
 extracción a fidelidad completa de las notas "Inversiones en valores".
 
 > **Corte vigente: 31-marzo-2026.** Se agregaron los interinos 1T-2026 no auditados de Banistmo, Banco
-> General, BAC y Global Bank (marcados abajo como "corte vigente del reporte"), y el Informe de Actividad
-> Bancaria + Balance de Situación SBN/CBI de la SBP a marzo-2026. Davivienda **no publica interinos** —
+> General, BAC, Global Bank y **Banesco** (marcados abajo como "corte vigente del reporte"), y el Informe de Actividad
+> Bancaria + Balance de Situación SBN/CBI de la SBP a marzo-2026. En la sesión 4 se leyó, para los siete bancos, el
+> estado de resultados, el estado de resultado integral (ORI) y las notas de inversiones/provisiones para el mapa de
+> renglones de ganancias del portafolio (un `<banco>-ganancias-inversiones.html` por banco). Davivienda **no publica interinos** —
 > se mantiene su fuente Dic-2025 auditada; Scotiabank sigue en oct-2024 (absorbido). Las fuentes
 > auditadas anuales se conservan abajo como referencia histórica.
 
@@ -111,6 +113,16 @@ extracción a fidelidad completa de las notas "Inversiones en valores".
   https://pa.scotiabank.com/content/dam/scotiabank/international/panama/Espanol/pdf/Estados-Financieros-2024-Sucursal-de-Panama.pdf
 - Índice reportes anuales (todos los años):
   https://www.davibank.pa/es/acerca-de-scotiabank/relaciones-con-inversionistas/reportes-anuales.html
+
+## Banesco (Panamá) (media.banesco.com.pa) — NUEVO en el perímetro
+- **Interino IN-T 1T-2026 (trimestre a 31-mar-2026, no auditado) — corte vigente del reporte:**
+  https://media.banesco.com.pa/docs/informes/trimestrales/03/Informe_trimestral_marzo_2026.pdf
+- EE.FF. Consolidados 2025 (Dic-2025, auditado) — ingreso por inversiones FY + composición auditada:
+  https://media.banesco.com.pa/docs/informes/estados-financieros-banesco-panama/Estados-financieros-Banesco-Panama-y-Subsidiarias-2025.pdf
+- IN-A 2025 (Informe de Actualización Anual, SMV):
+  https://media.banesco.com.pa/docs/informes/anuales/Informe_IN-A_2025.pdf
+- EE.FF. 2023 / 2021 (histórico): .../estados-financieros-banesco-panama/Estados-financieros-Banesco-Panama-y-Subsidiarias-{2023,2021}.pdf
+- Landing informes financieros: https://www.banesco.com.pa/somos-banesco-panama/
 
 ## SBP — sistema (superbancos.gob.pa)
 - **Corte vigente del reporte: marzo-2026.**

@@ -6,13 +6,17 @@ invertidos los competidores frente a Banistmo (tamaño, peso sobre activo, tipo 
 clasificación contable, rentabilidad estimada y calificaciones de crédito), para 2022–2026.
 
 **Corte vigente: 31 de marzo de 2026.** Los bancos con reporte trimestral pasan a su **1T-2026
-interino no auditado** (Banistmo, Banco General, BAC, Global Bank) y el sistema bancario a los
+interino no auditado** (Banistmo, Banco General, BAC, Global Bank, Banesco) y el sistema bancario a los
 datos de la SBP a **marzo-2026** (Balance de Situación SBN/CBI + Informe de Actividad Bancaria,
 regulatorio no auditado). Dos excepciones se conservan en su último cierre disponible: **Davivienda**
 (Dic-2025 auditado — no publica interinos trimestrales) y **Scotiabank** (oct-2024 — absorbido por
 Davivienda el 5-dic-2025, ya no reporta standalone). Detalle completo en `datos-extraidos.md`.
 
-**Perímetro:** Banistmo · Banco General · BAC (incl. Multibank) · Global Bank · Davivienda · Scotiabank.
+**Perímetro:** Banistmo · Banco General · BAC (incl. Multibank) · Global Bank · Davivienda · Scotiabank · **Banesco**.
+
+**Novedad (sesión 4):** se replicó, **para los siete bancos**, el rastreo renglón-por-renglón de las ganancias del portafolio
+que se había hecho solo para Banistmo (un `<banco>-ganancias-inversiones.html` por banco, con capturas de páginas fuente), y se
+**agregó Banesco** a todas las comparaciones. Resumen comparable en la sección "Mapa de renglones…" de `datos-extraidos.md`.
 
 ## Sitio publicado
 
@@ -28,7 +32,7 @@ directamente en cualquier navegador incluso sin el sitio.
 | Archivo | Qué es |
 |---|---|
 | `index.html` | Reporte visual interactivo en español (la página publicada). |
-| `banistmo-ganancias-inversiones.html` | **Mapa de renglones — ganancias del portafolio de inversiones de Banistmo.** Rastreo, renglón por renglón, de todos los lugares del último EE.FF. (interino Mar-2026) donde se reconoce una ganancia/ingreso del portafolio de valores: 2 líneas del estado de resultados, su desglose en la Nota 21 (aislando divisas/derivados del renglón mixto "Ganancia neta en valores y derivados"), 2 líneas del ORI (ganancia no realizada FVOCI + reciclaje) y 2 provisiones de la Nota 18. Con capturas de las páginas fuente. |
+| `<banco>-ganancias-inversiones.html` | **Mapas de renglones — ganancias del portafolio, uno por banco (7 documentos).** Rastreo, renglón por renglón, de todos los lugares del último EE.FF. de cada banco donde se reconoce ganancia/ingreso del portafolio de valores (interés, valuación/venta, ORI y provisiones), con capturas de las páginas fuente. El hallazgo comparable: **cada banco "esconde" la ganancia de forma distinta** — Banistmo (`banistmo-…`) mezcla divisas+derivados en el renglón; Banco General (`bancogeneral-…`) lo mezcla con derivados; BAC (`bac-…`) lo tiene limpio con el FX aparte; Global Bank (`globalbank-…`) lo embebe en "Otros ingresos"; Davivienda (`davivienda-…`) usa dos líneas limpias; Scotiabank (`scotiabank-…`) es casi todo interés; Banesco (`banesco-…`) reporta dos pérdidas con la FVTPL mixta con derivados. Enlazados desde `index.html` (sección "Renglones"). |
 | `datos-extraidos.md` | **Dataset completo** con cada cifra, su nivel de confianza (Auditado / Estimado / No divulgado) y su fuente. Es la fuente de verdad detrás del HTML. |
 | `fuentes-pdfs.md` | URLs de los EE.FF. auditados por banco, para la extracción a fidelidad completa. |
 | `capturas-fuentes/` | **Capturas (PNG) de cada página PDF de la que se sourceó una cifra del dashboard** — nota "Inversiones en Valores", tablas de calificaciones, balances y cuadros del sistema (SBP). Ver [`capturas-fuentes/README.md`](capturas-fuentes/README.md). |
@@ -37,7 +41,7 @@ directamente en cualquier navegador incluso sin el sitio.
 
 ## Estado: corte 31-marzo-2026
 
-Los cuatro bancos con reporte trimestral (Banistmo, Banco General, BAC, Global Bank) están al **1T-2026,
+Los cinco bancos con reporte trimestral (Banistmo, Banco General, BAC, Global Bank, Banesco) están al **1T-2026,
 interino no auditado**, leído directamente de la nota "Inversiones en valores" de cada estado financiero
 interino. El sistema bancario (SBN/CBI) está al **dato regulatorio de la SBP a marzo-2026** (no auditado).
 **Davivienda** se mantiene en su cierre **Dic-2025 auditado** (no publica interinos trimestrales —
