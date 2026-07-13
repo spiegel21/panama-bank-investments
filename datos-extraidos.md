@@ -475,21 +475,28 @@ fuente: `banistmo-` / `bancogeneral-` / `bac-` / `globalbank-` / `davivienda-` /
 está a veces **mezclada** con divisas o derivados (hay que abrir una nota para aislarla), a veces **embebida** dentro de "Otros
 ingresos", y a veces **limpia**. Sin abrir el renglón correcto se sobre- o sub-estima el resultado del portafolio.
 
-| Banco (período) | Interés inversiones | Valuación/venta del portafolio (aislada) | ¿Renglón mixto? — qué hay que abrir | Provisión deterioro | ORI no realizado (deuda) | Resultado en utilidad neta |
-|---|---|---|---|---|---|---|
-| **Banistmo** (1T-2026) | 15,828,245 | 5,302,004 | **Sí** — divisas + derivados (Nota 21) | (240,728) | +1,540,692 | 20,889,521 |
-| **Banco General** (1T-2026) | 73,406,405 | 1,544,909 | **Sí** — derivados (Nota 23) | (408,041) | (42,736,324) | 74,543,273 |
-| **BAC** (1T-2026) | 76,787,220 | 4,921,259 | No — FX en línea aparte (Nota 15) | (407,153)¹ | (7,411,576) | 81,301,326 |
-| **Global Bank** (9M-2026) | 36,843,768 | 1,267,244 | Embebido en "Otros ingresos" (Nota 23) | (3,756,675) | +8,009,050 | 34,354,337 |
-| **Davivienda** (FY2025 aud.) | 34,520,516 | 736,427 | No — dos líneas limpias (VRCR + VRCOUI) | (2,199,282) | +6,634,611 | 33,057,661 |
-| **Scotiabank** (FY oct-2024 aud.) | 14,968,209 | 30,512 | No — venta minúscula, sin FVTPL | +189,469² | +9,485,192 | 15,188,190 |
-| **Banesco** (1T-2026) | 12,277,806 | (664,745) | **Sí (parcial)** — FVTPL mixta con derivados | (56,215) | (6,783,760) | 11,556,846 |
+| Banco (período) | Interés inversiones | Valuación/venta del portafolio (aislada) | ¿Renglón mixto? — qué hay que abrir | Provisión deterioro | Resultado en utilidad neta | ORI no realizado (deuda) | **Resultado integral (UN+ORI)** |
+|---|---|---|---|---|---|---|---|
+| **Banistmo** (1T-2026) | 15,828,245 | 5,302,004 | **Sí** — divisas + derivados (Nota 21) | (240,728) | 20,889,521 | +1,540,692 | **22,430,213** |
+| **Banco General** (1T-2026) | 73,406,405 | 1,544,909 | **Sí** — derivados (Nota 23) | (408,041) | 74,543,273 | (42,736,324) | **31,806,949** |
+| **BAC** (1T-2026) | 76,787,220 | 4,921,259 | No — FX en línea aparte (Nota 15) | (407,153)¹ | 81,301,326 | (7,411,576) | **73,889,750** |
+| **Global Bank** (9M-2026) | 36,843,768 | 1,267,244 | Embebido en "Otros ingresos" (Nota 23) | (3,756,675) | 34,354,337 | +8,009,050 | **42,363,387** |
+| **Davivienda** (FY2025 aud.) | 34,520,516 | 736,427 | No — dos líneas limpias (VRCR + VRCOUI) | (2,199,282) | 33,057,661 | +6,634,611 | **39,692,272** |
+| **Scotiabank** (FY oct-2024 aud.) | 14,968,209 | 30,512 | No — venta minúscula, sin FVTPL | +189,469² | 15,188,190 | +9,485,192 | **24,673,382** |
+| **Banesco** (1T-2026) | 12,277,806 | (664,745) | **Sí (parcial)** — FVTPL mixta con derivados | (56,215) | 11,556,846 | (6,783,760) | **4,773,086** |
 
 ¹ BAC combina el deterioro de inversiones con el de depósitos en bancos en una sola línea — no aislable.
 ² Scotiabank: el deterioro neto fue una **reversión** (suma al resultado). Períodos NO homogéneos: Banistmo/BG/BAC/Banesco =
 trimestre 1T-2026; Global = acumulado 9 meses (Q3 del FY-junio); Davivienda = año FY2025 auditado; Scotiabank = año fiscal a oct-2024.
 "Resultado en utilidad neta" = interés + valuación/venta del portafolio − provisión (para Scotiabank, + reversión). El
-"Resultado integral" adicional (P&L + ORI) está en cada documento HTML.
+**"Resultado integral" = resultado en utilidad neta + ORI no realizado** (la valuación a mercado que va al patrimonio, no a la
+utilidad). El dashboard (`index.html`) usa esta cifra integral tanto para el **rendimiento total** de la sección 06
+(= resultado integral anualizado ÷ portafolio de cierre) como para la columna "= Resultado integral" y el gráfico de la sección 07.
+Anualización aplicada: los cuatro interinos 1T-2026 × 4; Global (9M) × 4/3; Davivienda y Scotiabank ya anuales (× 1). **Caveat:** el
+ORI es mark-to-market que revierte, así que anualizar ×4 un solo trimestre de ORI amplifica la volatilidad — la cifra integral y el
+rendimiento total son direccionales; el yield de solo interés (interés anualizado ÷ portafolio) queda como el ancla estable.
+Resultado integral anualizado (US$M): BAC 295.6 · BG 127.2 · Banistmo 89.7 · Global 56.5 · Davivienda 39.7 · Scotiabank 24.7 · Banesco 19.1.
+Rendimiento total: Scotiabank ~6.6% · Banistmo ~5.5% · BAC ~5.3% · Global ~5.0% · Davivienda ~3.2% · BG ~2.1% · Banesco ~1.8%.
 
 **Detalle por banco (verbatim, con página PDF):**
 
