@@ -23,6 +23,15 @@ neta** — no solo el yield de interés — en una nueva sección **07 "Resultad
 gráfico anualizado). Es el número que el rastreo renglón-por-renglón hacía visible pero que antes solo vivía en los mapas y en
 `datos-extraidos.md`: interés + valuación/venta − provisiones, con el ORI no realizado mostrado aparte (patrimonio, no utilidad).
 
+**Novedad (sesión 6):** el **rendimiento y todos los resultados** del dashboard se recalcularon sobre la base **utilidad neta + ORI
+(patrimonio) = resultado integral del portafolio**, no solo el interés ni solo la utilidad neta. La sección 06 pasa a un
+**rendimiento total** = (resultado integral anualizado) ÷ portafolio de cierre, con el yield de solo interés como columna de
+referencia; la sección 07 añade la columna **= Resultado integral** (utilidad neta + ORI) y su gráfico anualizado ordena por esa
+cifra. Incluir el ORI **reordena el ranking**: los libros con valuación no realizada positiva suben (Scotiabank, Banistmo, Global) y
+los golpeados por el alza de tasas caen (Banco General −US$42.7M, Banesco −US$6.8M en ORI). Banistmo pasa de ~3.9% (solo interés) a
+**~5.5%** total y queda tercero por resultado integral. Caveat explícito: el ORI es mark-to-market que revierte, así que anualizar un
+trimestre ×4 es la parte más gruesa de la estimación — la cifra es direccional.
+
 ## Sitio publicado
 
 El reporte se sirve como página estática vía **GitHub Pages**:
@@ -57,7 +66,9 @@ cálculos propios. Detalle completo, con nivel de confianza por cifra, en `datos
 ## Metodología
 
 - Moneda: USD (balboa a la par).
-- Rendimiento de cartera estimado como `ingreso por intereses de inversiones ÷ saldo promedio`.
+- **Rendimiento total** de cartera estimado como `(resultado en utilidad neta + ORI no realizado) anualizado ÷ portafolio de cierre`
+  — es decir el aporte completo del portafolio (interés + valuación/venta − provisiones + valuación no realizada a patrimonio). El
+  yield de **solo interés** (`ingreso por intereses ÷ portafolio`) se conserva como columna de referencia estable, sin mark-to-market.
 - **Comparabilidad:** los perímetros de reporte difieren y no son 1:1 — BAC = consolidado
   Centroamérica; Global Bank cierra fiscal en junio; Davivienda FY2025 es post-fusión con Scotiabank.
   El análisis se apoya en **ratios** (% de activo, yield, distribución por rating) robustos al perímetro.
