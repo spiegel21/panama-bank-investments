@@ -12,9 +12,15 @@ Fuente de verdad detrás del reporte HTML. Cada cifra lleva nivel de confianza:
 
 Moneda: USD (B/. a la par). Todas las cifras en US$ salvo indicación. Cifras "en unidades" (no miles) salvo nota.
 
-> **Estado: CORTE 31-MARZO-2026.** Tercera sesión: se actualizó el reporte al primer trimestre calendario
-> de 2026. Los bancos que publican interinos trimestrales pasan a su **1T-2026 no auditado [INT]**
-> (Banistmo, Banco General, BAC, Global Bank); el sistema pasa al **dato SBP de marzo-2026 [REG]**
+> **Estado: CORTE 31-MARZO-2026 · sesión 4 (auditoría de renglones + Banesco).** En esta sesión (1) se replicó,
+> **para los siete bancos**, la investigación renglón-por-renglón que se hizo para Banistmo — el rastreo de todos los
+> renglones del estado financiero donde se reconoce ganancia/ingreso del portafolio de inversiones (interés, valuación/venta,
+> ORI y provisiones), con capturas de las páginas fuente y un documento HTML por banco (`<banco>-ganancias-inversiones.html`);
+> y (2) se **agregó Banesco (Panamá)** al perímetro con su interino IN-T 1T-2026. Resumen comparable de los mapas de
+> renglones en la sección **"Mapa de renglones de ganancias del portafolio — por banco"** más abajo.
+>
+> Los bancos que publican interinos trimestrales pasan a su **1T-2026 no auditado [INT]**
+> (Banistmo, Banco General, BAC, Global Bank, **Banesco**); el sistema pasa al **dato SBP de marzo-2026 [REG]**
 > (Balance de Situación SBN/CBI + IAB-0326). Se conservan dos excepciones, claramente marcadas:
 > **Davivienda** no publica interinos trimestrales (confirmado ausente en SMV, SBP, davibank.pa y Latinex)
 > — se mantiene su cierre **Dic-2025 auditado**; solo existe un proxy regulatorio SBP individual (entidad,
@@ -371,6 +377,49 @@ Fuente: EE.FF. FY2024 (31-oct-2024, Nota 8), con comparativo oct-2023. Último a
 
 ---
 
+## Banesco (Panamá), S.A. y Subsidiarias — consolidado Panamá (NUEVO en el perímetro)
+
+Fuente: **Interino IN-T 1T-2026 (trimestre terminado 31-mar-2026, no auditado)** — media.banesco.com.pa, Informe
+trimestral marzo 2026, Formulario IN-T (SMV). Complemento: EE.FF. Consolidados 2025 (Dic-2025, auditado) para el ingreso
+FY. El estado de resultados cubre 3 meses (ene-mar); el balance compara Mar-2026 vs. Dic-2025.
+
+| Métrica | Dic-2025 (aud.) | **Mar-2026 (interino)** | Conf. |
+|---|---|---|---|
+| Inversiones en valores y otros act. financieros, neto | 966,995,167 | **1,083,531,579** | [INT] |
+| — FVTPL (VRCR) | 1,074,279 | **3,644,082 (0.3%)** | [INT] |
+| — FVOCI (VRCOUI, incl. int.) | 764,521,687 | **837,140,632 (77.3%)** | [INT] |
+| — Costo amortizado | 201,399,201 | **242,746,865 (22.4%)** | [INT] |
+| Activo total | 6,016,399,537 | **6,076,826,078** | [INT] |
+| % inversiones / activo | 16.1% | **17.8%** | [EST] |
+
+La cartera **creció +12.1% en el trimestre** (966,995,167 → 1,083,531,579), el mayor crecimiento relativo del perímetro
+tras BAC. El libro es casi todo **FVOCI (77.3%) + costo amortizado (22.4%)**; el trading (FVTPL) es marginal (0.3%).
+
+**Composición por instrumento (Mar-2026, Nota 9):** [INT]
+- **Corporativo / deuda privada ≈ 663.1M (~61%)** — FVOCI 563.6M + costo amortizado 99.5M. El libro más corporativo-céntrico
+  del perímetro en proporción, junto con Banistmo.
+- **Gubernamental ≈ 417.1M (~38%)** — FVOCI 273.6M + costo amortizado 143.6M. No desglosa Tesoros de EE.UU. por país (solo "gubernamental").
+- Acciones de capital 1.6M (FVTPL) + instrumentos derivados 2.0M (FVTPL). **Sin MBS.**
+
+- **Ingreso por intereses de inversiones ("Valores"):** 1T-2026 12,277,806 (1T-2025 10,954,710) → anualizado ~49.1M →
+  **yield ≈ 4.5% [INT]** (49.1M ÷ cartera de cierre 1,083.5M). FY2025 auditado: 45,100,766 (2024: 35,017,419) — el anualizado 1T26 queda cerca del cierre.
+
+**Ratings / calidad crediticia (Nota 9, re-tabulado en el interino):** [INT] Banesco publica la calidad de la cartera en una
+**escala interna numérica (indicador 1–6 + sin calificación)**, NO en brackets de letra de las agencias — por eso **no es
+mapeable 1:1** a grado de inversión / sub-grado y queda fuera del gráfico normalizado de ratings.
+- VRCOUI por indicador (total 837.1M): 2: 158,926,180 · 3: 154,583,827 · **4: 493,977,529** · 5: 29,435,711 · 6: 217,385.
+- Costo amortizado por indicador (total 242.7M): 2: 48,144,775 · 3: 11,760,242 · **4: 126,375,927** · 5: 45,770,897 · 6: 11,013,685.
+- El grueso se concentra en el **indicador 4** (riesgo medio); los indicadores 5-6 (mayor riesgo) suman ~86M (VRCOUI+CA).
+
+**Vencimientos de la cartera (Nota 4, Mar-2026):** ≤1a 296.7M · 1-5a 550.6M · 5-10a 205.4M · >10a 30.8M. Libro de duración media-larga (el 22% vence a más de 5 años).
+
+- **Mapa de renglones de ganancias:** ver `banesco-ganancias-inversiones.html`. Hallazgo del trimestre: **no hubo ganancia de
+  valores — hubo dos pérdidas** ("Pérdida neta en instrumentos financieros a VRCR" (132,896), mixta con derivados; y "Pérdida
+  neta en venta de valores a VRCOUI" (531,849)). El resultado positivo del portafolio vino del **interés** (12.28M). Provisión
+  para pérdidas en inversiones (56,215). ORI: cambio no realizado (6,783,760) + reciclaje 588,064. Detalle abajo.
+
+---
+
 ## Distribución por calificación — normalizada (para comparabilidad)
 
 Cada banco publica su tabla de ratings con **cortes de letra y coberturas distintas**, así que se
@@ -416,6 +465,66 @@ regionales) sí es robusto. En Banistmo, el 42% sub-grado es casi todo Panamá s
 
 ---
 
+## Mapa de renglones de ganancias del portafolio — por banco (comparable)
+
+Réplica, para los siete bancos, de la investigación renglón-por-renglón que se hizo para Banistmo: dónde reconoce cada
+estado financiero el resultado del portafolio de inversiones. Documento por banco con cifras exactas y capturas de páginas
+fuente: `banistmo-` / `bancogeneral-` / `bac-` / `globalbank-` / `davivienda-` / `scotiabank-` / `banesco-ganancias-inversiones.html`.
+
+**Hallazgo comparable clave: cada banco "esconde" la ganancia del portafolio de forma distinta.** La línea de valuación/venta
+está a veces **mezclada** con divisas o derivados (hay que abrir una nota para aislarla), a veces **embebida** dentro de "Otros
+ingresos", y a veces **limpia**. Sin abrir el renglón correcto se sobre- o sub-estima el resultado del portafolio.
+
+| Banco (período) | Interés inversiones | Valuación/venta del portafolio (aislada) | ¿Renglón mixto? — qué hay que abrir | Provisión deterioro | ORI no realizado (deuda) | Resultado en utilidad neta |
+|---|---|---|---|---|---|---|
+| **Banistmo** (1T-2026) | 15,828,245 | 5,302,004 | **Sí** — divisas + derivados (Nota 21) | (240,728) | +1,540,692 | 20,889,521 |
+| **Banco General** (1T-2026) | 73,406,405 | 1,544,909 | **Sí** — derivados (Nota 23) | (408,041) | (42,736,324) | 74,543,273 |
+| **BAC** (1T-2026) | 76,787,220 | 4,921,259 | No — FX en línea aparte (Nota 15) | (407,153)¹ | (7,411,576) | 81,301,326 |
+| **Global Bank** (9M-2026) | 36,843,768 | 1,267,244 | Embebido en "Otros ingresos" (Nota 23) | (3,756,675) | +8,009,050 | 34,354,337 |
+| **Davivienda** (FY2025 aud.) | 34,520,516 | 736,427 | No — dos líneas limpias (VRCR + VRCOUI) | (2,199,282) | +6,634,611 | 33,057,661 |
+| **Scotiabank** (FY oct-2024 aud.) | 14,968,209 | 30,512 | No — venta minúscula, sin FVTPL | +189,469² | +9,485,192 | 15,188,190 |
+| **Banesco** (1T-2026) | 12,277,806 | (664,745) | **Sí (parcial)** — FVTPL mixta con derivados | (56,215) | (6,783,760) | 11,556,846 |
+
+¹ BAC combina el deterioro de inversiones con el de depósitos en bancos en una sola línea — no aislable.
+² Scotiabank: el deterioro neto fue una **reversión** (suma al resultado). Períodos NO homogéneos: Banistmo/BG/BAC/Banesco =
+trimestre 1T-2026; Global = acumulado 9 meses (Q3 del FY-junio); Davivienda = año FY2025 auditado; Scotiabank = año fiscal a oct-2024.
+"Resultado en utilidad neta" = interés + valuación/venta del portafolio − provisión (para Scotiabank, + reversión). El
+"Resultado integral" adicional (P&L + ORI) está en cada documento HTML.
+
+**Detalle por banco (verbatim, con página PDF):**
+
+- **Banistmo (interino Mar-2026):** ya documentado arriba (sección Banistmo). Renglón mixto "Ganancia neta en valores y
+  derivados" (6,315,511) → Nota 21 aísla portafolio 5,302,004 vs. divisas 980,536 + derivados 32,971. Doc: `banistmo-ganancias-inversiones.html`.
+- **Banco General (interino Mar-2026):** ① interés "Inversiones y otros activos financieros" 73,406,405 (P&L p.25). ② "Ganancia
+  (pérdida) en instrumentos financieros, neta" 1,341,214 (**mixto con derivados**) → Nota 23 (p.75): portafolio 1,544,909
+  (venta VR-resultados 1,387,860 + venta VR OUI 172,152 − valuación no realizada 15,103); derivados netos (203,695). Dividendos
+  (1,069,584) y FX (26,666) están en Nota 24, NO aquí. ③ ORI (p.26): cambio no realizado VR OUI (42,736,324) — **gran pérdida de
+  valuación del trimestre** por su libro grande y 85% FVOCI; transferencia por ventas 555,994; riesgo de crédito 404,175. ④
+  Provisión de valuación de inversiones 408,041 (Nota 6, p.25). Doc: `bancogeneral-ganancias-inversiones.html`.
+- **BAC (interino Mar-2026):** ① interés "Inversiones en valores" 76,787,220 (P&L p.7). ② "Ganancias en instrumentos financieros,
+  neta" 4,921,259 (**100% valores**; Nota 15 p.53: venta VRCOUI 6,372,926 − valuación no realizada VRCR 1,054,829 − realizado VRCR
+  396,838). El **diferencial cambiario** es línea aparte: pérdida (75,027,372) — NO confundir. ③ ORI (p.8): cambio no realizado
+  VRCOUI (7,411,576); transferido al P&L (5,693,794); acciones VRCOUI +310,728 (no reciclable). ④ deterioro combinado
+  "Depósitos en bancos e inversiones en valores" 407,153 (Nota 4). Doc: `bac-ganancias-inversiones.html`.
+- **Global Bank (interino Mar-2026, 9 meses):** ① interés "Inversiones" 36,843,768 (Nota 22, p.74). ② **Sin línea propia** — los
+  resultados de valores están embebidos en "Otros ingresos, neto" (Nota 23, p.74): venta a costo amortizado 1,466,110 + valuación
+  FVTPL 115,381 − venta FVTPL 140,100 − venta FVOCI 174,147 = 1,267,244. ③ ORI (p.6): cambio no realizado FVOCI +8,009,050;
+  transferido 174,147; ECL en ORI 3,757,268; derivados de cobertura +1,197,627 (no portafolio). ④ "Provisión para inversiones"
+  3,756,675 — **cargo grande del ejercicio**. Doc: `globalbank-ganancias-inversiones.html`.
+- **Davivienda (auditado FY2025):** ① interés "Inversiones en valores" 34,520,516 (P&L p.9). ② **dos líneas limpias**: "Ganancia
+  neta en inversiones a VRCR" 591,582 + "Ganancia neta en inversiones a VRCOUI" 144,845 = 736,427. ③ ORI (p.10): cambio no
+  realizado 6,634,611; transferido a resultados (144,845) — **reciclaje que cuadra al centavo** con la ganancia VRCOUI del P&L. ④
+  "Provisión para pérdida en inversiones a CA y a VRCOUI" 2,199,282 (Nota 4). Doc: `davivienda-ganancias-inversiones.html`.
+- **Scotiabank (auditado FY oct-2024):** ① interés "Inversiones en valores" 14,968,209 (p.9). ② "Ganancia neta en valores" 30,512
+  (**minúscula, sin nota**; sin FVTPL). ③ ORI (p.9): cambios netos en valuación VRCOUI +9,485,192; reserva VRCOUI (32,909); sin
+  línea de reciclaje separada. ④ deterioro: reversión CA (196,900) + cargo VRCOUI 7,431 = reversión neta 189,469. Doc: `scotiabank-ganancias-inversiones.html`.
+- **Banesco (interino Mar-2026):** ① interés "Valores" 12,277,806 (P&L p.12). ② **dos pérdidas**: "Pérdida neta en instrumentos
+  financieros a VRCR" (132,896) (**mixta con derivados**, sin desagregar) + "Pérdida neta en venta de valores a VRCOUI" (531,849).
+  ③ ORI (p.14): cambio no realizado (6,783,760); transferido a resultados 588,064. ④ "Provisión para pérdidas en inversiones"
+  56,215. Doc: `banesco-ganancias-inversiones.html`.
+
+---
+
 ## Resumen para gráficos del reporte
 
 > Corte del reporte: **31-mar-2026**. Cuatro bancos en interino no auditado [INT] (Banistmo, Banco
@@ -424,13 +533,14 @@ regionales) sí es robusto. En Banistmo, el 42% sub-grado es casi todo Panamá s
 
 **Tamaño cartera (último disponible):**
 BG 5,985.6 (Mar-26, INT) · BAC 5,615.4 (Mar-26, INT, CA) · Banistmo 1,643.3 (Mar-26, INT) ·
-Davivienda 1,248.5 (Dic-25, carried) · Global 1,124.0 (Mar-26, INT, 9mo) · Scotiabank 371.3 (oct-24, absorbido).
+Davivienda 1,248.5 (Dic-25, carried) · Global 1,124.0 (Mar-26, INT, 9mo) · **Banesco 1,083.5 (Mar-26, INT, +12.1% en el trim.)** ·
+Scotiabank 371.3 (oct-24, absorbido).
 
 **% inversiones / activo** (benchmark del sistema = SBN, banca de licencia general, Mar-2026):
-**BG 28.6%** > Davivienda 23.4% (Dic-25, carried) > **Sistema SBN (lic. general) 23.0%** > Banistmo 15.6% > **BAC 13.4%** > Global 12.7% > Scotia 9.7%. Cambios vs. el corte Dic-2025: BAC adelanta a Global (12.3% → 13.4% vs. Global 13.4% → 12.7%) y el Sistema sube por encima de Banistmo (22.1% → 23.0% vs. Banistmo 16.0% → 15.6%).
+**BG 28.6%** > Davivienda 23.4% (Dic-25, carried) > **Sistema SBN (lic. general) 23.0%** > **Banesco 17.8%** > Banistmo 15.6% > **BAC 13.4%** > Global 12.7% > Scotia 9.7%. Cambios vs. el corte Dic-2025: BAC adelanta a Global (12.3% → 13.4% vs. Global 13.4% → 12.7%) y el Sistema sube por encima de Banistmo (22.1% → 23.0% vs. Banistmo 16.0% → 15.6%). **Banesco** entra por encima de Banistmo en peso sobre activo (17.8%).
 
 **Yield estimado** (ingreso del trimestre 1T-2026 × 4 ÷ **portafolio de cierre Mar-2026**; método saldo de cierre, verificado por cálculo):
-**BAC 5.5%** · BG 4.9% · Scotiabank 4.1% · Davivienda 4.05% · Global 4.0% · **Banistmo 3.9%** (sigue
+**BAC 5.5%** · BG 4.9% · **Banesco 4.5%** · Scotiabank 4.1% · Davivienda 4.05% · Global 4.0% · **Banistmo 3.9%** (sigue
 siendo el más bajo del perímetro, pero sube desde 3.6%). Cálculo: BAC 307.1/5,615.4=5.47% · BG 293.6/5,985.6=4.91% ·
 Global 44.6/1,124.0=3.97% · Banistmo 63.3/1,643.3=3.85%. (Sobre *saldo promedio*: BAC 5.79%, Global 4.35% — la diferencia
 mayor es BAC por su crecimiento de +12.5% en el trimestre; los demás casi no cambian.)
@@ -447,6 +557,7 @@ mayor es BAC por su crecimiento de +12.5% en el trimestre; los demás casi no ca
 - Global (Mar-26, INT, 9mo): 6.9 / 55.8 / 37.3
 - Davivienda (Dic-25, carried): 0.5 / 79.2 / 20.3
 - Scotiabank (oct-24, carried): 0 / 85.9 / 14.1
+- Banesco (Mar-26, INT): 0.3 / 77.3 / 22.4 → casi todo FVOCI + costo amortizado, trading marginal
 
 **Instrumentos — mapa definitivo (interino Mar-2026 para BG/BAC/Banistmo/Global; último cierre para Davivienda/Scotia):**
 - **MBS/CMO:** SOLO Banco General (**3,050.8M, ~51%**, agency GNMA/FNMA/FHLMC; Mar-2026 interino, Dic-2025: 3,055.6M).
@@ -456,8 +567,8 @@ mayor es BAC por su crecimiento de +12.5% en el trimestre; los demás casi no ca
   Global y Davivienda no los separan por país.
 - **Núcleo soberano local/regional:** BAC (Centroamérica, sub-grado creciendo fuerte en el trimestre),
   Davivienda (gob.), Banistmo (Panamá 496.4M ~30%, Mar-26) y Global (Panamá + LatAm).
-- **Corporativo:** peso relevante en Banistmo (**~44%, Mar-26**, casi todo held-to-maturity) y Banco
-  General (corp regionales 1,687.1M → 1,587.3M en el trimestre, ~35% ex-MBS).
+- **Corporativo:** peso relevante en **Banesco (~61%, Mar-26** — el más corporativo-céntrico en proporción), Banistmo
+  (**~44%, Mar-26**, casi todo held-to-maturity) y Banco General (corp regionales 1,687.1M → 1,587.3M en el trimestre, ~35% ex-MBS).
 
 ---
 

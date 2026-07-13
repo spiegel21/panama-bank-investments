@@ -5,7 +5,7 @@
   --plane:#eef1f5; --surface:#f8f9fb; --surface-2:#ffffff;
   --ink:#0f1620; --ink-2:#475062; --muted:#8a91a0; --hair:#dde2ea; --hair-2:#c7cedb;
   --accent:#2a78d6; --accent-soft:#e7f0fc;
-  --s1:#2a78d6; --s2:#1baf7a; --s3:#c98a00; --s4:#008300; --s5:#4a3aa7; --s6:#e34948;
+  --s1:#2a78d6; --s2:#1baf7a; --s3:#c98a00; --s4:#008300; --s5:#4a3aa7; --s6:#e34948; --s7:#0b8a8f;
   --good:#0a8a3a; --warn:#b8770a; --pend:#8a91a0; --crit:#c0392b;
   --good-bg:#e4f4ea; --warn-bg:#fbf1dc; --pend-bg:#eceef2; --crit-bg:#fae5e2;
   --shadow:0 1px 2px rgba(15,22,32,.04),0 8px 24px rgba(15,22,32,.06);
@@ -17,7 +17,7 @@
     --plane:#0a0c10; --surface:#12161d; --surface-2:#171c25;
     --ink:#f2f5fa; --ink-2:#a8b0c0; --muted:#6b7382; --hair:#242a34; --hair-2:#2f3744;
     --accent:#4a90e2; --accent-soft:#16273c;
-    --s1:#3987e5; --s2:#199e70; --s3:#c98500; --s4:#22a022; --s5:#9085e9; --s6:#e66767;
+    --s1:#3987e5; --s2:#199e70; --s3:#c98500; --s4:#22a022; --s5:#9085e9; --s6:#e66767; --s7:#2bb3ba;
     --good:#3bbf6a; --warn:#e0a52c; --pend:#7a8291; --crit:#e8756a;
     --good-bg:#12291b; --warn-bg:#2a2210; --pend-bg:#1c212a; --crit-bg:#2c1815;
     --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.4);
@@ -27,7 +27,7 @@
   --plane:#eef1f5; --surface:#f8f9fb; --surface-2:#ffffff;
   --ink:#0f1620; --ink-2:#475062; --muted:#8a91a0; --hair:#dde2ea; --hair-2:#c7cedb;
   --accent:#2a78d6; --accent-soft:#e7f0fc;
-  --s1:#2a78d6; --s2:#1baf7a; --s3:#c98a00; --s4:#008300; --s5:#4a3aa7; --s6:#e34948;
+  --s1:#2a78d6; --s2:#1baf7a; --s3:#c98a00; --s4:#008300; --s5:#4a3aa7; --s6:#e34948; --s7:#0b8a8f;
   --good:#0a8a3a; --warn:#b8770a; --pend:#8a91a0; --crit:#c0392b;
   --good-bg:#e4f4ea; --warn-bg:#fbf1dc; --pend-bg:#eceef2; --crit-bg:#fae5e2;
 }
@@ -175,6 +175,16 @@ td.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
 .take-item h3{font-size:16.5px;font-weight:660;margin-bottom:6px}
 .take-item p{margin:0;font-size:14.5px;color:var(--ink-2)}
 
+/* link cards (mapa de renglones) */
+.linkcard{display:block;background:var(--surface-2);border:1px solid var(--hair);border-radius:12px;
+  padding:15px 17px;box-shadow:var(--shadow);text-decoration:none;color:inherit;transition:border-color .12s,transform .12s}
+.linkcard:hover{border-color:var(--accent);transform:translateY(-2px)}
+.linkcard.self{background:color-mix(in srgb,var(--accent-soft) 40%,var(--surface-2))}
+.linkcard .lc-t{font-weight:680;font-size:15px;margin-bottom:5px;display:flex;align-items:center;gap:6px}
+.linkcard .lc-t::after{content:"→";color:var(--accent);font-weight:700}
+.linkcard .lc-d{font-size:13px;color:var(--ink-2);line-height:1.5}
+.linkcard .lc-d b{color:var(--ink)}
+
 /* tooltip */
 #tt{position:fixed;z-index:90;pointer-events:none;opacity:0;transition:opacity .1s;
   background:var(--ink);color:var(--plane);font-family:var(--mono);font-size:12px;
@@ -208,6 +218,7 @@ hr.soft{border:none;border-top:1px solid var(--hair);margin:26px 0}
       <a href="#rentabilidad">Rentabilidad</a>
       <a href="#evolucion">Evolución</a>
       <a href="#lecturas">Lecturas</a>
+      <a href="#renglones">Renglones</a>
     </nav>
     <div class="top-spacer"></div>
     <button class="theme-btn" id="themeBtn" aria-label="Cambiar tema">◐ Tema</button>
@@ -220,12 +231,14 @@ hr.soft{border:none;border-top:1px solid var(--hair);margin:26px 0}
   <div class="hero">
     <div class="eyebrow">Análisis competitivo de tesorería · 2022–2026 · Corte: 31-mar-2026 (interinos 1T26 + SBP mar-2026)</div>
     <h1>Cómo invierten los principales bancos de Panamá — y dónde está parado Banistmo</h1>
-    <p class="lede">Radiografía del portafolio de <b>inversiones en valores</b> de los seis competidores de referencia,
+    <p class="lede">Radiografía del portafolio de <b>inversiones en valores</b> de los siete competidores de referencia,
       a partir de estados financieros auditados y de la Superintendencia de Bancos de Panamá (SBP). Tamaño del
       portafolio, peso sobre el activo, tipo de instrumento, clasificación contable, rentabilidad estimada y
-      calificaciones — con Banistmo como banco base de comparación.</p>
+      calificaciones — con Banistmo como banco base de comparación. Para cada banco se rastrea, además, <b>renglón por
+      renglón, dónde aparece la ganancia del portafolio</b> en su estado financiero (ver
+      <a href="#renglones">mapas de renglones</a>).</p>
     <div class="meta">
-      <span><b>Perímetro:</b> Banistmo · Banco General · BAC · Global Bank · Davivienda · Scotiabank</span>
+      <span><b>Perímetro:</b> Banistmo · Banco General · BAC · Global Bank · Davivienda · Scotiabank · Banesco</span>
       <span><b>Fuentes:</b> EE.FF. auditados + SBP + calificadoras</span>
       <span><b>Moneda:</b> USD (B/. a la par)</span>
     </div>
@@ -279,8 +292,9 @@ hr.soft{border:none;border-top:1px solid var(--hair);margin:26px 0}
         sus <b>interinos 1T26 (no auditados)</b> — excepto <b>Davivienda</b> (Dic-2025 auditado; no publica interinos
         trimestrales) y <b>Scotiabank</b> (oct-2024, ya absorbido). Los perímetros difieren:
         <b>BAC</b> publica el consolidado de Centroamérica (~US$42&nbsp;mil M en activos, no solo Panamá);
-        <b>Banco General, Banistmo y Global Bank</b> son consolidados con base en Panamá; <b>Global Bank</b> cierra
-        en <b>junio</b> (su cifra 1T26 es el trimestre a mar-2026 dentro del FY-jun). Las cifras absolutas no son 1:1
+        <b>Banco General, Banistmo, Global Bank y Banesco</b> son consolidados con base en Panamá; <b>Global Bank</b> cierra
+        en <b>junio</b> (su cifra 1T26 es el trimestre a mar-2026 dentro del FY-jun). <b>Banesco</b> se suma en este corte
+        con su interino IN-T 1T-2026 (no auditado). Las cifras absolutas no son 1:1
         entre bancos — por eso el análisis se apoya en <b>ratios</b> (% de activo, rendimiento) robustos al perímetro.</div>
     </div>
   </section>
@@ -370,19 +384,22 @@ hr.soft{border:none;border-top:1px solid var(--hair);margin:26px 0}
           <tr><td><span class="chip" style="background:var(--s4)"></span>Global Bank</td>
             <td class="num">1,124.0</td><td class="num">Mar-2026</td><td class="num">8,833.3</td>
             <td class="num">12.7%</td><td class="mini">PA consol. · FY-jun (Q3)</td><td><span class="badge b-est">Int.</span></td></tr>
+          <tr><td><span class="chip" style="background:var(--s7)"></span>Banesco</td>
+            <td class="num">1,083.5</td><td class="num">Mar-2026</td><td class="num">6,077</td>
+            <td class="num">17.8%</td><td class="mini">PA consol.</td><td><span class="badge b-est">Int.</span></td></tr>
           <tr><td><span class="chip" style="background:var(--s6)"></span>Scotiabank PA</td>
             <td class="num">371.3</td><td class="num">Oct-2024</td><td class="num">3,841</td>
             <td class="num">9.7%</td><td class="mini">absorbido dic-2025</td><td><span class="badge b-aud">Aud.</span></td></tr>
         </tbody>
       </table>
     </div>
-    <p class="mini" style="margin-top:10px"><b>Corte 31-mar-2026 (interinos 1T26 no auditados).</b> Movimientos del trimestre: <b>BAC</b> sumó ~US$625 M a su cartera (+12.5%, de 4,989.8 a 5,615.4 M) y sube a 13.4% del activo, superando a Global; <b>Banistmo</b> redujo su cartera 2.7% (1,689.2→1,643.3 M) y baja a 15.6%; <b>Banco General</b> estable en 28.6%. <b>Davivienda</b> se mantiene en Dic-2025 (auditado): no publica estados interinos trimestrales — la única fuente Mar-2026 es el balance regulatorio individual de la SBP (no consolidado, sin notas), que se usa solo como referencia direccional. BAC = consolidado Centroamérica (no solo Panamá). <b>Global Bank</b> cierra en junio: su 1T26 es el trimestre a mar-2026 (Q3 del FY-jun).</p>
+    <p class="mini" style="margin-top:10px"><b>Corte 31-mar-2026 (interinos 1T26 no auditados).</b> Movimientos del trimestre: <b>BAC</b> sumó ~US$625 M a su cartera (+12.5%, de 4,989.8 a 5,615.4 M) y sube a 13.4% del activo, superando a Global; <b>Banistmo</b> redujo su cartera 2.7% (1,689.2→1,643.3 M) y baja a 15.6%; <b>Banco General</b> estable en 28.6%. <b>Banesco</b> entra al comparativo con su interino 1T-2026: US$1,083.5 M (17.8% del activo), habiendo <b>crecido +12.1% su cartera en el trimestre</b> (966.995→1,083.5 M). <b>Davivienda</b> se mantiene en Dic-2025 (auditado): no publica estados interinos trimestrales — la única fuente Mar-2026 es el balance regulatorio individual de la SBP (no consolidado, sin notas), que se usa solo como referencia direccional. BAC = consolidado Centroamérica (no solo Panamá). <b>Global Bank</b> cierra en junio: su 1T26 es el trimestre a mar-2026 (Q3 del FY-jun).</p>
   </section>
 
   <!-- INSTRUMENTOS -->
   <section id="instrumentos">
     <div class="sec-head"><span class="sec-num">04</span><h2>¿En qué instrumentos están?</h2></div>
-    <p class="sec-sub">Los cuatro interinos 1T-2026 (Banistmo, BG, BAC, Global) <b>sí re-tabulan la composición por
+    <p class="sec-sub">Los cinco interinos 1T-2026 (Banistmo, BG, BAC, Global, Banesco) <b>sí re-tabulan la composición por
       instrumento a Mar-2026</b>, así que el mapa está actualizado al trimestre. Todas son carteras de <b>renta fija</b>
       (bono soberano + corporativo), con dos rasgos diferenciadores: <b>Banco General es el gran tenedor de MBS</b>
       (~US$3,051 M, ~51% de su cartera, agencias de EE.UU.), y <b>los Tesoros de EE.UU.</b> aparecen en cuatro de los seis
@@ -412,6 +429,10 @@ hr.soft{border:none;border-top:1px solid var(--hair);margin:26px 0}
           <tr><td>Global Bank</td><td class="mini">Sob.+corp mixto</td>
             <td>US$518 M</td><td>US$525 M</td><td class="nd">No</td>
             <td class="nd">No desglos. <span class="mini">(sin split por país)</span></td><td>~US$74 M</td>
+            <td><span class="badge b-est">Int.</span></td></tr>
+          <tr><td>Banesco</td><td class="mini">Corp-céntrico</td>
+            <td>US$417 M <span class="mini">(~38%)</span></td><td><b>US$663 M</b> <span class="mini">(~61%)</span></td><td class="nd">No</td>
+            <td class="nd">No desglos. <span class="mini">(solo "gubernamental")</span></td><td>US$1.6 M</td>
             <td><span class="badge b-est">Int.</span></td></tr>
           <tr><td>Davivienda PA</td><td class="mini">Soberano dominante</td>
             <td><b>US$929 M</b></td><td>US$322 M</td><td class="nd">No</td>
@@ -466,11 +487,13 @@ hr.soft{border:none;border-top:1px solid var(--hair);margin:26px 0}
           <span class="pill">Global <b>6.3%</b></span>
           <span class="pill">BAC <b>0.4%</b></span>
           <span class="pill">Davivienda <b>0.5%</b></span>
+          <span class="pill">Banesco <b>0.3%</b></span>
         </div>
         <hr class="soft">
-        <p class="mini" style="margin:0">En el otro extremo, <b>Banco General</b> (85% FVOCI), <b>BAC</b> (96% AFS) y
-          <b>Davivienda</b> (79% FVOCI) llevan casi toda la cartera a valor razonable con cambios en ORI — volatilidad
-          contenida en patrimonio, no en resultados. <b>Global</b> es el más cargado a costo amortizado (37%).</p>
+        <p class="mini" style="margin:0">En el otro extremo, <b>Banco General</b> (85% FVOCI), <b>BAC</b> (96% AFS),
+          <b>Davivienda</b> (79% FVOCI) y <b>Banesco</b> (77% FVOCI) llevan casi toda la cartera a valor razonable con cambios
+          en ORI — volatilidad contenida en patrimonio, no en resultados. <b>Global</b> (37%) y <b>Banesco</b> (22%) son los
+          más cargados a costo amortizado.</p>
       </div>
     </div>
   </section>
@@ -498,6 +521,7 @@ hr.soft{border:none;border-top:1px solid var(--hair);margin:26px 0}
         <tbody>
           <tr><td>BAC</td><td class="num">76.8 <span class="mini">(1T26)</span></td><td class="num">307.1</td><td class="num">291.4</td><td class="num">~5.5%</td><td class="mini">CA consol.</td><td><span class="badge b-est">Est.</span></td></tr>
           <tr><td>Banco General</td><td class="num">73.4 <span class="mini">(1T26)</span></td><td class="num">293.6</td><td class="num">283.5</td><td class="num">~4.9%</td><td class="mini">PA consol.</td><td><span class="badge b-est">Est.</span></td></tr>
+          <tr><td>Banesco</td><td class="num">12.3 <span class="mini">(1T26)</span></td><td class="num">49.1</td><td class="num">45.1</td><td class="num">~4.5%</td><td class="mini">PA consol.</td><td><span class="badge b-est">Est.</span></td></tr>
           <tr><td>Global Bank</td><td class="num">11.1 <span class="mini">(Q3 1T26)</span></td><td class="num">44.6</td><td class="num">45.6</td><td class="num">~4.0%</td><td class="mini">PA consol.</td><td><span class="badge b-est">Est.</span></td></tr>
           <tr><td>Scotiabank PA</td><td class="num nd">—</td><td class="num nd">—</td><td class="num">15.0</td><td class="num">~4.1%</td><td class="mini">Oct-2024</td><td><span class="badge b-est">Est.</span></td></tr>
           <tr><td>Davivienda PA</td><td class="num nd">—</td><td class="num nd">—</td><td class="num">34.5</td><td class="num">~4.0%</td><td class="mini">Dic-2025</td><td><span class="badge b-est">Est.</span></td></tr>
@@ -505,7 +529,7 @@ hr.soft{border:none;border-top:1px solid var(--hair);margin:26px 0}
         </tbody>
       </table>
     </div>
-    <p class="mini" style="margin-top:10px"><b>Método:</b> <b>Raw</b> = ingreso por intereses de inversiones del <b>trimestre ene-mar 2026</b> (para Global, su trimestre Q3 del FY-junio); <b>Anualizado</b> = raw × 4; <b>yield = anualizado ÷ portafolio de cierre (Mar-2026)</b>. Con este método (saldo de cierre, verificado por cálculo): BAC 307.1/5,615.4 = 5.5%; BG 293.6/5,985.6 = 4.9%; Global 44.6/1,124.0 = 4.0%; Banistmo 63.3/1,643.3 = 3.9%. El anualizado 1T26 queda muy cerca del cierre FY2025 (BAC 307.1 vs 291.4; BG 293.6 vs 283.5; Global 44.6 vs 45.6; Banistmo 63.3 vs 58.2). Nota: BAC creció su cartera +12.5% en el trimestre, así que sobre <i>saldo promedio</i> su yield sería ~5.8%; sobre saldo de cierre da 5.5%. Global acumuló US$36.8M en 9 meses. Banistmo lee "Valores y otros". <b>Davivienda y Scotiabank</b> no tienen interino: se muestran a su último cierre (Dic-2025 34.5M / Oct-2024 15.0M), yields ~4.0% / ~4.1% sobre su base anual.</p>
+    <p class="mini" style="margin-top:10px"><b>Método:</b> <b>Raw</b> = ingreso por intereses de inversiones del <b>trimestre ene-mar 2026</b> (para Global, su trimestre Q3 del FY-junio); <b>Anualizado</b> = raw × 4; <b>yield = anualizado ÷ portafolio de cierre (Mar-2026)</b>. Con este método (saldo de cierre, verificado por cálculo): BAC 307.1/5,615.4 = 5.5%; BG 293.6/5,985.6 = 4.9%; Banesco 49.1/1,083.5 = 4.5%; Global 44.6/1,124.0 = 4.0%; Banistmo 63.3/1,643.3 = 3.9%. El anualizado 1T26 queda muy cerca del cierre FY2025 (BAC 307.1 vs 291.4; BG 293.6 vs 283.5; Global 44.6 vs 45.6; Banistmo 63.3 vs 58.2). Nota: BAC creció su cartera +12.5% en el trimestre, así que sobre <i>saldo promedio</i> su yield sería ~5.8%; sobre saldo de cierre da 5.5%. Global acumuló US$36.8M en 9 meses. Banistmo lee "Valores y otros". <b>Davivienda y Scotiabank</b> no tienen interino: se muestran a su último cierre (Dic-2025 34.5M / Oct-2024 15.0M), yields ~4.0% / ~4.1% sobre su base anual.</p>
   </section>
 
   <!-- EVOLUCION -->
@@ -596,10 +620,13 @@ hr.soft{border:none;border-top:1px solid var(--hair);margin:26px 0}
           <tr><td>BAC</td>
             <td class="num">1,798 M · 32.0%</td><td class="num"><b>3,817 M · 68.0%</b></td><td class="num nd">0</td>
             <td class="mini">bonos · CA consol. · Mar-26</td><td><span class="badge b-est">Int.</span></td></tr>
+          <tr><td>Banesco</td>
+            <td class="num nd">n/d&dagger;</td><td class="num nd">n/d&dagger;</td><td class="num nd">n/d&dagger;</td>
+            <td class="mini">escala interna (indicador 1–6) · Mar-26</td><td><span class="badge b-est">Int.</span></td></tr>
         </tbody>
       </table>
     </div>
-    <p class="mini" style="margin-top:10px">* Scotiabank: bracket "BBB+ a BB+" de US$28 M cruza la frontera IG/sub-grado; contado como sub-grado (conservador). Montos leídos de la nota de riesgo de crédito de cada auditoría y reconciliados con el total de cada cartera.</p>
+    <p class="mini" style="margin-top:10px">* Scotiabank: bracket "BBB+ a BB+" de US$28 M cruza la frontera IG/sub-grado; contado como sub-grado (conservador). Montos leídos de la nota de riesgo de crédito de cada auditoría y reconciliados con el total de cada cartera.<br>&dagger; <b>Banesco</b> publica la calidad de su cartera en una <b>escala interna numérica (indicador 1–6 + sin calificación)</b>, no en brackets de letra de las agencias, por lo que <b>no es mapeable 1:1</b> a grado inversión / sub-grado y queda fuera del gráfico normalizado. La distribución por indicador (VRCOUI: ind. 4 concentra 494 M de 837 M; costo amortizado: ind. 4 concentra 126 M de 243 M) está en <span class="kbd">datos-extraidos.md</span>. Por eso el gráfico apilado muestra seis bancos, no siete.</p>
 
     <div style="margin-top:16px" class="callout co-warn"><span class="ic">!</span>
       <div><b>La línea "grado de inversión" no es 1:1 entre bancos — depende de cómo cada uno trata el papel de
@@ -665,6 +692,39 @@ hr.soft{border:none;border-top:1px solid var(--hair);margin:26px 0}
     </div>
   </section>
 
+  <!-- RENGLONES / MAPAS -->
+  <section id="renglones">
+    <div class="sec-head"><span class="sec-num">10</span><h2>¿Dónde aparece la ganancia del portafolio? — mapa de renglones por banco</h2></div>
+    <p class="sec-sub">Para cada banco se rastreó, <b>renglón por renglón</b>, dónde reconoce su estado financiero el
+      resultado del portafolio de inversiones: la línea de <b>interés</b>, la de <b>valuación/venta</b> (a menudo mixta con
+      divisas o derivados, que hay que abrir en una nota), las líneas del <b>Resultado Integral (ORI)</b> y las
+      <b>provisiones</b> que netean. El hallazgo comparable: <b>cada banco "esconde" la ganancia del portafolio de forma
+      distinta</b>. Cada tarjeta abre la nota de trabajo con las cifras exactas y las capturas de las páginas fuente.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px;margin-top:16px">
+      <a class="linkcard self" href="banistmo-ganancias-inversiones.html" style="border-left:3px solid var(--s1)">
+        <div class="lc-t">Banistmo</div>
+        <div class="lc-d">Renglón mixto con <b>divisas y derivados</b> (Nota 21) — hay que abrirlo. Interino 1T-2026.</div></a>
+      <a class="linkcard" href="bancogeneral-ganancias-inversiones.html" style="border-left:3px solid var(--s2)">
+        <div class="lc-t">Banco General</div>
+        <div class="lc-d">Renglón mixto con <b>derivados</b> (Nota 23); el ORI trae la gran pérdida FVOCI del trimestre. Interino 1T-2026.</div></a>
+      <a class="linkcard" href="bac-ganancias-inversiones.html" style="border-left:3px solid var(--s3)">
+        <div class="lc-t">BAC</div>
+        <div class="lc-d">Línea de valores <b>limpia</b> (Nota 15); el diferencial cambiario va aparte (pérdida de US$75 M). Interino 1T-2026.</div></a>
+      <a class="linkcard" href="globalbank-ganancias-inversiones.html" style="border-left:3px solid var(--s4)">
+        <div class="lc-t">Global Bank</div>
+        <div class="lc-d">Sin línea propia: el resultado está <b>embebido en "Otros ingresos"</b> (Nota 23) — hay que extraerlo. Interino 9M FY-jun.</div></a>
+      <a class="linkcard" href="davivienda-ganancias-inversiones.html" style="border-left:3px solid var(--s5)">
+        <div class="lc-t">Davivienda</div>
+        <div class="lc-d"><b>Dos líneas de valores limpias</b> (VRCR y VRCOUI); reciclaje que cuadra al centavo. FY2025 auditado.</div></a>
+      <a class="linkcard" href="scotiabank-ganancias-inversiones.html" style="border-left:3px solid var(--s6)">
+        <div class="lc-t">Scotiabank</div>
+        <div class="lc-d">El libro más simple: <b>casi todo interés</b>, venta minúscula (US$30 K), sin FVTPL. FY oct-2024 (absorbido).</div></a>
+      <a class="linkcard" href="banesco-ganancias-inversiones.html" style="border-left:3px solid var(--s7)">
+        <div class="lc-t">Banesco</div>
+        <div class="lc-d"><b>Dos pérdidas</b> de valores (no ganancias); la FVTPL está mixta con <b>derivados</b>. Interino 1T-2026.</div></a>
+    </div>
+  </section>
+
 </main>
 
 <footer class="wrap">
@@ -675,8 +735,10 @@ hr.soft{border:none;border-top:1px solid var(--hair);margin:26px 0}
 
   <div class="disc">
     <b>Alcance — fidelidad completa.</b> Este corte se construyó abriendo y leyendo directamente la nota "Inversiones en
-    valores" de los estados financieros auditados de los seis bancos (split FVTPL/FVOCI/costo amortizado, composición por
-    instrumento incl. MBS y Tesoros de EE.UU., escalera de vencimientos y tablas de calificaciones de cartera). Los
+    valores" de los estados financieros de los siete bancos (split FVTPL/FVOCI/costo amortizado, composición por
+    instrumento incl. MBS y Tesoros de EE.UU., escalera de vencimientos y tablas de calificaciones de cartera), y
+    rastreando renglón por renglón dónde cada banco reconoce la ganancia del portafolio (ver los
+    <a href="#renglones">mapas de renglones</a>). Los
     porcentajes de activo y los yields marcados <span class="badge b-est" style="padding:2px 8px">Estimado</span> son
     cálculos propios. Lo que sigue marcado <span class="badge b-pend" style="padding:2px 8px">No divulgado</span> es dato
     que el emisor no publica (p. ej. Global Bank y Davivienda no separan los Tesoros de EE.UU. por país; Banistmo no publica
@@ -695,6 +757,7 @@ hr.soft{border:none;border-top:1px solid var(--hair);margin:26px 0}
     <div>Davivienda PA · EF Local 2025 (davibank.pa) — sin interino trimestral</div>
     <div>Davivienda · Moody's Local nov-2024 / dic-2025</div>
     <div>Scotiabank PA · EF Sucursal oct-2024 (pa.scotiabank.com)</div>
+    <div>Banesco · <b>Interino IN-T Mar-2026</b> + EE.FF. 2025 (media.banesco.com.pa)</div>
     <div>SBP · <b>IAB Mar-2026</b> / Dic-2024 (superbancos.gob.pa)</div>
     <div>SBP · <b>Balance de Situación SBN/CBI 2026/03</b> + balances individuales</div>
     <div>Superintendencia del Mercado de Valores (SMV) · filings</div>
@@ -731,7 +794,8 @@ hr.soft{border:none;border-top:1px solid var(--hair);margin:26px 0}
   var BANKS={
     banistmo:{name:"Banistmo",c:"--s1"}, bg:{name:"Banco General",c:"--s2"},
     bac:{name:"BAC",c:"--s3"}, global:{name:"Global Bank",c:"--s4"},
-    davi:{name:"Davivienda",c:"--s5"}, scotia:{name:"Scotiabank",c:"--s6"}
+    davi:{name:"Davivienda",c:"--s5"}, scotia:{name:"Scotiabank",c:"--s6"},
+    banesco:{name:"Banesco",c:"--s7"}
   };
 
   // ---- horizontal bars ----
@@ -859,7 +923,8 @@ hr.soft{border:none;border-top:1px solid var(--hair);margin:26px 0}
       {b:"bac",c:"--s3",pts:[["2023",4549],["2024",4883],["2025",4989.8],["2026",5615.4]]},
       {b:"banistmo",c:"--s1",self:true,labelDy:-6,pts:[["2023",1459.2],["2024",1548.8],["2025",1689.2],["2026",1643.3]]},
       {b:"davi",c:"--s5",labelDy:7,pts:[["2024",455.3],["2025",1248.5]]},
-      {b:"global",c:"--s4",labelDy:19,pts:[["2022",1079.2],["2023",1053.4],["2024",1049.3],["2025",1136.6],["2026",1124.0]]}
+      {b:"global",c:"--s4",labelDy:19,pts:[["2022",1079.2],["2023",1053.4],["2024",1049.3],["2025",1136.6],["2026",1124.0]]},
+      {b:"banesco",c:"--s7",labelDy:-8,pts:[["2025",967.0],["2026",1083.5]]}
     ];
     var xs=["2022","2023","2024","2025","2026"];
     var xi={}; xs.forEach(function(k,i){xi[k]=i;});
@@ -896,6 +961,7 @@ hr.soft{border:none;border-top:1px solid var(--hair);margin:26px 0}
     hbars(svg,[
       {name:"BAC",c:"--s3",v:5.5,tip:"1T26 × 4 ÷ cartera cierre · CA consolidado · estimado"},
       {name:"Banco General",c:"--s2",v:4.9,tip:"1T26 × 4 ÷ cartera cierre · PA consolidado · estimado"},
+      {name:"Banesco",c:"--s7",v:4.5,tip:"1T26 × 4 ÷ cartera cierre · PA consolidado · estimado"},
       {name:"Scotiabank",c:"--s6",v:4.1,tip:"Oct-2024 · sucursal PA · estimado"},
       {name:"Davivienda",c:"--s5",v:4.05,tip:"FY2025 · post-fusión (sin interino) · estimado"},
       {name:"Global Bank",c:"--s4",v:4.0,tip:"Q3 1T26 × 4 ÷ cartera cierre · FY-jun · estimado"},
@@ -941,12 +1007,14 @@ hr.soft{border:none;border-top:1px solid var(--hair);margin:26px 0}
       {name:"Banistmo",c:"--s1",self:true,v:1643.3,tip:"Mar-2026 (interino) · PA consol."},
       {name:"Davivienda",c:"--s5",v:1248.5,tip:"Dic-2025 · post-fusión (sin interino)"},
       {name:"Global Bank",c:"--s4",v:1124.0,tip:"Mar-2026 (interino) · FY-junio (Q3)"},
+      {name:"Banesco",c:"--s7",v:1083.5,tip:"Mar-2026 (interino) · PA consol. · +12.1% en el trim."},
       {name:"Scotiabank",c:"--s6",v:371.3,tip:"Oct-2024 · absorbido dic-2025"}
     ],{max:6400,ticks:4});
     hbars(document.getElementById("ch-pct"),[
       {name:"Banco General",c:"--s2",v:28.6,tip:"Mar-2026 (interino)"},
       {name:"Davivienda",c:"--s5",v:23.4,tip:"Dic-2025 · post-fusión (sin interino)"},
       {name:"Sistema (ref.)",c:"--muted",v:23.0,tip:"Sist. Bancario Nacional · lic. general · Mar-2026"},
+      {name:"Banesco",c:"--s7",v:17.8,tip:"Mar-2026 (interino) · PA consol."},
       {name:"Banistmo",c:"--s1",self:true,v:15.6,tip:"Mar-2026 (interino)"},
       {name:"BAC",c:"--s3",v:13.4,tip:"Mar-2026 · CA consol."},
       {name:"Global Bank",c:"--s4",v:12.7,tip:"Mar-2026 · FY-junio (Q3)"},

@@ -7,7 +7,51 @@ nota **"Inversiones en Valores"** (composición y clasificación contable), a la
 inversiones, base del yield), al **balance** (activo total e inversiones), o a los cuadros del
 **sistema (SBP)**. La página impresa aparece al pie de cada captura.
 
-**Total: 39 capturas Dic-2025/anteriores + 23 capturas del corte 31-mar-2026 = 62.** URLs completas en [`fuentes-pdfs.md`](../fuentes-pdfs.md).
+**Total: 39 capturas Dic-2025/anteriores + 23 del corte 31-mar-2026 + 28 de la sesión 4 (mapa de renglones + Banesco) = 90.** URLs completas en [`fuentes-pdfs.md`](../fuentes-pdfs.md).
+
+> ## Sesión 4 — mapa de renglones de ganancias del portafolio (7 bancos) + Banesco
+>
+> Capturas de las páginas del **estado de resultados, el estado de resultado integral (ORI) y las notas de
+> inversiones/provisiones** de cada banco, de las que se leyó, renglón por renglón, dónde se reconoce la ganancia del
+> portafolio (documentadas en los `<banco>-ganancias-inversiones.html`). Incluye las páginas del nuevo banco del
+> perímetro, **Banesco**.
+>
+> | # | Captura | Pág. PDF | Qué respalda |
+> |---|---|---|---|
+> | | **Banco General — Interino Mar-2026** | | |
+> | 63 | [`bancogeneral-mar2026_p026_resultado-integral.png`](bancogeneral-mar2026_p026_resultado-integral.png) | 26 | ORI — valuación VR OUI (42.7M) + transferencia por ventas |
+> | 64 | [`bancogeneral-mar2026_p050_nota6-composicion.png`](bancogeneral-mar2026_p050_nota6-composicion.png) | 50 | Nota 6 — composición FVTPL/FVOCI/CA |
+> | 65 | [`bancogeneral-mar2026_p075_nota23-instrumentos-financieros.png`](bancogeneral-mar2026_p075_nota23-instrumentos-financieros.png) | 75 | Nota 23 — desglose ganancia en instrumentos (portafolio vs. derivados) |
+> | 66 | [`bancogeneral-mar2026_p090_ratings.png`](bancogeneral-mar2026_p090_ratings.png) | 90 | Calidad crediticia de la cartera (re-tabulada) |
+> | | **BAC — Interino Mar-2026** | | |
+> | 67 | [`bac-mar2026_p008_resultado-integral.png`](bac-mar2026_p008_resultado-integral.png) | 8 | ORI — valuación VRCOUI + transferido al P&L |
+> | 68 | [`bac-mar2026_p045_nota8-vrcr.png`](bac-mar2026_p045_nota8-vrcr.png) | 45 | Nota 8 — inversiones a VRCR (FVTPL) |
+> | 69 | [`bac-mar2026_p046_nota8-vrcoui-ca.png`](bac-mar2026_p046_nota8-vrcoui-ca.png) | 46 | Nota 8 — VRCOUI (5,388M) y costo amortizado |
+> | 70 | [`bac-mar2026_p053_nota15-ganancia-instrumentos.png`](bac-mar2026_p053_nota15-ganancia-instrumentos.png) | 53 | Nota 15 — ganancia en instrumentos financieros (100% valores) |
+> | | **Global Bank — Interino Mar-2026 (Q3 FY-jun)** | | |
+> | 71 | [`globalbank-mar2026_p006_resultado-integral.png`](globalbank-mar2026_p006_resultado-integral.png) | 6 | ORI — valuación FVOCI + reciclaje + derivados de cobertura |
+> | 72 | [`globalbank-mar2026_p038_ratings.png`](globalbank-mar2026_p038_ratings.png) | 38 | Nota 4 — calidad crediticia de la cartera |
+> | 73 | [`globalbank-mar2026_p058_nota9-inversiones.png`](globalbank-mar2026_p058_nota9-inversiones.png) | 58 | Nota 9 — composición FVTPL/FVOCI/CA |
+> | 74 | [`globalbank-mar2026_p074_nota22-23-intereses-otros.png`](globalbank-mar2026_p074_nota22-23-intereses-otros.png) | 74 | Notas 22-23 — interés + resultado de valores en "Otros ingresos" |
+> | | **Davivienda — Auditado Dic-2025** | | |
+> | 75 | [`davivienda-dic2025_p009_estado-resultados-valores.png`](davivienda-dic2025_p009_estado-resultados-valores.png) | 9 | P&L — interés 34.5M · ganancia VRCR + VRCOUI · deterioro |
+> | 76 | [`davivienda-dic2025_p010_resultado-integral.png`](davivienda-dic2025_p010_resultado-integral.png) | 10 | ORI — cambio no realizado + reciclaje |
+> | 77 | [`davivienda-dic2025_p037_ratings.png`](davivienda-dic2025_p037_ratings.png) | 37 | Nota 4 — calidad crediticia por banda |
+> | 78 | [`davivienda-dic2025_p066_nota8-composicion.png`](davivienda-dic2025_p066_nota8-composicion.png) | 66 | Nota 8 — composición VRCOUI/VRCR/CA |
+> | 79 | [`davivienda-dic2025_p067_nota8-detalle.png`](davivienda-dic2025_p067_nota8-detalle.png) | 67 | Nota 8 — detalle por instrumento |
+> | 80 | [`davivienda-dic2025_p069_combinacion-scotiabank.png`](davivienda-dic2025_p069_combinacion-scotiabank.png) | 69 | Nota 10 — combinación Scotiabank (inversiones adquiridas 318.5M) |
+> | | **Scotiabank — Auditado oct-2024** | | |
+> | 81 | [`scotiabank-oct2024_p009_resultados-integrales.png`](scotiabank-oct2024_p009_resultados-integrales.png) | 9 | P&L + ORI — interés 15.0M · venta 30.5K · valuación VRCOUI 9.49M |
+> | 82 | [`scotiabank-oct2024_p034_ratings-inversiones.png`](scotiabank-oct2024_p034_ratings-inversiones.png) | 34 | Calidad crediticia de la cartera |
+> | 83 | [`scotiabank-oct2024_p046_nota8-composicion.png`](scotiabank-oct2024_p046_nota8-composicion.png) | 46 | Nota 8 — VRCOUI / costo amortizado |
+> | 84 | [`scotiabank-oct2024_p047_nota8-vrcoui.png`](scotiabank-oct2024_p047_nota8-vrcoui.png) | 47 | Nota 8 — VRCOUI: Panamá 141M + UST 176M |
+> | | **Banesco (Panamá) — Interino IN-T Mar-2026 (NUEVO)** | | [PDF](https://media.banesco.com.pa/docs/informes/trimestrales/03/Informe_trimestral_marzo_2026.pdf) |
+> | 85 | [`banesco-mar2026_p010_balance.png`](banesco-mar2026_p010_balance.png) | 10 | Balance — inversiones 1,083.5M; activo 6,077M |
+> | 86 | [`banesco-mar2026_p012_estado-resultados.png`](banesco-mar2026_p012_estado-resultados.png) | 12 | P&L — interés Valores 12.28M · dos pérdidas de valores · provisión |
+> | 87 | [`banesco-mar2026_p014_resultado-integral.png`](banesco-mar2026_p014_resultado-integral.png) | 14 | ORI — cambio no realizado (6.78M) + transferido 588K |
+> | 88 | [`banesco-mar2026_p073_nota9-fvtpl.png`](banesco-mar2026_p073_nota9-fvtpl.png) | 73 | Nota 9 — cartera FVTPL (acciones, fondos, derivados) |
+> | 89 | [`banesco-mar2026_p074_nota9-fvoci-ratings.png`](banesco-mar2026_p074_nota9-fvoci-ratings.png) | 74 | Nota 9 — VRCOUI (837M) + calidad por indicador 1–6 |
+> | 90 | [`banesco-mar2026_p066_vencimientos.png`](banesco-mar2026_p066_vencimientos.png) | 66 | Nota 4 — escalera de vencimientos de la cartera |
 
 > ## Corte vigente — 31-mar-2026 (interinos 1T-2026 no auditados + SBP mar-2026)
 >
