@@ -216,6 +216,7 @@ hr.soft{border:none;border-top:1px solid var(--hair);margin:26px 0}
       <a href="#instrumentos">Instrumentos</a>
       <a href="#clasificacion">Clasificación</a>
       <a href="#rentabilidad">Rentabilidad</a>
+      <a href="#resultado">Resultado</a>
       <a href="#evolucion">Evolución</a>
       <a href="#lecturas">Lecturas</a>
       <a href="#renglones">Renglones</a>
@@ -532,9 +533,56 @@ hr.soft{border:none;border-top:1px solid var(--hair);margin:26px 0}
     <p class="mini" style="margin-top:10px"><b>Método:</b> <b>Raw</b> = ingreso por intereses de inversiones del <b>trimestre ene-mar 2026</b> (para Global, su trimestre Q3 del FY-junio); <b>Anualizado</b> = raw × 4; <b>yield = anualizado ÷ portafolio de cierre (Mar-2026)</b>. Con este método (saldo de cierre, verificado por cálculo): BAC 307.1/5,615.4 = 5.5%; BG 293.6/5,985.6 = 4.9%; Banesco 49.1/1,083.5 = 4.5%; Global 44.6/1,124.0 = 4.0%; Banistmo 63.3/1,643.3 = 3.9%. El anualizado 1T26 queda muy cerca del cierre FY2025 (BAC 307.1 vs 291.4; BG 293.6 vs 283.5; Global 44.6 vs 45.6; Banistmo 63.3 vs 58.2). Nota: BAC creció su cartera +12.5% en el trimestre, así que sobre <i>saldo promedio</i> su yield sería ~5.8%; sobre saldo de cierre da 5.5%. Global acumuló US$36.8M en 9 meses. Banistmo lee "Valores y otros". <b>Davivienda y Scotiabank</b> no tienen interino: se muestran a su último cierre (Dic-2025 34.5M / Oct-2024 15.0M), yields ~4.0% / ~4.1% sobre su base anual.</p>
   </section>
 
+  <!-- RESULTADO DEL PORTAFOLIO -->
+  <section id="resultado">
+    <div class="sec-head"><span class="sec-num">07</span><h2>Resultado del portafolio — todos los renglones, no solo el interés</h2></div>
+    <p class="sec-sub">El yield de arriba usa <b>solo la línea de interés</b>. Pero la cartera de inversiones también deja
+      ganancia (o pérdida) por <b>valuación y venta</b> — a menudo escondida en un renglón mixto con divisas o derivados que
+      hay que abrir en una nota (ver los <a href="#renglones">mapas de renglones</a>) — y consume <b>provisiones por deterioro</b>.
+      Sumando esos renglones se obtiene el <b>resultado del portafolio en la utilidad neta</b>, que es <b>mayor que el interés
+      solo</b>. En <b>Banistmo</b>, el interés (US$15.8M) es apenas el <b>~76%</b> del resultado de US$20.9M: los otros US$5.1M
+      viven en una línea de valuación mixta con FX/derivados, y hay US$1.5M más de valuación <b>no realizada en el ORI</b>
+      (patrimonio, fuera de la utilidad). Esta es la cifra que antes no estaba en el tablero.</p>
+
+    <div class="chart-card">
+      <h3>Resultado del portafolio en utilidad neta — anualizado (comparable)</h3>
+      <div class="chsub">US$M · interés + valuación/venta − provisiones · trimestres anualizados × 4 · estimación propia</div>
+      <div class="svgwrap"><svg id="ch-result" viewBox="0 0 520 250" role="img" aria-label="Resultado del portafolio anualizado por banco"></svg></div>
+    </div>
+
+    <div style="margin-top:16px" class="tbl-scroll">
+      <table>
+        <thead><tr><th>Banco</th><th>Período</th><th class="num">Interés inv.</th><th class="num">Valuación/venta</th><th class="num">Provisión</th><th class="num">= Resultado (util. neta)</th><th class="num">Anualiz. (US$M)</th><th class="num">ORI no realiz. (patrim.)</th></tr></thead>
+        <tbody>
+          <tr><td>BAC</td><td class="mini">1T-2026</td><td class="num">76,787,220</td><td class="num">4,921,259</td><td class="num neg">(407,153)</td><td class="num"><b>81,301,326</b></td><td class="num">325.2</td><td class="num neg">(7,411,576)</td></tr>
+          <tr><td>Banco General</td><td class="mini">1T-2026</td><td class="num">73,406,405</td><td class="num">1,544,909</td><td class="num neg">(408,041)</td><td class="num"><b>74,543,273</b></td><td class="num">298.2</td><td class="num neg">(42,736,324)</td></tr>
+          <tr class="self"><td>Banistmo</td><td class="mini">1T-2026</td><td class="num">15,828,245</td><td class="num">5,302,004</td><td class="num neg">(240,728)</td><td class="num"><b>20,889,521</b></td><td class="num">83.6</td><td class="num">+1,540,692</td></tr>
+          <tr><td>Banesco</td><td class="mini">1T-2026</td><td class="num">12,277,806</td><td class="num neg">(664,745)</td><td class="num neg">(56,215)</td><td class="num"><b>11,556,846</b></td><td class="num">46.2</td><td class="num neg">(6,783,760)</td></tr>
+          <tr><td>Global Bank</td><td class="mini">9M-2026 (FY-jun)</td><td class="num">36,843,768</td><td class="num">1,267,244</td><td class="num neg">(3,756,675)</td><td class="num"><b>34,354,337</b></td><td class="num">45.8</td><td class="num">+8,009,050</td></tr>
+          <tr><td>Davivienda</td><td class="mini">FY2025 aud.</td><td class="num">34,520,516</td><td class="num">736,427</td><td class="num neg">(2,199,282)</td><td class="num"><b>33,057,661</b></td><td class="num">33.1</td><td class="num">+6,634,611</td></tr>
+          <tr><td>Scotiabank PA</td><td class="mini">FY oct-2024 aud.</td><td class="num">14,968,209</td><td class="num">30,512</td><td class="num">+189,469</td><td class="num"><b>15,188,190</b></td><td class="num">15.2</td><td class="num">+9,485,192</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="mini" style="margin-top:10px"><b>Resultado en utilidad neta</b> = interés de inversiones + valuación/venta del portafolio − provisión por deterioro
+      (Scotiabank: <b>+</b> reversión de provisión). Cifras exactas leídas renglón por renglón de cada estado financiero, con capturas de
+      página en los <a href="#renglones">mapas de renglones</a> y detalle en <span class="mono">datos-extraidos.md</span>. <b>Anualizado</b> = los cuatro
+      interinos 1T-2026 × 4; Global (9M) × 4/3; Davivienda y Scotiabank ya son cierres anuales (× 1). <b>Caveat:</b> anualizar un solo trimestre supone que
+      es representativo — el interés es estable, pero la <b>valuación/venta es irregular (lumpy)</b>, así que su anualización es más gruesa. El
+      <b>ORI no realizado</b> es <b>Resultado Integral (patrimonio)</b>, no utilidad neta: se muestra aparte y no se suma al resultado.
+      <b>BG</b> ilustra el contraste — US$74.5M de utilidad del portafolio conviven con <b>−US$42.7M no realizados en ORI</b> por el alza de tasas.</p>
+    <div style="margin-top:16px" class="callout co-info">
+      <b>Lectura para la mesa.</b> Comparar bancos solo por el yield de interés <b>subestima</b> el aporte del portafolio a la utilidad:
+      donde el yield ordena BAC ≈ BG ≈ Banistmo por spread, el <b>resultado total</b> mantiene el orden pero <b>agranda la brecha</b>
+      (BAC y BG anualizan ~US$300–325M vs. ~US$84M de Banistmo), porque los grandes también realizan más ganancia de valuación/venta.
+      Banistmo es el que <b>más peso relativo</b> saca de la valuación/venta (~25% de su resultado vs. interés), reflejo de una cartera
+      de mayor calidad y menor spread que compensa con gestión de la posición.
+    </div>
+  </section>
+
   <!-- EVOLUCION -->
   <section id="evolucion">
-    <div class="sec-head"><span class="sec-num">07</span><h2>Evolución multianual</h2></div>
+    <div class="sec-head"><span class="sec-num">08</span><h2>Evolución multianual</h2></div>
     <p class="sec-sub">A nivel sistema, las inversiones en valores han crecido de forma sostenida cada año — el bloque
       de inversión es el motor secundario del activo productivo, detrás del crédito. A nivel banco, las carteras
       comparables se han mantenido estables o han crecido moderadamente.</p>
@@ -576,7 +624,7 @@ hr.soft{border:none;border-top:1px solid var(--hair);margin:26px 0}
 
   <!-- CALIFICACIONES -->
   <section id="calificaciones">
-    <div class="sec-head"><span class="sec-num">08</span><h2>Calificaciones</h2></div>
+    <div class="sec-head"><span class="sec-num">09</span><h2>Calificaciones</h2></div>
     <p class="sec-sub">Cada banco publica su tabla de ratings con <b>cortes de letra y coberturas distintas</b>. Para
       compararlas se colapsan a tres brackets: <b>grado de inversión</b> (AAA→BBB-), <b>sub-grado</b> (BB+ a B-) y
       <b>sin calificación</b>, sobre la cartera calificada de cada uno. El patrón queda nítido: <b>Banco General</b> y
@@ -654,7 +702,7 @@ hr.soft{border:none;border-top:1px solid var(--hair);margin:26px 0}
 
   <!-- LECTURAS -->
   <section id="lecturas">
-    <div class="sec-head"><span class="sec-num">09</span><h2>Lecturas para la mesa de Banistmo</h2></div>
+    <div class="sec-head"><span class="sec-num">10</span><h2>Lecturas para la mesa de Banistmo</h2></div>
     <p class="sec-sub">Qué dice el comparativo — con el dato disponible — sobre el posicionamiento relativo de la cartera.</p>
     <div class="take">
       <div class="take-item"><div class="k">A</div><div>
@@ -694,7 +742,7 @@ hr.soft{border:none;border-top:1px solid var(--hair);margin:26px 0}
 
   <!-- RENGLONES / MAPAS -->
   <section id="renglones">
-    <div class="sec-head"><span class="sec-num">10</span><h2>¿Dónde aparece la ganancia del portafolio? — mapa de renglones por banco</h2></div>
+    <div class="sec-head"><span class="sec-num">11</span><h2>¿Dónde aparece la ganancia del portafolio? — mapa de renglones por banco</h2></div>
     <p class="sec-sub">Para cada banco se rastreó, <b>renglón por renglón</b>, dónde reconoce su estado financiero el
       resultado del portafolio de inversiones: la línea de <b>interés</b>, la de <b>valuación/venta</b> (a menudo mixta con
       divisas o derivados, que hay que abrir en una nota), las líneas del <b>Resultado Integral (ORI)</b> y las
@@ -1022,6 +1070,15 @@ hr.soft{border:none;border-top:1px solid var(--hair);margin:26px 0}
     ],{pct:true,max:32,ticks:4});
     stacked(document.getElementById("ch-class"));
     yieldBars(document.getElementById("ch-yield"));
+    hbars(document.getElementById("ch-result"),[
+      {name:"BAC",c:"--s3",v:325.2,tip:"1T-2026 × 4 · interés+valuación−provisión · CA consol. · estimado"},
+      {name:"Banco General",c:"--s2",v:298.2,tip:"1T-2026 × 4 · interés+valuación−provisión · estimado"},
+      {name:"Banistmo",c:"--s1",self:true,v:83.6,tip:"1T-2026 × 4 · 15.8M interés + 5.3M valuación − 0.2M prov. · estimado"},
+      {name:"Banesco",c:"--s7",v:46.2,tip:"1T-2026 × 4 · 12.3M interés − 0.7M valuación − 0.06M prov. · estimado"},
+      {name:"Global Bank",c:"--s4",v:45.8,tip:"9M-2026 × 4/3 · embebido en Otros ingresos (Nota 23) · estimado"},
+      {name:"Davivienda",c:"--s5",v:33.1,tip:"FY2025 auditado (sin interino) · dos líneas limpias"},
+      {name:"Scotiabank",c:"--s6",v:15.2,tip:"FY oct-2024 auditado · casi todo interés"}
+    ],{max:360,ticks:4});
     vbars(document.getElementById("ch-sysgrow"));
     trend(document.getElementById("ch-trend"));
     ratings(document.getElementById("ch-ratings"));
