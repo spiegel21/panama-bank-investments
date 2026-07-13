@@ -18,6 +18,11 @@ Davivienda el 5-dic-2025, ya no reporta standalone). Detalle completo en `datos-
 que se había hecho solo para Banistmo (un `<banco>-ganancias-inversiones.html` por banco, con capturas de páginas fuente), y se
 **agregó Banesco** a todas las comparaciones. Resumen comparable en la sección "Mapa de renglones…" de `datos-extraidos.md`.
 
+**Novedad (sesión 5):** el dashboard (`index.html`) ahora **muestra la cifra comparable de resultado del portafolio en la utilidad
+neta** — no solo el yield de interés — en una nueva sección **07 "Resultado del portafolio — todos los renglones"** (tabla +
+gráfico anualizado). Es el número que el rastreo renglón-por-renglón hacía visible pero que antes solo vivía en los mapas y en
+`datos-extraidos.md`: interés + valuación/venta − provisiones, con el ORI no realizado mostrado aparte (patrimonio, no utilidad).
+
 ## Sitio publicado
 
 El reporte se sirve como página estática vía **GitHub Pages**:
