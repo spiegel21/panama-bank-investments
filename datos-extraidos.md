@@ -42,10 +42,10 @@ Moneda: USD (B/. a la par). Todas las cifras en US$ salvo indicación. Cifras "e
    EEUU, ~15% — subió desde 703M en el trimestre)**, Banco General (81M explícito + Letras del Tesoro — bajó desde 130M),
    Scotiabank (176M, 47%, oct-24). Global Bank y Davivienda no los desglosan por país (solo "gubernamental").
 3. **Peso sobre el activo — ranking real (corte 31-mar-2026):** Banco General 28.6% (líder amplio) >
-   Davivienda 23.4% (Dic-2025, carried) > **Sistema SBN 23.0% (Mar-2026 [REG])** > Banistmo 15.6% >
+   Davivienda 23.4% (Dic-2025, carried) > **Sistema lic. general 22.7% (Mar-2026 [REG])** > Banistmo 15.6% >
    **BAC 13.4%** > **Global 12.7%** > Scotiabank 9.7%. Cambio de orden vs. el corte Dic-2025: BAC
    adelanta a Global (su cartera saltó +12.5% en el trimestre, casi todo a soberanos centroamericanos
-   sub-grado) y el Sistema (SBN) sube por encima de Banistmo.
+   sub-grado) y el Sistema (licencia general) sube por encima de Banistmo.
 4. **Banistmo redujo el trading en el trimestre:** FVTPL bajó de 37.0% (Dic-2025) a **35.0% (1T-2026
    [INT])** — sigue siendo, junto con BAC en composición de gobierno, de los libros más activos, pero
    el libro total también se contrajo -2.7% en el trimestre. BG se mantiene con el mix FVOCI más alto
@@ -55,19 +55,28 @@ Moneda: USD (B/. a la par). Todas las cifras en US$ salvo indicación. Cifras "e
 
 ## Sistema bancario (SBP — Informe de Actividad Bancaria)
 
-Escopos: **SBN** = Sistema Bancario Nacional (licencia general en Panamá);
+Escopos: **Banca de licencia general** = SBN − banca oficial (Banco Nacional de Panamá + Caja de Ahorros,
+que operan por ley especial y **no** bajo licencia general de la SBP); **SBN** = Sistema Bancario Nacional
+(banca de licencia general + banca oficial que operan dentro de Panamá);
 **CBI** = Centro Bancario Internacional (SBN + licencia internacional; agregado titular).
 
-> **Benchmark del ratio Inversiones/Activo = SBN (banca de licencia general)**, no CBI. El % inversiones/activo
-> y el nivel de inversiones del sistema se toman del **Balance de Situación del Sistema Bancario Nacional** que
-> publica la SBP (Mar-2026), que excluye la licencia internacional. Se conserva el CBI solo como referencia.
+> **Benchmark del ratio Inversiones/Activo = banca de licencia general** (SBN excluyendo la banca oficial),
+> **no** el SBN completo ni el CBI. El nivel de inversiones y el % inversiones/activo del sistema se derivan del
+> **Balance de Situación** de la SBP (Mar-2026) restando la **banca oficial** (BNP + Caja de Ahorros) al SBN.
+> El SBN completo (que incluye esas dos entidades estatales) y el CBI (que además suma la licencia internacional)
+> se conservan solo como referencia. El corte previo etiquetaba el SBN como "licencia general" — corregido aquí:
+> la banca oficial suma ~US$4.9 mil M de inversiones que no son de licencia general.
 
 | Indicador | 2024 (Dic) | 2025 (Dic) | **2026 (Mar)** | Conf. |
 |---|---|---|---|---|
-| **Inversiones en valores neta — SBN** | 29,285.5 | 32,152.8 | **33,389.6** | [REG] |
-| **Activo total neto — SBN** | 140,383.5 | 145,675.3 | **145,432.5** | [REG] |
-| **% inversiones / activo — SBN (lic. general)** | 20.9% | 22.1% | **23.0%** | [EST] |
-| Inversiones — var. a/a SBN | +7.0% | +9.8% | **+15.0%** | [REG] |
+| **Inversiones en valores neta — banca lic. general** | 23,831.1 | 27,166.7 | **28,532.5** | [REG] |
+| **Activo total neto — banca lic. general** | 117,489.1 | 124,265.7 | **125,576.6** | [REG] |
+| **% inversiones / activo — banca lic. general** | 20.3% | 21.9% | **22.7%** | [EST] |
+| Inversiones — var. a/a banca lic. general | +8.6% | +14.0% | **+17.8%** | [EST] |
+| — memo: Inversiones neta banca oficial (excl.) | 5,454.3 | 4,986.2 | **4,857.1** | [REG] |
+| — memo: Inversiones neta SBN (lic.gral+oficial) | 29,285.5 | 32,152.8 | **33,389.6** | [REG] |
+| — memo: Activo total SBN | 140,383.5 | 145,675.3 | **145,432.5** | [REG] |
+| — memo: % inversiones / activo SBN | 20.9% | 22.1% | **23.0%** | [EST] |
 | — memo: Inversiones neta CBI | 34,195.9 | 35,897.3 | **36,959.1** | [REG] |
 | — memo: Activo total CBI | 156,391.5 | 163,014.7 | **164,208.5** | [REG] |
 | — memo: % inversiones / activo CBI | 21.9% | 22.0% | **22.5%** | [EST] |
@@ -78,13 +87,15 @@ Escopos: **SBN** = Sistema Bancario Nacional (licencia general en Panamá);
 
 Notas:
 - Sistema **dominado por crédito**: préstamos siguen siendo el bloque mayor del activo; inversiones ya
-  representan **23.0% del activo del SBN a marzo de 2026** (2.º bloque productivo, subiendo).
-- **Base licencia general (SBN), Mar-2026:** inversiones 33,389.6M / activo 145,432.5M = 23.0% (Dic-2025:
-  22.1%; Mar-2025: 20.9%); crecimiento de inversiones **+15.0% a/a** (acelerando frente al +9.8% a/a de
+  representan **22.7% del activo de la banca de licencia general a marzo de 2026** (2.º bloque productivo, subiendo).
+- **Base licencia general, Mar-2026:** inversiones 28,532.5M / activo 125,576.6M = 22.7% (Dic-2025:
+  21.9%; Dic-2024: 20.3%); crecimiento de inversiones **+17.8% a/a** (acelerando frente al +14.0% de
   Dic-2025). Es la base correcta para comparar contra los seis bancos del perímetro (todos de licencia
-  general). El CBI (que suma la licencia internacional) da 22.5% a Mar-2026 (+8.30% a/a) — más bajo que
-  el SBN porque la licencia internacional creció menos; la diferencia principal sigue siendo de perímetro,
-  no de fecha.
+  general). **Corrección de perímetro:** el Sistema Bancario Nacional (SBN) que publica la SBP **incluye la
+  banca oficial** — Banco Nacional de Panamá + Caja de Ahorros, US$4,857.1M de inversiones a Mar-2026 — que
+  no es banca de licencia general; por eso el SBN completo da 33,389.6M/145,432.5M = **23.0%** (mayor) y no
+  debe usarse como proxy de "licencia general". El CBI (que además suma la licencia internacional) da 22.5%
+  a Mar-2026 (+8.30% a/a).
 - **Cambio de signo en las pérdidas no realizadas AFS/FVOCI — el dato más relevante del corte:** el SBN
   redujo su pérdida no realizada de -93.6M (Dic-2025) a **-10.9M (Mar-2026)**, y el CBI **cruzó a terreno
   positivo: +4.7M** (Dic-2025: -63.4M; Mar-2025: -473.8M). Es la primera lectura con ganancia neta no
@@ -92,7 +103,8 @@ Notas:
 - Ingreso por inversiones del sistema **+8.5% a/a** (Mar-2026 vs. Mar-2025).
 - El sistema no publica split instrumento (soberano/corp/MBS) ni interno/externo de la cartera de valores. [PEND]
 - Contexto: Panamá perdió grado de inversión con Fitch (mar-2024); presión de Moody's sobre bancos PA.
-- Fuente: Balance de Situación SBN/CBI 2026/03 e Informe de Actividad Bancaria IAB-0326 (SBP).
+- Fuente: Balance de Situación por ámbito SBN / CBI / Banca Oficial 2026/03 (banca lic. general = SBN − Banca
+  Oficial) e Informe de Actividad Bancaria IAB-0326 (SBP).
 
 ---
 
@@ -543,8 +555,8 @@ BG 5,985.6 (Mar-26, INT) · BAC 5,615.4 (Mar-26, INT, CA) · Banistmo 1,643.3 (M
 Davivienda 1,248.5 (Dic-25, carried) · Global 1,124.0 (Mar-26, INT, 9mo) · **Banesco 1,083.5 (Mar-26, INT, +12.1% en el trim.)** ·
 Scotiabank 371.3 (oct-24, absorbido).
 
-**% inversiones / activo** (benchmark del sistema = SBN, banca de licencia general, Mar-2026):
-**BG 28.6%** > Davivienda 23.4% (Dic-25, carried) > **Sistema SBN (lic. general) 23.0%** > **Banesco 17.8%** > Banistmo 15.6% > **BAC 13.4%** > Global 12.7% > Scotia 9.7%. Cambios vs. el corte Dic-2025: BAC adelanta a Global (12.3% → 13.4% vs. Global 13.4% → 12.7%) y el Sistema sube por encima de Banistmo (22.1% → 23.0% vs. Banistmo 16.0% → 15.6%). **Banesco** entra por encima de Banistmo en peso sobre activo (17.8%).
+**% inversiones / activo** (benchmark del sistema = banca de licencia general = SBN − banca oficial, Mar-2026):
+**BG 28.6%** > Davivienda 23.4% (Dic-25, carried) > **Sistema lic. general 22.7%** > **Banesco 17.8%** > Banistmo 15.6% > **BAC 13.4%** > Global 12.7% > Scotia 9.7%. Cambios vs. el corte Dic-2025: BAC adelanta a Global (12.3% → 13.4% vs. Global 13.4% → 12.7%) y el Sistema sube por encima de Banistmo (21.9% → 22.7% vs. Banistmo 16.0% → 15.6%). **Banesco** entra por encima de Banistmo en peso sobre activo (17.8%). *Nota: el benchmark ya excluye la banca oficial (BNP + Caja de Ahorros); el SBN completo daría 23.0%.*
 
 **Yield estimado** (ingreso del trimestre 1T-2026 × 4 ÷ **portafolio de cierre Mar-2026**; método saldo de cierre, verificado por cálculo):
 **BAC 5.5%** · BG 4.9% · **Banesco 4.5%** · Scotiabank 4.1% · Davivienda 4.05% · Global 4.0% · **Banistmo 3.9%** (sigue

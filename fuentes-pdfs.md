@@ -132,9 +132,12 @@ extracción a fidelidad completa de las notas "Inversiones en valores".
 - Oct-2025: https://www.superbancos.gob.pa/documentos/financiera_y_estadistica/estudios/IAB/IAB-1025.pdf
 - Nov-2025: https://www.superbancos.gob.pa/documentos/financiera_y_estadistica/estudios/IAB/IAB-1125.pdf
 - Faltan: IAB-1222 / IAB-1223 (patrón igual) y Memoria-2022 / Memoria-2023 para absolutos 2022–2023.
-- **Balance de Situación por ámbito (reportes estadísticos)** — base del ratio Inversiones/Activo:
-  - **SBN (licencia general), comparativo Mar-2026 (corte vigente):** https://www.superbancos.gob.pa/documentos/financiera_y_estadistica/reportes_estadisticos/2026/03/balance_ambito_nacional/RE-BALANCE-COMPARATIVO-en-SBN.xlsx
+- **Balance de Situación por ámbito (reportes estadísticos)** — base del ratio Inversiones/Activo. **La banca
+  de licencia general = SBN − Banca Oficial (BOL)**; el SBN publicado por la SBP incluye la banca oficial
+  (Banco Nacional de Panamá + Caja de Ahorros), que **no** es de licencia general:
+  - **SBN (lic. gral. + oficial), comparativo Mar-2026 (corte vigente):** https://www.superbancos.gob.pa/documentos/financiera_y_estadistica/reportes_estadisticos/2026/03/balance_ambito_nacional/RE-BALANCE-COMPARATIVO-en-SBN.xlsx
+  - **Banca Oficial (BOL) — a restar del SBN, comparativo Mar-2026:** https://www.superbancos.gob.pa/documentos/financiera_y_estadistica/reportes_estadisticos/2026/03/balance_ambito_nacional/RE-BALANCE-COMPARATIVO-en-BOL.xlsx
   - CBI (referencia), comparativo Mar-2026: https://www.superbancos.gob.pa/documentos/financiera_y_estadistica/reportes_estadisticos/2026/03/balance_ambito_nacional/RE-BALANCE-COMPARATIVO-en-CBI.xlsx
-  - SBN (licencia general), comparativo Dic-2025 (histórico): https://www.superbancos.gob.pa/documentos/financiera_y_estadistica/reportes_estadisticos/2025/12/balance_ambito_nacional/RE-BALANCE-COMPARATIVO-en-SBN.xlsx
+  - SBN + BOL, comparativos Dic-2025 (histórico): https://www.superbancos.gob.pa/documentos/financiera_y_estadistica/reportes_estadisticos/2025/12/balance_ambito_nacional/RE-BALANCE-COMPARATIVO-en-SBN.xlsx · .../RE-BALANCE-COMPARATIVO-en-BOL.xlsx
   - CBI (referencia), comparativo Dic-2025 (histórico): https://www.superbancos.gob.pa/documentos/financiera_y_estadistica/reportes_estadisticos/2025/12/balance_ambito_nacional/RE-BALANCE-COMPARATIVO-en-CBI.xlsx
   - Índice: https://www.superbancos.gob.pa/estadisticas-financieras/balance-situacion (códigos: SBN=Sist. Bancario Nacional, CBI=Centro Bancario Int'l, BOL=Banca Oficial, BPP=Banca Privada Panameña, etc.)

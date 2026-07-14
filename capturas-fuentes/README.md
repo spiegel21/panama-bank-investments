@@ -93,7 +93,7 @@ inversiones, base del yield), al **balance** (activo total e inversiones), o a l
 | 60 | [`sbp-iab-mar2026_p06_iac.png`](sbp-iab-mar2026_p06_iac.png) | 6 | Solvencia — IAC del CBI 16.27% |
 | 61 | [`sbp-iab-mar2026_p08_estado-resultados.png`](sbp-iab-mar2026_p08_estado-resultados.png) | 8 | Estado de resultados CBI — ingreso por inversiones |
 | | **SBP — Balance de Situación SBN/CBI (reportes estadísticos 2026/03)** | | [XLSX](https://www.superbancos.gob.pa/documentos/financiera_y_estadistica/reportes_estadisticos/2026/03/balance_ambito_nacional/RE-BALANCE-COMPARATIVO-en-SBN.xlsx) |
-| 62 | [`sbp-balance-mar2026_inversiones-activo.png`](sbp-balance-mar2026_inversiones-activo.png) | — | **Inversiones/Activo — SBN 33,389.6 / 145,432.5 = 23.0%; CBI 36,959.1 / 164,208.5 = 22.5% (Mar-2026)** |
+| 62 | [`sbp-balance-mar2026_inversiones-activo.png`](sbp-balance-mar2026_inversiones-activo.png) | — | **Inversiones/Activo — Banca lic. general (SBN − banca oficial) 28,532.5 / 125,576.6 = 22.7% (benchmark); memo: SBN completo 33,389.6 / 145,432.5 = 23.0%; banca oficial excl. 4,857.1; CBI 36,959.1 / 164,208.5 = 22.5% (Mar-2026)** |
 
 ---
 
