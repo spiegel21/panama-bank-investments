@@ -1,5 +1,9 @@
 <title>Radar de Inversiones — Banca de Panamá</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+/* Tema: por defecto claro; respeta la elección guardada. Se ejecuta temprano para evitar parpadeo. */
+(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){document.documentElement.setAttribute("data-theme","light");}})();
+</script>
 <style>
 :root{
   --plane:#eef1f5; --surface:#f8f9fb; --surface-2:#ffffff;
@@ -190,7 +194,6 @@ td.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
   background:var(--ink);color:var(--plane);font-family:var(--mono);font-size:12px;
   padding:8px 11px;border-radius:8px;box-shadow:var(--shadow);max-width:260px;line-height:1.5}
 #tt b{color:var(--surface-2)}
-:root[data-theme="dark"] #tt,@media(prefers-color-scheme:dark){#tt{background:#e9edf4;color:#0a0c10}}
 
 footer{padding:44px 0 70px;border-top:1px solid var(--hair);color:var(--ink-2);font-size:13.5px}
 footer h3{font-size:15px;margin-bottom:12px;color:var(--ink)}
@@ -204,6 +207,35 @@ hr.soft{border:none;border-top:1px solid var(--hair);margin:26px 0}
 .pill-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
 .pill{font-family:var(--mono);font-size:11.5px;padding:5px 11px;border-radius:20px;border:1px solid var(--hair-2);color:var(--ink-2)}
 .pill b{color:var(--ink)}
+
+/* interactive bank selector (composición contable histórica) */
+.bank-tabs{display:flex;flex-wrap:wrap;gap:7px;margin:2px 0 18px}
+.bank-tab{font-family:var(--mono);font-size:12px;letter-spacing:.01em;padding:6px 11px;border-radius:8px;
+  border:1px solid var(--hair-2);background:var(--surface);color:var(--ink-2);cursor:pointer;
+  display:inline-flex;align-items:center;gap:7px;transition:border-color .12s,color .12s,background .12s}
+.bank-tab::before{content:"";width:9px;height:9px;border-radius:3px;background:var(--tabc,var(--muted));flex:0 0 auto}
+.bank-tab:hover{color:var(--ink);background:var(--surface-2)}
+.bank-tab.on{background:var(--surface-2);color:var(--ink);font-weight:600;box-shadow:var(--shadow)}
+.bank-tab:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* per-bank snapshot panel */
+#class-snap .snap-h{display:flex;align-items:center;gap:8px;font-weight:660;font-size:16px}
+#class-snap .snap-per{font-family:var(--mono);font-size:11px;color:var(--muted);margin-left:auto;
+  letter-spacing:.03em;background:var(--surface);border:1px solid var(--hair);padding:3px 8px;border-radius:20px}
+#class-snap .snap-tot{font-size:30px;font-weight:700;letter-spacing:-.02em;margin:14px 0 4px;line-height:1}
+#class-snap .snap-tot small{font-size:15px;font-weight:600;color:var(--ink-2)}
+#class-snap .snap-cap{font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:16px}
+#class-snap .snap-rows{display:grid;gap:11px}
+#class-snap .snap-row{display:grid;grid-template-columns:118px 1fr 82px;align-items:center;gap:11px}
+#class-snap .snap-lab{display:inline-flex;align-items:center;gap:7px;font-size:13px;color:var(--ink-2)}
+#class-snap .snap-lab i{width:10px;height:10px;border-radius:3px;flex:0 0 auto}
+#class-snap .snap-bar{height:9px;border-radius:5px;background:var(--surface);overflow:hidden;
+  border:1px solid var(--hair)}
+#class-snap .snap-bar b{display:block;height:100%;border-radius:5px}
+#class-snap .snap-val{font-family:var(--mono);font-size:12.5px;font-variant-numeric:tabular-nums;text-align:right}
+#class-snap .snap-val b{color:var(--ink);font-weight:600}
+#class-snap .snap-val span{color:var(--muted)}
 </style>
 
 <header class="top">
@@ -468,14 +500,23 @@ hr.soft{border:none;border-top:1px solid var(--hair);margin:26px 0}
     <div class="sec-head"><span class="sec-num">05</span><h2>Clasificación contable — dónde pega el mark-to-market</h2></div>
     <p class="sec-sub">La distribución entre <b>valor razonable</b> (FVTPL / FVOCI) y <b>costo amortizado</b> define cuánta
       volatilidad de tasas entra al P&amp;L y al patrimonio. Con las notas leídas, Banistmo resalta como <b>el más
-      orientado a trading</b> del grupo: 35.0% en FVTPL a Mar-2026 (bajó desde 37.0% en Dic-2025), contra ≤16% en todos los competidores.</p>
+      orientado a trading</b> del grupo: 35.0% en FVTPL a Mar-2026 (bajó desde 37.0% en Dic-2025), contra ≤16% en todos los competidores.
+      <b>Haz clic en un banco</b> para ver la evolución de su composición contable período a período.</p>
 
-    <div class="grid2">
-      <div class="chart-card">
-        <h3>Banistmo — mezcla por clasificación</h3>
-        <div class="chsub">US$ millones · las tres categorías NIIF 9</div>
-        <div class="svgwrap"><svg id="ch-class" viewBox="0 0 520 300" role="img" aria-label="Clasificación contable de Banistmo"></svg></div>
+    <div class="chart-card">
+      <div class="bank-tabs" id="class-tabs" role="tablist" aria-label="Selecciona un banco para ver su composición contable histórica"></div>
+      <h3 id="class-h3">Banistmo — composición contable histórica</h3>
+      <div class="chsub" id="class-sub">US$ millones · FVTPL / FVOCI / costo amortizado · las tres categorías NIIF 9, período a período</div>
+      <div class="svgwrap"><svg id="ch-class" viewBox="0 0 520 280" role="img" aria-label="Composición contable histórica por banco"></svg></div>
+      <div class="rlegend" aria-hidden="true">
+        <span><i style="background:var(--s6)"></i>FVTPL (valor razonable · resultados)</span>
+        <span><i style="background:var(--s1)"></i>FVOCI (valor razonable · ORI)</span>
+        <span><i style="background:var(--s2)"></i>Costo amortizado</span>
       </div>
+    </div>
+
+    <div class="grid2" style="margin-top:16px">
+      <div class="card" id="class-snap" aria-live="polite"></div>
       <div class="card">
         <h3 style="font-size:16px;font-weight:640;margin-bottom:6px">Lectura</h3>
         <p style="font-size:14.5px;color:var(--ink-2);margin:0 0 14px">Entre Dic-2023 y Mar-2026 el <b>FVTPL subió de
@@ -830,7 +871,9 @@ hr.soft{border:none;border-top:1px solid var(--hair);margin:26px 0}
   var mq=window.matchMedia("(prefers-color-scheme: dark)");
   function cur(){var a=root.getAttribute("data-theme"); return a?a:(mq.matches?"dark":"light");}
   document.getElementById("themeBtn").addEventListener("click",function(){
-    root.setAttribute("data-theme", cur()==="dark"?"light":"dark");
+    var next=cur()==="dark"?"light":"dark";
+    root.setAttribute("data-theme", next);
+    try{localStorage.setItem("theme",next);}catch(e){}
     setTimeout(drawAll,30);
   });
   mq.addEventListener("change",function(){if(!root.getAttribute("data-theme"))drawAll();});
@@ -902,46 +945,145 @@ hr.soft{border:none;border-top:1px solid var(--hair);margin:26px 0}
     });
   }
 
-  // ---- stacked bars (classification) ----
-  function stacked(svg){
-    clear(svg);
-    var W=520,H=300,padL=54,padR=14,padT=14,padB=54;
-    var cats=[
+  // ---- historical accounting composition (FVTPL / FVOCI / costo amortizado), por banco ----
+  // Cifras leídas de la nota "Inversiones en valores" de cada EE.FF. (ver datos-extraidos.md).
+  var CLASS_SEGS=[{n:"FVTPL",key:"fvtpl",c:"--s6"},{n:"FVOCI",key:"fvoci",c:"--s1"},{n:"Costo amort.",key:"ac",c:"--s2"}];
+  var CLASS_ORDER=["banistmo","bg","bac","global","davi","scotia","banesco"];
+  var COMPO={
+    banistmo:{name:"Banistmo",c:"--s1",self:true,max:1800,note:"consol. Panamá",cats:[
       {k:"Dic-2023",fvtpl:172.6,fvoci:737.5,ac:549.1},
       {k:"Dic-2024",fvtpl:530.8,fvoci:435.3,ac:582.7},
       {k:"Dic-2025",fvtpl:625.7,fvoci:328.9,ac:734.6},
       {k:"Mar-2026",fvtpl:574.4,fvoci:335.5,ac:733.5}
-    ];
-    var segs=[{n:"FVTPL",key:"fvtpl",c:"--s6"},{n:"FVOCI (ORI)",key:"fvoci",c:"--s1"},{n:"Costo amort.",key:"ac",c:"--s2"}];
-    var max=1800, ticks=4, iw=W-padL-padR, ih=H-padT-padB;
+    ]},
+    bg:{name:"Banco General",c:"--s2",max:6400,note:"consol. Panamá",cats:[
+      {k:"Dic-2024",fvtpl:829.6,fvoci:4511.6,ac:6.6},
+      {k:"Dic-2025",fvtpl:942.2,fvoci:5022.9,ac:3.2},
+      {k:"Mar-2026",fvtpl:870.0,fvoci:5083.0,ac:32.6}
+    ]},
+    bac:{name:"BAC",c:"--s3",max:6000,note:"consol. Centroamérica",cats:[
+      {k:"Dic-2024",fvtpl:35.2,fvoci:4737.7,ac:110.5},
+      {k:"Dic-2025",fvtpl:45.7,fvoci:4756.3,ac:187.9},
+      {k:"Mar-2026",fvtpl:22.9,fvoci:5407.9,ac:184.6}
+    ]},
+    global:{name:"Global Bank",c:"--s4",max:1200,note:"consol. Panamá · FY-junio",cats:[
+      {k:"Jun-2024",fvtpl:71.6,fvoci:566.4,ac:402.3},
+      {k:"Jun-2025",fvtpl:69.3,fvoci:674.1,ac:384.0},
+      {k:"Mar-2026",fvtpl:70.5,fvoci:627.1,ac:419.6}
+    ]},
+    davi:{name:"Davivienda",c:"--s5",max:1300,note:"consol. · Dic-2025 post-fusión",cats:[
+      {k:"Dic-2024",fvtpl:0,fvoci:259.4,ac:195.9},
+      {k:"Dic-2025",fvtpl:6.2,fvoci:988.4,ac:253.9}
+    ]},
+    scotia:{name:"Scotiabank",c:"--s6",max:400,note:"sucursal Panamá · FY-oct · absorbido",cats:[
+      {k:"Oct-2023",fvtpl:0,fvoci:296.0,ac:63.3},
+      {k:"Oct-2024",fvtpl:0,fvoci:318.9,ac:52.4}
+    ]},
+    banesco:{name:"Banesco",c:"--s7",max:1200,note:"consol. Panamá",cats:[
+      {k:"Dic-2025",fvtpl:1.1,fvoci:764.5,ac:201.4},
+      {k:"Mar-2026",fvtpl:3.6,fvoci:837.1,ac:242.7}
+    ]}
+  };
+  var curBank="banistmo";
+
+  function stacked(svg,bankKey){
+    clear(svg);
+    var b=COMPO[bankKey], cats=b.cats;
+    var W=520,H=280,padL=52,padR=16,padT=16,padB=36;
+    var iw=W-padL-padR, ih=H-padT-padB;
+    var max=b.max, ticks=4, useK=max>=1000;
     for(var t=0;t<=ticks;t++){
-      var gy=padT+ih-ih*t/ticks;
+      var gy=padT+ih-ih*t/ticks, tv=max*t/ticks;
       svg.appendChild(el("line",{x1:padL,y1:gy,x2:W-padR,y2:gy,class:"grid-line","stroke-width":1}));
       var lab=svg.appendChild(el("text",{x:padL-8,y:gy+4,"text-anchor":"end",class:"axis-txt"}));
-      lab.textContent=(max*t/ticks/1000).toFixed(1)+"k";
+      lab.textContent=useK?(tv/1000).toFixed(1)+"k":tv.toFixed(0);
     }
-    var bw=62, gapc=(iw-bw*cats.length)/(cats.length+1);
+    var n=cats.length, slot=iw/n, bw=Math.min(88,slot*0.6);
     cats.forEach(function(c,ci){
-      var x=padL+gapc+ci*(bw+gapc), acc=0;
-      segs.forEach(function(s){
-        var v=c[s.key], h=ih*v/max, y=padT+ih-acc-h;
+      var x=padL+slot*ci+(slot-bw)/2, acc=0, tot=c.fvtpl+c.fvoci+c.ac;
+      CLASS_SEGS.forEach(function(s){
+        var v=c[s.key]; if(v<=0)return;
+        var h=ih*v/max, y=padT+ih-acc-h;
         var r=el("rect",{x:x,y:y+1,width:bw,height:Math.max(1,h-2),fill:cssv(s.c),rx:2});
         r.style.cursor="pointer";svg.appendChild(r);
-        if(h>22){var t2=svg.appendChild(el("text",{x:x+bw/2,y:y+h/2+4,"text-anchor":"middle",
+        if(h>20){var t2=svg.appendChild(el("text",{x:x+bw/2,y:y+h/2+4,"text-anchor":"middle",
           class:"bar-label",fill:"#fff","font-size":"11"}));t2.textContent=v.toFixed(0);}
-        (function(nm,vv,pct){r.addEventListener("mousemove",function(e){showTip(e,"<b>"+c.k+" · "+nm+"</b><br>US$"+vv.toFixed(1)+" M<br>"+pct+"% de la cartera");});
-          r.addEventListener("mouseleave",hideTip);})(s.n,v,(v/(c.fvtpl+c.fvoci+c.ac)*100).toFixed(1));
+        (function(nm,vv,pct){r.addEventListener("mousemove",function(e){showTip(e,"<b>"+b.name+" · "+c.k+"</b><br>"+nm+": US$"+vv.toFixed(1)+" M<br>"+pct+"% de la cartera");});
+          r.addEventListener("mouseleave",hideTip);})(s.n,v,(v/tot*100).toFixed(1));
         acc+=h;
       });
+      // total sobre la barra
+      var tl=svg.appendChild(el("text",{x:x+bw/2,y:padT+ih-acc-7,"text-anchor":"middle",class:"bar-label","font-size":"11"}));
+      tl.textContent=useK&&tot>=1000?(tot/1000).toFixed(2)+"k":tot.toFixed(0);
+      // etiqueta período
       var xl=svg.appendChild(el("text",{x:x+bw/2,y:H-padB+18,"text-anchor":"middle",class:"axis-txt","font-size":"12"}));
       xl.textContent=c.k;
     });
-    // legend
-    var lx=padL, ly=H-20;
+  }
+
+  // panel de resumen del banco seleccionado (último período)
+  function renderSnap(bankKey){
+    var b=COMPO[bankKey], last=b.cats[b.cats.length-1], tot=last.fvtpl+last.fvoci+last.ac;
+    var segs=[["FVTPL","--s6",last.fvtpl],["FVOCI","--s1",last.fvoci],["Costo amortizado","--s2",last.ac]];
+    var html='<div class="snap-h"><span class="chip" style="background:var('+b.c+')"></span>'+b.name+
+      '<span class="snap-per">'+last.k+'</span></div>'+
+      '<div class="snap-tot">US$'+tot.toLocaleString("en-US",{maximumFractionDigits:0})+'<small> M</small></div>'+
+      '<div class="snap-cap">'+b.note+' · composición al cierre</div>'+
+      '<div class="snap-rows">';
     segs.forEach(function(s){
-      svg.appendChild(el("rect",{x:lx,y:ly-9,width:10,height:10,rx:2,fill:cssv(s.c)}));
-      var lt=svg.appendChild(el("text",{x:lx+15,y:ly,class:"axis-txt","font-size":"11"}));
-      lt.textContent=s.n; lx+=s.n.length*6.4+34;
+      var pct=tot>0?(s[2]/tot*100):0;
+      html+='<div class="snap-row"><span class="snap-lab"><i style="background:var('+s[1]+')"></i>'+s[0]+'</span>'+
+        '<span class="snap-bar"><b style="width:'+pct.toFixed(1)+'%;background:var('+s[1]+')"></b></span>'+
+        '<span class="snap-val"><b>'+pct.toFixed(1)+'%</b> <span>US$'+s[2].toFixed(0)+'M</span></span></div>';
+    });
+    html+='</div>';
+    document.getElementById("class-snap").innerHTML=html;
+  }
+
+  function renderClass(){
+    var b=COMPO[curBank];
+    document.getElementById("class-h3").textContent=b.name+" — composición contable histórica";
+    stacked(document.getElementById("ch-class"),curBank);
+    renderSnap(curBank);
+  }
+
+  function selectBank(k){
+    curBank=k;
+    var tabs=document.getElementById("class-tabs");
+    Array.prototype.forEach.call(tabs.children,function(btn){
+      var bk=btn.getAttribute("data-bank"), on=bk===k;
+      btn.classList.toggle("on",on);
+      btn.setAttribute("aria-selected",on?"true":"false");
+      btn.setAttribute("tabindex",on?"0":"-1");
+      btn.style.borderColor=on?"var("+COMPO[bk].c+")":"";
+    });
+    renderClass();
+  }
+
+  function buildTabs(){
+    var tabs=document.getElementById("class-tabs");
+    if(tabs.children.length)return; // build once
+    CLASS_ORDER.forEach(function(k){
+      var b=COMPO[k], btn=document.createElement("button");
+      btn.className="bank-tab"+(k===curBank?" on":"");
+      btn.setAttribute("type","button");
+      btn.setAttribute("role","tab");
+      btn.setAttribute("data-bank",k);
+      btn.setAttribute("aria-selected",k===curBank?"true":"false");
+      btn.setAttribute("tabindex",k===curBank?"0":"-1");
+      btn.style.setProperty("--tabc","var("+b.c+")");
+      if(k===curBank)btn.style.borderColor="var("+b.c+")";
+      btn.textContent=b.name;
+      btn.addEventListener("click",function(){selectBank(k);});
+      btn.addEventListener("keydown",function(e){
+        if(e.key!=="ArrowRight"&&e.key!=="ArrowLeft")return;
+        e.preventDefault();
+        var i=CLASS_ORDER.indexOf(curBank), d=e.key==="ArrowRight"?1:-1;
+        var nk=CLASS_ORDER[(i+d+CLASS_ORDER.length)%CLASS_ORDER.length];
+        selectBank(nk);
+        tabs.querySelector('[data-bank="'+nk+'"]').focus();
+      });
+      tabs.appendChild(btn);
     });
   }
 
@@ -1077,7 +1219,7 @@ hr.soft{border:none;border-top:1px solid var(--hair);margin:26px 0}
       {name:"Global Bank",c:"--s4",v:12.7,tip:"Mar-2026 · FY-junio (Q3)"},
       {name:"Scotiabank",c:"--s6",v:9.7,tip:"Oct-2024"}
     ],{pct:true,max:32,ticks:4});
-    stacked(document.getElementById("ch-class"));
+    renderClass();
     yieldBars(document.getElementById("ch-yield"));
     hbars(document.getElementById("ch-result"),[
       {name:"BAC",c:"--s3",v:295.6,tip:"1T-2026 × 4 · 81.3M util. neta − 7.4M ORI = 73.9M integral · CA consol. · estimado"},
@@ -1092,6 +1234,7 @@ hr.soft{border:none;border-top:1px solid var(--hair);margin:26px 0}
     trend(document.getElementById("ch-trend"));
     ratings(document.getElementById("ch-ratings"));
   }
+  buildTabs();
   drawAll();
 })();
 </script>
