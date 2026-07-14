@@ -91,7 +91,17 @@ Notas:
 - **Base licencia general, Mar-2026:** inversiones 28,532.5M / activo 125,576.6M = 22.7% (Dic-2025:
   21.9%; Dic-2024: 20.3%); crecimiento de inversiones **+17.8% a/a** (acelerando frente al +14.0% de
   Dic-2025). Es la base correcta para comparar contra los seis bancos del perímetro (todos de licencia
-  general). **Corrección de perímetro:** el Sistema Bancario Nacional (SBN) que publica la SBP **incluye la
+  general).
+- **Cifra de tamaño verificada bottom-up (bank-by-bank):** la suma de los **balances individuales de los
+  46 bancos de licencia general** (SBP, `balance_individual_por_banco`, Mar-2026) da **exactamente
+  28,532.5M** de inversiones — reconcilia al decimal con la resta de ámbitos SBN − Banca Oficial. De los 46
+  códigos, **42 reportan** (4 son entradas heredadas sin archivo: Banvivienda, Banco Panamá, GTC/GTContinental,
+  Banco Balboa). Concentración: BAC (6,178.4) + Banco General (4,864.0) = ~39% del total; top-10 ≈ 78%.
+- **Serie de crecimiento anual calculada bottom-up (misma base que el tamaño):** sumando los balances
+  individuales de esos bancos por período (SBP), la var. a/a es **+1.9% (2022) · +10.7% (2023) · +8.6% (2024)
+  · +14.0% (2025) · +17.8% (Mar-26 a/a)**. Idéntica en base same-store (bancos presentes en ambos extremos)
+  y all-reporting. Difiere de la resta agregada de ámbitos en 2022 (2.0→1.9) y 2023 (8.8→10.7) por deriva de
+  composición; 2024/2025/Mar-26 coinciden en ambos métodos. Mar-26 = 24,230.4 → 28,532.5 = +17.76%. **Corrección de perímetro:** el Sistema Bancario Nacional (SBN) que publica la SBP **incluye la
   banca oficial** — Banco Nacional de Panamá + Caja de Ahorros, US$4,857.1M de inversiones a Mar-2026 — que
   no es banca de licencia general; por eso el SBN completo da 33,389.6M/145,432.5M = **23.0%** (mayor) y no
   debe usarse como proxy de "licencia general". El CBI (que además suma la licencia internacional) da 22.5%
@@ -104,7 +114,10 @@ Notas:
 - El sistema no publica split instrumento (soberano/corp/MBS) ni interno/externo de la cartera de valores. [PEND]
 - Contexto: Panamá perdió grado de inversión con Fitch (mar-2024); presión de Moody's sobre bancos PA.
 - Fuente: Balance de Situación por ámbito SBN / CBI / Banca Oficial 2026/03 (banca lic. general = SBN − Banca
-  Oficial) e Informe de Actividad Bancaria IAB-0326 (SBP).
+  Oficial) e Informe de Actividad Bancaria IAB-0326 (SBP). Desglose y verificación por banco: Balance de
+  Situación individual por banco (`.../reportes_estadisticos/{YYYY}/{MM}/balance_individual_por_banco/
+  RE-BALANCE-BANCO-en-{code}.xlsx`), columna Marzo; clasificación de licencia (46 general / 18 internacional /
+  2 oficial) según agrupación oficial del índice de reportes SBP.
 
 ---
 

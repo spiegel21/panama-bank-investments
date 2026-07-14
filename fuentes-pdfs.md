@@ -141,3 +141,7 @@ extracción a fidelidad completa de las notas "Inversiones en valores".
   - SBN + BOL, comparativos Dic-2025 (histórico): https://www.superbancos.gob.pa/documentos/financiera_y_estadistica/reportes_estadisticos/2025/12/balance_ambito_nacional/RE-BALANCE-COMPARATIVO-en-SBN.xlsx · .../RE-BALANCE-COMPARATIVO-en-BOL.xlsx
   - CBI (referencia), comparativo Dic-2025 (histórico): https://www.superbancos.gob.pa/documentos/financiera_y_estadistica/reportes_estadisticos/2025/12/balance_ambito_nacional/RE-BALANCE-COMPARATIVO-en-CBI.xlsx
   - Índice: https://www.superbancos.gob.pa/estadisticas-financieras/balance-situacion (códigos: SBN=Sist. Bancario Nacional, CBI=Centro Bancario Int'l, BOL=Banca Oficial, BPP=Banca Privada Panameña, etc.)
+- **Balance de Situación individual por banco** — desglose y verificación bank-by-bank de la cifra de licencia
+  general (la suma de los 46 bancos reconcilia al decimal con SBN − BOL) y base de la serie de crecimiento a/a:
+  - Patrón: `https://www.superbancos.gob.pa/documentos/financiera_y_estadistica/reportes_estadisticos/{YYYY}/{MM}/balance_individual_por_banco/RE-BALANCE-BANCO-en-{code}.xlsx` (columna del mes = Marzo; ej. `...-en-General.xlsx`, `...-en-Bac.xlsx`).
+  - Clasificación de licencia (agrupación oficial del índice de reportes SBP, nodo 1669): **46 licencia general · 18 licencia internacional · 2 oficial** (Nacional, Cajahorros). 4 códigos de licencia general son entradas heredadas sin archivo Mar-2026 (Banvivienda, BancoPanama, GTContinental, balboa).

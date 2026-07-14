@@ -598,8 +598,8 @@ hr.soft{border:none;border-top:1px solid var(--hair);margin:26px 0}
 
     <div class="grid2">
       <div class="chart-card">
-        <h3>Crecimiento de inversiones — sistema (SBP)</h3>
-        <div class="chsub">variación anual % · banca de licencia general (SBN − banca oficial) · último: Mar-2026 a/a</div>
+        <h3>Crecimiento de inversiones — banca de licencia general</h3>
+        <div class="chsub">variación anual % · suma de los balances individuales de los 46 bancos de licencia general (SBP) · último: Mar-2026 a/a</div>
         <div class="svgwrap"><svg id="ch-sysgrow" viewBox="0 0 520 260" role="img" aria-label="Crecimiento anual de inversiones del sistema"></svg></div>
       </div>
       <div class="chart-card">
@@ -613,7 +613,7 @@ hr.soft{border:none;border-top:1px solid var(--hair);margin:26px 0}
       <table>
         <thead><tr><th>Indicador de sistema</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th><th>Mar-2026</th></tr></thead>
         <tbody>
-          <tr><td>Inversiones en valores — var. a/a (lic. general)</td><td class="num">+2.0%</td><td class="num">+8.8%</td><td class="num">+8.6%</td><td class="num">+14.0%</td><td class="num">+17.8%</td></tr>
+          <tr><td>Inversiones en valores — var. a/a (46 bancos de licencia general)</td><td class="num">+1.9%</td><td class="num">+10.7%</td><td class="num">+8.6%</td><td class="num">+14.0%</td><td class="num">+17.8%</td></tr>
           <tr><td>Índice de liquidez legal (prom.)</td><td class="num nd">~</td><td class="num">57.8%</td><td class="num">54.3%</td><td class="num">~54%</td><td class="num">~56%</td></tr>
           <tr><td>Índice de adecuación de capital (CBI)</td><td class="num">15.34%</td><td class="num">15.71%</td><td class="num">15.32%</td><td class="num">16.27%</td><td class="num">16.27%</td></tr>
           <tr><td>Pérdidas no realizadas AFS/FVOCI (US$M, CBI)</td><td class="num nd">~</td><td class="num nd">~</td><td class="num">−473.8</td><td class="num">−63.4</td><td class="num">+4.7</td></tr>
@@ -623,7 +623,7 @@ hr.soft{border:none;border-top:1px solid var(--hair);margin:26px 0}
     <p class="mini" style="margin-top:10px"><b>Corte marzo-2026 · sistema a Mar-2026 (SBP, dato regulatorio no auditado).</b>
       <b>Base de comparación = banca de licencia general</b> — el Sistema Bancario Nacional (SBN) <b>excluyendo la banca oficial</b> (Banco Nacional de Panamá + Caja de Ahorros, que no operan bajo licencia general), y no el Centro Bancario Internacional (que suma la licencia internacional).
       A <b>Mar-2026</b> la banca de licencia general mantiene inversiones en valores netas por <b>US$28,532.5 M</b> sobre un activo total de US$125,576.6 M → <b>22.7%</b>
-      (Dic-2025: 21.9%; Mar-2025: 20.6%); crecimiento de inversiones <b>+17.8% a/a</b>. El sistema sigue dominado por crédito (~62% del activo).
+      (Dic-2025: 21.9%; Mar-2025: 20.6%); crecimiento de inversiones <b>+17.8% a/a</b> (24,230.4 → 28,532.5 M). La serie de crecimiento anual se calcula <b>sumando los balances individuales de los 46 bancos de licencia general</b> (SBP, balance por banco) — misma base que la cifra de tamaño, no la resta agregada de ámbitos. El sistema sigue dominado por crédito (~62% del activo).
       <b>Memo de perímetro:</b> la banca oficial aporta US$4,857.1 M de inversiones que quedan fuera de esta base; el <b>SBN completo</b> (licencia general + oficial) da US$33,389.6 M / US$145,432.5 M = 23.0%, y el <b>CBI</b> 22.5% (US$36,959.1 M / US$164,208.5 M).
       <b>Implicación contable clave:</b> las pérdidas no realizadas de la cartera disponible para la venta (AFS/FVOCI) del sistema <b>cruzaron a terreno positivo</b>
       — de −US$473.8 M (mar-2025) y −US$63.4 M (dic-2025) a <b>+US$4.7 M</b> a mar-2026 (CBI; el SBN pasó de −465.8 a −10.9 M) — por la normalización de tasas y
@@ -949,7 +949,7 @@ hr.soft{border:none;border-top:1px solid var(--hair);margin:26px 0}
   function vbars(svg){
     clear(svg);
     var W=520,H=260,padL=44,padR=14,padT=16,padB=40;
-    var data=[{k:"2022",v:2.0},{k:"2023",v:8.8},{k:"2024",v:8.6},{k:"2025",v:14.0},{k:"Mar-26",v:17.8}];
+    var data=[{k:"2022",v:1.9},{k:"2023",v:10.7},{k:"2024",v:8.6},{k:"2025",v:14.0},{k:"Mar-26",v:17.8}];
     var max=20,ticks=4,iw=W-padL-padR,ih=H-padT-padB;
     for(var t=0;t<=ticks;t++){
       var gy=padT+ih-ih*t/ticks;
