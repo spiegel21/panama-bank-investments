@@ -8,11 +8,13 @@ clasificación contable, rentabilidad estimada y calificaciones de crédito), pa
 **Corte vigente: 31 de marzo de 2026.** Los bancos con reporte trimestral pasan a su **1T-2026
 interino no auditado** (Banistmo, Banco General, BAC, Global Bank, Banesco) y el sistema bancario a los
 datos de la SBP a **marzo-2026** (Balance de Situación SBN/CBI + Informe de Actividad Bancaria,
-regulatorio no auditado). Dos excepciones se conservan en su último cierre disponible: **Davivienda**
-(Dic-2025 auditado — no publica interinos trimestrales) y **Scotiabank** (oct-2024 — absorbido por
-Davivienda el 5-dic-2025, ya no reporta standalone). Detalle completo en `datos-extraidos.md`.
+regulatorio no auditado). **Davivienda** se conserva en su último cierre disponible (Dic-2025 auditado —
+no publica interinos trimestrales; marcada **‡** en los gráficos de rendimiento por su base de anualización
+distinta). **Scotiabank** (oct-2024, absorbido por Davivienda el 5-dic-2025) se **excluye de las
+comparaciones**: su dato es ~17 meses anterior al corte y ya no reporta standalone. Detalle completo en `datos-extraidos.md`.
 
-**Perímetro:** Banistmo · Banco General · BAC (incl. Multibank) · Global Bank · Davivienda · Scotiabank · **Banesco**.
+**Perímetro (comparaciones del dashboard):** Banistmo · Banco General · BAC (incl. Multibank) · Global Bank · Davivienda · **Banesco**.
+**Scotiabank** queda **fuera de las comparaciones** (último dato oct-2024, ~17 meses atrás; absorbido por Davivienda en dic-2025): se conserva solo en la narrativa de consolidación y en el dataset histórico.
 
 **Novedad (sesión 4):** se replicó, **para los siete bancos**, el rastreo renglón-por-renglón de las ganancias del portafolio
 que se había hecho solo para Banistmo (un `<banco>-ganancias-inversiones.html` por banco, con capturas de páginas fuente), y se
@@ -27,10 +29,19 @@ gráfico anualizado). Es el número que el rastreo renglón-por-renglón hacía 
 (patrimonio) = resultado integral del portafolio**, no solo el interés ni solo la utilidad neta. La sección 06 pasa a un
 **rendimiento total** = (resultado integral anualizado) ÷ portafolio de cierre, con el yield de solo interés como columna de
 referencia; la sección 07 añade la columna **= Resultado integral** (utilidad neta + ORI) y su gráfico anualizado ordena por esa
-cifra. Incluir el ORI **reordena el ranking**: los libros con valuación no realizada positiva suben (Scotiabank, Banistmo, Global) y
+cifra. Incluir el ORI **reordena el ranking**: los libros con valuación no realizada positiva suben (Banistmo, Global) y
 los golpeados por el alza de tasas caen (Banco General −US$42.7M, Banesco −US$6.8M en ORI). Banistmo pasa de ~3.9% (solo interés) a
-**~5.5%** total y queda tercero por resultado integral. Caveat explícito: el ORI es mark-to-market que revierte, así que anualizar un
+**~5.5%** total. Caveat explícito: el ORI es mark-to-market que revierte, así que anualizar un
 trimestre ×4 es la parte más gruesa de la estimación — la cifra es direccional.
+
+**Novedad (sesión 7 — revisión de coherencia y comparabilidad):** (1) **Scotiabank se retira de todos los gráficos y tablas del
+dashboard** por incomparabilidad temporal (oct-2024, ~17 meses antes del corte) y por estar absorbido — queda solo en la narrativa
+de consolidación; con ello Banistmo pasa a **encabezar el rendimiento total (~5.5%)**. (2) En los gráficos de rentabilidad y
+resultado, los bancos cuya base de anualización difiere del estándar 1T-2026 ×4 — **Global Bank** (9M del FY-junio, ×4/3) y
+**Davivienda** (año FY2025, ×1) — se marcan con **‡** (rayado diagonal + leyenda) para señalar el supuesto. (3) Correcciones de
+coherencia en la sección 08 (pérdidas no realizadas AFS/FVOCI mal etiquetadas en la columna 2024; IAC 2024 15.32→15.29%; se
+retiró la fila de liquidez legal por no estar respaldada en `datos-extraidos.md`). (4) Se **redujo el texto** (subtítulos y notas al
+pie) para dar más peso a las visualizaciones.
 
 ## Sitio publicado
 
@@ -46,7 +57,7 @@ directamente en cualquier navegador incluso sin el sitio.
 | Archivo | Qué es |
 |---|---|
 | `index.html` | Reporte visual interactivo en español (la página publicada). |
-| `<banco>-ganancias-inversiones.html` | **Mapas de renglones — ganancias del portafolio, uno por banco (7 documentos).** Rastreo, renglón por renglón, de todos los lugares del último EE.FF. de cada banco donde se reconoce ganancia/ingreso del portafolio de valores (interés, valuación/venta, ORI y provisiones), con capturas de las páginas fuente. El hallazgo comparable: **cada banco "esconde" la ganancia de forma distinta** — Banistmo (`banistmo-…`) mezcla divisas+derivados en el renglón; Banco General (`bancogeneral-…`) lo mezcla con derivados; BAC (`bac-…`) lo tiene limpio con el FX aparte; Global Bank (`globalbank-…`) lo embebe en "Otros ingresos"; Davivienda (`davivienda-…`) usa dos líneas limpias; Scotiabank (`scotiabank-…`) es casi todo interés; Banesco (`banesco-…`) reporta dos pérdidas con la FVTPL mixta con derivados. Enlazados desde `index.html` (sección "Renglones"). |
+| `<banco>-ganancias-inversiones.html` | **Mapas de renglones — ganancias del portafolio, uno por banco (6 activos enlazados desde el dashboard + Scotiabank retenido como histórico).** Rastreo, renglón por renglón, de todos los lugares del último EE.FF. de cada banco donde se reconoce ganancia/ingreso del portafolio de valores (interés, valuación/venta, ORI y provisiones), con capturas de las páginas fuente. El hallazgo comparable: **cada banco "esconde" la ganancia de forma distinta** — Banistmo (`banistmo-…`) mezcla divisas+derivados en el renglón; Banco General (`bancogeneral-…`) lo mezcla con derivados; BAC (`bac-…`) lo tiene limpio con el FX aparte; Global Bank (`globalbank-…`) lo embebe en "Otros ingresos"; Davivienda (`davivienda-…`) usa dos líneas limpias; Banesco (`banesco-…`) reporta dos pérdidas con la FVTPL mixta con derivados. `scotiabank-…` se conserva como referencia histórica pero **ya no se enlaza** desde `index.html` (banco absorbido, fuera de las comparaciones). Enlazados desde `index.html` (sección "Renglones"). |
 | `datos-extraidos.md` | **Dataset completo** con cada cifra, su nivel de confianza (Auditado / Estimado / No divulgado) y su fuente. Es la fuente de verdad detrás del HTML. |
 | `fuentes-pdfs.md` | URLs de los EE.FF. auditados por banco, para la extracción a fidelidad completa. |
 | `capturas-fuentes/` | **Capturas (PNG) de cada página PDF de la que se sourceó una cifra del dashboard** — nota "Inversiones en Valores", tablas de calificaciones, balances y cuadros del sistema (SBP). Ver [`capturas-fuentes/README.md`](capturas-fuentes/README.md). |
@@ -59,9 +70,11 @@ Los cinco bancos con reporte trimestral (Banistmo, Banco General, BAC, Global Ba
 interino no auditado**, leído directamente de la nota "Inversiones en valores" de cada estado financiero
 interino. El sistema bancario (SBN/CBI) está al **dato regulatorio de la SBP a marzo-2026** (no auditado).
 **Davivienda** se mantiene en su cierre **Dic-2025 auditado** (no publica interinos trimestrales —
-confirmado ausente en SMV, SBP, davibank.pa y Latinex) y **Scotiabank** en **oct-2024** (absorbido por
-Davivienda, ya no reporta standalone). Los porcentajes de activo y los yields marcados *Estimado* son
-cálculos propios. Detalle completo, con nivel de confianza por cifra, en `datos-extraidos.md`.
+confirmado ausente en SMV, SBP, davibank.pa y Latinex; marcada **‡** en los gráficos de rendimiento).
+**Scotiabank** (oct-2024, absorbido por Davivienda) queda **fuera de las comparaciones del dashboard** por
+incomparabilidad temporal; se conserva solo en el dataset histórico y la narrativa de consolidación. Los
+porcentajes de activo y los yields marcados *Estimado* son cálculos propios. Detalle completo, con nivel de
+confianza por cifra, en `datos-extraidos.md`.
 
 ## Metodología
 
