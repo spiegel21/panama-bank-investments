@@ -562,6 +562,13 @@ Rendimiento total: Scotiabank ~6.6% · Banistmo ~5.5% · BAC ~5.3% · Global ~5.
 > Corte del reporte: **31-mar-2026**. Cuatro bancos en interino no auditado [INT] (Banistmo, Banco
 > General, BAC, Global Bank); Davivienda y Scotiabank permanecen en su último cierre disponible
 > (carried forward, ver secciones respectivas).
+>
+> **Actualización de dashboard:** **Scotiabank queda excluido de los gráficos y tablas del dashboard**
+> (`index.html`) — su último dato es oct-2024 (~17 meses antes del corte) y fue absorbido por Davivienda
+> (dic-2025, ya no reporta standalone), así que su cifra no es comparable. Se conserva abajo solo como
+> referencia histórica y aparece únicamente en la narrativa de consolidación (§02, §10). En los gráficos de
+> **rentabilidad (§06) y resultado (§07)**, **Global Bank (9M ×4/3)** y **Davivienda (FY2025 anual ×1)** se
+> marcan con **‡** por usar una base de anualización distinta al estándar 1T-2026 ×4 — los demás son 1T-2026 ×4.
 
 **Tamaño cartera (último disponible):**
 BG 5,985.6 (Mar-26, INT) · BAC 5,615.4 (Mar-26, INT, CA) · Banistmo 1,643.3 (Mar-26, INT) ·
