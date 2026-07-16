@@ -207,8 +207,12 @@ Detalle y evidencia visual: `banistmo-ganancias-inversiones.html`. Cifras del pe
 - Banistmo **sí publica** la tabla de ratings de la cartera (nota de riesgo, pp.66-67), aunque **no** una
   escalera de vencimientos de inversiones (la duración ~2.5a proviene del reporte de la calificadora). [AUD/PEND]
   El interino Mar-2026 (Nota 5) combina la tabla de ratings con efectivo — no se re-extrae por separado en este corte.
-- **Evento corporativo:** cambio de control (Cuscatlán) con autorización de emisión pendiente al 30-abr-2026;
-  no afecta las cifras de este corte pero es relevante para el próximo. [INT]
+- **Rating emisor:** Fitch BB+ (escala internacional) / AA+(pan) escala nacional, en **observación negativa**
+  por el cambio de control (venta a Inversiones Cuscatlán / Grupo Financiero BSC); Moody's Ba1. [Fitch, jun-2026]
+- **Evento corporativo:** cambio de control **completado el 30-jun-2026** — Grupo Cibest / Bancolombia vendió el
+  100% de Banistmo a Inversiones Cuscatlán (Grupo Financiero BSC / Banco La Hipotecaria) por ~US$1,428 M; el
+  control fue asumido el 1-jul-2026 y se mantiene la marca. No afecta las cifras de este corte pero es relevante
+  para el próximo. [INT]
 
 ---
 
