@@ -1,0 +1,535 @@
+<title>Supuestos y mapa de renglones — Rendimiento del portafolio por banco</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+/* Tema: por defecto claro; respeta la elección guardada. Se ejecuta temprano para evitar parpadeo. */
+(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){document.documentElement.setAttribute("data-theme","light");}})();
+</script>
+<style>
+:root{
+  --plane:#eef1f5; --surface:#f8f9fb; --surface-2:#ffffff;
+  --ink:#0f1620; --ink-2:#475062; --muted:#8a91a0; --hair:#dde2ea; --hair-2:#c7cedb;
+  --accent:#2a78d6; --accent-soft:#e7f0fc;
+  --fvtpl:#c98a00; --fvoci:#2a78d6; --ca:#4a3aa7;
+  --good:#0a8a3a; --warn:#b8770a; --crit:#c0392b;
+  --good-bg:#e4f4ea; --warn-bg:#fbf1dc; --crit-bg:#fae5e2; --neutral-bg:#eceef2;
+  --shadow:0 1px 2px rgba(15,22,32,.04),0 8px 24px rgba(15,22,32,.06);
+  --mono:ui-monospace,"SF Mono","SFMono-Regular",Menlo,Consolas,monospace;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --plane:#0a0c10; --surface:#12161d; --surface-2:#171c25;
+    --ink:#f2f5fa; --ink-2:#a8b0c0; --muted:#6b7382; --hair:#242a34; --hair-2:#2f3744;
+    --accent:#4a90e2; --accent-soft:#16273c;
+    --fvtpl:#c98500; --fvoci:#3987e5; --ca:#9085e9;
+    --good:#3bbf6a; --warn:#e0a52c; --crit:#e8756a;
+    --good-bg:#12291b; --warn-bg:#2a2210; --crit-bg:#2c1815; --neutral-bg:#1c212a;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.4);
+  }
+}
+:root[data-theme="light"]{
+  --plane:#eef1f5; --surface:#f8f9fb; --surface-2:#ffffff;
+  --ink:#0f1620; --ink-2:#475062; --muted:#8a91a0; --hair:#dde2ea; --hair-2:#c7cedb;
+  --accent:#2a78d6; --accent-soft:#e7f0fc;
+  --fvtpl:#c98a00; --fvoci:#2a78d6; --ca:#4a3aa7;
+  --good:#0a8a3a; --warn:#b8770a; --crit:#c0392b;
+  --good-bg:#e4f4ea; --warn-bg:#fbf1dc; --crit-bg:#fae5e2; --neutral-bg:#eceef2;
+}
+:root[data-theme="dark"]{
+  --plane:#0a0c10; --surface:#12161d; --surface-2:#171c25;
+  --ink:#f2f5fa; --ink-2:#a8b0c0; --muted:#6b7382; --hair:#242a34; --hair-2:#2f3744;
+  --accent:#4a90e2; --accent-soft:#16273c;
+  --fvtpl:#c98500; --fvoci:#3987e5; --ca:#9085e9;
+  --good:#3bbf6a; --warn:#e0a52c; --crit:#e8756a;
+  --good-bg:#12291b; --warn-bg:#2a2210; --crit-bg:#2c1815; --neutral-bg:#1c212a;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--plane);color:var(--ink);font-family:var(--sans);
+  font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1000px;margin:0 auto;padding:0 22px}
+h1,h2,h3{text-wrap:balance;line-height:1.16;margin:0}
+.mono{font-family:var(--mono)}
+.tnum{font-variant-numeric:tabular-nums;font-family:var(--mono)}
+
+/* header */
+header.top{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--plane) 88%,transparent);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--hair)}
+.top-in{display:flex;align-items:center;gap:14px;height:60px}
+.brandmark{display:flex;align-items:center;gap:11px;font-weight:680;letter-spacing:-.01em;color:var(--ink);text-decoration:none}
+.brandmark .dot{width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
+.top-spacer{flex:1}
+.back-link{font-family:var(--mono);font-size:12px;color:var(--muted);text-decoration:none}
+.back-link:hover{color:var(--ink)}
+.theme-btn{font-family:var(--mono);font-size:12px;color:var(--ink-2);background:var(--surface-2);
+  border:1px solid var(--hair-2);border-radius:8px;padding:7px 12px;cursor:pointer}
+.theme-btn:hover{border-color:var(--accent);color:var(--ink)}
+.theme-btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+header.hero{padding:52px 0 28px;border-bottom:1px solid var(--hair)}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--accent);font-weight:600;margin-bottom:14px}
+h1{font-size:34px;font-weight:720;letter-spacing:-.02em;max-width:24ch}
+.hero p.lede{color:var(--ink-2);max-width:72ch;margin:16px 0 0;font-size:16.5px}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.pill{font-family:var(--mono);font-size:12px;color:var(--ink-2);background:var(--surface-2);
+  border:1px solid var(--hair-2);border-radius:99px;padding:5px 12px}
+.pill b{color:var(--ink)}
+
+section{padding:38px 0;border-bottom:1px solid var(--hair)}
+.sec-head{display:flex;align-items:baseline;gap:13px;margin-bottom:8px}
+.sec-num{font-family:var(--mono);font-size:13px;color:var(--muted);font-weight:600}
+h2{font-size:22px;font-weight:680;letter-spacing:-.01em}
+.sec-sub{color:var(--ink-2);max-width:74ch;margin:8px 0 24px;font-size:15px}
+
+/* callouts */
+.callout{display:flex;gap:13px;padding:15px 17px;border-radius:12px;margin:18px 0;font-size:14.5px;line-height:1.5;
+  border:1px solid var(--hair-2);background:var(--surface-2)}
+.callout .ic{flex:none;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;
+  font-size:13px;font-weight:700;color:#fff}
+.co-key{background:var(--accent-soft);border-color:color-mix(in srgb,var(--accent) 40%,transparent)}
+.co-key .ic{background:var(--accent)}
+.co-warn{background:var(--warn-bg);border-color:color-mix(in srgb,var(--warn) 45%,transparent)}
+.co-warn .ic{background:var(--warn)}
+
+/* assumption grid */
+.agrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:6px}
+.acard{background:var(--surface-2);border:1px solid var(--hair);border-radius:13px;padding:16px 17px;box-shadow:var(--shadow)}
+.acard h3{font-size:13px;font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em;color:var(--accent);margin-bottom:9px}
+.acard p{margin:0;font-size:14px;color:var(--ink-2)}
+.acard p + p{margin-top:7px}
+.acard .big{font-family:var(--mono);font-size:15px;color:var(--ink);font-weight:600}
+
+/* bank card */
+.bank{background:var(--surface-2);border:1px solid var(--hair);border-radius:16px;padding:22px 22px 8px;
+  box-shadow:var(--shadow);margin-bottom:20px}
+.bank.base{border-color:color-mix(in srgb,var(--accent) 55%,var(--hair))}
+.bank-top{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;margin-bottom:3px}
+.bank-top h3{font-size:19px;font-weight:700;letter-spacing:-.01em}
+.bank-sub{color:var(--ink-2);font-size:14px;margin:4px 0 16px}
+.bank-sub .mono{color:var(--ink);font-size:13.5px}
+
+/* composition bar */
+.compo{margin:4px 0 18px}
+.compo-bar{display:flex;height:26px;border-radius:7px;overflow:hidden;border:1px solid var(--hair)}
+.compo-bar span{display:block}
+.seg-fvtpl{background:var(--fvtpl)} .seg-fvoci{background:var(--fvoci)} .seg-ca{background:var(--ca)}
+.compo-leg{display:flex;flex-wrap:wrap;gap:14px;margin-top:9px;font-size:12.5px;font-family:var(--mono);color:var(--ink-2)}
+.compo-leg .k{display:inline-flex;align-items:center;gap:6px}
+.compo-leg .sw{width:10px;height:10px;border-radius:3px;display:inline-block}
+.compo-leg b{color:var(--ink)}
+
+/* line-item table */
+.tbl-scroll{overflow-x:auto}
+table.li{width:100%;border-collapse:collapse;font-size:14px;margin:2px 0 14px;min-width:560px}
+table.li th,table.li td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--hair);vertical-align:top}
+table.li thead th{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.05em;
+  color:var(--muted);font-weight:600;border-bottom:1px solid var(--hair-2)}
+table.li td.num,table.li th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+table.li .neg{color:var(--crit)}
+table.li .ln{font-weight:600;color:var(--ink)}
+table.li .note{color:var(--ink-2);font-size:13px}
+
+.badge{display:inline-block;font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.03em;
+  padding:2px 8px;border-radius:99px;text-transform:uppercase;white-space:nowrap}
+.b-clean{background:var(--good-bg);color:var(--good)}
+.b-mix{background:var(--warn-bg);color:var(--warn)}
+.b-embed{background:var(--crit-bg);color:var(--crit)}
+.b-self{background:var(--accent-soft);color:var(--accent)}
+.b-neu{background:var(--neutral-bg);color:var(--ink-2)}
+
+.caveat{font-size:13.5px;color:var(--ink-2);border-top:1px dashed var(--hair-2);padding:12px 0 14px;margin-top:2px}
+.caveat b{color:var(--ink)}
+.caveat .warn{color:var(--warn);font-weight:600}
+
+/* comparative map table */
+table.map{width:100%;border-collapse:collapse;font-size:13.5px;min-width:820px}
+table.map th,table.map td{text-align:left;padding:10px 11px;border-bottom:1px solid var(--hair);vertical-align:top}
+table.map thead th{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.04em;
+  color:var(--muted);font-weight:600;position:sticky;top:0;background:var(--surface-2)}
+table.map td.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+table.map .bk{font-weight:600;color:var(--ink);white-space:nowrap}
+table.map tr.base td{background:color-mix(in srgb,var(--accent-soft) 55%,transparent)}
+
+ul.clean{margin:10px 0 0;padding-left:20px;color:var(--ink-2);font-size:14.5px}
+ul.clean li{margin:7px 0}
+ul.clean b{color:var(--ink)}
+a{color:var(--accent)}
+footer{padding:30px 0 60px;color:var(--muted);font-size:13px}
+footer .mono{font-size:12px}
+</style>
+
+<header class="top"><div class="wrap top-in">
+  <a class="brandmark" href="index.html"><span class="dot"></span>Radar de Inversiones · Banca PA</a>
+  <div class="top-spacer"></div>
+  <a class="back-link" href="index.html">← Volver al dashboard</a>
+  <button class="theme-btn" id="themeBtn" aria-label="Cambiar tema">◐ Tema</button>
+</div></header>
+
+<div class="wrap">
+
+<header class="hero">
+  <div class="eyebrow">Metodología · nota de trabajo</div>
+  <h1>Supuestos y mapa de renglones del rendimiento del portafolio</h1>
+  <p class="lede">Cómo se construye cada métrica de rentabilidad del dashboard y, banco por banco, <b>dónde reporta cada
+    estado financiero el resultado de su portafolio de inversiones</b>: en qué renglón va el interés, con qué está
+    <b>mezclado</b> el renglón de valuación/venta, qué nota hay que abrir para aislarlo, y qué supuestos de período,
+    anualización y denominador se aplicaron.</p>
+  <div class="meta-row">
+    <span class="pill">Corte: <b>31-mar-2026</b> (interinos) · Davivienda Dic-2025 aud.</span>
+    <span class="pill">Moneda: <b>USD = balboa a la par</b></span>
+    <span class="pill">Cifras <b>"estimado"</b> = cálculo propio</span>
+  </div>
+</header>
+
+<!-- ===================== SUPUESTOS GLOBALES ===================== -->
+<section id="globales">
+  <div class="sec-head"><span class="sec-num">01</span><h2>Supuestos que aplican a todos los bancos</h2></div>
+  <p class="sec-sub">Estos son los criterios transversales. Las excepciones por banco se anotan en cada tarjeta más abajo.</p>
+
+  <div class="agrid">
+    <div class="acard">
+      <h3>Numerador · interés</h3>
+      <p><b class="big">Solo interés</b> = ingreso por intereses de inversiones <b>anualizado</b> ÷ portafolio.</p>
+      <p>La línea de interés recoge el <b>cupón devengado de todo el libro de deuda</b> — FVTPL + FVOCI + costo amortizado
+        (ver sección 02). No incluye valuación ni ventas.</p>
+    </div>
+    <div class="acard">
+      <h3>Numerador · rendimiento total</h3>
+      <p><b class="big">Rend. total</b> = (utilidad neta del portafolio <b>+ ORI</b> no realizado) anualizado ÷ portafolio.</p>
+      <p>Utilidad neta del portafolio = interés + valuación/venta − provisión. El ORI es la valuación a mercado que va al
+        patrimonio, no a resultados.</p>
+    </div>
+    <div class="acard">
+      <h3>Denominador</h3>
+      <p><b class="big">Portafolio de cierre</b> (saldo Mar-2026) para 5 de 6 bancos.</p>
+      <p><span style="color:var(--warn);font-weight:600">Excepción:</span> Davivienda usa <b>saldo
+        promedio</b>. Es la única inconsistencia de denominador de la tabla.</p>
+    </div>
+    <div class="acard">
+      <h3>Anualización</h3>
+      <p>Interinos 1T-2026 <b>× 4</b> (Banistmo, BG, BAC, Banesco).</p>
+      <p>Global Bank <b>× 4/3</b> (reporta 9 meses del año fiscal a junio). Davivienda <b>× 1</b> (FY2025 ya anual).</p>
+    </div>
+    <div class="acard">
+      <h3>Perímetro</h3>
+      <p>Consolidado <b>Panamá</b>, salvo <b>BAC = consolidado Centroamérica</b> (no divulga el portafolio de su entidad
+        Panamá por separado).</p>
+    </div>
+    <div class="acard">
+      <h3>Caveat del ORI</h3>
+      <p>El ORI es mark-to-market que <b>revierte</b>; anualizar ×4 un solo trimestre <b>amplifica su volatilidad</b>. El
+        rendimiento total es <b>direccional</b>; el yield de solo interés es el ancla estable.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== HALLAZGO CLAVE INTERÉS ===================== -->
+<section id="interes">
+  <div class="sec-head"><span class="sec-num">02</span><h2>Supuesto central: qué contiene la línea de interés</h2></div>
+  <p class="sec-sub">Punto que definió la discusión del denominador. La línea "ingreso por intereses de inversiones"
+    <b>incluye el cupón de las tres clasificaciones contables</b>, no solo de la porción a valor razonable.</p>
+
+  <div class="callout co-key"><span class="ic">i</span>
+    <div>El estado de resultados de cada banco tiene <b>una sola línea de interés de inversiones</b>. El cupón del libro a
+      <b>costo amortizado</b> (held-to-collect) no aparece en ninguna otra parte del P&amp;L — el otro renglón de valores
+      es de <b>valuación/venta</b>, no de interés. Por lo tanto el interés reportado es el de <b>todo el libro de deuda</b>.
+      Consecuencia: el denominador correcto para ese interés es el <b>portafolio completo</b>, no solo el tramo a valor
+      razonable (dividir por el tramo VR dejaría el cupón del costo amortizado "sin activos debajo" y sobreestimaría el yield).</div>
+  </div>
+
+  <ul class="clean">
+    <li><b>Banistmo</b> — su página lo dice textual: "Valores y otros" es el interés de las <b>tres clasificaciones (FVTPL,
+      FVOCI y costo amortizado)". Tasas que devengan: FVTPL <span class="mono">1.13–8.00%</span>, FVOCI
+      <span class="mono">2.75–7.00%</span>, <b>costo amortizado <span class="mono">4.00–10.22%</span></b> (Nota 7) — el
+      costo amortizado es el tramo de <b>mayor</b> rendimiento, y pesa 44.6% del libro.</li>
+    <li><b>Global Bank</b> — "Intereses ganados sobre inversiones" (Nota 22) está etiquetado como <b>toda la cartera</b>. El
+      único ítem de costo amortizado fuera de esa línea es una <b>ganancia de venta</b> (1.47M), no cupón.</li>
+  </ul>
+  <p style="margin-top:16px;font-size:14.5px;color:var(--ink-2)">Las capturas de estas notas — el respaldo de cada
+    atribución por clasificación — están en la <a href="evidencia-clasificacion.html">galería de evidencia</a>.</p>
+</section>
+
+<!-- ===================== TARJETAS POR BANCO ===================== -->
+<section id="bancos">
+  <div class="sec-head"><span class="sec-num">03</span><h2>Mapa de renglones — banco por banco</h2></div>
+  <p class="sec-sub">Cada tarjeta: composición contable del libro, los cuatro renglones donde aterriza el resultado del
+    portafolio (interés · valuación/venta · provisión · ORI) con la cifra 1T-2026, con qué está mezclado y qué nota hay que
+    abrir, más los supuestos particulares del banco. Badges:
+    <span class="badge b-clean">Limpio</span> renglón aislable ·
+    <span class="badge b-mix">Mezclado</span> hay que abrir una nota ·
+    <span class="badge b-embed">Embebido</span> sin línea propia.</p>
+
+  <!-- BANISTMO -->
+  <div class="bank base">
+    <div class="bank-top"><h3>Banistmo</h3><span class="badge b-self">Banco base</span></div>
+    <div class="bank-sub">1T-2026 interino (no auditado) · consolidado Panamá · portafolio
+      <span class="mono">US$1,643.3M</span> (−2.7% en el trimestre).</div>
+
+    <div class="compo">
+      <div class="compo-bar">
+        <span class="seg-fvtpl" style="width:35.0%"></span>
+        <span class="seg-fvoci" style="width:20.4%"></span>
+        <span class="seg-ca" style="width:44.6%"></span>
+      </div>
+      <div class="compo-leg">
+        <span class="k"><span class="sw" style="background:var(--fvtpl)"></span>FVTPL <b>35.0%</b></span>
+        <span class="k"><span class="sw" style="background:var(--fvoci)"></span>FVOCI <b>20.4%</b></span>
+        <span class="k"><span class="sw" style="background:var(--ca)"></span>Costo amort. <b>44.6%</b></span>
+      </div>
+    </div>
+
+    <div class="tbl-scroll"><table class="li">
+      <thead><tr><th>Renglón</th><th class="num">1T-2026</th><th>Estado / nota · mezcla</th></tr></thead>
+      <tbody>
+        <tr><td class="ln">Interés — "Valores y otros"</td><td class="num">15,828,245</td>
+          <td class="note"><span class="badge b-clean">Limpio</span> cupón de FVTPL+FVOCI+CA. El interino no lo abre en nota aparte.</td></tr>
+        <tr><td class="ln">Valuación / venta</td><td class="num">5,302,004</td>
+          <td class="note"><span class="badge b-mix">Mezclado</span> línea "Ganancia neta en valores y derivados" (6,315,511) → <b>Nota 21</b> aísla portafolio (FVTPL 5,154,768 + dividendos 93,853 + venta FVOCI 53,383) de <b>divisas 980,536 + derivados 32,971</b>.</td></tr>
+        <tr><td class="ln">Provisión deterioro</td><td class="num neg">(240,728)</td>
+          <td class="note">Nota 18 — CA (227,085) + FVOCI (13,643).</td></tr>
+        <tr><td class="ln">ORI no realizado</td><td class="num">+1,540,692</td>
+          <td class="note">Valuación FVOCI deuda a patrimonio (positiva este trimestre).</td></tr>
+      </tbody>
+    </table></div>
+    <div class="caveat"><b>Supuestos:</b> anualización ×4; denominador cierre. Yield solo interés <b>~3.9%</b>, rend. total
+      <b>~5.5%</b>. El más bajo del perímetro en interés, consistente con su libro de mayor calidad (deuda EEUU + Panamá).
+      <span class="warn">Ojo:</span> 44.6% costo amortizado — usar solo el tramo VR como denominador lo dispararía a ~7.0%,
+      artificial.</div>
+  </div>
+
+  <!-- BANCO GENERAL -->
+  <div class="bank">
+    <div class="bank-top"><h3>Banco General</h3></div>
+    <div class="bank-sub">1T-2026 interino · consolidado Panamá · portafolio
+      <span class="mono">US$5,985.6M</span> (+0.3%, casi plano) · <b>MBS/CMO ≈ 51%</b> del libro (agencias EEUU).</div>
+
+    <div class="compo">
+      <div class="compo-bar">
+        <span class="seg-fvtpl" style="width:14.5%"></span>
+        <span class="seg-fvoci" style="width:84.9%"></span>
+        <span class="seg-ca" style="width:0.6%"></span>
+      </div>
+      <div class="compo-leg">
+        <span class="k"><span class="sw" style="background:var(--fvtpl)"></span>FVTPL <b>14.5%</b></span>
+        <span class="k"><span class="sw" style="background:var(--fvoci)"></span>FVOCI <b>84.9%</b></span>
+        <span class="k"><span class="sw" style="background:var(--ca)"></span>Costo amort. <b>0.5%</b></span>
+      </div>
+    </div>
+
+    <div class="tbl-scroll"><table class="li">
+      <thead><tr><th>Renglón</th><th class="num">1T-2026</th><th>Estado / nota · mezcla</th></tr></thead>
+      <tbody>
+        <tr><td class="ln">Interés — "Inversiones y otros activos financieros"</td><td class="num">73,406,405</td>
+          <td class="note"><span class="badge b-clean">Limpio</span> P&amp;L p.25.</td></tr>
+        <tr><td class="ln">Valuación / venta</td><td class="num">1,544,909</td>
+          <td class="note"><span class="badge b-mix">Mezclado</span> línea "Ganancia (pérdida) en instrumentos financieros, neta" (1,341,214) mezcla <b>derivados</b> → <b>Nota 23</b>: portafolio = venta VR-result. 1,387,860 + venta VR OUI 172,152 − valuación 15,103; derivados netos (203,695). Dividendos y FX van en Nota 24, no aquí.</td></tr>
+        <tr><td class="ln">Provisión deterioro</td><td class="num neg">(408,041)</td>
+          <td class="note">Provisión de valuación de inversiones (Nota 6).</td></tr>
+        <tr><td class="ln">ORI no realizado</td><td class="num neg">(42,736,324)</td>
+          <td class="note"><b>Gran pérdida</b> de valuación del trimestre — libro grande y 85% FVOCI, muy sensible a tasas.</td></tr>
+      </tbody>
+    </table></div>
+    <div class="caveat"><b>Supuestos:</b> anualización ×4; denominador cierre. Yield solo interés <b>~4.9%</b>; rend. total
+      cae a <b>~2.1%</b> porque el ORI negativo (−42.7M) se come casi toda la utilidad neta del portafolio.</div>
+  </div>
+
+  <!-- BAC -->
+  <div class="bank">
+    <div class="bank-top"><h3>BAC</h3><span class="badge b-neu">Perímetro Centroamérica</span></div>
+    <div class="bank-sub">1T-2026 interino · <b>consolidado Centroamérica</b> (CR+PA+GT+HN+SV+NI) · portafolio
+      <span class="mono">US$5,615.4M</span> (+12.5% en el trimestre).</div>
+
+    <div class="compo">
+      <div class="compo-bar">
+        <span class="seg-fvtpl" style="width:0.4%"></span>
+        <span class="seg-fvoci" style="width:96.3%"></span>
+        <span class="seg-ca" style="width:3.3%"></span>
+      </div>
+      <div class="compo-leg">
+        <span class="k"><span class="sw" style="background:var(--fvtpl)"></span>FVTPL <b>0.4%</b></span>
+        <span class="k"><span class="sw" style="background:var(--fvoci)"></span>FVOCI <b>96.3%</b></span>
+        <span class="k"><span class="sw" style="background:var(--ca)"></span>Costo amort. <b>3.3%</b></span>
+      </div>
+    </div>
+
+    <div class="tbl-scroll"><table class="li">
+      <thead><tr><th>Renglón</th><th class="num">1T-2026</th><th>Estado / nota · mezcla</th></tr></thead>
+      <tbody>
+        <tr><td class="ln">Interés — "Inversiones en valores"</td><td class="num">76,787,220</td>
+          <td class="note"><span class="badge b-clean">Limpio</span> P&amp;L p.7.</td></tr>
+        <tr><td class="ln">Valuación / venta</td><td class="num">4,921,259</td>
+          <td class="note"><span class="badge b-clean">Limpio</span> "Ganancias en instrumentos financieros, neta" = <b>100% valores</b> (Nota 15). El <b>diferencial cambiario</b> es línea aparte — pérdida (75,027,372), no confundir.</td></tr>
+        <tr><td class="ln">Provisión deterioro</td><td class="num neg">(407,153)</td>
+          <td class="note"><span class="badge b-mix">Mezclado</span> deterioro <b>combinado</b> "Depósitos en bancos e inversiones en valores" (Nota 4) — no aislable.</td></tr>
+        <tr><td class="ln">ORI no realizado</td><td class="num neg">(7,411,576)</td>
+          <td class="note">Valuación FVOCI negativa; transferido al P&amp;L 5,693,794.</td></tr>
+      </tbody>
+    </table></div>
+    <div class="caveat"><b>Supuestos:</b> anualización ×4; denominador cierre. Yield solo interés <b>~5.5%</b> (el más alto);
+      rend. total <b>~5.3%</b>. <span class="warn">Ojo perímetro:</span> es Centroamérica, no solo Panamá — todo se lee en
+      ratios. Como creció +12.5%, sobre <b>saldo promedio</b> el yield sería ~5.8%.</div>
+  </div>
+
+  <!-- GLOBAL BANK -->
+  <div class="bank">
+    <div class="bank-top"><h3>Global Bank</h3><span class="badge b-neu">Año fiscal junio</span></div>
+    <div class="bank-sub">Interino Mar-2026 = <b>9 meses</b> (Q3 del FY-junio) · consolidado Panamá · portafolio
+      <span class="mono">US$1,124.0M</span>.</div>
+
+    <div class="compo">
+      <div class="compo-bar">
+        <span class="seg-fvtpl" style="width:6.3%"></span>
+        <span class="seg-fvoci" style="width:55.8%"></span>
+        <span class="seg-ca" style="width:37.3%"></span>
+      </div>
+      <div class="compo-leg">
+        <span class="k"><span class="sw" style="background:var(--fvtpl)"></span>FVTPL <b>6.3%</b></span>
+        <span class="k"><span class="sw" style="background:var(--fvoci)"></span>FVOCI <b>55.8%</b></span>
+        <span class="k"><span class="sw" style="background:var(--ca)"></span>Costo amort. <b>37.3%</b></span>
+      </div>
+    </div>
+
+    <div class="tbl-scroll"><table class="li">
+      <thead><tr><th>Renglón</th><th class="num">9M-2026</th><th>Estado / nota · mezcla</th></tr></thead>
+      <tbody>
+        <tr><td class="ln">Interés — "Intereses ganados sobre inversiones"</td><td class="num">36,843,768</td>
+          <td class="note"><span class="badge b-clean">Limpio</span> Nota 22, p.74 — toda la cartera. Acumulado 9 meses.</td></tr>
+        <tr><td class="ln">Valuación / venta</td><td class="num">1,267,244</td>
+          <td class="note"><span class="badge b-embed">Embebido</span> <b>sin línea propia</b> — vive dentro de "Otros ingresos, neto" (<b>Nota 23</b>): venta CA 1,466,110 + valuación FVTPL 115,381 − venta FVTPL 140,100 − venta FVOCI 174,147.</td></tr>
+        <tr><td class="ln">Provisión deterioro</td><td class="num neg">(3,756,675)</td>
+          <td class="note"><b>Cargo grande</b> del ejercicio ("Provisión para inversiones").</td></tr>
+        <tr><td class="ln">ORI no realizado</td><td class="num">+8,009,050</td>
+          <td class="note">Positivo (9 meses). Derivados de cobertura +1,197,627 <b>no</b> son del portafolio.</td></tr>
+      </tbody>
+    </table></div>
+    <div class="caveat"><b>Supuestos:</b> anualización ×4/3 para el resultado integral; el <b>yield de solo interés usa el
+      trimestre Q3 aislado</b> (ene-mar 2026: 11,148,939 ×4) ÷ cierre → <b>~4.0%</b>. Rend. total <b>~5.0%</b>. 37.3% costo
+      amortizado (segundo mayor del grupo).</div>
+  </div>
+
+  <!-- DAVIVIENDA -->
+  <div class="bank">
+    <div class="bank-top"><h3>Davivienda (Panamá)</h3><span class="badge b-neu">Sin interino</span></div>
+    <div class="bank-sub"><b>FY2025 auditado (Dic-2025)</b> · consolidado Panamá post-fusión Scotiabank · portafolio
+      <span class="mono">US$1,248.5M</span>. No publica estados interinos trimestrales.</div>
+
+    <div class="tbl-scroll"><table class="li">
+      <thead><tr><th>Renglón</th><th class="num">FY2025</th><th>Estado / nota · mezcla</th></tr></thead>
+      <tbody>
+        <tr><td class="ln">Interés — "Inversiones en valores"</td><td class="num">34,520,516</td>
+          <td class="note"><span class="badge b-clean">Limpio</span> P&amp;L p.9.</td></tr>
+        <tr><td class="ln">Valuación / venta</td><td class="num">736,427</td>
+          <td class="note"><span class="badge b-clean">Limpio</span> <b>dos líneas separadas</b>: ganancia VRCR 591,582 + ganancia VRCOUI 144,845. Sin mezcla.</td></tr>
+        <tr><td class="ln">Provisión deterioro</td><td class="num neg">(2,199,282)</td>
+          <td class="note">Pérdida en inversiones a CA y a VRCOUI (Nota 4).</td></tr>
+        <tr><td class="ln">ORI no realizado</td><td class="num">+6,634,611</td>
+          <td class="note">Reciclaje a resultados (144,845) cuadra al centavo con la ganancia VRCOUI del P&amp;L.</td></tr>
+      </tbody>
+    </table></div>
+    <div class="caveat"><b>Supuestos:</b> anualización <b>×1</b> (año ya completo). <span class="warn">Denominador:</span> es el
+      <b>único banco con saldo promedio</b> (no cierre), distorsionado por la fusión de dic-2025 → yield solo interés
+      <b>~4.0%</b>. Rend. total <b>~3.2%</b>. Cifra a marzo-2026 es solo un memo direccional, no entra al ranking. Desglose
+      FVTPL/FVOCI/CA no tabulado en el corte usado.</div>
+  </div>
+
+  <!-- BANESCO -->
+  <div class="bank">
+    <div class="bank-top"><h3>Banesco (Panamá)</h3><span class="badge b-neu">Nuevo en el perímetro</span></div>
+    <div class="bank-sub">1T-2026 interino · consolidado Panamá · portafolio
+      <span class="mono">US$1,083.5M</span> (<b>+12.1%</b>, el mayor crecimiento relativo del trimestre).</div>
+
+    <div class="compo">
+      <div class="compo-bar">
+        <span class="seg-fvtpl" style="width:0.3%"></span>
+        <span class="seg-fvoci" style="width:77.3%"></span>
+        <span class="seg-ca" style="width:22.4%"></span>
+      </div>
+      <div class="compo-leg">
+        <span class="k"><span class="sw" style="background:var(--fvtpl)"></span>FVTPL <b>0.3%</b></span>
+        <span class="k"><span class="sw" style="background:var(--fvoci)"></span>FVOCI <b>77.3%</b></span>
+        <span class="k"><span class="sw" style="background:var(--ca)"></span>Costo amort. <b>22.4%</b></span>
+      </div>
+    </div>
+
+    <div class="tbl-scroll"><table class="li">
+      <thead><tr><th>Renglón</th><th class="num">1T-2026</th><th>Estado / nota · mezcla</th></tr></thead>
+      <tbody>
+        <tr><td class="ln">Interés — "Valores"</td><td class="num">12,277,806</td>
+          <td class="note"><span class="badge b-clean">Limpio</span> P&amp;L p.12.</td></tr>
+        <tr><td class="ln">Valuación / venta</td><td class="num neg">(664,745)</td>
+          <td class="note"><span class="badge b-mix">Mezclado</span> <b>dos pérdidas</b>: "Pérdida neta en instrumentos financieros a VRCR" (132,896) <b>mezclada con derivados</b> (sin desagregar) + "Pérdida neta en venta de valores a VRCOUI" (531,849).</td></tr>
+        <tr><td class="ln">Provisión deterioro</td><td class="num neg">(56,215)</td>
+          <td class="note">"Provisión para pérdidas en inversiones".</td></tr>
+        <tr><td class="ln">ORI no realizado</td><td class="num neg">(6,783,760)</td>
+          <td class="note">Transferido a resultados 588,064.</td></tr>
+      </tbody>
+    </table></div>
+    <div class="caveat"><b>Supuestos:</b> anualización ×4; denominador cierre. Yield solo interés <b>~4.5%</b>; rend. total
+      <b>~1.8%</b> (el más bajo) — el portafolio no dejó ganancia de valuación este trimestre, y el ORI negativo pesó. Como
+      creció +12.1%, sobre saldo promedio el interés sería ~4.8%.</div>
+  </div>
+
+  <div class="callout co-warn"><span class="ic">!</span>
+    <div><b>Scotiabank Panamá</b> aparece en algunos mapas como referencia histórica (FY oct-2024, sucursal, libro simple
+      casi todo interés) pero <b>ya fue absorbido por Davivienda</b> (dic-2025); no entra en el ranking vigente de 6 bancos.</div>
+  </div>
+</section>
+
+<!-- ===================== TABLA COMPARATIVA ===================== -->
+<section id="mapa">
+  <div class="sec-head"><span class="sec-num">04</span><h2>Resumen comparativo — todos los renglones</h2></div>
+  <p class="sec-sub">Los mismos datos en una sola vista. <b>Períodos no homogéneos</b> (ver columna): 1T-2026, 9 meses o año
+    completo, anualizados a una base comparable.</p>
+
+  <div class="tbl-scroll"><table class="map">
+    <thead><tr>
+      <th>Banco</th><th>Período</th><th class="num">Interés</th><th class="num">Valuación/venta</th>
+      <th>¿Mezclado?</th><th class="num">Provisión</th><th class="num">Util. neta</th><th class="num">ORI</th>
+      <th class="num">Integral</th><th class="num">Anualiz.</th>
+    </tr></thead>
+    <tbody>
+      <tr class="base"><td class="bk">Banistmo</td><td>1T-2026</td><td class="num">15,828,245</td><td class="num">5,302,004</td>
+        <td>Sí — divisas + derivados</td><td class="num">(240,728)</td><td class="num">20,889,521</td><td class="num">+1,540,692</td><td class="num">22,430,213</td><td class="num">89.7M</td></tr>
+      <tr><td class="bk">Banco General</td><td>1T-2026</td><td class="num">73,406,405</td><td class="num">1,544,909</td>
+        <td>Sí — derivados</td><td class="num">(408,041)</td><td class="num">74,543,273</td><td class="num">(42,736,324)</td><td class="num">31,806,949</td><td class="num">127.2M</td></tr>
+      <tr><td class="bk">BAC</td><td>1T-2026</td><td class="num">76,787,220</td><td class="num">4,921,259</td>
+        <td>No — FX aparte</td><td class="num">(407,153)</td><td class="num">81,301,326</td><td class="num">(7,411,576)</td><td class="num">73,889,750</td><td class="num">295.6M</td></tr>
+      <tr><td class="bk">Global Bank</td><td>9M-2026</td><td class="num">36,843,768</td><td class="num">1,267,244</td>
+        <td>Embebido en "Otros ing."</td><td class="num">(3,756,675)</td><td class="num">34,354,337</td><td class="num">+8,009,050</td><td class="num">42,363,387</td><td class="num">56.5M</td></tr>
+      <tr><td class="bk">Davivienda</td><td>FY2025</td><td class="num">34,520,516</td><td class="num">736,427</td>
+        <td>No — 2 líneas limpias</td><td class="num">(2,199,282)</td><td class="num">33,057,661</td><td class="num">+6,634,611</td><td class="num">39,692,272</td><td class="num">39.7M</td></tr>
+      <tr><td class="bk">Banesco</td><td>1T-2026</td><td class="num">12,277,806</td><td class="num">(664,745)</td>
+        <td>Sí (parcial) — derivados</td><td class="num">(56,215)</td><td class="num">11,556,846</td><td class="num">(6,783,760)</td><td class="num">4,773,086</td><td class="num">19.1M</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="callout co-key" style="margin-top:22px"><span class="ic">i</span>
+    <div><b>Lectura:</b> "Util. neta" del portafolio = interés + valuación/venta − provisión. "Integral" = util. neta + ORI.
+      El dashboard usa la cifra integral anualizada ÷ portafolio para el <b>rendimiento total</b>, y el interés anualizado ÷
+      portafolio para <b>solo interés</b>.</div>
+  </div>
+</section>
+
+<footer class="wrap">
+  <p><b>Fuentes:</b> EE.FF. interinos 31-mar-2026 (no auditados) y auditados Dic-2025, renglón por renglón. Detalle y
+    capturas por banco en <span class="mono">banistmo- / bancogeneral- / bac- / globalbank- / davivienda- /
+    banesco-ganancias-inversiones.html</span> y en <span class="mono">datos-extraidos.md</span>.</p>
+  <p class="mono">Cifras marcadas "estimado" son cálculo propio, no divulgadas por el banco. USD = balboa a la par.</p>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  var mq=window.matchMedia("(prefers-color-scheme: dark)");
+  function cur(){var a=root.getAttribute("data-theme"); return a?a:(mq.matches?"dark":"light");}
+  document.getElementById("themeBtn").addEventListener("click",function(){
+    var next=cur()==="dark"?"light":"dark";
+    root.setAttribute("data-theme", next);
+    try{localStorage.setItem("theme",next);}catch(e){}
+  });
+})();
+</script>
