@@ -1,0 +1,501 @@
+<title>Evidencia — atribución del resultado del portafolio por clasificación contable</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light");}catch(e){document.documentElement.setAttribute("data-theme","light");}})();
+</script>
+<style>
+:root{
+  --plane:#eef1f5; --surface:#f8f9fb; --surface-2:#ffffff;
+  --ink:#0f1620; --ink-2:#475062; --muted:#8a91a0; --hair:#dde2ea; --hair-2:#c7cedb;
+  --accent:#2a78d6; --accent-soft:#e7f0fc;
+  --fvtpl:#c98a00; --fvoci:#2a78d6; --ca:#4a3aa7; --nope:#8a91a0;
+  --good:#0a8a3a; --warn:#b8770a; --crit:#c0392b;
+  --good-bg:#e4f4ea; --warn-bg:#fbf1dc; --crit-bg:#fae5e2; --neutral-bg:#eceef2;
+  --shadow:0 1px 2px rgba(15,22,32,.04),0 8px 24px rgba(15,22,32,.06);
+  --mono:ui-monospace,"SF Mono","SFMono-Regular",Menlo,Consolas,monospace;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --plane:#0a0c10; --surface:#12161d; --surface-2:#171c25;
+    --ink:#f2f5fa; --ink-2:#a8b0c0; --muted:#6b7382; --hair:#242a34; --hair-2:#2f3744;
+    --accent:#4a90e2; --accent-soft:#16273c;
+    --fvtpl:#e0a52c; --fvoci:#4a90e2; --ca:#9085e9; --nope:#6b7382;
+    --good:#3bbf6a; --warn:#e0a52c; --crit:#e8756a;
+    --good-bg:#12291b; --warn-bg:#2a2210; --crit-bg:#2c1815; --neutral-bg:#1c212a;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.4);
+  }
+}
+:root[data-theme="light"]{
+  --plane:#eef1f5; --surface:#f8f9fb; --surface-2:#ffffff;
+  --ink:#0f1620; --ink-2:#475062; --muted:#8a91a0; --hair:#dde2ea; --hair-2:#c7cedb;
+  --accent:#2a78d6; --accent-soft:#e7f0fc;
+  --fvtpl:#c98a00; --fvoci:#2a78d6; --ca:#4a3aa7; --nope:#8a91a0;
+  --good:#0a8a3a; --warn:#b8770a; --crit:#c0392b;
+  --good-bg:#e4f4ea; --warn-bg:#fbf1dc; --crit-bg:#fae5e2; --neutral-bg:#eceef2;
+}
+:root[data-theme="dark"]{
+  --plane:#0a0c10; --surface:#12161d; --surface-2:#171c25;
+  --ink:#f2f5fa; --ink-2:#a8b0c0; --muted:#6b7382; --hair:#242a34; --hair-2:#2f3744;
+  --accent:#4a90e2; --accent-soft:#16273c;
+  --fvtpl:#e0a52c; --fvoci:#4a90e2; --ca:#9085e9; --nope:#6b7382;
+  --good:#3bbf6a; --warn:#e0a52c; --crit:#e8756a;
+  --good-bg:#12291b; --warn-bg:#2a2210; --crit-bg:#2c1815; --neutral-bg:#1c212a;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--plane);color:var(--ink);font-family:var(--sans);
+  font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+h1,h2,h3{text-wrap:balance;line-height:1.16;margin:0}
+.mono{font-family:var(--mono)}
+
+/* header */
+header.top{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--plane) 88%,transparent);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--hair)}
+.top-in{display:flex;align-items:center;gap:14px;height:60px}
+.brandmark{display:flex;align-items:center;gap:11px;font-weight:680;letter-spacing:-.01em;color:var(--ink);text-decoration:none}
+.brandmark .dot{width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
+.top-spacer{flex:1}
+.back-link{font-family:var(--mono);font-size:12px;color:var(--muted);text-decoration:none}
+.back-link:hover{color:var(--ink)}
+.theme-btn{font-family:var(--mono);font-size:12px;color:var(--ink-2);background:var(--surface-2);
+  border:1px solid var(--hair-2);border-radius:8px;padding:7px 12px;cursor:pointer}
+.theme-btn:hover{border-color:var(--accent);color:var(--ink)}
+.theme-btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+header.hero{padding:52px 0 26px;border-bottom:1px solid var(--hair)}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--accent);font-weight:600;margin-bottom:14px}
+h1{font-size:33px;font-weight:720;letter-spacing:-.02em;max-width:26ch}
+.hero p.lede{color:var(--ink-2);max-width:74ch;margin:16px 0 0;font-size:16.5px}
+
+/* classification legend */
+.leg{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}
+.chip{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:11.5px;font-weight:600;
+  padding:5px 11px;border-radius:99px;background:var(--surface-2);border:1px solid var(--hair-2);color:var(--ink-2)}
+.chip .sw{width:10px;height:10px;border-radius:3px;display:inline-block}
+
+/* bank section */
+section.bank{padding:34px 0;border-bottom:1px solid var(--hair)}
+.sec-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px;margin-bottom:4px}
+h2{font-size:23px;font-weight:700;letter-spacing:-.01em}
+.badge{display:inline-block;font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.03em;
+  padding:2px 8px;border-radius:99px;text-transform:uppercase;white-space:nowrap}
+.b-self{background:var(--accent-soft);color:var(--accent)}
+.b-neu{background:var(--neutral-bg);color:var(--ink-2)}
+.sec-sub{color:var(--ink-2);max-width:80ch;margin:8px 0 20px;font-size:14.5px}
+.sec-sub b{color:var(--ink)}
+
+/* evidence grid */
+.egrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+figure.ev{margin:0;background:var(--surface-2);border:1px solid var(--hair);border-radius:14px;overflow:hidden;
+  box-shadow:var(--shadow);display:flex;flex-direction:column}
+figure.ev.key{border-color:color-mix(in srgb,var(--accent) 60%,var(--hair));box-shadow:0 0 0 1px color-mix(in srgb,var(--accent) 30%,transparent),var(--shadow)}
+.ev .frame{background:#fff;border-bottom:1px solid var(--hair);position:relative;display:block}
+.ev .frame img{display:block;width:100%;height:auto}
+.ev .tag{position:absolute;top:9px;left:9px;font-family:var(--mono);font-size:10.5px;font-weight:600;
+  background:color-mix(in srgb,#0f1620 80%,transparent);color:#fff;padding:3px 8px;border-radius:6px;letter-spacing:.02em}
+.ev .tag.acc{background:var(--accent)}
+figcaption{padding:13px 15px 15px;font-size:13.5px;color:var(--ink-2);line-height:1.5}
+figcaption .ct{font-weight:700;color:var(--ink);display:block;margin-bottom:5px;font-size:14px}
+figcaption .attr{margin-top:9px;display:flex;flex-wrap:wrap;gap:5px}
+.tk{display:inline-flex;align-items:center;gap:5px;font-family:var(--mono);font-size:11px;font-weight:600;
+  padding:2px 8px;border-radius:6px;background:var(--neutral-bg);color:var(--ink)}
+.tk .sw{width:8px;height:8px;border-radius:2px;display:inline-block}
+.tk .n{font-variant-numeric:tabular-nums;color:var(--ink-2);font-weight:500}
+
+.callout{display:flex;gap:13px;padding:15px 17px;border-radius:12px;margin:16px 0 4px;font-size:14.5px;line-height:1.5;
+  border:1px solid color-mix(in srgb,var(--accent) 40%,transparent);background:var(--accent-soft)}
+.callout .ic{flex:none;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:13px;font-weight:700;color:#fff;background:var(--accent)}
+.callout b{color:var(--ink)}
+
+footer{padding:28px 0 60px;color:var(--muted);font-size:13px}
+a.inl{color:var(--accent)}
+</style>
+
+<header class="top"><div class="wrap top-in">
+  <a class="brandmark" href="index.html"><span class="dot"></span>Radar de Inversiones · Banca PA</a>
+  <div class="top-spacer"></div>
+  <a class="back-link" href="metodologia-supuestos.html">← Nota de metodología</a>
+  <button class="theme-btn" id="themeBtn" aria-label="Cambiar tema">◐ Tema</button>
+</div></header>
+
+<div class="wrap">
+
+<header class="hero">
+  <div class="eyebrow">Evidencia · capturas de fuente</div>
+  <h1>De qué clasificación contable viene cada ingreso/pérdida del portafolio</h1>
+  <p class="lede">Las notas de cada estado financiero, capturadas directamente del PDF, que <b>atribuyen cada renglón de
+    resultado del portafolio a una clasificación contable</b> — FVTPL, FVOCI o costo amortizado. Son el respaldo de las
+    cifras de la <a class="inl" href="metodologia-supuestos.html">nota de metodología</a>. La captura clave por banco es la
+    que <b>desglosa el renglón mixto de valuación/venta</b>; se acompaña del estado de resultados (dónde nace), del estado
+    de resultado integral (la valuación no realizada que va al ORI) y de la nota de clasificación del libro. Clic en
+    cualquier imagen para abrirla a tamaño completo.</p>
+  <div class="leg">
+    <span class="chip"><span class="sw" style="background:var(--fvtpl)"></span>FVTPL · valor razonable c/ cambios en resultados</span>
+    <span class="chip"><span class="sw" style="background:var(--fvoci)"></span>FVOCI · valor razonable c/ cambios en ORI</span>
+    <span class="chip"><span class="sw" style="background:var(--ca)"></span>Costo amortizado</span>
+    <span class="chip"><span class="sw" style="background:var(--nope)"></span>No portafolio (divisas / derivados)</span>
+  </div>
+</header>
+
+<!-- ============ BANISTMO ============ -->
+<section class="bank" id="banistmo">
+  <div class="sec-head"><h2>Banistmo</h2><span class="badge b-self">Banco base</span><span class="badge b-neu">1T-2026 · Nota 21</span></div>
+  <p class="sec-sub">El renglón mixto <b>"Ganancia neta en valores y derivados" (6,315,511)</b> se desglosa en la <b>Nota
+    21</b>: lo del portafolio (FVTPL + dividendos FVOCI + venta FVOCI = 5,302,004) queda separado de divisas y derivados. El
+    interés (15,828,245) es una línea aparte del estado de resultados y recoge el cupón de las tres clasificaciones.</p>
+  <div class="egrid">
+
+    <figure class="ev">
+      <a class="frame" href="capturas-fuentes/banistmo-mar2026_p005_estado-resultados.png" target="_blank" rel="noopener">
+        <span class="tag">Estado de resultados · p.5</span>
+        <img src="capturas-fuentes/banistmo-mar2026_p005_estado-resultados.png" alt="Estado de resultados Banistmo Mar-2026" loading="lazy"></a>
+      <figcaption><span class="ct">Dónde nacen los renglones</span>
+        Dos líneas de valores: interés "Valores y otros" y la ganancia mixta de valores y derivados.
+        <span class="attr">
+          <span class="tk"><span class="sw" style="background:linear-gradient(90deg,var(--fvtpl) 33%,var(--fvoci) 33% 66%,var(--ca) 66%)"></span>Interés <span class="n">15,828,245</span></span>
+        </span>
+      </figcaption>
+    </figure>
+
+    <figure class="ev key">
+      <a class="frame" href="capturas-fuentes/banistmo-mar2026_p047_nota21-ganancia-valores.png" target="_blank" rel="noopener">
+        <span class="tag acc">Nota 21 · p.45 · clave</span>
+        <img src="capturas-fuentes/banistmo-mar2026_p047_nota21-ganancia-valores.png" alt="Nota 21 Banistmo — desglose ganancia en valores y derivados" loading="lazy"></a>
+      <figcaption><span class="ct">Nota 21 — desglose por clasificación</span>
+        Descompone los 6,315,511 renglón por renglón. Portafolio = 5,302,004; el resto es no portafolio.
+        <span class="attr">
+          <span class="tk"><span class="sw" style="background:var(--fvtpl)"></span>Valuación FVTPL <span class="n">5,154,768</span></span>
+          <span class="tk"><span class="sw" style="background:var(--fvoci)"></span>Dividendos FVOCI <span class="n">93,853</span></span>
+          <span class="tk"><span class="sw" style="background:var(--fvoci)"></span>Venta FVOCI <span class="n">53,383</span></span>
+          <span class="tk"><span class="sw" style="background:var(--nope)"></span>Divisas <span class="n">980,536</span></span>
+          <span class="tk"><span class="sw" style="background:var(--nope)"></span>Derivados <span class="n">32,971</span></span>
+        </span>
+      </figcaption>
+    </figure>
+
+    <figure class="ev">
+      <a class="frame" href="capturas-fuentes/banistmo-mar2026_p006_resultado-integral.png" target="_blank" rel="noopener">
+        <span class="tag">Result. integral · p.6</span>
+        <img src="capturas-fuentes/banistmo-mar2026_p006_resultado-integral.png" alt="Estado de resultado integral Banistmo" loading="lazy"></a>
+      <figcaption><span class="ct">ORI — valuación no realizada</span>
+        La valuación a mercado que va al patrimonio, atribuible a la deuda FVOCI.
+        <span class="attr">
+          <span class="tk"><span class="sw" style="background:var(--fvoci)"></span>Valuación FVOCI <span class="n">+1,540,692</span></span>
+        </span>
+      </figcaption>
+    </figure>
+
+    <figure class="ev">
+      <a class="frame" href="capturas-fuentes/banistmo-mar2026_p044_nota18-provisiones.png" target="_blank" rel="noopener">
+        <span class="tag">Nota 18 · p.42</span>
+        <img src="capturas-fuentes/banistmo-mar2026_p044_nota18-provisiones.png" alt="Nota 18 provisiones Banistmo" loading="lazy"></a>
+      <figcaption><span class="ct">Nota 18 — deterioro por clasificación</span>
+        La provisión (240,728) se abre entre las dos clasificaciones que la generan.
+        <span class="attr">
+          <span class="tk"><span class="sw" style="background:var(--ca)"></span>Deterioro CA <span class="n">(227,085)</span></span>
+          <span class="tk"><span class="sw" style="background:var(--fvoci)"></span>Deterioro FVOCI <span class="n">(13,643)</span></span>
+        </span>
+      </figcaption>
+    </figure>
+
+    <figure class="ev">
+      <a class="frame" href="capturas-fuentes/banistmo-mar2026_p022_nota7-inversiones.png" target="_blank" rel="noopener">
+        <span class="tag">Nota 7 · p.20</span>
+        <img src="capturas-fuentes/banistmo-mar2026_p022_nota7-inversiones.png" alt="Nota 7 clasificación del portafolio Banistmo" loading="lazy"></a>
+      <figcaption><span class="ct">Nota 7 — composición del libro</span>
+        La cartera clasificada: FVTPL 35.0% · FVOCI 20.4% · costo amortizado 44.6%. La base sobre la que se atribuye todo lo anterior.</figcaption>
+    </figure>
+
+  </div>
+</section>
+
+<!-- ============ BANCO GENERAL ============ -->
+<section class="bank" id="bancogeneral">
+  <div class="sec-head"><h2>Banco General</h2><span class="badge b-neu">1T-2026 · Nota 23</span></div>
+  <p class="sec-sub">El renglón <b>"Ganancia (pérdida) en instrumentos financieros, neta" (1,341,214)</b> está mezclado con
+    <b>derivados</b>; la <b>Nota 23</b> aísla el portafolio (1,544,909). El gran movimiento del trimestre es la
+    <b>pérdida de valuación FVOCI (−42.7M)</b> en el ORI — libro grande y 85% FVOCI.</p>
+  <div class="egrid">
+
+    <figure class="ev">
+      <a class="frame" href="capturas-fuentes/bancogeneral-mar2026_p025_estado-resultados.png" target="_blank" rel="noopener">
+        <span class="tag">Estado de resultados · p.25</span>
+        <img src="capturas-fuentes/bancogeneral-mar2026_p025_estado-resultados.png" alt="Estado de resultados Banco General" loading="lazy"></a>
+      <figcaption><span class="ct">Dónde nacen los renglones</span>
+        Interés "Inversiones y otros activos financieros" + la línea mixta de instrumentos financieros.
+        <span class="attr">
+          <span class="tk"><span class="sw" style="background:linear-gradient(90deg,var(--fvtpl) 50%,var(--fvoci) 50%)"></span>Interés <span class="n">73,406,405</span></span>
+        </span>
+      </figcaption>
+    </figure>
+
+    <figure class="ev key">
+      <a class="frame" href="capturas-fuentes/bancogeneral-mar2026_p075_nota23-instrumentos-financieros.png" target="_blank" rel="noopener">
+        <span class="tag acc">Nota 23 · p.75 · clave</span>
+        <img src="capturas-fuentes/bancogeneral-mar2026_p075_nota23-instrumentos-financieros.png" alt="Nota 23 Banco General — instrumentos financieros" loading="lazy"></a>
+      <figcaption><span class="ct">Nota 23 — desglose por clasificación</span>
+        Separa el portafolio (1,544,909) de los derivados dentro de la línea mixta.
+        <span class="attr">
+          <span class="tk"><span class="sw" style="background:var(--fvtpl)"></span>Venta FVTPL <span class="n">1,387,860</span></span>
+          <span class="tk"><span class="sw" style="background:var(--fvoci)"></span>Venta FVOCI <span class="n">172,152</span></span>
+          <span class="tk"><span class="sw" style="background:var(--fvtpl)"></span>Valuación <span class="n">(15,103)</span></span>
+          <span class="tk"><span class="sw" style="background:var(--nope)"></span>Derivados <span class="n">(203,695)</span></span>
+        </span>
+      </figcaption>
+    </figure>
+
+    <figure class="ev">
+      <a class="frame" href="capturas-fuentes/bancogeneral-mar2026_p026_resultado-integral.png" target="_blank" rel="noopener">
+        <span class="tag">Result. integral · p.26</span>
+        <img src="capturas-fuentes/bancogeneral-mar2026_p026_resultado-integral.png" alt="Estado de resultado integral Banco General" loading="lazy"></a>
+      <figcaption><span class="ct">ORI — la pérdida grande del trimestre</span>
+        La valuación FVOCI a patrimonio; hunde el resultado integral pese a una utilidad neta alta.
+        <span class="attr">
+          <span class="tk"><span class="sw" style="background:var(--fvoci)"></span>Valuación FVOCI <span class="n">(42,736,324)</span></span>
+        </span>
+      </figcaption>
+    </figure>
+
+    <figure class="ev">
+      <a class="frame" href="capturas-fuentes/bancogeneral-mar2026_p050_nota6-composicion.png" target="_blank" rel="noopener">
+        <span class="tag">Nota 6 · p.50</span>
+        <img src="capturas-fuentes/bancogeneral-mar2026_p050_nota6-composicion.png" alt="Nota 6 composición Banco General" loading="lazy"></a>
+      <figcaption><span class="ct">Nota 6 — composición del libro</span>
+        FVTPL 14.5% · FVOCI 84.9% · costo amortizado 0.5%. MBS/CMO de agencias EEUU ≈ 51% del total.</figcaption>
+    </figure>
+
+  </div>
+</section>
+
+<!-- ============ BAC ============ -->
+<section class="bank" id="bac">
+  <div class="sec-head"><h2>BAC</h2><span class="badge b-neu">Centroamérica · Nota 15</span></div>
+  <p class="sec-sub">La línea <b>"Ganancias en instrumentos financieros, neta" (4,921,259)</b> es <b>100% valores</b>; la
+    <b>Nota 15</b> la abre por clasificación. El <b>diferencial cambiario</b> es una línea aparte (pérdida 75.0M), no
+    confundir. Perímetro <b>consolidado Centroamérica</b>.</p>
+  <div class="egrid">
+
+    <figure class="ev">
+      <a class="frame" href="capturas-fuentes/bac-mar2026_p007_estado-resultados.png" target="_blank" rel="noopener">
+        <span class="tag">Estado de resultados · p.7</span>
+        <img src="capturas-fuentes/bac-mar2026_p007_estado-resultados.png" alt="Estado de resultados BAC" loading="lazy"></a>
+      <figcaption><span class="ct">Dónde nacen los renglones</span>
+        Interés "Inversiones en valores" + ganancia en instrumentos financieros (con el FX en línea separada).
+        <span class="attr">
+          <span class="tk"><span class="sw" style="background:var(--fvoci)"></span>Interés <span class="n">76,787,220</span></span>
+        </span>
+      </figcaption>
+    </figure>
+
+    <figure class="ev key">
+      <a class="frame" href="capturas-fuentes/bac-mar2026_p053_nota15-ganancia-instrumentos.png" target="_blank" rel="noopener">
+        <span class="tag acc">Nota 15 · p.53 · clave</span>
+        <img src="capturas-fuentes/bac-mar2026_p053_nota15-ganancia-instrumentos.png" alt="Nota 15 BAC — ganancia en instrumentos financieros" loading="lazy"></a>
+      <figcaption><span class="ct">Nota 15 — desglose por clasificación</span>
+        Los 4,921,259 abiertos: venta FVOCI, menos valuación y realizado FVTPL.
+        <span class="attr">
+          <span class="tk"><span class="sw" style="background:var(--fvoci)"></span>Venta VRCOUI <span class="n">6,372,926</span></span>
+          <span class="tk"><span class="sw" style="background:var(--fvtpl)"></span>Valuación VRCR <span class="n">(1,054,829)</span></span>
+          <span class="tk"><span class="sw" style="background:var(--fvtpl)"></span>Realizado VRCR <span class="n">(396,838)</span></span>
+        </span>
+      </figcaption>
+    </figure>
+
+    <figure class="ev">
+      <a class="frame" href="capturas-fuentes/bac-mar2026_p008_resultado-integral.png" target="_blank" rel="noopener">
+        <span class="tag">Result. integral · p.8</span>
+        <img src="capturas-fuentes/bac-mar2026_p008_resultado-integral.png" alt="Estado de resultado integral BAC" loading="lazy"></a>
+      <figcaption><span class="ct">ORI — valuación no realizada</span>
+        Valuación VRCOUI a patrimonio; transferido al P&amp;L 5,693,794 por ventas.
+        <span class="attr">
+          <span class="tk"><span class="sw" style="background:var(--fvoci)"></span>Valuación VRCOUI <span class="n">(7,411,576)</span></span>
+        </span>
+      </figcaption>
+    </figure>
+
+    <figure class="ev">
+      <a class="frame" href="capturas-fuentes/bac-mar2026_p046_nota8-vrcoui-ca.png" target="_blank" rel="noopener">
+        <span class="tag">Nota 8 · p.46</span>
+        <img src="capturas-fuentes/bac-mar2026_p046_nota8-vrcoui-ca.png" alt="Nota 8 clasificación VRCOUI y CA BAC" loading="lazy"></a>
+      <figcaption><span class="ct">Nota 8 — composición del libro</span>
+        VRCR 0.4% · VRCOUI 96.3% · costo amortizado 3.3%. Libro casi todo FVOCI, núcleo soberano centroamericano.</figcaption>
+    </figure>
+
+  </div>
+</section>
+
+<!-- ============ GLOBAL BANK ============ -->
+<section class="bank" id="globalbank">
+  <div class="sec-head"><h2>Global Bank</h2><span class="badge b-neu">9M FY-jun · Notas 22–23</span></div>
+  <p class="sec-sub">El resultado de valores <b>no tiene línea propia</b>: el interés está en la <b>Nota 22</b> y los cuatro
+    componentes de valuación/venta están <b>embebidos en "Otros ingresos, neto" (Nota 23)</b> — incluida una venta de papel
+    a <b>costo amortizado</b>, atípica.</p>
+  <div class="egrid">
+
+    <figure class="ev">
+      <a class="frame" href="capturas-fuentes/globalbank-mar2026_p005_resultados.png" target="_blank" rel="noopener">
+        <span class="tag">Estado de resultados · p.5</span>
+        <img src="capturas-fuentes/globalbank-mar2026_p005_resultados.png" alt="Estado de resultados Global Bank" loading="lazy"></a>
+      <figcaption><span class="ct">Dónde nacen los renglones</span>
+        El interés tiene línea; el resultado de valuación/venta está dentro de "Otros ingresos, neto".
+        <span class="attr">
+          <span class="tk"><span class="sw" style="background:linear-gradient(90deg,var(--fvtpl) 33%,var(--fvoci) 33% 66%,var(--ca) 66%)"></span>Interés <span class="n">36,843,768</span></span>
+        </span>
+      </figcaption>
+    </figure>
+
+    <figure class="ev key">
+      <a class="frame" href="capturas-fuentes/globalbank-mar2026_p074_nota22-23-intereses-otros.png" target="_blank" rel="noopener">
+        <span class="tag acc">Notas 22–23 · p.74 · clave</span>
+        <img src="capturas-fuentes/globalbank-mar2026_p074_nota22-23-intereses-otros.png" alt="Notas 22 y 23 Global Bank — intereses y otros ingresos" loading="lazy"></a>
+      <figcaption><span class="ct">Notas 22 y 23 — interés + componentes de valores</span>
+        La Nota 22 es el interés de toda la cartera; la Nota 23 muestra los cuatro componentes de valores dentro de "Otros ingresos".
+        <span class="attr">
+          <span class="tk"><span class="sw" style="background:var(--ca)"></span>Venta CA <span class="n">1,466,110</span></span>
+          <span class="tk"><span class="sw" style="background:var(--fvtpl)"></span>Valuación FVTPL <span class="n">115,381</span></span>
+          <span class="tk"><span class="sw" style="background:var(--fvtpl)"></span>Venta FVTPL <span class="n">(140,100)</span></span>
+          <span class="tk"><span class="sw" style="background:var(--fvoci)"></span>Venta FVOCI <span class="n">(174,147)</span></span>
+        </span>
+      </figcaption>
+    </figure>
+
+    <figure class="ev">
+      <a class="frame" href="capturas-fuentes/globalbank-mar2026_p006_resultado-integral.png" target="_blank" rel="noopener">
+        <span class="tag">Result. integral · p.6</span>
+        <img src="capturas-fuentes/globalbank-mar2026_p006_resultado-integral.png" alt="Estado de resultado integral Global Bank" loading="lazy"></a>
+      <figcaption><span class="ct">ORI — valuación no realizada</span>
+        Valuación FVOCI positiva en el acumulado; los derivados de cobertura (+1.20M) están aparte, no son del portafolio.
+        <span class="attr">
+          <span class="tk"><span class="sw" style="background:var(--fvoci)"></span>Valuación FVOCI <span class="n">+8,009,050</span></span>
+        </span>
+      </figcaption>
+    </figure>
+
+    <figure class="ev">
+      <a class="frame" href="capturas-fuentes/globalbank-mar2026_p058_nota9-inversiones.png" target="_blank" rel="noopener">
+        <span class="tag">Nota 9 · p.58</span>
+        <img src="capturas-fuentes/globalbank-mar2026_p058_nota9-inversiones.png" alt="Nota 9 clasificación Global Bank" loading="lazy"></a>
+      <figcaption><span class="ct">Nota 9 — composición del libro</span>
+        FVTPL 6.3% · FVOCI 55.8% · <b>costo amortizado 37.3%</b>. El tramo de costo amortizado es grande — su cupón está en la línea de interés.</figcaption>
+    </figure>
+
+  </div>
+</section>
+
+<!-- ============ DAVIVIENDA ============ -->
+<section class="bank" id="davivienda">
+  <div class="sec-head"><h2>Davivienda (Panamá)</h2><span class="badge b-neu">FY2025 aud. · Nota 8</span></div>
+  <p class="sec-sub">El caso más limpio: la valuación/venta se reporta en <b>dos líneas separadas por clasificación</b>
+    (VRCR + VRCOUI), sin renglón mixto que abrir. FY2025 auditado (no hay interino).</p>
+  <div class="egrid">
+
+    <figure class="ev key">
+      <a class="frame" href="capturas-fuentes/davivienda-dic2025_p009_estado-resultados-valores.png" target="_blank" rel="noopener">
+        <span class="tag acc">Estado de resultados · p.9 · clave</span>
+        <img src="capturas-fuentes/davivienda-dic2025_p009_estado-resultados-valores.png" alt="Estado de resultados de valores Davivienda" loading="lazy"></a>
+      <figcaption><span class="ct">Dos líneas limpias por clasificación</span>
+        Interés + valuación/venta ya separada por clasificación en la cara del estado; no hace falta abrir nota.
+        <span class="attr">
+          <span class="tk"><span class="sw" style="background:var(--fvtpl)"></span>Ganancia VRCR <span class="n">591,582</span></span>
+          <span class="tk"><span class="sw" style="background:var(--fvoci)"></span>Ganancia VRCOUI <span class="n">144,845</span></span>
+        </span>
+      </figcaption>
+    </figure>
+
+    <figure class="ev">
+      <a class="frame" href="capturas-fuentes/davivienda-dic2025_p010_resultado-integral.png" target="_blank" rel="noopener">
+        <span class="tag">Result. integral · p.10</span>
+        <img src="capturas-fuentes/davivienda-dic2025_p010_resultado-integral.png" alt="Estado de resultado integral Davivienda" loading="lazy"></a>
+      <figcaption><span class="ct">ORI — reciclaje que cuadra</span>
+        Valuación no realizada; el reciclaje a resultados (144,845) cuadra al centavo con la ganancia VRCOUI del P&amp;L.
+        <span class="attr">
+          <span class="tk"><span class="sw" style="background:var(--fvoci)"></span>Valuación FVOCI <span class="n">+6,634,611</span></span>
+        </span>
+      </figcaption>
+    </figure>
+
+    <figure class="ev">
+      <a class="frame" href="capturas-fuentes/davivienda-dic2025_p066_nota8-clasificacion.png" target="_blank" rel="noopener">
+        <span class="tag">Nota 8 · p.66</span>
+        <img src="capturas-fuentes/davivienda-dic2025_p066_nota8-clasificacion.png" alt="Nota 8 clasificación Davivienda" loading="lazy"></a>
+      <figcaption><span class="ct">Nota 8 — composición del libro</span>
+        La cartera clasificada por VRCR / VRCOUI / costo amortizado (corte post-fusión Scotiabank).</figcaption>
+    </figure>
+
+  </div>
+</section>
+
+<!-- ============ BANESCO ============ -->
+<section class="bank" id="banesco">
+  <div class="sec-head"><h2>Banesco (Panamá)</h2><span class="badge b-neu">1T-2026 · Nota 9</span></div>
+  <p class="sec-sub">La valuación/venta aparece como <b>dos pérdidas por clasificación</b> en el estado de resultados: una a
+    VRCR (mezclada con derivados, sin desagregar) y otra por venta de valores VRCOUI. La Nota 9 clasifica el libro.</p>
+  <div class="egrid">
+
+    <figure class="ev key">
+      <a class="frame" href="capturas-fuentes/banesco-mar2026_p012_estado-resultados.png" target="_blank" rel="noopener">
+        <span class="tag acc">Estado de resultados · p.12 · clave</span>
+        <img src="capturas-fuentes/banesco-mar2026_p012_estado-resultados.png" alt="Estado de resultados Banesco" loading="lazy"></a>
+      <figcaption><span class="ct">Dos pérdidas por clasificación</span>
+        Interés "Valores" + dos renglones de pérdida separados por clasificación.
+        <span class="attr">
+          <span class="tk"><span class="sw" style="background:var(--fvtpl)"></span>Pérdida VRCR <span class="n">(132,896)</span></span>
+          <span class="tk"><span class="sw" style="background:var(--fvoci)"></span>Venta VRCOUI <span class="n">(531,849)</span></span>
+          <span class="tk"><span class="sw" style="background:var(--nope)"></span>c/ derivados</span>
+        </span>
+      </figcaption>
+    </figure>
+
+    <figure class="ev">
+      <a class="frame" href="capturas-fuentes/banesco-mar2026_p014_resultado-integral.png" target="_blank" rel="noopener">
+        <span class="tag">Result. integral · p.14</span>
+        <img src="capturas-fuentes/banesco-mar2026_p014_resultado-integral.png" alt="Estado de resultado integral Banesco" loading="lazy"></a>
+      <figcaption><span class="ct">ORI — valuación no realizada</span>
+        Valuación FVOCI negativa; transferido a resultados 588,064.
+        <span class="attr">
+          <span class="tk"><span class="sw" style="background:var(--fvoci)"></span>Valuación FVOCI <span class="n">(6,783,760)</span></span>
+        </span>
+      </figcaption>
+    </figure>
+
+    <figure class="ev">
+      <a class="frame" href="capturas-fuentes/banesco-mar2026_p073_nota9-fvtpl.png" target="_blank" rel="noopener">
+        <span class="tag">Nota 9 · p.73</span>
+        <img src="capturas-fuentes/banesco-mar2026_p073_nota9-fvtpl.png" alt="Nota 9 FVTPL Banesco" loading="lazy"></a>
+      <figcaption><span class="ct">Nota 9 — composición del libro</span>
+        FVTPL 0.3% · FVOCI 77.3% · costo amortizado 22.4%. Casi todo FVOCI + costo amortizado, trading marginal.</figcaption>
+    </figure>
+
+  </div>
+</section>
+
+<div class="callout"><span class="ic">i</span>
+  <div><b>Por qué importa para el yield.</b> Estas notas confirman que el renglón de <b>interés</b> es una línea única y
+    separada del de valuación/venta, y que el cupón se devenga sobre <b>las tres clasificaciones</b> — incluido el costo
+    amortizado. Por eso el denominador del yield de solo interés es el <b>portafolio completo</b>, no solo el tramo a valor
+    razonable. Detalle en la <a class="inl" href="metodologia-supuestos.html">nota de metodología</a>.</div>
+</div>
+
+<footer>
+  <p>Capturas tomadas directamente de los EE.FF. interinos 31-mar-2026 (no auditados) y del auditado Dic-2025 de cada banco.
+    Archivos fuente en <span class="mono">capturas-fuentes/</span>. Cifras en balboas (USD a la par).</p>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  var mq=window.matchMedia("(prefers-color-scheme: dark)");
+  function cur(){var a=root.getAttribute("data-theme"); return a?a:(mq.matches?"dark":"light");}
+  document.getElementById("themeBtn").addEventListener("click",function(){
+    var next=cur()==="dark"?"light":"dark";
+    root.setAttribute("data-theme", next);
+    try{localStorage.setItem("theme",next);}catch(e){}
+  });
+})();
+</script>
