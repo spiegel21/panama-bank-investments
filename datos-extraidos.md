@@ -171,10 +171,10 @@ son mutuamente excluyentes → no hay doble conteo. Corporativo = 40.8% (Dic-24)
 
 - **Ingreso por intereses de inversiones (2025, consolidado auditado):** 58,242,379 (2024: 59,312,669) → yield ≈ 3.6% [EST]
   (leído de la línea **"Valores y otros"** del Estado de Ganancias o Pérdidas Consolidado, p.11; saldo promedio Dic-24/Dic-25 = 1,619.0M).
-  **Corrección:** el corte previo usaba erróneamente la entidad individual SBP 2024 (64.19M → 4.3%) bajo el supuesto de que el consolidado no lo desglosaba — sí lo desglosa. Con la cifra consolidada correcta, Banistmo cerraba la tabla de yields (el de menor rendimiento del perímetro), consistente con su portafolio de mayor calidad (deuda EEUU + Panamá ≈ 50%).
+  **Corrección:** el corte previo usaba erróneamente la entidad individual SBP 2024 (64.19M → 4.3%) bajo el supuesto de que el consolidado no lo desglosaba — sí lo desglosa. Con la cifra consolidada correcta, Banistmo quedaba entre los de menor rendimiento del perímetro (el más bajo, tras homogeneizar denominadores a saldo de cierre, pasa a ser Davivienda con ≈2.8%), consistente con su portafolio de mayor calidad (deuda EEUU + Panamá ≈ 50%).
 - **Ingreso por intereses de inversiones (1T-2026, interino, "Valores y otros"):** 15,828,245 (1T-2025:
-  13,574,986) → anualizado ~63.3M → **yield ≈ 3.9% [INT]** (63.3M ÷ cartera de cierre 1,643.3M; método saldo de cierre). Sigue siendo el yield más bajo del perímetro
-  (portafolio de mayor calidad crediticia), aunque sube ligeramente por el mix hacia FVTPL.
+  13,574,986) → anualizado ~63.3M → **yield ≈ 3.9% [INT]** (63.3M ÷ cartera de cierre 1,643.3M; método saldo de cierre). Sigue entre los yields más bajos del perímetro
+  (portafolio de mayor calidad crediticia), aunque sube ligeramente por el mix hacia FVTPL; el más bajo pasa a ser Davivienda (≈2.8% sobre saldo de cierre — ver su sección).
 
 **RENGLONES QUE CONTIENEN GANANCIAS DEL PORTAFOLIO DE INVERSIONES (mapa completo, interino Mar-2026) [INT]:**
 Rastreo de todos los renglones del último EE.FF. donde se reconoce ganancia/ingreso del portafolio de valores.
@@ -362,7 +362,7 @@ The Bank of Nova Scotia — Sucursal de Panamá, 5-dic-2025).
 - **US Treasuries: NO desglosado** (solo "gubernamentales"); Norteamérica (geo) 412.75M FVOCI + 27.5M CA.
 - **MBS: NO.**
 
-- **Ingreso por intereses de inversiones (2025):** 34.5M (2024: 27.7M) → **yield ≈ 4.05%** (saldo prom.) [EST]
+- **Ingreso por intereses de inversiones (2025):** 34.5M (2024: 27.7M) → **yield ≈ 2.8%** (34.5M ÷ cartera de cierre 1,248.5M; método saldo de cierre, homogéneo con los otros seis bancos) [EST]. *Nota de comparabilidad:* sobre **saldo promedio** Dic-24/Dic-25 (455.3M y 1,248.5M → prom. 851.9M) el yield sería ≈4.05%; la brecha es enorme aquí — y solo aquí — porque la cartera **casi se triplicó** en FY2025 al absorber Scotiabank (Sucursal de Panamá, 5-dic-2025). El headline usado en la comparación cruzada es el de **saldo de cierre** (≈2.8%), como en los demás bancos.
 - Adquirió **318.5M de inversiones de Scotiabank** al 1-dic-2025 (nota de combinación de negocios).
 - Ratings (VRCOUI 2025): AAA-AA− 397.4M · A 6.0M · BB+ a BB− 519.9M (gob); corp BBB 32.0M / BB 29.2M. [AUD]
 - Vencimientos 2025: ≤1a 747.0M · 1-5a 466.0M · >5a 147.0M. VaR cartera 806,880 (límite 1.76M). [AUD]
@@ -583,10 +583,11 @@ Scotiabank 371.3 (oct-24, absorbido).
 **BG 28.6%** > Davivienda 23.4% (Dic-25, carried) > **Sistema lic. general 22.7%** > **Banesco 17.8%** > Banistmo 15.6% > **BAC 13.4%** > Global 12.7% > Scotia 9.7%. Cambios vs. el corte Dic-2025: BAC adelanta a Global (12.3% → 13.4% vs. Global 13.4% → 12.7%) y el Sistema sube por encima de Banistmo (21.9% → 22.7% vs. Banistmo 16.0% → 15.6%). **Banesco** entra por encima de Banistmo en peso sobre activo (17.8%). *Nota: el benchmark ya excluye la banca oficial (BNP + Caja de Ahorros); el SBN completo daría 23.0%.*
 
 **Yield estimado** (ingreso del trimestre 1T-2026 × 4 ÷ **portafolio de cierre Mar-2026**; método saldo de cierre, verificado por cálculo):
-**BAC 5.5%** · BG 4.9% · **Banesco 4.5%** · Scotiabank 4.1% · Davivienda 4.05% · Global 4.0% · **Banistmo 3.9%** (sigue
-siendo el más bajo del perímetro, pero sube desde 3.6%). Cálculo: BAC 307.1/5,615.4=5.47% · BG 293.6/5,985.6=4.91% ·
-Global 44.6/1,124.0=3.97% · Banistmo 63.3/1,643.3=3.85%. (Sobre *saldo promedio*: BAC 5.79%, Global 4.35% — la diferencia
-mayor es BAC por su crecimiento de +12.5% en el trimestre; los demás casi no cambian.)
+**BAC 5.5%** · BG 4.9% · **Banesco 4.5%** · Scotiabank 4.1% · Global 4.0% · **Banistmo 3.9%** (sube desde 3.6%) · **Davivienda 2.8%**
+(el más bajo del perímetro). Cálculo: BAC 307.1/5,615.4=5.47% · BG 293.6/5,985.6=4.91% ·
+Global 44.6/1,124.0=3.97% · Banistmo 63.3/1,643.3=3.85% · **Davivienda 34.5/1,248.5=2.76%** (antes se reportaba 4.05% sobre *saldo promedio* 851.9M;
+se corrige a **saldo de cierre** por homogeneidad con los demás — su cartera casi se triplicó al absorber Scotiabank). (Sobre *saldo promedio*: BAC 5.79%, Global 4.35%,
+**Davivienda 4.05%** — la diferencia mayor es Davivienda por la fusión, seguida de BAC por su crecimiento de +12.5% en el trimestre; los demás casi no cambian.)
 - Ingresos por inversiones — **trimestre 1T-2026 raw → anualizado ×4 (cierre FY2025)**, US$M:
   BAC 76.8 → 307.1 (FY25 291.4) · BG 73.4 → 293.6 (FY25 283.5) · Banistmo 15.8 → 63.3 (FY25 58.2) ·
   Global 11.1 (Q3) → 44.6 (FY-jun25 45.6; acumulado 9m 36.8M). Sin interino: Davivienda 34.5 (Dic-25) · Scotiabank 15.0 (oct-24).
