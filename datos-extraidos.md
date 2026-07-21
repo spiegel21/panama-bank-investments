@@ -171,15 +171,15 @@ son mutuamente excluyentes → no hay doble conteo. Corporativo = 40.8% (Dic-24)
 
 - **Ingreso por intereses de inversiones (2025, consolidado auditado):** 58,242,379 (2024: 59,312,669) → yield ≈ 3.6% [EST]
   (leído de la línea **"Valores y otros"** del Estado de Ganancias o Pérdidas Consolidado, p.11; saldo promedio Dic-24/Dic-25 = 1,619.0M).
-  **Corrección:** el corte previo usaba erróneamente la entidad individual SBP 2024 (64.19M → 4.3%) bajo el supuesto de que el consolidado no lo desglosaba — sí lo desglosa. Con la cifra consolidada correcta, Banistmo cerraba la tabla de yields **sobre cartera total** (el de menor rendimiento del perímetro en esa base), consistente con su portafolio de mayor calidad (deuda EEUU + Panamá ≈ 50%). *(Nota: con el denominador ajustado por Opción B — cartera que devenga cupón en la línea, ver el bullet del interino 1T-2026 abajo — Banistmo deja de cerrar la tabla; este 3.6% es sobre cartera total.)*
+  **Corrección:** el corte previo usaba erróneamente la entidad individual SBP 2024 (64.19M → 4.3%) bajo el supuesto de que el consolidado no lo desglosaba — sí lo desglosa. Con la cifra consolidada correcta, Banistmo cerraba la tabla de yields **sobre cartera total** (el de menor rendimiento del perímetro en esa base), consistente con su portafolio de mayor calidad (deuda EEUU + Panamá ≈ 50%). *(Nota: con el denominador ajustado a la cartera que devenga cupón en la línea — ver el bullet del interino 1T-2026 abajo — Banistmo deja de cerrar la tabla; este 3.6% es sobre cartera total.)*
 - **Ingreso por intereses de inversiones (1T-2026, interino, "Valores y otros"):** 15,828,245 (1T-2025:
-  13,574,986) → anualizado ~63.3M → **yield ≈ 5.9% [INT] (denominador ajustado, Opción B)** = 63.3M ÷ **1,068.9M**
+  13,574,986) → anualizado ~63.3M → **yield ≈ 5.9% [INT]** = 63.3M ÷ **1,068.9M**
   (VRCOUI 335,452,354 + costo amortizado 733,459,323 = cartera que devenga cupón en la línea de intereses; **excluye FVTPL 574,432,415**).
   Sobre **cartera total de cierre** (1,643.3M) el yield es 3.9% (63.3M ÷ 1,643.3M = 3.85%), pero ese denominador sobreestima la base
   porque **el 35.0% de la cartera (FVTPL) no aporta cupón a la línea de intereses**: bajo NIIF 9 el cupón de costo amortizado y VRCOUI se
   reconoce en "Valores y otros" por el método de tasa efectiva, mientras el resultado FVTPL (cupón + valuación) se reporta neto en la
   Nota 21 ("Ganancia en valores a VRCR, realizado + no realizado" 5,154,768) **sin aislar el cupón**. Como el cupón FVTPL no es
-  confirmable dentro de "Valores y otros", se mide el yield sobre la porción VRCOUI+CA (Opción B). Con el denominador ajustado Banistmo
+  confirmable dentro de "Valores y otros", se mide el yield sobre la porción VRCOUI+CA. Con este denominador Banistmo
   **deja de ser el yield más bajo del perímetro** y pasa a encabezar el yield de solo interés (consistente con su ~45% de corporativos
   held-to-maturity a costo amortizado que devengan 4.00%–10.22%). Caveat: si parte del cupón FVTPL sí estuviera en "Valores y otros",
   5.9% sobreestimaría y 3.9% sería el piso; el rango 3.9%–5.9% acota la incertidumbre. La línea es "Valores **y otros**", así que puede
@@ -591,26 +591,32 @@ Scotiabank 371.3 (oct-24, absorbido).
 **% inversiones / activo** (benchmark del sistema = banca de licencia general = SBN − banca oficial, Mar-2026):
 **BG 28.6%** > Davivienda 23.4% (Dic-25, carried) > **Sistema lic. general 22.7%** > **Banesco 17.8%** > Banistmo 15.6% > **BAC 13.4%** > Global 12.7% > Scotia 9.7%. Cambios vs. el corte Dic-2025: BAC adelanta a Global (12.3% → 13.4% vs. Global 13.4% → 12.7%) y el Sistema sube por encima de Banistmo (21.9% → 22.7% vs. Banistmo 16.0% → 15.6%). **Banesco** entra por encima de Banistmo en peso sobre activo (17.8%). *Nota: el benchmark ya excluye la banca oficial (BNP + Caja de Ahorros); el SBN completo daría 23.0%.*
 
-**Yield estimado — solo interés** (ingreso del trimestre 1T-2026 × 4 ÷ **cartera que devenga cupón en la línea de intereses**;
-denominador ajustado por Opción B — ver nota metodológica abajo):
-**Banistmo 5.9% §** · **BAC 5.5%** · BG 4.9% · **Banesco 4.5%** · Scotiabank 4.1% · Davivienda 4.05% · Global 4.0%. Cálculo:
+**Yield estimado — solo interés** (ingreso del trimestre 1T-2026 × 4 ÷ **cartera que devenga cupón en la línea de intereses** —
+ver nota metodológica abajo):
+**Banistmo 5.9% §** · **BAC 5.5%** · BG 4.9% · **Banesco 4.5%** · Scotiabank 4.1% · Davivienda 4.07% · Global 4.0%. Cálculo:
 **Banistmo 63.3/1,068.9=5.92% §** (VRCOUI 335.5 + CA 733.5; excl. FVTPL 574.4) · BAC 307.1/5,615.4=5.47% · BG 293.6/5,985.6=4.91% ·
-Global 44.6/1,124.0=3.97% · Banesco 49.1/1,079.9=4.55% (sobre cartera total 4.53%; slice inmaterial). Sobre **cartera total** Banistmo
-daría 63.3/1,643.3=3.85% (piso). (Sobre *saldo promedio*: BAC 5.79%, Global 4.35% — la diferencia mayor es BAC por su crecimiento de
-+12.5% en el trimestre; los demás casi no cambian.)
+Global 44.6/1,124.0=3.97% · **Banesco 49.1/1,079.9=4.55%** (excl. FVTPL 3.6M; sobre cartera total 4.53%) · **Davivienda 34.5/848.8=4.07%**
+(saldo prom. VRCOUI+CA, excl. FVTPL 6.2M; sobre cartera total 4.05%). Sobre **cartera total** Banistmo daría 63.3/1,643.3=3.85% (piso).
+(Sobre *saldo promedio*: BAC 5.79%, Global 4.35% — la diferencia mayor es BAC por su crecimiento de +12.5% en el trimestre; los demás casi no cambian.)
 
-> **§ Nota metodológica — Opción B (denominador ajustado al cupón que sí entra en la línea de intereses):** Bajo NIIF 9 el cupón de
-> **costo amortizado + VRCOUI (FVOCI)** se reconoce en la línea de intereses por el **método de tasa efectiva** (verificado en las seis
-> caras del estado de resultados; Davivienda lo rotula literal: *"Ingresos por intereses calculados utilizando la tasa de interés
-> efectiva"*). El cupón **FVTPL (VRCR)**, en cambio, a veces se reporta **neto dentro de la línea de valuación** ("ganancia en
-> instrumentos financieros / valores"), mezclado con el cambio de valor razonable y **sin aislar el cupón**. Regla: cuando un banco
-> **no permite confirmar** que el cupón FVTPL está en la línea de intereses (resultado FVTPL en una sola línea neta), se **excluye el
-> FVTPL del denominador** y el yield se mide sobre **VRCOUI + costo amortizado**.
-> - **Se ajusta (slice):** **Banistmo** (FVTPL 35.0% — material; Nota 21 "VRCR realizado + no realizado" bundled) → 3.9%→**5.9%**;
->   **Davivienda** (0.5% — EIR explícito; inmaterial); **Banesco** (0.3% — VRCR/VRCOUI netos; inmaterial).
-> - **Denominador completo (no se ajusta):** **Banco General** (FVTPL 14.5% pero la Nota 23 descompone la línea en no-realizada +
->   venta + derivados, **sin cupón** → el cupón FVTPL sí está en la línea de intereses), **BAC** (0.4%, Nota 15 solo valuación/venta),
->   **Global** (6.3%, Nota 22 interés + Nota 23 venta/valuación).
+> **§ Nota metodológica — por qué el denominador excluye una parte de la cartera en algunos bancos.** El yield de solo interés
+> compara el ingreso por intereses contra la cartera que efectivamente lo genera. Bajo NIIF 9, los bonos a **costo amortizado** y a
+> **valor razonable con cambios en ORI (VRCOUI/FVOCI)** reconocen su cupón en la línea de intereses por el **método de tasa de interés
+> efectiva** (verificado en las seis caras del estado de resultados; Davivienda lo rotula literal: *"Ingresos por intereses calculados
+> utilizando la tasa de interés efectiva"*). Los instrumentos a **valor razonable con cambios en resultados (FVTPL/VRCR)** a veces
+> reportan su cupón **mezclado dentro de la línea de valuación** ("ganancia en instrumentos financieros / valores"), junto con el
+> cambio de valor razonable y **sin poder separarlo**. Cuando un banco no permite confirmar que el cupón FVTPL está en la línea de
+> intereses (reporta el resultado FVTPL como una sola cifra neta), se **excluye ese bloque del denominador** para no comparar un
+> interés parcial contra una cartera completa; el yield se mide sobre **VRCOUI + costo amortizado**.
+> - **Denominador ajustado (excluye FVTPL):** **Banistmo** (FVTPL 35.0% — el único caso material; Nota 21 reporta "Ganancia en valores
+>   a VRCR, realizado + no realizado" en una sola cifra) → 3.9% → **5.9%**; **Davivienda** (FVTPL 0.5%) y **Banesco** (0.3%), donde el
+>   ajuste está aplicado pero mueve el yield **menos de 0.1 pp**.
+> - **Denominador completo (no se excluye nada):** **Banco General** (FVTPL 14.5%), **BAC** (0.4%) y **Global** (6.3%). En estos tres,
+>   la nota de resultados de instrumentos financieros **desglosa** esa línea y muestra que solo contiene valuación y ventas —ningún
+>   cupón—, lo que **confirma que el cupón de sus instrumentos FVTPL sí está dentro de la línea de intereses**. Excluir el FVTPL del
+>   denominador ahí sería un error: dejaría un interés que sí cubre toda la cartera dividido entre una cartera recortada, inflando el
+>   yield (BG pasaría de 4.9% a ~5.7% de forma artificial). Por eso el criterio no se aplica de forma pareja: depende de dónde reporta
+>   cada banco el cupón FVTPL, no del tamaño del FVTPL.
 > - **Caveat:** para Banistmo, si parte del cupón FVTPL sí estuviera en "Valores y otros", 5.9% sobreestima y 3.9% es el piso; el
 >   rango **3.9%–5.9%** acota la incertidumbre. El **rendimiento total** (util. neta + ORI, sección de gráficos) mantiene el
 >   **denominador completo**, porque su numerador sí incluye el resultado (valuación) del FVTPL.
