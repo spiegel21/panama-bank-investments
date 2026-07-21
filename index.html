@@ -315,7 +315,7 @@ hr.soft{border:none;border-top:1px solid var(--hair);margin:26px 0}
         <div class="rail" style="background:var(--s1)"></div>
         <div class="cap">Rend. total est. · Banistmo</div>
         <div class="val">~5.5<small>%</small></div>
-        <div class="sub">util. neta + ORI · solo interés ~3.9% · vs. BAC 5.3% · BG 2.1% · <span class="badge b-est" style="padding:2px 7px">Estimado</span></div>
+        <div class="sub">util. neta + ORI · solo interés ~5.9% (cartera que devenga: VRCOUI+CA) · vs. BAC 5.3% · BG 2.1% · <span class="badge b-est" style="padding:2px 7px">Estimado</span></div>
       </div>
     </div>
 
@@ -533,9 +533,15 @@ hr.soft{border:none;border-top:1px solid var(--hair);margin:26px 0}
     <div class="sec-head"><span class="sec-num">06</span><h2>Rentabilidad del portafolio (estimada)</h2></div>
     <p class="sec-sub"><b>Rendimiento total</b> = (utilidad neta + ORI no realizado) anualizado ÷ portafolio de cierre — el aporte
       completo de la cartera, incluida la valuación a mercado que va al patrimonio (ORI). Incluir el ORI reordena el ranking:
-      con ORI positivo <b>Banistmo encabeza (~5.5%, desde ~3.9% de solo interés)</b>; los golpeados por el alza de tasas caen —
+      con ORI positivo <b>Banistmo encabeza (~5.5%)</b>; los golpeados por el alza de tasas caen —
       <b>Banco General a ~2.1%</b> (−US$42.7M en ORI), Banesco ~1.8%. El ORI es mark-to-market que revierte: anualizar un
-      trimestre ×4 lo amplifica, así que la cifra es <b>direccional</b> — la columna <b>solo interés</b> es el ancla estable.</p>
+      trimestre ×4 lo amplifica, así que la cifra es <b>direccional</b> — la columna <b>solo interés</b> es el ancla estable.
+      El <b>yield de solo interés</b> se mide ahora sobre la <b>cartera que realmente devenga cupón en la línea de intereses</b>:
+      donde el banco reporta el resultado FVTPL como una sola línea neta que mezcla cupón y valuación (sin poder aislar el cupón
+      FVTPL de la línea de intereses), se excluye el FVTPL del denominador y el yield se calcula sobre <b>VRCOUI + costo
+      amortizado</b> — es el caso de <b>Banistmo</b> (35% FVTPL): su solo interés pasa de ~3.9% (sobre cartera total) a
+      <b>~5.9%</b> (sobre la porción que devenga en la línea). En BG, BAC y Global el cupón FVTPL sí está confirmado en la línea
+      de intereses (la nota de instrumentos financieros solo contiene valuación/venta), así que el denominador queda completo.</p>
 
     <div class="chart-card">
       <h3>Rendimiento total del portafolio (util. neta + ORI)</h3>
@@ -548,7 +554,7 @@ hr.soft{border:none;border-top:1px solid var(--hair);margin:26px 0}
       <table>
         <thead><tr><th>Banco</th><th class="num">Result. integral anualiz. (US$M)</th><th class="num">Portafolio cierre (US$M)</th><th class="num">Rend. total</th><th class="num">Solo interés (ref.)</th><th>Base</th><th>Conf.</th></tr></thead>
         <tbody>
-          <tr class="self"><td>Banistmo</td><td class="num">89.7</td><td class="num">1,643.3</td><td class="num"><b>~5.5%</b></td><td class="num nd">~3.9%</td><td class="mini">1T26 · consol.</td><td><span class="badge b-est">Est.</span></td></tr>
+          <tr class="self"><td>Banistmo</td><td class="num">89.7</td><td class="num">1,643.3</td><td class="num"><b>~5.5%</b></td><td class="num nd">~5.9% §</td><td class="mini">1T26 · consol.</td><td><span class="badge b-est">Est.</span></td></tr>
           <tr><td>BAC</td><td class="num">295.6</td><td class="num">5,615.4</td><td class="num"><b>~5.3%</b></td><td class="num nd">~5.5%</td><td class="mini">1T26 · CA consol.</td><td><span class="badge b-est">Est.</span></td></tr>
           <tr><td>Global Bank ‡</td><td class="num">56.5</td><td class="num">1,124.0</td><td class="num"><b>~5.0%</b></td><td class="num nd">~4.0%</td><td class="mini">9M · FY-jun (Q3)</td><td><span class="badge b-est">Est.</span></td></tr>
           <tr><td>Davivienda PA ‡</td><td class="num">39.7</td><td class="num">1,248.5</td><td class="num"><b>~3.2%</b></td><td class="num nd">~4.0%</td><td class="mini">Dic-2025 aud.</td><td><span class="badge b-est">Est.</span></td></tr>
@@ -558,7 +564,12 @@ hr.soft{border:none;border-top:1px solid var(--hair);margin:26px 0}
       </table>
     </div>
     <p class="mini" style="margin-top:10px"><b>Método:</b> Rend. total = (utilidad neta + ORI) anualizado ÷ portafolio de cierre (Mar-2026).
-      Anualización: interinos 1T-2026 ×4; Global (9M) ×4/3; Davivienda (FY2025 anual) ×1. <b>Solo interés</b> = interés anualizado ÷ portafolio (sin mark-to-market).
+      Anualización: interinos 1T-2026 ×4; Global (9M) ×4/3; Davivienda (FY2025 anual) ×1. <b>Solo interés</b> = interés anualizado ÷ cartera que devenga cupón en la línea de intereses (sin mark-to-market).
+      <b>§ Denominador ajustado (Opción B):</b> bajo NIIF 9 el cupón de <b>costo amortizado + VRCOUI (FVOCI)</b> se reconoce en la línea de
+      intereses por el método de tasa efectiva; el cupón <b>FVTPL (VRCR)</b> a veces queda embebido en la línea de valuación y no es aislable.
+      Donde el banco no permite confirmar el cupón FVTPL dentro de la línea de intereses (resultado FVTPL reportado como una sola línea neta),
+      se excluye el FVTPL del denominador: <b>Banistmo</b> 63.3M ÷ 1,068.9M (VRCOUI 335.5 + CA 733.5) = <b>~5.9%</b> (vs 63.3M ÷ 1,643.3M = 3.9% sobre cartera total).
+      También aplica, con efecto inmaterial, a Davivienda (FVTPL 0.5%) y Banesco (0.3%). BG, BAC y Global mantienen el denominador completo (cupón FVTPL confirmado en la línea).
       Desglose renglón por renglón en la sección 07 y en <span class="mono">datos-extraidos.md</span>.</p>
   </section>
 
@@ -1122,7 +1133,7 @@ hr.soft{border:none;border-top:1px solid var(--hair);margin:26px 0}
   // ---- yield bars ----
   function yieldBars(svg){
     hbars(svg,[
-      {name:"Banistmo",c:"--s1",self:true,v:5.5,tip:"1T26 ×4 · (20.9 UN + 1.5 ORI) ÷ 1,643M · solo interés 3.9% · estimado"},
+      {name:"Banistmo",c:"--s1",self:true,v:5.5,tip:"1T26 ×4 · (20.9 UN + 1.5 ORI) ÷ 1,643M · solo interés 5.9% (63.3M ÷ 1,069M VRCOUI+CA, excl. FVTPL) · estimado"},
       {name:"BAC",c:"--s3",v:5.3,tip:"1T26 ×4 · (81.3 UN − 7.4 ORI) ÷ 5,615M · CA consol. · solo interés 5.5% · estimado"},
       {name:"Global Bank",c:"--s4",v:5.0,flag:true,tip:"9M FY-jun ×4/3 · (34.4 UN + 8.0 ORI) ÷ 1,124M · solo interés 4.0% · estimado"},
       {name:"Davivienda",c:"--s5",v:3.2,flag:true,tip:"FY2025 anual (×1) · (33.1 UN + 6.6 ORI) ÷ 1,248M · solo interés 4.0% · estimado"},

@@ -43,6 +43,17 @@ coherencia en la sección 08 (pérdidas no realizadas AFS/FVOCI mal etiquetadas 
 retiró la fila de liquidez legal por no estar respaldada en `datos-extraidos.md`). (4) Se **redujo el texto** (subtítulos y notas al
 pie) para dar más peso a las visualizaciones.
 
+**Novedad (sesión 8 — yield de solo interés con denominador ajustado al cupón reconocido, "Opción B"):** verificadas las **seis caras
+del estado de resultados + notas de instrumentos financieros**, se confirmó que bajo NIIF 9 el cupón de **costo amortizado + VRCOUI
+(FVOCI)** se reconoce en la línea de intereses por **tasa de interés efectiva** (Davivienda lo rotula literal), mientras el cupón
+**FVTPL (VRCR)** a veces queda **embebido en la línea de valuación** y no es aislable. Regla nueva para el yield de solo interés: donde
+el cupón FVTPL **no es confirmable** en la línea de intereses (resultado FVTPL en una sola línea neta), se **excluye el FVTPL del
+denominador** y el yield se mide sobre **VRCOUI + costo amortizado**. Efecto material solo en **Banistmo** (35% FVTPL): su solo interés
+pasa de **~3.9% (cartera total) a ~5.9%** (63.3M ÷ 1,068.9M) y **deja de ser el más bajo del perímetro**. Se aplica también, sin efecto
+visible, a Davivienda (0.5%) y Banesco (0.3%); **Banco General, BAC y Global mantienen el denominador completo** porque su nota de
+instrumentos financieros confirma que el cupón FVTPL sí está en la línea de intereses. El **rendimiento total** (util. neta + ORI)
+conserva el **denominador completo**. Caveat Banistmo: rango **3.9%–5.9%** según dónde caiga el cupón FVTPL.
+
 ## Sitio publicado
 
 El reporte se sirve como página estática vía **GitHub Pages**:
@@ -81,7 +92,11 @@ confianza por cifra, en `datos-extraidos.md`.
 - Moneda: USD (balboa a la par).
 - **Rendimiento total** de cartera estimado como `(resultado en utilidad neta + ORI no realizado) anualizado ÷ portafolio de cierre`
   — es decir el aporte completo del portafolio (interés + valuación/venta − provisiones + valuación no realizada a patrimonio). El
-  yield de **solo interés** (`ingreso por intereses ÷ portafolio`) se conserva como columna de referencia estable, sin mark-to-market.
+  yield de **solo interés** se conserva como columna de referencia estable, sin mark-to-market. Su denominador es la **cartera que
+  devenga cupón en la línea de intereses** (`interés anualizado ÷ (VRCOUI + costo amortizado + FVTPL cuando su cupón está confirmado en
+  la línea)`): bajo NIIF 9 el cupón de costo amortizado y VRCOUI entra a la línea de intereses por tasa efectiva, pero el cupón FVTPL a
+  veces queda embebido en la línea de valuación; donde no es aislable se **excluye el FVTPL del denominador** (Opción B — solo material
+  en Banistmo). Detalle y clasificación por banco en `datos-extraidos.md` (nota metodológica §).
 - **Comparabilidad:** los perímetros de reporte difieren y no son 1:1 — BAC = consolidado
   Centroamérica; Global Bank cierra fiscal en junio; Davivienda FY2025 es post-fusión con Scotiabank.
   El análisis se apoya en **ratios** (% de activo, yield, distribución por rating) robustos al perímetro.
